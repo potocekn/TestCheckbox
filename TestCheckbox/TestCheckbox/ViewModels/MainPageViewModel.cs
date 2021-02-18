@@ -11,10 +11,10 @@ namespace TestCheckbox.ViewModels
         public string Title { get; }
         public Command LoadCheckboxes { get; }
 
-        public MainPageViewModel(Page page, INavigation navigation)
+        public MainPageViewModel(Page page, App app,INavigation navigation)
         {
             LoadCheckboxes = new Command(() => {
-                navigation.PushAsync(new CheckPage(textCollection));
+                app.MainPage = new CheckPage(textCollection);
             });
         }
     }

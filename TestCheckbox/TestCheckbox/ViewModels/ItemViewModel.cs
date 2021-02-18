@@ -9,6 +9,8 @@ namespace TestCheckbox.ViewModels
     {
         public bool IsChecked { get; set; }
         public string Value { get; set; }
-               
+        public Command CheckedChangedCommand { get; set; }
+            
+
     }
 }

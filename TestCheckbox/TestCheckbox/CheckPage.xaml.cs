@@ -12,6 +12,10 @@ namespace TestCheckbox
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CheckPage : ContentPage
     {
+        void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            this.DisplayAlert("", "Checked changed", "OK");
+        }
         public CheckPage(IEnumerable<string> items)
         {
             InitializeComponent();

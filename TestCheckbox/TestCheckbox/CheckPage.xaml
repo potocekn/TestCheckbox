@@ -8,12 +8,13 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding IsChecked}" Margin="20" VerticalOptions="CenterAndExpand"/>
+                            <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="20" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Value}" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
+            <Button Text="Save" Command="{Binding ChangingCheckBox}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

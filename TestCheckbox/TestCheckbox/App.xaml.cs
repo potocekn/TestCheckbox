@@ -10,7 +10,7 @@ namespace TestCheckbox
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MainPage(this);
         }
 
         protected override void OnStart()
