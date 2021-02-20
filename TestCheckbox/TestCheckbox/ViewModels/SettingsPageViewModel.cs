@@ -48,17 +48,14 @@ namespace TestCheckbox.ViewModels
             sender.WasUpdated = true;
             foreach (var item in Items)
             {
-               
                 if (!item.Equals(sender))
                 {
                     item.IsChecked = false;
                     item.WasUpdated = false;
                     item.NotifyPropertyChanged("IsChecked");
-                }
-                
+                }             
             }
-            //sender.IsChecked = true;
-            //sender.NotifyPropertyChanged("IsChecked");
+
         }
     }
 }
