@@ -43,7 +43,28 @@ namespace TestCheckbox.ViewModels
         public void OnCheckChanged(SettingsItemViewModel sender)
         {
             if (sender.WasUpdated == true)
+            {
+                //sender.WasUpdated = false;
+
+                bool allFalse = true;
+                foreach (var item in Items)
+                {
+                    if (item.IsChecked)
+                    {
+                        allFalse = false;
+                    }
+                }
+
+                if (allFalse)
+                {
+                    Items.Find(x => (x.Value == "English")).IsChecked = true;
+                    Items.Find(x => (x.Value == "English")).WasUpdated = true;
+                    Items.Find(x => (x.Value == "English")).NotifyPropertyChanged("IsChecked");
+                }
+
                 return;
+            }
+
             sender.IsChecked = true;
             sender.WasUpdated = true;
             foreach (var item in Items)
@@ -55,7 +76,7 @@ namespace TestCheckbox.ViewModels
                     item.NotifyPropertyChanged("IsChecked");
                 }             
             }
-
+           
         }
     }
 }
