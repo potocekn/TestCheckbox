@@ -8,7 +8,7 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="20" VerticalOptions="CenterAndExpand"/>
+                            <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="20" VerticalOptions="CenterAndExpand" Color="DarkCyan"/>
                             <Label Text="{Binding Value}" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
                     </DataTemplate>

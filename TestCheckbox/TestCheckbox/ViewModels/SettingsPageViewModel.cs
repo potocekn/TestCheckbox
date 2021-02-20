@@ -22,8 +22,9 @@ namespace TestCheckbox.ViewModels
                     Items.Add(new SettingsItemViewModel()
                     {
                         IsChecked = true,
-                        Value = item                       
-                    });
+                        WasUpdated = false,
+                        Value = item
+                    }) ;
                     isFirst = false;
                 }
                 else
@@ -31,6 +32,7 @@ namespace TestCheckbox.ViewModels
                     Items.Add(new SettingsItemViewModel()
                     {
                         IsChecked = false,
+                        WasUpdated = false,
                         Value = item                        
                     });
                 }
@@ -40,14 +42,23 @@ namespace TestCheckbox.ViewModels
 
         public void OnCheckChanged(SettingsItemViewModel sender)
         {
+            if (sender.WasUpdated == true)
+                return;
+            sender.IsChecked = true;
+            sender.WasUpdated = true;
             foreach (var item in Items)
             {
-                if (item.Value != sender.Value)
+               
+                if (!item.Equals(sender))
                 {
                     item.IsChecked = false;
-                    item.NotifyPropertyChanged();
+                    item.WasUpdated = false;
+                    item.NotifyPropertyChanged("IsChecked");
                 }
+                
             }
+            //sender.IsChecked = true;
+            //sender.NotifyPropertyChanged("IsChecked");
         }
     }
 }
