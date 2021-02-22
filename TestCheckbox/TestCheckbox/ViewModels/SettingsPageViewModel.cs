@@ -23,10 +23,7 @@ namespace TestCheckbox.ViewModels
                     {
                         IsChecked = true,
                         WasUpdated = false,
-                        Value = item,
-                        LabelClicked = new Command((object obj) => {
-                            CheckCheckboxfromLabelClick((Label)obj);
-                        })
+                        Value = item
                     }) ;
                     isFirst = false;
                 }
@@ -64,8 +61,6 @@ namespace TestCheckbox.ViewModels
         {
             if (sender.WasUpdated == true)
             {
-                //sender.WasUpdated = false;
-
                 bool allFalse = true;
                 foreach (var item in Items)
                 {

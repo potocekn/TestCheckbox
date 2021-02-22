@@ -19,7 +19,6 @@ namespace TestCheckbox
         }
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            //this.DisplayAlert("", "Checked changed", "OK");
             ((SettingsPageViewModel)BindingContext).OnCheckChanged((sender as CheckBox).BindingContext as SettingsItemViewModel);
         }
 
