@@ -10,7 +10,11 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50,10,0,0" VerticalOptions="CenterAndExpand" Color="DarkCyan"/>
-                            <Label Text="{Binding Value}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="{Binding Value}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>

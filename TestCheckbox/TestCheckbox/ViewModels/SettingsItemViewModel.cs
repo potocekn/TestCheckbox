@@ -29,6 +29,7 @@ namespace TestCheckbox.ViewModels
         public bool WasUpdated { get; set; }
         public string Value { get; set; }
         public Command CheckedChangedCommand { get; set; }
+        public Command LabelClicked { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

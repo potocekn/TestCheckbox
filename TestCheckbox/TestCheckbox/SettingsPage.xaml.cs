@@ -22,5 +22,10 @@ namespace TestCheckbox
             //this.DisplayAlert("", "Checked changed", "OK");
             ((SettingsPageViewModel)BindingContext).OnCheckChanged((sender as CheckBox).BindingContext as SettingsItemViewModel);
         }
+
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            ((SettingsPageViewModel)BindingContext).TapGestureRecognizer_Tapped(sender, e);
+        }      
     }
 }

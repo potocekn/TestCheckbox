@@ -23,7 +23,10 @@ namespace TestCheckbox.ViewModels
                     {
                         IsChecked = true,
                         WasUpdated = false,
-                        Value = item
+                        Value = item,
+                        LabelClicked = new Command((object obj) => {
+                            CheckCheckboxfromLabelClick((Label)obj);
+                        })
                     }) ;
                     isFirst = false;
                 }
@@ -38,6 +41,23 @@ namespace TestCheckbox.ViewModels
                 }
 
             }                  
+        }
+
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            CheckCheckboxfromLabelClick((sender as Label));            
+        }
+
+        public void CheckCheckboxfromLabelClick(Label label)
+        {
+            foreach (var item in Items)
+            {
+                if (label.Text == item.Value)
+                {                    
+                    OnCheckChanged(item);
+                    break;
+                }
+            }
         }
 
         public void OnCheckChanged(SettingsItemViewModel sender)
