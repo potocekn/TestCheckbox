@@ -89,9 +89,9 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestCheckbox\TestCheckbox.csproj">
-      <Project>{2ACB8679-7790-4B84-830D-545734ED31A4}</Project>
-      <Name>TestCheckbox</Name>
+    <ProjectReference Include="..\TestCheckbox\AppBase.csproj">
+      <Project>{1F0C12D3-B70D-444C-9AED-706561307458}</Project>
+      <Name>AppBase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

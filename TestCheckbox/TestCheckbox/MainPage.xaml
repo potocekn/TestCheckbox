@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:AppBase.Resources"
              x:Class="TestCheckbox.MainPage">
 
     <StackLayout>        
         <Label Text="Dummy Title" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
         <Button Text="Load Checkboxes" Command="{Binding LoadCheckboxes}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
-        <Button Text="Settings" Command="{Binding GoToSettings}"/>
+        <Button x:Uid="SettingsButton" Text="Settings" Command="{Binding GoToSettings}"/>
     </StackLayout>
 
 </ContentPage>

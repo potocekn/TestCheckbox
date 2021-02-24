@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Globalization;
 using Xamarin.Forms.Xaml;
 
 namespace TestCheckbox
@@ -9,7 +10,7 @@ namespace TestCheckbox
         public App()
         {
             InitializeComponent();
-
+            //CrossMultilingual.Current.CurrentCultureInfo = CrossMultilingual.Current.DeviceCultureInfo;
             MainPage = new NavigationPage(new MainPage(this));
         }
 
