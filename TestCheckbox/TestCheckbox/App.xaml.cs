@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using System.Globalization;
 using Xamarin.Forms.Xaml;
+using System.Threading;
+using AppBase.Resources;
 
 namespace TestCheckbox
 {
@@ -11,6 +13,9 @@ namespace TestCheckbox
         {
             InitializeComponent();
             //CrossMultilingual.Current.CurrentCultureInfo = CrossMultilingual.Current.DeviceCultureInfo;
+            CultureInfo language = new CultureInfo("en");
+            Thread.CurrentThread.CurrentUICulture = language;
+            AppResources.Culture = language;
             MainPage = new NavigationPage(new MainPage(this));
         }
 

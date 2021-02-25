@@ -1,7 +1,10 @@
-﻿using System;
+﻿using AppBase.Resources;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace TestCheckbox.ViewModels
@@ -10,20 +13,24 @@ namespace TestCheckbox.ViewModels
     {
         public List<SettingsItemViewModel> Items { get; }
         public Command ChangingCheckBox { get; }
+        MainPageViewModel MainPageViewModelBackup { get; set; }
 
-        public SettingsPageViewModel(IEnumerable<string> items, SettingsPage page)
+        public SettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, SettingsPage page, MainPageViewModel mainPageViewModel)
         {
             bool isFirst = true;
+            MainPageViewModelBackup = mainPageViewModel;
             Items = new List<SettingsItemViewModel>();
+            int i = 0;
             foreach (var item in items)
             {
-                if (isFirst)
+                if (mainPageViewModel.previouslyChecked != "" && item == mainPageViewModel.previouslyChecked)
                 {
                     Items.Add(new SettingsItemViewModel()
                     {
                         IsChecked = true,
                         WasUpdated = false,
-                        Value = item
+                        Value = item,
+                        Shortcut = shortcuts.ElementAt(i)
                     }) ;
                     isFirst = false;
                 }
@@ -33,10 +40,12 @@ namespace TestCheckbox.ViewModels
                     {
                         IsChecked = false,
                         WasUpdated = false,
-                        Value = item                        
+                        Value = item,
+                        Shortcut = shortcuts.ElementAt(i)
+
                     });
                 }
-
+                i++;
             }                  
         }
 
@@ -91,7 +100,10 @@ namespace TestCheckbox.ViewModels
                     item.NotifyPropertyChanged("IsChecked");
                 }             
             }
-           
+            MainPageViewModelBackup.previouslyChecked = sender.Value;
+            CultureInfo language = new CultureInfo(sender.Shortcut);
+            Thread.CurrentThread.CurrentUICulture = language;
+            AppResources.Culture = language;
         }
     }
 }

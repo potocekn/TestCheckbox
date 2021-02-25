@@ -14,6 +14,9 @@ namespace TestCheckbox.ViewModels
     {
         private string[] textCollection = new string[] { "English", "Czech", "German"};
         private string[] languages = new string[] { "English", "German", "Czech", "French", "Chinese"};
+        private string[] shortcuts = new string[] { "en", "de", "cs", "fr", "zh"};
+        public string previouslyChecked = "";
+
         List<string> ResourceLanguages { get; set; }
         public string Title { get; }
         public Command LoadCheckboxes { get; }
@@ -26,7 +29,7 @@ namespace TestCheckbox.ViewModels
                 navigation.PushAsync(new CheckPage(textCollection));
             });
             GoToSettings = new Command(() => {
-                navigation.PushAsync(new SettingsPage(languages));
+                navigation.PushAsync(new SettingsPage(languages, shortcuts, this));
             });
             
         }

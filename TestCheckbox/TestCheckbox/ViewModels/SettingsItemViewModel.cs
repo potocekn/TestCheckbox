@@ -26,6 +26,8 @@ namespace TestCheckbox.ViewModels
             }
         }
 
+        public string Shortcut { get; set; }
+
         public bool WasUpdated { get; set; }
         public string Value { get; set; }  
 
