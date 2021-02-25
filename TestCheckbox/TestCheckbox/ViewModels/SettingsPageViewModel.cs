@@ -14,37 +14,70 @@ namespace TestCheckbox.ViewModels
         public List<SettingsItemViewModel> Items { get; }
         public Command ChangingCheckBox { get; }
         MainPageViewModel MainPageViewModelBackup { get; set; }
+        App app { get; set; }
 
-        public SettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, SettingsPage page, MainPageViewModel mainPageViewModel)
+        public SettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, SettingsPage page, MainPageViewModel mainPageViewModel, App app)
         {
+            this.app = app;
             bool isFirst = true;
             MainPageViewModelBackup = mainPageViewModel;
             Items = new List<SettingsItemViewModel>();
+         
             int i = 0;
             foreach (var item in items)
             {
-                if (mainPageViewModel.previouslyChecked != "" && item == mainPageViewModel.previouslyChecked)
-                {
-                    Items.Add(new SettingsItemViewModel()
+                if (mainPageViewModel.previouslyChecked != "" && items.Contains(mainPageViewModel.previouslyChecked))
+                { 
+                    if (item == mainPageViewModel.previouslyChecked)
                     {
-                        IsChecked = true,
-                        WasUpdated = false,
-                        Value = item,
-                        Shortcut = shortcuts.ElementAt(i)
-                    }) ;
+                        Items.Add(new SettingsItemViewModel()
+                        {
+                            IsChecked = true,
+                            WasUpdated = false,
+                            Value = item,
+                            Shortcut = shortcuts.ElementAt(i)
+                        });
+                    }
+                    else
+                    {
+                        Items.Add(new SettingsItemViewModel()
+                        {
+                            IsChecked = false,
+                            WasUpdated = false,
+                            Value = item,
+                            Shortcut = shortcuts.ElementAt(i)
+                        });
+                    }
+                   
                     isFirst = false;
                 }
                 else
                 {
-                    Items.Add(new SettingsItemViewModel()
+                    if (isFirst)
                     {
-                        IsChecked = false,
-                        WasUpdated = false,
-                        Value = item,
-                        Shortcut = shortcuts.ElementAt(i)
+                        Items.Add(new SettingsItemViewModel()
+                        {
+                            IsChecked = true,
+                            WasUpdated = false,
+                            Value = item,
+                            Shortcut = shortcuts.ElementAt(i)
+                        });
+                        isFirst = false;
+                    }
+                    else
+                    {
+                        Items.Add(new SettingsItemViewModel()
+                        {
+                            IsChecked = false,
+                            WasUpdated = false,
+                            Value = item,
+                            Shortcut = shortcuts.ElementAt(i)
 
-                    });
+                        });
+                    }
                 }
+                
+                
                 i++;
             }                  
         }
@@ -100,10 +133,16 @@ namespace TestCheckbox.ViewModels
                     item.NotifyPropertyChanged("IsChecked");
                 }             
             }
-            MainPageViewModelBackup.previouslyChecked = sender.Value;
-            CultureInfo language = new CultureInfo(sender.Shortcut);
-            Thread.CurrentThread.CurrentUICulture = language;
-            AppResources.Culture = language;
+            if (sender.IsChecked && sender.Value != MainPageViewModelBackup.previouslyChecked)
+            {
+                MainPageViewModelBackup.previouslyChecked = sender.Value;
+                CultureInfo language = new CultureInfo(sender.Shortcut);
+                Thread.CurrentThread.CurrentUICulture = language;
+                CultureInfo.CurrentUICulture = language;
+                //App.Current.Properties["currentLanguage"] = language;
+                AppResources.Culture = language;
+                app.ReloadApp(sender.Shortcut, MainPageViewModelBackup.previouslyChecked);
+            }            
         }
     }
 }

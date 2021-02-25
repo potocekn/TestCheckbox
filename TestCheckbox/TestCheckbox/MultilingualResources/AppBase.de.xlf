@@ -11,6 +11,10 @@
           <target state="translated" state-qualifier="tm-suggestion">Einstellungen</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Setting tag on button</note>
         </trans-unit>
+        <trans-unit id="SaveButton.Text" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated" state-qualifier="tm-suggestion">Speichern</target>
+        </trans-unit>
       </group>
     </body>
   </file>

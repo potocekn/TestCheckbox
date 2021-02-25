@@ -11,10 +11,10 @@ namespace TestCheckbox
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(App app)
+        public MainPage(App app, string previouslyChecked)
         {
             InitializeComponent();
-            BindingContext = new MainPageViewModel(this, app, Navigation);
+            BindingContext = new MainPageViewModel(this, app, Navigation, previouslyChecked);
         }
     }
 }

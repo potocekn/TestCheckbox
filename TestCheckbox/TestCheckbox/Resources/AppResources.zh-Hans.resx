@@ -16,4 +16,7 @@
     <value>设置</value>
     <comment>Setting tag on button</comment>
   </data>
+  <data name="SaveButton.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
 </root>

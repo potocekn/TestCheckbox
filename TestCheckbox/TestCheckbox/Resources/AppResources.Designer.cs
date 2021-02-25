@@ -61,6 +61,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string SaveButton_Text {
+            get {
+                return ResourceManager.GetString("SaveButton.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string SettingsButton_Text {
