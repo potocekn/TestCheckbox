@@ -27,11 +27,12 @@ namespace TestCheckbox.ViewModels
             Items = new List<SettingsItemViewModel>();
          
             int i = 0;
-            foreach (var item in items)
+            for (int j = 0; j < items.Count(); j++)            
             {
-                if (mainPageViewModel.previouslyChecked != "" && items.Contains(mainPageViewModel.previouslyChecked))
+                var item = items.ElementAt(j);
+                if (mainPageViewModel.previouslyChecked != "" && englishVersions.Contains(mainPageViewModel.previouslyChecked))
                 { 
-                    if (item == mainPageViewModel.previouslyChecked)
+                    if (englishVersions.ElementAt(j) == mainPageViewModel.previouslyChecked)
                     {
                         Items.Add(new SettingsItemViewModel()
                         {
@@ -154,7 +155,15 @@ namespace TestCheckbox.ViewModels
 
         public async Task TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-           await CheckCheckboxfromLabelClick((sender as Label));            
+           Label label = (sender as Label);
+            foreach (var item in Items)
+            {
+                if (label.Text == item.Value)
+                {
+                    await OnCheckBoxCheckedChangedAsync(item);
+                    break;
+                }
+            }
         }
 
         public async Task CheckCheckboxfromLabelClick(Label label)
