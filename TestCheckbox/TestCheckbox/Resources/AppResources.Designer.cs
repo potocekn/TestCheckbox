@@ -61,6 +61,51 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chinese.
+        /// </summary>
+        internal static string chineseLabel_Text {
+            get {
+                return ResourceManager.GetString("chineseLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czech.
+        /// </summary>
+        internal static string czechLabel_Text {
+            get {
+                return ResourceManager.GetString("czechLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string englishLabel_Text {
+            get {
+                return ResourceManager.GetString("englishLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to French.
+        /// </summary>
+        internal static string frenchLabel_Text {
+            get {
+                return ResourceManager.GetString("frenchLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to German.
+        /// </summary>
+        internal static string germanLabel_Text {
+            get {
+                return ResourceManager.GetString("germanLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string SaveButton_Text {

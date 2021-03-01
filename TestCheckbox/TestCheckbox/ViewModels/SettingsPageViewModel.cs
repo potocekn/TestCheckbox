@@ -18,7 +18,7 @@ namespace TestCheckbox.ViewModels
         App app { get; set; }
         SettingsPage SettingsPageBackup { get; set; }
 
-        public SettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, SettingsPage page, MainPageViewModel mainPageViewModel, App app)
+        public SettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions, SettingsPage page, MainPageViewModel mainPageViewModel, App app)
         {
             this.app = app;
             this.SettingsPageBackup = page;
@@ -38,8 +38,9 @@ namespace TestCheckbox.ViewModels
                             IsChecked = true,
                             WasUpdated = false,
                             Value = item,
-                            Shortcut = shortcuts.ElementAt(i)
-                        });
+                            Shortcut = shortcuts.ElementAt(i),
+                            EnglishName = englishVersions.ElementAt(i)
+                        }) ;
                     }
                     else
                     {
@@ -48,7 +49,8 @@ namespace TestCheckbox.ViewModels
                             IsChecked = false,
                             WasUpdated = false,
                             Value = item,
-                            Shortcut = shortcuts.ElementAt(i)
+                            Shortcut = shortcuts.ElementAt(i),
+                            EnglishName = englishVersions.ElementAt(i)
                         });
                     }
                    
@@ -63,7 +65,8 @@ namespace TestCheckbox.ViewModels
                             IsChecked = true,
                             WasUpdated = false,
                             Value = item,
-                            Shortcut = shortcuts.ElementAt(i)
+                            Shortcut = shortcuts.ElementAt(i),
+                            EnglishName = englishVersions.ElementAt(i)
                         });
                         isFirst = false;
                     }
@@ -74,11 +77,13 @@ namespace TestCheckbox.ViewModels
                             IsChecked = false,
                             WasUpdated = false,
                             Value = item,
-                            Shortcut = shortcuts.ElementAt(i)
+                            Shortcut = shortcuts.ElementAt(i),
+                            EnglishName = englishVersions.ElementAt(i)
 
                         });
                     }
-                }                
+                }
+                
                 
                 i++;
             }                  
@@ -86,7 +91,8 @@ namespace TestCheckbox.ViewModels
 
         public async Task OnCheckBoxCheckedChangedAsync(SettingsItemViewModel checkboxSender)
         {
-            if (checkboxSender.IsChecked && !app.IsFirst && checkboxSender.Value != MainPageViewModelBackup.previouslyChecked)
+
+            if (checkboxSender.IsChecked && !app.IsFirst && !app.WasRefreshed && checkboxSender.EnglishName != MainPageViewModelBackup.previouslyChecked)
             {
                 bool answer = await SettingsPageBackup.DisplayAlert("Language change!", "Would you like to change language of the application?", "Yes", "No");
                 if (answer)
@@ -103,6 +109,13 @@ namespace TestCheckbox.ViewModels
 
                 }
             }
+            else if (app.WasRefreshed)
+            {
+                SettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
+                OnCheckBoxCheckedChanged(previouslyChecked);
+                app.WasRefreshed = false;
+
+            }
             else if (app.IsFirst)
             {
                 //(sender as CheckBox).IsChecked = true;
@@ -110,7 +123,7 @@ namespace TestCheckbox.ViewModels
                 checkboxSender.WasUpdated = true;
                 app.IsFirst = false;
             }
-            else if (!app.IsFirst && checkboxSender.Value == MainPageViewModelBackup.previouslyChecked)
+            else if (!app.IsFirst && !checkboxSender.IsChecked && checkboxSender.EnglishName == MainPageViewModelBackup.previouslyChecked)
             {
                 //(sender as CheckBox).IsChecked = true;
                 checkboxSender.IsChecked = true;
@@ -131,9 +144,9 @@ namespace TestCheckbox.ViewModels
 
                     if (allFalse)
                     {
-                        Items.Find(x => (x.Value == "English")).IsChecked = true;
-                        Items.Find(x => (x.Value == "English")).WasUpdated = true;
-                        Items.Find(x => (x.Value == "English")).NotifyPropertyChanged("IsChecked");
+                        Items.Find(x => (x.EnglishName == "English")).IsChecked = true;
+                        Items.Find(x => (x.EnglishName == "English")).WasUpdated = true;
+                        Items.Find(x => (x.EnglishName == "English")).NotifyPropertyChanged("IsChecked");
                     }
                 }
             }
@@ -170,9 +183,9 @@ namespace TestCheckbox.ViewModels
 
                 if (allFalse)
                 {
-                    Items.Find(x => (x.Value == "English")).IsChecked = true;
-                    Items.Find(x => (x.Value == "English")).WasUpdated = true;
-                    Items.Find(x => (x.Value == "English")).NotifyPropertyChanged("IsChecked");
+                    Items.Find(x => (x.EnglishName == "English")).IsChecked = true;
+                    Items.Find(x => (x.EnglishName == "English")).WasUpdated = true;
+                    Items.Find(x => (x.EnglishName == "English")).NotifyPropertyChanged("IsChecked");
                 }
 
                 return;
@@ -191,13 +204,13 @@ namespace TestCheckbox.ViewModels
             }
             if (sender.IsChecked && sender.Value != MainPageViewModelBackup.previouslyChecked)
             {
-                MainPageViewModelBackup.previouslyChecked = sender.Value;
+                MainPageViewModelBackup.previouslyChecked = sender.EnglishName;
                 CultureInfo language = new CultureInfo(sender.Shortcut);
                 Thread.CurrentThread.CurrentUICulture = language;
                 CultureInfo.CurrentUICulture = language;
                 //App.Current.Properties["currentLanguage"] = language;
                 AppResources.Culture = language;
-                app.ReloadApp(sender.Shortcut, MainPageViewModelBackup.previouslyChecked);
+                if (!app.WasRefreshed) app.ReloadApp(sender.Shortcut, MainPageViewModelBackup.previouslyChecked);
             }            
         }
     }

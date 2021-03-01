@@ -15,6 +15,26 @@
           <source>Save</source>
           <target state="translated" state-qualifier="tm-suggestion">保存</target>
         </trans-unit>
+        <trans-unit id="englishLabel.Text" translate="yes" xml:space="preserve">
+          <source>English</source>
+          <target state="translated" state-qualifier="tm-suggestion">英语</target>
+        </trans-unit>
+        <trans-unit id="chineseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Chinese</source>
+          <target state="translated" state-qualifier="tm-suggestion">中文</target>
+        </trans-unit>
+        <trans-unit id="czechLabel.Text" translate="yes" xml:space="preserve">
+          <source>Czech</source>
+          <target state="translated" state-qualifier="tm-suggestion">捷克语</target>
+        </trans-unit>
+        <trans-unit id="frenchLabel.Text" translate="yes" xml:space="preserve">
+          <source>French</source>
+          <target state="translated" state-qualifier="tm-suggestion">法语</target>
+        </trans-unit>
+        <trans-unit id="germanLabel.Text" translate="yes" xml:space="preserve">
+          <source>German</source>
+          <target state="translated" state-qualifier="tm-suggestion">德语</target>
+        </trans-unit>
       </group>
     </body>
   </file>

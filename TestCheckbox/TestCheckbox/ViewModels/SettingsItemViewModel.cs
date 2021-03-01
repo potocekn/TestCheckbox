@@ -10,6 +10,8 @@ namespace TestCheckbox.ViewModels
     public class SettingsItemViewModel: INotifyPropertyChanged
     {
         private bool isCheck;
+
+        public string EnglishName { get; set; }
         public bool IsChecked 
         {
             get

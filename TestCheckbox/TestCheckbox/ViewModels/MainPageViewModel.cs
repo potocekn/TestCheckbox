@@ -12,9 +12,9 @@ namespace TestCheckbox.ViewModels
 {
     public class MainPageViewModel
     {
-        private string[] textCollection = new string[] { "English", "Czech", "German"};
-        private string[] languages = new string[] { "English", "German", "Czech", "French", "Chinese"};
-        private string[] shortcuts = new string[] { "en", "de", "cs", "fr", "zh-Hans"};
+        private List<string> textCollection = new List<string> { "English", "Czech", "German"};
+        private List<string> languages = new List<string> {  "Czech", "French", "Chinese"};
+        private List<string> shortcuts = new List<string> {  "cs", "fr", "zh-Hans"};
         public string previouslyChecked = "";
 
         List<string> ResourceLanguages { get; set; }
@@ -30,7 +30,7 @@ namespace TestCheckbox.ViewModels
                 navigation.PushAsync(new CheckPage(textCollection));
             });
             GoToSettings = new Command(() => {
-                navigation.PushAsync(new SettingsPage(languages, shortcuts, app, this));
+                navigation.PushAsync(new SettingsPage(app, this));
             });
             
         }

@@ -12,10 +12,24 @@ namespace TestCheckbox
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
-        public SettingsPage(IEnumerable<string> items, IEnumerable<string> shortcuts, App app, MainPageViewModel mainPageViewModel)
+        List<string> englishVersions = new List<string>() { "English", "German", "Czech", "French", "Chinese"};
+        public SettingsPage( App app, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
-            BindingContext = new SettingsPageViewModel(items, shortcuts, this, mainPageViewModel, app);
+            List<string> items = new List<string>();
+            List<string> shortcuts = new List<string>();
+            items.Add(englishLabel.Text);
+            shortcuts.Add("en");
+            items.Add(germanLabel.Text);
+            shortcuts.Add("de");
+            items.Add(czechLabel.Text);
+            shortcuts.Add("cs");
+            items.Add(frenchLabel.Text);
+            shortcuts.Add("fr");
+            items.Add(chineseLabel.Text);
+            shortcuts.Add("zh-Hans");
+
+            BindingContext = new SettingsPageViewModel(items, shortcuts, englishVersions, this, mainPageViewModel, app);
         }
 
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)

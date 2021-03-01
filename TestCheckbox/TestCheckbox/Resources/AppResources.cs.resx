@@ -19,4 +19,19 @@
   <data name="SaveButton.Text" xml:space="preserve">
     <value>Uložit</value>
   </data>
+  <data name="englishLabel.Text" xml:space="preserve">
+    <value>Angličtina</value>
+  </data>
+  <data name="chineseLabel.Text" xml:space="preserve">
+    <value>Čínština</value>
+  </data>
+  <data name="czechLabel.Text" xml:space="preserve">
+    <value>Čeština</value>
+  </data>
+  <data name="frenchLabel.Text" xml:space="preserve">
+    <value>Francouzština</value>
+  </data>
+  <data name="germanLabel.Text" xml:space="preserve">
+    <value>Němčina</value>
+  </data>
 </root>

@@ -15,6 +15,26 @@
           <source>Save</source>
           <target state="new">Save</target>
         </trans-unit>
+        <trans-unit id="englishLabel.Text" translate="yes" xml:space="preserve">
+          <source>English</source>
+          <target state="new">English</target>
+        </trans-unit>
+        <trans-unit id="chineseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Chinese</source>
+          <target state="new">Chinese</target>
+        </trans-unit>
+        <trans-unit id="czechLabel.Text" translate="yes" xml:space="preserve">
+          <source>Czech</source>
+          <target state="new">Czech</target>
+        </trans-unit>
+        <trans-unit id="frenchLabel.Text" translate="yes" xml:space="preserve">
+          <source>French</source>
+          <target state="new">French</target>
+        </trans-unit>
+        <trans-unit id="germanLabel.Text" translate="yes" xml:space="preserve">
+          <source>German</source>
+          <target state="new">German</target>
+        </trans-unit>
       </group>
     </body>
   </file>

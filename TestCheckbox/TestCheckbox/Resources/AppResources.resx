@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="chineseLabel.Text" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="czechLabel.Text" xml:space="preserve">
+    <value>Czech</value>
+  </data>
+  <data name="englishLabel.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="frenchLabel.Text" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="germanLabel.Text" xml:space="preserve">
+    <value>German</value>
+  </data>
   <data name="SaveButton.Text" xml:space="preserve">
     <value>Save</value>
   </data>
