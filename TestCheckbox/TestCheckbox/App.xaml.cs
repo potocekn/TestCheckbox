@@ -9,6 +9,7 @@ namespace TestCheckbox
 {
     public partial class App : Application
     {
+        public bool IsFirst = true;
         public App()
         {
             InitializeComponent();
@@ -16,7 +17,7 @@ namespace TestCheckbox
             CultureInfo language = new CultureInfo("en");
             Thread.CurrentThread.CurrentUICulture = language;
             AppResources.Culture = language;
-            MainPage = new NavigationPage(new MainPage(this, ""));
+            MainPage = new NavigationPage(new MainPage(this, "English"));
         }
 
         public void ReloadApp(string language, string previouslyChecked)

@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace TestCheckbox.ViewModels
@@ -15,10 +16,12 @@ namespace TestCheckbox.ViewModels
         public Command ChangingCheckBox { get; }
         MainPageViewModel MainPageViewModelBackup { get; set; }
         App app { get; set; }
+        SettingsPage SettingsPageBackup { get; set; }
 
         public SettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, SettingsPage page, MainPageViewModel mainPageViewModel, App app)
         {
             this.app = app;
+            this.SettingsPageBackup = page;
             bool isFirst = true;
             MainPageViewModelBackup = mainPageViewModel;
             Items = new List<SettingsItemViewModel>();
@@ -75,31 +78,84 @@ namespace TestCheckbox.ViewModels
 
                         });
                     }
-                }
-                
+                }                
                 
                 i++;
             }                  
         }
 
-        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        public async Task OnCheckBoxCheckedChangedAsync(SettingsItemViewModel checkboxSender)
         {
-            CheckCheckboxfromLabelClick((sender as Label));            
+            if (checkboxSender.IsChecked && !app.IsFirst && checkboxSender.Value != MainPageViewModelBackup.previouslyChecked)
+            {
+                bool answer = await SettingsPageBackup.DisplayAlert("Language change!", "Would you like to change language of the application?", "Yes", "No");
+                if (answer)
+                {
+                    OnCheckBoxCheckedChanged(checkboxSender);
+                }
+                else
+                {
+                    if (!checkboxSender.WasUpdated)
+                    {
+                        checkboxSender.IsChecked = false;
+                        checkboxSender.NotifyPropertyChanged("IsChecked");
+                    }
+
+                }
+            }
+            else if (app.IsFirst)
+            {
+                //(sender as CheckBox).IsChecked = true;
+                checkboxSender.IsChecked = true;
+                checkboxSender.WasUpdated = true;
+                app.IsFirst = false;
+            }
+            else if (!app.IsFirst && checkboxSender.Value == MainPageViewModelBackup.previouslyChecked)
+            {
+                //(sender as CheckBox).IsChecked = true;
+                checkboxSender.IsChecked = true;
+                checkboxSender.WasUpdated = true;
+            }
+            else
+            {
+                if (checkboxSender.WasUpdated == true)
+                {
+                    bool allFalse = true;
+                    foreach (var item in Items)
+                    {
+                        if (item.IsChecked)
+                        {
+                            allFalse = false;
+                        }
+                    }
+
+                    if (allFalse)
+                    {
+                        Items.Find(x => (x.Value == "English")).IsChecked = true;
+                        Items.Find(x => (x.Value == "English")).WasUpdated = true;
+                        Items.Find(x => (x.Value == "English")).NotifyPropertyChanged("IsChecked");
+                    }
+                }
+            }
         }
 
-        public void CheckCheckboxfromLabelClick(Label label)
+        public async Task TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+           await CheckCheckboxfromLabelClick((sender as Label));            
+        }
+
+        public async Task CheckCheckboxfromLabelClick(Label label)
         {
             foreach (var item in Items)
             {
                 if (label.Text == item.Value)
                 {                    
-                    OnCheckChanged(item);
-                    break;
+                   await OnCheckBoxCheckedChangedAsync(item);                    
                 }
             }
         }
 
-        public void OnCheckChanged(SettingsItemViewModel sender)
+        public void OnCheckBoxCheckedChanged(SettingsItemViewModel sender)
         {
             if (sender.WasUpdated == true)
             {

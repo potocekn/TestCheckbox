@@ -17,10 +17,13 @@ namespace TestCheckbox
             InitializeComponent();
             BindingContext = new SettingsPageViewModel(items, shortcuts, this, mainPageViewModel, app);
         }
+
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            ((SettingsPageViewModel)BindingContext).OnCheckChanged((sender as CheckBox).BindingContext as SettingsItemViewModel);
+            ((SettingsPageViewModel)BindingContext).OnCheckBoxCheckedChangedAsync(((sender as CheckBox).BindingContext as SettingsItemViewModel));
+
         }
+        
 
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {

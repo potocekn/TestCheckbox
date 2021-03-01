@@ -20,7 +20,7 @@ namespace TestCheckbox.ViewModels
         List<string> ResourceLanguages { get; set; }
         public string Title { get; }
         public Command LoadCheckboxes { get; }
-        public Command GoToSettings { get; }        
+        public Command GoToSettings { get; }   
 
         public MainPageViewModel(Page page, App app,INavigation navigation, string previouslyChecked)
         {
