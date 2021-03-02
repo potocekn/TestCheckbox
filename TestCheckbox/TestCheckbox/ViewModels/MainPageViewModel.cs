@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using AppBaseNamespace.RequestsAndResponses;
 using Xamarin.Forms;
+using AppBase;
 
 namespace AppBaseNamespace.ViewModels
 {
@@ -30,7 +31,7 @@ namespace AppBaseNamespace.ViewModels
                 navigation.PushAsync(new CheckPage(textCollection));
             });
             GoToSettings = new Command(() => {
-                navigation.PushAsync(new LanguageSettingsPage(app, this));
+                navigation.PushAsync(new SettingsPage(app, this));
             });
             
         }
