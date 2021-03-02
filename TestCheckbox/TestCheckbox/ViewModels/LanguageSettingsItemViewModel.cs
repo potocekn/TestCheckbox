@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace TestCheckbox.ViewModels
 {
-    public class SettingsItemViewModel: INotifyPropertyChanged
+    public class LanguageSettingsItemViewModel: INotifyPropertyChanged
     {
         private bool isCheck;
 

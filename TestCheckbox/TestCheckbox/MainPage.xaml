@@ -6,7 +6,7 @@
 
     <StackLayout>        
         <Label Text="Dummy Title" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-        <Button Text="Load Checkboxes" Command="{Binding LoadCheckboxes}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+        
         <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}"/>
     </StackLayout>
 
