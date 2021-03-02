@@ -6,8 +6,8 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-              
-                <Label Text="Language Change:" Margin="20, 10,0,0" FontSize="30"/>
+
+                <Label x:Name="LanguageChangeLabel" Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Margin="20, 10,0,0" FontSize="30"/>
                 <StackLayout BindableLayout.ItemsSource="{Binding Items}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>

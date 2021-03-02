@@ -106,6 +106,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language Settings.
+        /// </summary>
+        internal static string LanguageChangeLabel_Text {
+            get {
+                return ResourceManager.GetString("LanguageChangeLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string SaveButton_Text {

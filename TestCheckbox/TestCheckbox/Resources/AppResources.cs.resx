@@ -34,4 +34,7 @@
   <data name="germanLabel.Text" xml:space="preserve">
     <value>Němčina</value>
   </data>
+  <data name="LanguageChangeLabel.Text" xml:space="preserve">
+    <value>Nastavení jazyka</value>
+  </data>
 </root>

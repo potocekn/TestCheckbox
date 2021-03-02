@@ -35,6 +35,10 @@
           <source>German</source>
           <target state="new">German</target>
         </trans-unit>
+        <trans-unit id="LanguageChangeLabel.Text" translate="yes" xml:space="preserve">
+          <source>Language Settings</source>
+          <target state="new">Language Settings</target>
+        </trans-unit>
       </group>
     </body>
   </file>

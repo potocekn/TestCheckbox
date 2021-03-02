@@ -1,4 +1,7 @@
-﻿using AppBase.Resources;
+﻿using AppBase;
+using AppBase.Helpers;
+using AppBase.Resources;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,7 +16,6 @@ namespace TestCheckbox.ViewModels
     public class SettingsPageViewModel
     {
         public List<SettingsItemViewModel> Items { get; }
-        public Command ChangingCheckBox { get; }
         MainPageViewModel MainPageViewModelBackup { get; set; }
         App app { get; set; }
         SettingsPage SettingsPageBackup { get; set; }
@@ -34,25 +36,11 @@ namespace TestCheckbox.ViewModels
                 { 
                     if (englishVersions.ElementAt(j) == mainPageViewModel.previouslyChecked)
                     {
-                        Items.Add(new SettingsItemViewModel()
-                        {
-                            IsChecked = true,
-                            WasUpdated = false,
-                            Value = item,
-                            Shortcut = shortcuts.ElementAt(i),
-                            EnglishName = englishVersions.ElementAt(i)
-                        }) ;
+                        AddNewItem(true, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));
                     }
                     else
                     {
-                        Items.Add(new SettingsItemViewModel()
-                        {
-                            IsChecked = false,
-                            WasUpdated = false,
-                            Value = item,
-                            Shortcut = shortcuts.ElementAt(i),
-                            EnglishName = englishVersions.ElementAt(i)
-                        });
+                        AddNewItem(false, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));
                     }
                    
                     isFirst = false;
@@ -61,133 +49,150 @@ namespace TestCheckbox.ViewModels
                 {
                     if (isFirst)
                     {
-                        Items.Add(new SettingsItemViewModel()
-                        {
-                            IsChecked = true,
-                            WasUpdated = false,
-                            Value = item,
-                            Shortcut = shortcuts.ElementAt(i),
-                            EnglishName = englishVersions.ElementAt(i)
-                        });
+                        AddNewItem(true, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));                        
                         isFirst = false;
                     }
                     else
                     {
-                        Items.Add(new SettingsItemViewModel()
-                        {
-                            IsChecked = false,
-                            WasUpdated = false,
-                            Value = item,
-                            Shortcut = shortcuts.ElementAt(i),
-                            EnglishName = englishVersions.ElementAt(i)
-
-                        });
+                        AddNewItem(false, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));                       
                     }
-                }
-                
-                
+                }                           
                 i++;
             }                  
         }
+
+        private void AddNewItem(bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
+        {
+            Items.Add(new SettingsItemViewModel()
+            {
+                IsChecked = isChecked,
+                WasUpdated = wasUpdated,
+                Value = value,
+                Shortcut = shortcut,
+                EnglishName = englishName
+
+            });
+        }
+
+        private void UncheckSender(SettingsItemViewModel sender)
+        {
+            if (!sender.WasUpdated)
+            {
+                sender.IsChecked = false;
+                sender.NotifyPropertyChanged("IsChecked");
+            }
+        }
+
+        private void CheckPreviouslyChecked()
+        {
+            SettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
+            OnCheckBoxCheckedChanged(previouslyChecked);
+            app.WasRefreshed = false;
+        }      
+      
 
         public async Task OnCheckBoxCheckedChangedAsync(SettingsItemViewModel checkboxSender)
         {
 
             if (checkboxSender.IsChecked && !app.IsFirst && !app.WasRefreshed && checkboxSender.EnglishName != MainPageViewModelBackup.previouslyChecked)
             {
-                bool answer = await SettingsPageBackup.DisplayAlert("Language change!", "Would you like to change language of the application?", "Yes", "No");
+                bool answer = await SettingsPageBackup.DisplayAlert("", PopupMessageHelpers.CreatePopUpMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                                                                        PopupMessageHelpers.CreateYesMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                                                                        PopupMessageHelpers.CreateNoMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName));
                 if (answer)
                 {
-                    OnCheckBoxCheckedChanged(checkboxSender);
+                    OnCheckBoxCheckedChanged(checkboxSender);                    
                 }
                 else
                 {
-                    if (!checkboxSender.WasUpdated)
-                    {
-                        checkboxSender.IsChecked = false;
-                        checkboxSender.NotifyPropertyChanged("IsChecked");
-                    }
-
+                    UncheckSender(checkboxSender);
                 }
             }
             else if (app.WasRefreshed)
             {
-                SettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
-                OnCheckBoxCheckedChanged(previouslyChecked);
-                app.WasRefreshed = false;
-
+                CheckPreviouslyChecked();
             }
             else if (app.IsFirst)
             {
-                //(sender as CheckBox).IsChecked = true;
-                checkboxSender.IsChecked = true;
-                checkboxSender.WasUpdated = true;
+                CheckSender(checkboxSender);
                 app.IsFirst = false;
             }
             else if (!app.IsFirst && !checkboxSender.IsChecked && checkboxSender.EnglishName == MainPageViewModelBackup.previouslyChecked)
             {
-                //(sender as CheckBox).IsChecked = true;
-                checkboxSender.IsChecked = true;
-                checkboxSender.WasUpdated = true;
+                CheckSender(checkboxSender);
             }
             else
             {
                 if (checkboxSender.WasUpdated == true)
                 {
-                    bool allFalse = true;
-                    
-                    foreach (var item in Items)
-                    {            
-                        if (item.IsChecked)
-                        {
-                            allFalse = false;
-                            break;
-                        }
-                    }
-
-                    if (allFalse)
-                    {
-                        Items.Find(x => (x.EnglishName == "English")).IsChecked = true;
-                        Items.Find(x => (x.EnglishName == "English")).WasUpdated = true;
-                        Items.Find(x => (x.EnglishName == "English")).NotifyPropertyChanged("IsChecked");
-                    }                   
+                    CheckAndHandleAllFalse();
                 }
                 else
-                {                    
-                    bool moreThanOneChecked = false;
-                    bool oneChecked = false;
-                    foreach (var item in Items)
-                    {
-                        if (oneChecked && item.IsChecked)
-                        {
-                            moreThanOneChecked = true;
-                            break;
-                        }
-                        else if (item.IsChecked)
-                        {                            
-                            oneChecked = true;
-                        }
-                    }
-
-                    if (moreThanOneChecked)
-                    {
-                        SettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
-                        previouslyChecked.IsChecked = true;
-                        await OnCheckBoxCheckedChangedAsync(previouslyChecked);
-                    }
+                {
+                    await CheckAndHandleMoreThanOneChecked();
                 }
             }
         }
 
-        public async Task TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void CheckSender(SettingsItemViewModel sender)
+        {
+            sender.IsChecked = true;
+            sender.WasUpdated = true;
+        }
+
+        private async Task CheckAndHandleMoreThanOneChecked()
+        {
+            bool moreThanOneChecked = false;
+            bool oneChecked = false;
+            foreach (var item in Items)
+            {
+                if (oneChecked && item.IsChecked)
+                {
+                    moreThanOneChecked = true;
+                    break;
+                }
+                else if (item.IsChecked)
+                {
+                    oneChecked = true;
+                }
+            }
+
+            if (moreThanOneChecked)
+            {
+                SettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
+                previouslyChecked.IsChecked = true;
+                await OnCheckBoxCheckedChangedAsync(previouslyChecked);
+            }
+        }
+        private void CheckAndHandleAllFalse()
+        {
+            bool allFalse = true;
+
+            foreach (var item in Items)
+            {
+                if (item.IsChecked)
+                {
+                    allFalse = false;
+                    break;
+                }
+            }
+
+            if (allFalse)
+            {
+                SettingsItemViewModel english = Items.Find(x => (x.EnglishName == "English"));
+                english.IsChecked = true;
+                english.WasUpdated = true;
+                english.NotifyPropertyChanged("IsChecked");
+            }
+        }
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Label label = (sender as Label);
             foreach (var item in Items)
             {
                 if (label.Text == item.Value)
                 {
-                    item.IsChecked = true;
-                    await OnCheckBoxCheckedChangedAsync(item);
+                    item.IsChecked = true;                    
                     break;
                 }
             }
@@ -204,29 +209,8 @@ namespace TestCheckbox.ViewModels
             }
         }
 
-        public void OnCheckBoxCheckedChanged(SettingsItemViewModel sender)
+        private void HandleCheckChange(SettingsItemViewModel sender)
         {
-            if (sender.WasUpdated == true)
-            {
-                bool allFalse = true;
-                foreach (var item in Items)
-                {
-                    if (item.IsChecked)
-                    {
-                        allFalse = false;
-                    }
-                }
-
-                if (allFalse)
-                {
-                    Items.Find(x => (x.EnglishName == "English")).IsChecked = true;
-                    Items.Find(x => (x.EnglishName == "English")).WasUpdated = true;
-                    Items.Find(x => (x.EnglishName == "English")).NotifyPropertyChanged("IsChecked");
-                }
-
-                return;
-            }
-
             sender.IsChecked = true;
             sender.WasUpdated = true;
             foreach (var item in Items)
@@ -236,17 +220,33 @@ namespace TestCheckbox.ViewModels
                     item.IsChecked = false;
                     item.WasUpdated = false;
                     item.NotifyPropertyChanged("IsChecked");
-                }             
+                }
             }
+        }
+
+        private void HandleLanguageChange(SettingsItemViewModel sender)
+        {
+            MainPageViewModelBackup.previouslyChecked = sender.EnglishName;
+            CultureInfo language = new CultureInfo(sender.Shortcut);
+            Thread.CurrentThread.CurrentUICulture = language;
+            CultureInfo.CurrentUICulture = language;
+            AppResources.Culture = language;
+            if (!app.WasRefreshed) app.ReloadApp(sender.Shortcut, MainPageViewModelBackup.previouslyChecked);
+        }
+
+        public void OnCheckBoxCheckedChanged(SettingsItemViewModel sender)
+        {
+            if (sender.WasUpdated == true)
+            {
+                CheckAndHandleAllFalse();
+                return;
+            }
+
+            HandleCheckChange(sender);
+
             if (sender.IsChecked && sender.Value != MainPageViewModelBackup.previouslyChecked)
             {
-                MainPageViewModelBackup.previouslyChecked = sender.EnglishName;
-                CultureInfo language = new CultureInfo(sender.Shortcut);
-                Thread.CurrentThread.CurrentUICulture = language;
-                CultureInfo.CurrentUICulture = language;
-                //App.Current.Properties["currentLanguage"] = language;
-                AppResources.Culture = language;
-                if (!app.WasRefreshed) app.ReloadApp(sender.Shortcut, MainPageViewModelBackup.previouslyChecked);
+                HandleLanguageChange(sender);
             }            
         }
     }

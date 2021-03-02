@@ -34,4 +34,7 @@
   <data name="germanLabel.Text" xml:space="preserve">
     <value>德语</value>
   </data>
+  <data name="LanguageChangeLabel.Text" xml:space="preserve">
+    <value>语言设置</value>
+  </data>
 </root>

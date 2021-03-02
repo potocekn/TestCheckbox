@@ -132,6 +132,9 @@
   <data name="germanLabel.Text" xml:space="preserve">
     <value>German</value>
   </data>
+  <data name="LanguageChangeLabel.Text" xml:space="preserve">
+    <value>Language Settings</value>
+  </data>
   <data name="SaveButton.Text" xml:space="preserve">
     <value>Save</value>
   </data>
