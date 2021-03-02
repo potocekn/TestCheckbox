@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TestCheckbox
+namespace AppBaseNamespace
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CheckPage : ContentPage

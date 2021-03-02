@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Xamarin.Forms;
 
-namespace TestCheckbox.ViewModels
+namespace AppBaseNamespace.ViewModels
 {
     public class LanguageSettingsItemViewModel: INotifyPropertyChanged
     {

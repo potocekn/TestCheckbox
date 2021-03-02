@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestCheckbox.RequestsAndResponses
+namespace AppBaseNamespace.RequestsAndResponses
 {
     public abstract class Response
     {

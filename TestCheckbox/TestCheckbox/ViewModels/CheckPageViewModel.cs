@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using TestCheckbox.ViewModels;
+using AppBaseNamespace.ViewModels;
 using System.Linq;
 using Xamarin.Forms;
 
-namespace TestCheckbox
+namespace AppBaseNamespace
 {
     internal class CheckPageViewModel
     {

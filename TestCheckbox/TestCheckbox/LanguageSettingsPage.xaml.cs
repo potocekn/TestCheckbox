@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestCheckbox.ViewModels;
+using AppBaseNamespace.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TestCheckbox
+namespace AppBaseNamespace
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SettingsPage : ContentPage
+    public partial class LanguageSettingsPage : ContentPage
     {
         List<string> englishVersions = new List<string>() { "English", "German", "Czech", "French", "Chinese"};
-        public SettingsPage( App app, MainPageViewModel mainPageViewModel)
+        public LanguageSettingsPage( App app, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
             List<string> items = new List<string>();

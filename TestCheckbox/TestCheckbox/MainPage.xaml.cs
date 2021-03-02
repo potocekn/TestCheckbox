@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestCheckbox.ViewModels;
+using AppBaseNamespace.ViewModels;
 using Xamarin.Forms;
 
-namespace TestCheckbox
+namespace AppBaseNamespace
 {
     public partial class MainPage : ContentPage
     {

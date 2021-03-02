@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:AppBase.Resources"
-             x:Class="TestCheckbox.MainPage">
+             x:Class="AppBaseNamespace.MainPage">
 
     <StackLayout>        
         <Label Text="Dummy Title" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>

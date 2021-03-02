@@ -5,10 +5,10 @@ using System.IO;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-using TestCheckbox.RequestsAndResponses;
+using AppBaseNamespace.RequestsAndResponses;
 using Xamarin.Forms;
 
-namespace TestCheckbox.ViewModels
+namespace AppBaseNamespace.ViewModels
 {
     public class MainPageViewModel
     {
@@ -30,7 +30,7 @@ namespace TestCheckbox.ViewModels
                 navigation.PushAsync(new CheckPage(textCollection));
             });
             GoToSettings = new Command(() => {
-                navigation.PushAsync(new SettingsPage(app, this));
+                navigation.PushAsync(new LanguageSettingsPage(app, this));
             });
             
         }

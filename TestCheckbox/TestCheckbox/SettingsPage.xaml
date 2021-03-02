@@ -4,9 +4,8 @@
              x:Class="AppBase.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Language Settings"/>
+            <Button Text="Other Settings"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -7,7 +7,7 @@ using AppBase.Resources;
 using System.IO;
 using System.Collections.Generic;
 
-namespace TestCheckbox
+namespace AppBaseNamespace
 {
     public partial class App : Application
     {

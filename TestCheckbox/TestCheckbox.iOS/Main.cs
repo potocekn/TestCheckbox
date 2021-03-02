@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace TestCheckbox.iOS
+namespace AppBaseNamespace.iOS
 {
     public class Application
     {

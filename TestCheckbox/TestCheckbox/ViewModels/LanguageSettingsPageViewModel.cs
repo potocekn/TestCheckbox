@@ -11,16 +11,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace TestCheckbox.ViewModels
+namespace AppBaseNamespace.ViewModels
 {
     public class LanguageSettingsPageViewModel
     {
         public List<LanguageSettingsItemViewModel> Items { get; }
         MainPageViewModel MainPageViewModelBackup { get; set; }
         App app { get; set; }
-        SettingsPage SettingsPageBackup { get; set; }
+        LanguageSettingsPage SettingsPageBackup { get; set; }
 
-        public LanguageSettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions, SettingsPage page, MainPageViewModel mainPageViewModel, App app)
+        public LanguageSettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions, LanguageSettingsPage page, MainPageViewModel mainPageViewModel, App app)
         {
             this.app = app;
             this.SettingsPageBackup = page;
