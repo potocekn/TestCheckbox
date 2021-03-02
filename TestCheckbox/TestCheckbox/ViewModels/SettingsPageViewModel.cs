@@ -135,11 +135,13 @@ namespace TestCheckbox.ViewModels
                 if (checkboxSender.WasUpdated == true)
                 {
                     bool allFalse = true;
+                    
                     foreach (var item in Items)
-                    {
+                    {            
                         if (item.IsChecked)
                         {
                             allFalse = false;
+                            break;
                         }
                     }
 
@@ -148,6 +150,30 @@ namespace TestCheckbox.ViewModels
                         Items.Find(x => (x.EnglishName == "English")).IsChecked = true;
                         Items.Find(x => (x.EnglishName == "English")).WasUpdated = true;
                         Items.Find(x => (x.EnglishName == "English")).NotifyPropertyChanged("IsChecked");
+                    }                   
+                }
+                else
+                {                    
+                    bool moreThanOneChecked = false;
+                    bool oneChecked = false;
+                    foreach (var item in Items)
+                    {
+                        if (oneChecked && item.IsChecked)
+                        {
+                            moreThanOneChecked = true;
+                            break;
+                        }
+                        else if (item.IsChecked)
+                        {                            
+                            oneChecked = true;
+                        }
+                    }
+
+                    if (moreThanOneChecked)
+                    {
+                        SettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
+                        previouslyChecked.IsChecked = true;
+                        await OnCheckBoxCheckedChangedAsync(previouslyChecked);
                     }
                 }
             }
@@ -155,11 +181,12 @@ namespace TestCheckbox.ViewModels
 
         public async Task TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-           Label label = (sender as Label);
+            Label label = (sender as Label);
             foreach (var item in Items)
             {
                 if (label.Text == item.Value)
                 {
+                    item.IsChecked = true;
                     await OnCheckBoxCheckedChangedAsync(item);
                     break;
                 }
