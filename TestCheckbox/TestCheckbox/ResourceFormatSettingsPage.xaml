@@ -7,29 +7,27 @@
             <StackLayout>
                                   
                 <StackLayout>
-                    <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                    <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
                     <Label Text="Download only when wifi is on" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
-                </StackLayout>                           
-
-                <StackLayout>
+                
                     <Label Text="Format of the resources:" FontSize="Large" Margin="20"/>
                     <StackLayout>
-                        <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
-                        <Label Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
+                        <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                        <Label x:Name="pdfLabel" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
                     </StackLayout>
                     <StackLayout>
-                        <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
-                        <Label Text="HTML" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
+                        <Switch x:Name="htmlSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                        <Label  x:Name="htmlLabel" Text="HTML" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
                     </StackLayout>
                     <StackLayout>
-                        <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
-                        <Label Text="ODT" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
+                        <Switch x:Name="odtSwitch" Toggled="OnToggled"  VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                        <Label  x:Name="odtLabel" Text="ODT" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
                     </StackLayout>
                 </StackLayout>
 
                 <StackLayout>
                     <Label Text="Language of the resources:" FontSize="Large" Margin="20"/>
-                    <StackLayout BindableLayout.ItemsSource="{Binding Items}">
+                    <StackLayout BindableLayout.ItemsSource="{Binding Languages}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Orientation="Horizontal">
