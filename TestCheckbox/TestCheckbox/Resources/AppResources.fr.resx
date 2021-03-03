@@ -37,4 +37,19 @@
   <data name="LanguageChangeLabel.Text" xml:space="preserve">
     <value>Paramètres de langue</value>
   </data>
+  <data name="AutomaticOptionLabel.Text" xml:space="preserve">
+    <value>Automatique</value>
+  </data>
+  <data name="OnceAMonthOptionLabel.Text" xml:space="preserve">
+    <value>Une fois par mois</value>
+  </data>
+  <data name="OnRequestOptionLabel.Text" xml:space="preserve">
+    <value>Sur demande</value>
+  </data>
+  <data name="RequestUpdateButton.Text" xml:space="preserve">
+    <value>Demande de mise à jour</value>
+  </data>
+  <data name="UpdateIntervalSettingsLabel.Text" xml:space="preserve">
+    <value>Mettre à jour les paramètres d'intervalle</value>
+  </data>
 </root>

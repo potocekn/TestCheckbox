@@ -37,4 +37,19 @@
   <data name="LanguageChangeLabel.Text" xml:space="preserve">
     <value>语言设置</value>
   </data>
+  <data name="AutomaticOptionLabel.Text" xml:space="preserve">
+    <value>自動的</value>
+  </data>
+  <data name="OnceAMonthOptionLabel.Text" xml:space="preserve">
+    <value>每月一次</value>
+  </data>
+  <data name="OnRequestOptionLabel.Text" xml:space="preserve">
+    <value>一經請求</value>
+  </data>
+  <data name="RequestUpdateButton.Text" xml:space="preserve">
+    <value>要求更新</value>
+  </data>
+  <data name="UpdateIntervalSettingsLabel.Text" xml:space="preserve">
+    <value>更新間隔設置</value>
+  </data>
 </root>

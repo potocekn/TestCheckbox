@@ -39,6 +39,26 @@
           <source>Language Settings</source>
           <target state="translated" state-qualifier="tm-suggestion">语言设置</target>
         </trans-unit>
+        <trans-unit id="AutomaticOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Automatic</source>
+          <target state="translated">自動的</target>
+        </trans-unit>
+        <trans-unit id="OnceAMonthOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Once a month</source>
+          <target state="translated" state-qualifier="tm-suggestion">每月一次</target>
+        </trans-unit>
+        <trans-unit id="OnRequestOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>On request</source>
+          <target state="translated">一經請求</target>
+        </trans-unit>
+        <trans-unit id="RequestUpdateButton.Text" translate="yes" xml:space="preserve">
+          <source>Update Request</source>
+          <target state="translated">要求更新</target>
+        </trans-unit>
+        <trans-unit id="UpdateIntervalSettingsLabel.Text" translate="yes" xml:space="preserve">
+          <source>Update Interval Settings</source>
+          <target state="translated">更新間隔設置</target>
+        </trans-unit>
       </group>
     </body>
   </file>

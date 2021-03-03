@@ -61,6 +61,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatic.
+        /// </summary>
+        internal static string AutomaticOptionLabel_Text {
+            get {
+                return ResourceManager.GetString("AutomaticOptionLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chinese.
         /// </summary>
         internal static string chineseLabel_Text {
@@ -115,6 +124,33 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Once a month.
+        /// </summary>
+        internal static string OnceAMonthOptionLabel_Text {
+            get {
+                return ResourceManager.GetString("OnceAMonthOptionLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On request.
+        /// </summary>
+        internal static string OnRequestOptionLabel_Text {
+            get {
+                return ResourceManager.GetString("OnRequestOptionLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Request.
+        /// </summary>
+        internal static string RequestUpdateButton_Text {
+            get {
+                return ResourceManager.GetString("RequestUpdateButton.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string SaveButton_Text {
@@ -129,6 +165,15 @@ namespace AppBase.Resources {
         internal static string SettingsButton_Text {
             get {
                 return ResourceManager.GetString("SettingsButton.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Interval Settings.
+        /// </summary>
+        internal static string UpdateIntervalSettingsLabel_Text {
+            get {
+                return ResourceManager.GetString("UpdateIntervalSettingsLabel.Text", resourceCulture);
             }
         }
     }

@@ -5,36 +5,30 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Xamarin.Forms;
 
-namespace AppBaseNamespace.ViewModels
+namespace AppBase.ViewModels
 {
-    public class LanguageSettingsItemViewModel: INotifyPropertyChanged
+    public class UpdateIntervalSettingsItemViewModel : INotifyPropertyChanged
     {
-        
-        private bool isCheck;      
-        public bool IsChecked 
+        private bool isChecked;        
+        public bool IsChecked
         {
             get
             {
-                return isCheck;
+                return isChecked;
             }
             set
             {
-                if (value != this.isCheck)
+                if (value != this.isChecked)
                 {
-                    this.isCheck = value;
+                    this.isChecked = value;
                     NotifyPropertyChanged();
                 }
             }
         }
-
-        public string Shortcut { get; set; }
-        public string EnglishName { get; set; }
+        public string Name { get; set; }
         public bool WasUpdated { get; set; }
-        public string Value { get; set; }  
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

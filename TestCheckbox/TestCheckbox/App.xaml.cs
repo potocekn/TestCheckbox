@@ -6,6 +6,7 @@ using System.Threading;
 using AppBase.Resources;
 using System.IO;
 using System.Collections.Generic;
+using AppBase.UserSettingsHelpers;
 
 namespace AppBaseNamespace
 {
@@ -14,6 +15,7 @@ namespace AppBaseNamespace
         public bool IsFirst = true;
         public bool WasRefreshed = false;
         string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.txt");
+        UserSettings userSettings;
 
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
         public App()
@@ -25,41 +27,48 @@ namespace AppBaseNamespace
             shortcuts.Add("Chinese", "zh-Hans");
             InitializeComponent();
 
-            if (File.Exists(fileName))
-            {
-                string previousLanguage = File.ReadAllText(fileName).Trim();
-                string shortcut = "";
-                bool success = shortcuts.TryGetValue(previousLanguage, out shortcut);
-                CultureInfo language;
-                if (success)
-                {
-                    language = new CultureInfo(shortcut);
-                }
-                else
-                {
-                   language  = new CultureInfo("en");
-                }               
+            userSettings = RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            SetAppLanguage(userSettings.AppLanguage);
+            
+        }
 
-                Thread.CurrentThread.CurrentUICulture = language;
-                AppResources.Culture = language;
-                MainPage = new NavigationPage(new MainPage(this, previousLanguage));
+        private void SetAppLanguage(string languageName) 
+        {              
+            string shortcut;
+            bool success = shortcuts.TryGetValue(languageName, out shortcut);
+            CultureInfo language;
+            if (success)
+            {
+                language = new CultureInfo(shortcut);
             }
             else
             {
-                CultureInfo language = new CultureInfo("en");
-                Thread.CurrentThread.CurrentUICulture = language;
-                AppResources.Culture = language;
-                MainPage = new NavigationPage(new MainPage(this, "English"));
+                language = new CultureInfo("en");
             }
 
+            Thread.CurrentThread.CurrentUICulture = language;
+            AppResources.Culture = language;
+            MainPage = new NavigationPage(new MainPage(this, languageName));  
             
+        }
+
+        private UserSettings RetrieveUserSettings(string path)
+        {
+            UserSettings result = new UserSettings(path);
+            if (File.Exists(fileName))
+            {
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(fileName).Trim());
+            }          
+            
+            return result;
         }
 
         public void ReloadApp(string language, string previouslyChecked)
         {
             WasRefreshed = true;
+            userSettings.AppLanguage = previouslyChecked;
             Application.Current.Properties["currentLanguage"] = language;
-            File.WriteAllText(fileName, previouslyChecked);
+            File.WriteAllText(fileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
             MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
         }
         protected override void OnStart()

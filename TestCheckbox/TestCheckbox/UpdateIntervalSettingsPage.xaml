@@ -1,22 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:AppBase.Resources"
              x:Class="AppBase.UpdateIntervalSettingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Update Interval Settings" Margin="20" FontSize="Large"/>
-            <StackLayout>
-                <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
-                <Label Text="Automatic" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+        <StackLayout >
+            <Label x:Name="UpdateIntervalSettingsLabel" Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" Margin="20" FontSize="Large"/>
+            <StackLayout BindableLayout.ItemsSource="{Binding Items}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan" />
+                            <Label Text="{Binding Name}" HorizontalOptions="Center" Margin=" 0, 15, 0, 0" FontSize="Medium"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                <CheckBox x:Name="AutomaticOptionCheckbox"  IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan" />
+                <Label x:Name="AutomaticOptionLabel" Text="{x:Static resources:AppResources.AutomaticOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+
+                <CheckBox  x:Name="OnceAMonthOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan"/>
+                <Label x:Name="OnceAMonthOptionLabel" Text="{x:Static resources:AppResources.OnceAMonthOptionLabel_Text}" HorizontalOptions="CenterAndExpand" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+
+                <CheckBox  x:Name="OnRequestOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan"/>
+                <Label x:Name="OnRequestOptionLabel" Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+                <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" IsEnabled="False"/>
             </StackLayout>
-            <StackLayout>
-                <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
-                <Label Text="Once a month" HorizontalOptions="CenterAndExpand" Margin="-40, -32, 0, 0" FontSize="Medium"/>
-            </StackLayout>
-            <StackLayout>
-                <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
-                <Label Text="On request" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
-            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

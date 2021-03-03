@@ -39,6 +39,26 @@
           <source>Language Settings</source>
           <target state="translated" state-qualifier="tm-suggestion">Nastavení jazyka</target>
         </trans-unit>
+        <trans-unit id="AutomaticOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Automatic</source>
+          <target state="translated" state-qualifier="tm-suggestion">Automaticky</target>
+        </trans-unit>
+        <trans-unit id="OnceAMonthOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Once a month</source>
+          <target state="translated" state-qualifier="tm-suggestion">Měsíčně</target>
+        </trans-unit>
+        <trans-unit id="OnRequestOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>On request</source>
+          <target state="translated">Na vyžádání</target>
+        </trans-unit>
+        <trans-unit id="RequestUpdateButton.Text" translate="yes" xml:space="preserve">
+          <source>Update Request</source>
+          <target state="translated">Žádost o aktualizaci</target>
+        </trans-unit>
+        <trans-unit id="UpdateIntervalSettingsLabel.Text" translate="yes" xml:space="preserve">
+          <source>Update Interval Settings</source>
+          <target state="translated">Nastavení intervalu aktualizace</target>
+        </trans-unit>
       </group>
     </body>
   </file>

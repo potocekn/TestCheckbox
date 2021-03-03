@@ -1,4 +1,5 @@
-﻿using AppBaseNamespace;
+﻿using AppBase.ViewModels;
+using AppBaseNamespace;
 using AppBaseNamespace.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,32 @@ namespace AppBase
         public UpdateIntervalSettingsPage(App app, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
+           
+            List<UpdateIntervalSettingsItemViewModel> switchNames = new List<UpdateIntervalSettingsItemViewModel>();
+            switchNames.Add(new UpdateIntervalSettingsItemViewModel()
+            {
+                Name = AutomaticOptionLabel.Text,
+                WasUpdated = false,
+                IsChecked = true
+            }) ;
+            switchNames.Add(new UpdateIntervalSettingsItemViewModel()
+            {
+                Name = OnceAMonthOptionLabel.Text,
+                WasUpdated = false,
+                IsChecked = true
+            });
+            switchNames.Add(new UpdateIntervalSettingsItemViewModel()
+            {
+                Name = OnRequestOptionLabel.Text,
+                WasUpdated = false,
+                IsChecked = true
+            });
+            BindingContext = new UpdateIntervalSettingsPageViewModel(app, mainPageViewModel, switchNames);
+        }
+
+        void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            (BindingContext as UpdateIntervalSettingsPageViewModel).OnCheckedChanged(((sender as CheckBox).BindingContext as UpdateIntervalSettingsItemViewModel));
         }
     }
 }

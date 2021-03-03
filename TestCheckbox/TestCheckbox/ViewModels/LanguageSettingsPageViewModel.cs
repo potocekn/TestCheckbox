@@ -1,7 +1,6 @@
 ﻿using AppBase;
 using AppBase.Helpers;
 using AppBase.Resources;
-using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

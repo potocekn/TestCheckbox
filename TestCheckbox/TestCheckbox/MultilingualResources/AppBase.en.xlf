@@ -39,6 +39,26 @@
           <source>Language Settings</source>
           <target state="new">Language Settings</target>
         </trans-unit>
+        <trans-unit id="AutomaticOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Automatic</source>
+          <target state="new">Automatic</target>
+        </trans-unit>
+        <trans-unit id="OnceAMonthOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Once a month</source>
+          <target state="new">Once a month</target>
+        </trans-unit>
+        <trans-unit id="OnRequestOptionLabel.Text" translate="yes" xml:space="preserve">
+          <source>On request</source>
+          <target state="new">On request</target>
+        </trans-unit>
+        <trans-unit id="RequestUpdateButton.Text" translate="yes" xml:space="preserve">
+          <source>Update Request</source>
+          <target state="new">Update Request</target>
+        </trans-unit>
+        <trans-unit id="UpdateIntervalSettingsLabel.Text" translate="yes" xml:space="preserve">
+          <source>Update Interval Settings</source>
+          <target state="new">Update Interval Settings</target>
+        </trans-unit>
       </group>
     </body>
   </file>
