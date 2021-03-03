@@ -26,6 +26,7 @@ namespace AppBase.ViewModels
             }
         }
         public string Name { get; set; }
+        public string EnglishName { get; set; }
         public bool WasUpdated { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;

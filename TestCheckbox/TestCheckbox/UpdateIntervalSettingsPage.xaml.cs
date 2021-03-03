@@ -15,35 +15,58 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UpdateIntervalSettingsPage : ContentPage
     {
+        List<UpdateIntervalSettingsItemViewModel> Checkboxes = new List<UpdateIntervalSettingsItemViewModel>();
         public UpdateIntervalSettingsPage(App app, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
+
+            if (app.userSettings.UpdateInterval == englishAutomatic.Text)
+            {
+                AddItem(AutomaticOptionLabel.Text, true, false, englishAutomatic.Text);
+            }
+            else
+            {
+                AddItem(AutomaticOptionLabel.Text, false, false, englishAutomatic.Text);
+            }
+
+            if (app.userSettings.UpdateInterval == englishOnceAMonth.Text)
+            {
+                AddItem(OnceAMonthOptionLabel.Text, true, false, englishOnceAMonth.Text);
+            }
+            else
+            {
+                AddItem(OnceAMonthOptionLabel.Text, false, false, englishOnceAMonth.Text);
+            }
+
+            if (app.userSettings.UpdateInterval == englishOnRequest.Text)
+            {
+                AddItem(OnRequestOptionLabel.Text, true, false, englishOnRequest.Text);
+            }
+            else
+            {
+                AddItem(OnRequestOptionLabel.Text, false, false, englishOnRequest.Text);
+            }           
            
-            List<UpdateIntervalSettingsItemViewModel> switchNames = new List<UpdateIntervalSettingsItemViewModel>();
-            switchNames.Add(new UpdateIntervalSettingsItemViewModel()
-            {
-                Name = AutomaticOptionLabel.Text,
-                WasUpdated = false,
-                IsChecked = true
-            }) ;
-            switchNames.Add(new UpdateIntervalSettingsItemViewModel()
-            {
-                Name = OnceAMonthOptionLabel.Text,
-                WasUpdated = false,
-                IsChecked = true
-            });
-            switchNames.Add(new UpdateIntervalSettingsItemViewModel()
-            {
-                Name = OnRequestOptionLabel.Text,
-                WasUpdated = false,
-                IsChecked = true
-            });
-            BindingContext = new UpdateIntervalSettingsPageViewModel(app, mainPageViewModel, switchNames);
+            BindingContext = new UpdateIntervalSettingsPageViewModel(app, mainPageViewModel, Checkboxes);
         }
 
+        void AddItem(string name, bool isChecked, bool wasUpdated, string englishName)
+        {
+            Checkboxes.Add(new UpdateIntervalSettingsItemViewModel()
+            {
+                Name = name,
+                WasUpdated = wasUpdated,
+                IsChecked = isChecked, 
+                EnglishName = englishName
+            });
+        }
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             (BindingContext as UpdateIntervalSettingsPageViewModel).OnCheckedChanged(((sender as CheckBox).BindingContext as UpdateIntervalSettingsItemViewModel));
+        }
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            (BindingContext as UpdateIntervalSettingsPageViewModel).TapGestureRecognizer_Tapped(sender, e);
         }
     }
 }

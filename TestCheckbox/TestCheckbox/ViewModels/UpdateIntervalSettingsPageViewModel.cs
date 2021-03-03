@@ -3,6 +3,7 @@ using AppBaseNamespace.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
@@ -21,6 +22,7 @@ namespace AppBase.ViewModels
         {
             sender.IsChecked = true;
             sender.WasUpdated = true;
+            app.userSettings.UpdateInterval = sender.EnglishName;
             foreach (var item in Items)
             {
                 if (!item.Equals(sender))
@@ -63,6 +65,19 @@ namespace AppBase.ViewModels
 
             HandleCheckChange(sender);
 
+        }
+
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Label label = (sender as Label);
+            foreach (var item in Items)
+            {
+                if (label.Text == item.Name)
+                {
+                    item.IsChecked = true;
+                    break;
+                }
+            }
         }
     }
 }

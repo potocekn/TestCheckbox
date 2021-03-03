@@ -15,7 +15,7 @@ namespace AppBaseNamespace
         public bool IsFirst = true;
         public bool WasRefreshed = false;
         string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.txt");
-        UserSettings userSettings;
+        public UserSettings userSettings;
 
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
         public App()
@@ -26,10 +26,9 @@ namespace AppBaseNamespace
             shortcuts.Add("French", "fr");
             shortcuts.Add("Chinese", "zh-Hans");
             InitializeComponent();
-
             userSettings = RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             SetAppLanguage(userSettings.AppLanguage);
-            
+            MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
         }
 
         private void SetAppLanguage(string languageName) 
@@ -47,8 +46,7 @@ namespace AppBaseNamespace
             }
 
             Thread.CurrentThread.CurrentUICulture = language;
-            AppResources.Culture = language;
-            MainPage = new NavigationPage(new MainPage(this, languageName));  
+            AppResources.Culture = language; 
             
         }
 
@@ -77,6 +75,7 @@ namespace AppBaseNamespace
 
         protected override void OnSleep()
         {
+            File.WriteAllText(fileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
         }
 
         protected override void OnResume()

@@ -11,7 +11,11 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan" />
-                            <Label Text="{Binding Name}" HorizontalOptions="Center" Margin=" 0, 15, 0, 0" FontSize="Medium"/>
+                            <Label Text="{Binding Name}" HorizontalOptions="Center" Margin=" 0, 15, 0, 0" FontSize="Medium">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
@@ -25,7 +29,10 @@
                 <Label x:Name="OnRequestOptionLabel" Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
                 <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" IsEnabled="False"/>
             </StackLayout>
-            
+
+            <Label x:Name="englishAutomatic" Text="Automatic" IsVisible="False"/>
+            <Label x:Name="englishOnceAMonth" Text="Once a Month" IsVisible="False"/>
+            <Label x:Name="englishOnRequest" Text="On Request" IsVisible="False"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
