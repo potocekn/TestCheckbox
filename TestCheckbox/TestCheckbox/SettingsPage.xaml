@@ -5,8 +5,9 @@
              x:Class="AppBase.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Command="{Binding GoToLanguageSettings}"/>
-            <Button Text="Other Settings"/>
+            <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Command="{Binding GoToLanguageSettings}" BackgroundColor="GhostWhite" />
+            <Button Text="Update Interval Settings" Command="{Binding GoToUpdateIntervalSettings}" BackgroundColor="GhostWhite"/>
+            <Button Text="Resource Format Settings" Command="{Binding GoToResourceFormatSettings}" BackgroundColor="GhostWhite"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

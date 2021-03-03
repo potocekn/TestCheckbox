@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppBaseNamespace;
+using AppBaseNamespace.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +12,11 @@ using Xamarin.Forms.Xaml;
 namespace AppBase
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PopUpPage 
+    public partial class UpdateIntervalSettingsPage : ContentPage
     {
-        public PopUpPage()
+        public UpdateIntervalSettingsPage(App app, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
-        }
-
-        private void ClickedYes(object o, EventArgs e)
-        {
-            yesButton.Text = "clicked";
         }
     }
 }

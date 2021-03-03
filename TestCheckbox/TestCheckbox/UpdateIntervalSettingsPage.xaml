@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppBase.UpdateIntervalSettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Update Interval Settings" Margin="20" FontSize="Large"/>
+            <StackLayout>
+                <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                <Label Text="Automatic" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout>
+                <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                <Label Text="Once a month" HorizontalOptions="CenterAndExpand" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout>
+                <Switch VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                <Label Text="On request" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

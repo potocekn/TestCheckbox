@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppBaseNamespace.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace AppBaseNamespace
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CheckPage : ContentPage
+    public partial class ResourceFormatSettingsPage : ContentPage
     {        
-        public CheckPage(IEnumerable<string> items)
+        public ResourceFormatSettingsPage(App app, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
-            BindingContext = new CheckPageViewModel(items, this);            
+            string[] items = new string[] { "English", "Czech", "German" };
+            BindingContext = new ResourceFormatSettingsPageViewModel(items, this);            
         }
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {

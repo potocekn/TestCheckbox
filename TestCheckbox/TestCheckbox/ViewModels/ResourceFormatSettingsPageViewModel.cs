@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace AppBaseNamespace
 {
-    internal class CheckPageViewModel
+    internal class ResourceFormatSettingsPageViewModel
     {
         public List<ItemViewModel> Items { get; }
         public Command ChangingCheckBox { get; }
-        CheckPage checkPage { get; }
-        public CheckPageViewModel(IEnumerable<string> items, CheckPage page)
+        ResourceFormatSettingsPage checkPage { get; }
+        public ResourceFormatSettingsPageViewModel(IEnumerable<string> items, ResourceFormatSettingsPage page)
         {
             Items = items
                 .Where(x => !string.IsNullOrEmpty(x))

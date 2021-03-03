@@ -28,7 +28,7 @@ namespace AppBaseNamespace.ViewModels
             this.previouslyChecked = previouslyChecked;
             //ResourceLanguages = GetAllLanguages();
             LoadCheckboxes = new Command(() => {
-                navigation.PushAsync(new CheckPage(textCollection));
+                navigation.PushAsync(new ResourceFormatSettingsPage(app, this));
             });
             GoToSettings = new Command(() => {
                 navigation.PushAsync(new SettingsPage(app, this));
