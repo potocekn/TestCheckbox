@@ -23,6 +23,7 @@ namespace AppBase.ViewModels
             sender.IsChecked = true;
             sender.WasUpdated = true;
             app.userSettings.UpdateInterval = sender.EnglishName;
+            app.SaveUserSettings();
             foreach (var item in Items)
             {
                 if (!item.Equals(sender))
@@ -64,7 +65,6 @@ namespace AppBase.ViewModels
             }
 
             HandleCheckChange(sender);
-
         }
 
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)

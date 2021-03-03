@@ -69,13 +69,18 @@ namespace AppBaseNamespace
             File.WriteAllText(fileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
             MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
         }
+
+        public void SaveUserSettings()
+        {
+            File.WriteAllText(fileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
+        }
         protected override void OnStart()
         {
         }
 
         protected override void OnSleep()
         {
-            File.WriteAllText(fileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
+            SaveUserSettings();
         }
 
         protected override void OnResume()
