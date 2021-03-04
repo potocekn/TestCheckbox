@@ -7,7 +7,7 @@
         <StackLayout>
             <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Command="{Binding GoToLanguageSettings}" BackgroundColor="GhostWhite" />
             <Button Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" Command="{Binding GoToUpdateIntervalSettings}" BackgroundColor="GhostWhite"/>
-            <Button Text="Resource Format Settings" Command="{Binding GoToResourceFormatSettings}" BackgroundColor="GhostWhite"/>
+            <Button x:Name="FormatButton" Text="{x:Static resources:AppResources.FormatButton_Text}" Command="{Binding GoToResourceFormatSettings}" BackgroundColor="GhostWhite"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

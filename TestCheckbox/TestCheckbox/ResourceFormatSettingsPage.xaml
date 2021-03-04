@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:AppBase.Resources"
              x:Class="AppBaseNamespace.ResourceFormatSettingsPage">
     <ContentPage.Content>
         <ScrollView>
@@ -8,9 +9,9 @@
                                   
                 <StackLayout>
                     <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
-                    <Label Text="Download only when wifi is on" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
-                
-                    <Label Text="Format of the resources:" FontSize="Large" Margin="20"/>
+                    <Label x:Name="WifiLabel" Text="{x:Static resources:AppResources.WifiLabel_Text}" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
+
+                    <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" FontSize="Large" Margin="20"/>
                     <StackLayout>
                         <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
                         <Label x:Name="pdfLabel" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
@@ -26,7 +27,7 @@
                 </StackLayout>
 
                 <StackLayout>
-                    <Label Text="Language of the resources:" FontSize="Large" Margin="20"/>
+                    <Label x:Name="LanguageOfResourcesLabel" Text="{x:Static resources:AppResources.LanguageOfResourcesLabel_Text}" FontSize="Large" Margin="20"/>
                     <StackLayout BindableLayout.ItemsSource="{Binding Languages}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>

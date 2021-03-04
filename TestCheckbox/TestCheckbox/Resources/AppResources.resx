@@ -129,6 +129,12 @@
   <data name="englishLabel.Text" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="FormatButton.Text" xml:space="preserve">
+    <value>Format Settings</value>
+  </data>
+  <data name="FormatSelectionLabel.Text" xml:space="preserve">
+    <value>Format of the resources:</value>
+  </data>
   <data name="frenchLabel.Text" xml:space="preserve">
     <value>French</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="LanguageChangeLabel.Text" xml:space="preserve">
     <value>Language Settings</value>
+  </data>
+  <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
+    <value>Language of the resources:</value>
   </data>
   <data name="OnceAMonthOptionLabel.Text" xml:space="preserve">
     <value>Once a month</value>
@@ -156,5 +165,8 @@
   </data>
   <data name="UpdateIntervalSettingsLabel.Text" xml:space="preserve">
     <value>Update Interval Settings</value>
+  </data>
+  <data name="WifiLabel.Text" xml:space="preserve">
+    <value>Download only when wifi is on</value>
   </data>
 </root>

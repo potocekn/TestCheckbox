@@ -52,4 +52,16 @@
   <data name="UpdateIntervalSettingsLabel.Text" xml:space="preserve">
     <value>更新間隔設置</value>
   </data>
+  <data name="FormatButton.Text" xml:space="preserve">
+    <value>格式設定</value>
+  </data>
+  <data name="WifiLabel.Text" xml:space="preserve">
+    <value>僅在wifi開啟時下載</value>
+  </data>
+  <data name="FormatSelectionLabel.Text" xml:space="preserve">
+    <value>資源格式：</value>
+  </data>
+  <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
+    <value>資源語言：</value>
+  </data>
 </root>

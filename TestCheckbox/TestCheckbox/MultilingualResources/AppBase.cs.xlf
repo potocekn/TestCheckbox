@@ -59,6 +59,22 @@
           <source>Update Interval Settings</source>
           <target state="translated">Nastavení intervalu aktualizace</target>
         </trans-unit>
+        <trans-unit id="FormatButton.Text" translate="yes" xml:space="preserve">
+          <source>Format Settings</source>
+          <target state="translated">Nastavení formátu</target>
+        </trans-unit>
+        <trans-unit id="WifiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Download only when wifi is on</source>
+          <target state="translated">Stáhnout, pouze když je zapnutá wifi</target>
+        </trans-unit>
+        <trans-unit id="FormatSelectionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Format of the resources:</source>
+          <target state="translated">Formát souborů:</target>
+        </trans-unit>
+        <trans-unit id="LanguageOfResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Language of the resources:</source>
+          <target state="translated">Jazyk zdrojů:</target>
+        </trans-unit>
       </group>
     </body>
   </file>

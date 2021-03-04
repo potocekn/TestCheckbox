@@ -59,6 +59,22 @@
           <source>Update Interval Settings</source>
           <target state="translated">Einstellungen des Aktualisierungsintervalls</target>
         </trans-unit>
+        <trans-unit id="FormatButton.Text" translate="yes" xml:space="preserve">
+          <source>Format Settings</source>
+          <target state="translated">Formateinstellungen</target>
+        </trans-unit>
+        <trans-unit id="WifiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Download only when wifi is on</source>
+          <target state="translated">Nur herunterladen, wenn WLAN aktiviert ist</target>
+        </trans-unit>
+        <trans-unit id="FormatSelectionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Format of the resources:</source>
+          <target state="translated">Format der Ressourcen:</target>
+        </trans-unit>
+        <trans-unit id="LanguageOfResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Language of the resources:</source>
+          <target state="translated">Sprache der Ressourcen:</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -97,6 +97,24 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Format Settings.
+        /// </summary>
+        internal static string FormatButton_Text {
+            get {
+                return ResourceManager.GetString("FormatButton.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Format of the resources:.
+        /// </summary>
+        internal static string FormatSelectionLabel_Text {
+            get {
+                return ResourceManager.GetString("FormatSelectionLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to French.
         /// </summary>
         internal static string frenchLabel_Text {
@@ -120,6 +138,15 @@ namespace AppBase.Resources {
         internal static string LanguageChangeLabel_Text {
             get {
                 return ResourceManager.GetString("LanguageChangeLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language of the resources:.
+        /// </summary>
+        internal static string LanguageOfResourcesLabel_Text {
+            get {
+                return ResourceManager.GetString("LanguageOfResourcesLabel.Text", resourceCulture);
             }
         }
         
@@ -174,6 +201,15 @@ namespace AppBase.Resources {
         internal static string UpdateIntervalSettingsLabel_Text {
             get {
                 return ResourceManager.GetString("UpdateIntervalSettingsLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download only when wifi is on.
+        /// </summary>
+        internal static string WifiLabel_Text {
+            get {
+                return ResourceManager.GetString("WifiLabel.Text", resourceCulture);
             }
         }
     }

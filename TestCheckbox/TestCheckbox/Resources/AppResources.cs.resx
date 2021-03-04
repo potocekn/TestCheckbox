@@ -52,4 +52,16 @@
   <data name="UpdateIntervalSettingsLabel.Text" xml:space="preserve">
     <value>Nastavení intervalu aktualizace</value>
   </data>
+  <data name="FormatButton.Text" xml:space="preserve">
+    <value>Nastavení formátu</value>
+  </data>
+  <data name="WifiLabel.Text" xml:space="preserve">
+    <value>Stáhnout, pouze když je zapnutá wifi</value>
+  </data>
+  <data name="FormatSelectionLabel.Text" xml:space="preserve">
+    <value>Formát souborů:</value>
+  </data>
+  <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
+    <value>Jazyk zdrojů:</value>
+  </data>
 </root>

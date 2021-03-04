@@ -59,6 +59,22 @@
           <source>Update Interval Settings</source>
           <target state="new">Update Interval Settings</target>
         </trans-unit>
+        <trans-unit id="FormatButton.Text" translate="yes" xml:space="preserve">
+          <source>Format Settings</source>
+          <target state="new">Format Settings</target>
+        </trans-unit>
+        <trans-unit id="WifiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Download only when wifi is on</source>
+          <target state="new">Download only when wifi is on</target>
+        </trans-unit>
+        <trans-unit id="FormatSelectionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Format of the resources:</source>
+          <target state="new">Format of the resources:</target>
+        </trans-unit>
+        <trans-unit id="LanguageOfResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Language of the resources:</source>
+          <target state="new">Language of the resources:</target>
+        </trans-unit>
       </group>
     </body>
   </file>

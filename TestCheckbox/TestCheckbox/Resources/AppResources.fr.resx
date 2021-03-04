@@ -52,4 +52,16 @@
   <data name="UpdateIntervalSettingsLabel.Text" xml:space="preserve">
     <value>Mettre à jour les paramètres d'intervalle</value>
   </data>
+  <data name="FormatButton.Text" xml:space="preserve">
+    <value>Paramètres de format</value>
+  </data>
+  <data name="WifiLabel.Text" xml:space="preserve">
+    <value>Télécharger uniquement lorsque le Wi-Fi est activé</value>
+  </data>
+  <data name="FormatSelectionLabel.Text" xml:space="preserve">
+    <value>Format des ressources:</value>
+  </data>
+  <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
+    <value>Langue des ressources:</value>
+  </data>
 </root>
