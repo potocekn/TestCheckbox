@@ -32,9 +32,9 @@ namespace AppBaseNamespace
             BindingContext = new LanguageSettingsPageViewModel(items, shortcuts, englishVersions, this, mainPageViewModel, app);
         }
 
-        void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        async void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            ((LanguageSettingsPageViewModel)BindingContext).OnCheckBoxCheckedChangedAsync(((sender as CheckBox).BindingContext as LanguageSettingsItemViewModel));
+            await ((LanguageSettingsPageViewModel)BindingContext).OnCheckBoxCheckedChangedAsync(((sender as CheckBox).BindingContext as LanguageSettingsItemViewModel));
 
         }
         
