@@ -4,10 +4,15 @@
              xmlns:resources="clr-namespace:AppBase.Resources"
              x:Class="AppBaseNamespace.MainPage">
 
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Training App" TextColor="White" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+ 
     <StackLayout>        
-        <Label Text="Dummy Title" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-        
         <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}"/>
+        <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="Go To My Resources" Command="{Binding GoToResources}"/>
     </StackLayout>
 
 </ContentPage>

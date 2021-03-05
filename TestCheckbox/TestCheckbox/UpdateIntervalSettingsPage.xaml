@@ -10,7 +10,7 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan" />
+                            <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3" />
                             <Label Text="{Binding Name}" HorizontalOptions="Center" Margin=" 0, 15, 0, 0" FontSize="Medium">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -19,13 +19,13 @@
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
-                <CheckBox x:Name="AutomaticOptionCheckbox"  IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan" />
+                <CheckBox x:Name="AutomaticOptionCheckbox"  IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3" />
                 <Label x:Name="AutomaticOptionLabel" Text="{x:Static resources:AppResources.AutomaticOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
 
-                <CheckBox  x:Name="OnceAMonthOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan"/>
+                <CheckBox  x:Name="OnceAMonthOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3"/>
                 <Label x:Name="OnceAMonthOptionLabel" Text="{x:Static resources:AppResources.OnceAMonthOptionLabel_Text}" HorizontalOptions="CenterAndExpand" Margin="-40, -32, 0, 0" FontSize="Medium"/>
 
-                <CheckBox  x:Name="OnRequestOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="DarkCyan"/>
+                <CheckBox  x:Name="OnRequestOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3"/>
                 <Label x:Name="OnRequestOptionLabel" Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
                 <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" IsEnabled="False"/>
             </StackLayout>

@@ -8,20 +8,20 @@
             <StackLayout>
                                   
                 <StackLayout>
-                    <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                    <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
                     <Label x:Name="WifiLabel" Text="{x:Static resources:AppResources.WifiLabel_Text}" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
 
                     <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" FontSize="Large" Margin="20"/>
                     <StackLayout>
-                        <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                        <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
                         <Label x:Name="pdfLabel" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
                     </StackLayout>
                     <StackLayout>
-                        <Switch x:Name="htmlSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                        <Switch x:Name="htmlSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
                         <Label  x:Name="htmlLabel" Text="HTML" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
                     </StackLayout>
                     <StackLayout>
-                        <Switch x:Name="odtSwitch" Toggled="OnToggled"  VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="Cyan" ThumbColor="DarkCyan"/>
+                        <Switch x:Name="odtSwitch" Toggled="OnToggled"  VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
                         <Label  x:Name="odtLabel" Text="ODT" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
                     </StackLayout>
                 </StackLayout>
@@ -32,7 +32,7 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50, 0, 0, 0" VerticalOptions="CenterAndExpand" Color="DarkCyan"/>
+                                    <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50, 0, 0, 0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
                                     <Label Text="{Binding Value}" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
                                 </StackLayout>
                             </DataTemplate>
