@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppBase.ViewModels;
+using AppBaseNamespace;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,10 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResourcesPage : ContentPage
     {
-        public ResourcesPage()
+        public ResourcesPage(App app)
         {
             InitializeComponent();
+            BindingContext = new ResourcesPageViewModel(app);
         }
     }
 }

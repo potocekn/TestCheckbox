@@ -4,9 +4,7 @@
              x:Class="AppBase.ResourcesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Test resource" Command="{Binding OpenResource}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

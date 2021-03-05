@@ -35,7 +35,7 @@ namespace AppBaseNamespace.ViewModels
                 navigation.PushAsync(new SettingsPage(app, this));
             });
             GoToResources = new Command(() => {
-                navigation.PushAsync(new ResourcesPage());
+                navigation.PushAsync(new ResourcesPage(app));
             });
 
         }

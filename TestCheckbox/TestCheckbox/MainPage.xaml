@@ -9,10 +9,14 @@
             <Label Text="Training App" TextColor="White" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
         </StackLayout>
     </NavigationPage.TitleView>
- 
-    <StackLayout>        
-        <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}"/>
-        <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="Go To My Resources" Command="{Binding GoToResources}"/>
+
+    <StackLayout Orientation="Horizontal">
+        <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+            <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}" BackgroundColor="GhostWhite"/>
+        </StackLayout>
+        <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+            <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="Resources" Command="{Binding GoToResources}" BackgroundColor="GhostWhite"/>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

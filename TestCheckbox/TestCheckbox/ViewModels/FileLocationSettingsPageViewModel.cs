@@ -1,6 +1,4 @@
 ﻿using AppBaseNamespace;
-using Plugin.FilePicker;
-using Plugin.FilePicker.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +13,7 @@ namespace AppBase.ViewModels
             this.app = app;
         }
 
-        public async void OnClicked(object sender, EventArgs e)
+        public void OnClicked(object sender, EventArgs e)
         {
             
         }
