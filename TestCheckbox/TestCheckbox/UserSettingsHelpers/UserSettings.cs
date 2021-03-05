@@ -12,6 +12,7 @@ namespace AppBase.UserSettingsHelpers
         public string UpdateInterval { get; set; }
         public bool DownloadOnlyWithWifi { get; set; }
         public List<string> Formats { get; set; }
+        public DateTime DateOfLastUpdate { get; set; }
 
         public UserSettings(string path)
         {
@@ -22,6 +23,7 @@ namespace AppBase.UserSettingsHelpers
             DownloadOnlyWithWifi = false;
             Formats = new List<string>();
             Formats.Add("PDF");
+            DateOfLastUpdate = DateTime.Now;
         }
     }
 }
