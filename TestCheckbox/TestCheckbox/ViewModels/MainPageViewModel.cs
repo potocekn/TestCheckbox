@@ -21,7 +21,8 @@ namespace AppBaseNamespace.ViewModels
         List<string> ResourceLanguages { get; set; }
         public string Title { get; }
         public Command LoadCheckboxes { get; }
-        public Command GoToSettings { get; }   
+        public Command GoToSettings { get; }
+        public Command GoToResources { get; }
 
         public MainPageViewModel(Page page, App app,INavigation navigation, string previouslyChecked)
         {
@@ -33,7 +34,10 @@ namespace AppBaseNamespace.ViewModels
             GoToSettings = new Command(() => {
                 navigation.PushAsync(new SettingsPage(app, this));
             });
-            
+            GoToResources = new Command(() => {
+                navigation.PushAsync(new ResourcesPage());
+            });
+
         }
 
         List<string> GetAllLanguages()
