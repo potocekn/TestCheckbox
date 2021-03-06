@@ -3,6 +3,7 @@ using AppBaseNamespace.ViewModels;
 using System.Linq;
 using Xamarin.Forms;
 using AppBase.ViewModels;
+using AppBase.Resources;
 
 namespace AppBaseNamespace
 {
@@ -23,6 +24,7 @@ namespace AppBaseNamespace
                 {
                     IsChecked = app.userSettings.ChosenResourceLanguages.Contains(x),
                     Value = x,
+                    LabelText = ReturnTranslation(x),
                     CheckedChangedCommand = new Command(() => {                        
                     })
                 })
@@ -46,6 +48,21 @@ namespace AppBaseNamespace
                     }
                     
                 }
+            }
+        }
+
+        string ReturnTranslation(string original)
+        {            
+            switch (original)
+            {
+                case "English":
+                    return AppResources.englishLabel_Text;
+                case "Czech":
+                    return AppResources.czechLabel_Text;
+                case "German":
+                    return AppResources.germanLabel_Text;
+                default:
+                    return "";
             }
         }
 

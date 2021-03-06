@@ -9,6 +9,7 @@ namespace AppBaseNamespace.ViewModels
     {
         public bool IsChecked { get; set; }
         public string Value { get; set; }
+        public string LabelText { get; set; }
         public Command CheckedChangedCommand { get; set; }
         public CheckBox CorrespondingCheckbox { get; set; }
             
