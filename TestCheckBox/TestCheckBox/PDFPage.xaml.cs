@@ -12,12 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace AppBase
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ResourcesPage : ContentPage
+    public partial class PDFPage : ContentPage
     {
-        public ResourcesPage(App app, INavigation navigation)
+        public PDFPage(App app)
         {
             InitializeComponent();
-            BindingContext = new ResourcesPageViewModel(app, navigation);
+            BindingContext = new PDFPageViewModel(app);
         }
     }
 }

@@ -9,21 +9,15 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
-    public class ResourcesPageViewModel
+    class PDFPageViewModel
     {
         App app { get; set; }
-        public Command GoToPDFs { get; set; }
-        public Command GoToHTMLs { get; set; }
+        public Command OpenResource { get; set; }
 
-        public ResourcesPageViewModel(App app, INavigation navigation)
+        public PDFPageViewModel(App app)
         {
             this.app = app;
-            GoToPDFs = new Command(() => {
-                navigation.PushAsync(new PDFPage(app));
-            });
-            GoToHTMLs = new Command(() => {
-                navigation.PushAsync(new HTMLPage(app));
-            });
+            OpenResource = new Command(() => LoadAndOpenResource());
         }
 
         async void LoadAndOpenResource()
@@ -37,7 +31,7 @@ namespace AppBase.ViewModels
                 await CrossXamarinFormsSaveOpenPDFPackage.Current.SaveAndView("test.pdf", "application/pdf", memoryStream, PDFOpenContext.InApp);
             }
 
-                
+
         }
     }
 }

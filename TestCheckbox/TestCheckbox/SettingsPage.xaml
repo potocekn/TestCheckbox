@@ -8,7 +8,7 @@
             <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Command="{Binding GoToLanguageSettings}" BackgroundColor="GhostWhite" />
             <Button Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" Command="{Binding GoToUpdateIntervalSettings}" BackgroundColor="GhostWhite"/>
             <Button x:Name="FormatButton" Text="{x:Static resources:AppResources.FormatButton_Text}" Command="{Binding GoToResourceFormatSettings}" BackgroundColor="GhostWhite"/>
-            <Button x:Name="LocationButton" IsVisible="false" Text="File Location Settings" Command="{Binding GoToFileLocationSettings}" BackgroundColor="GhostWhite"/>
+            <Button x:Name="LocationButton" IsVisible="true" Text="File Location Settings" Command="{Binding GoToFileLocationSettings}" BackgroundColor="GhostWhite"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

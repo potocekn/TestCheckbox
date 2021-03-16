@@ -12,12 +12,13 @@ using Xamarin.Forms.Xaml;
 namespace AppBase
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ResourcesPage : ContentPage
+    public partial class HTMLPage : ContentPage
     {
-        public ResourcesPage(App app, INavigation navigation)
+        public HTMLPage(App app)
         {
             InitializeComponent();
-            BindingContext = new ResourcesPageViewModel(app, navigation);
+            BindingContext = new HTMLPageViewModel(app);
+            webView.Source = (BindingContext as HTMLPageViewModel).HTMLSource;
         }
     }
 }
