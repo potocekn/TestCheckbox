@@ -7,6 +7,7 @@ using AppBase.Resources;
 using System.IO;
 using System.Collections.Generic;
 using AppBase.UserSettingsHelpers;
+using AppBase;
 
 namespace AppBaseNamespace
 {
@@ -14,6 +15,7 @@ namespace AppBaseNamespace
     {
         public bool IsFirst = true;
         public bool WasRefreshed = false;
+        bool firstTimeRunning = true;
         string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.txt");
         public UserSettings userSettings;
 
@@ -25,7 +27,15 @@ namespace AppBaseNamespace
             RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             SetAppLanguage(userSettings.AppLanguage);
             SynchronizeResources();
-            MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+            if (firstTimeRunning)
+            {
+                MainPage = new NavigationPage(new AppLanguageFirstRunPage(this));
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+            }
+            
         }
 
         private void InitializeShortcuts()
@@ -61,6 +71,7 @@ namespace AppBaseNamespace
             if (File.Exists(fileName))
             {
                 result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(fileName).Trim());
+                firstTimeRunning = false;
             }
 
             userSettings = result;
