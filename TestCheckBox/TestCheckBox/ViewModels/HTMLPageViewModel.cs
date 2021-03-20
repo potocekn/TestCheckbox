@@ -35,6 +35,7 @@ namespace AppBase.ViewModels
                 htmlCode = client.DownloadString(url);
             }
             HTMLSource.Html = htmlCode;
+            HTMLSource.BaseUrl = url;
         }
     }
 }
