@@ -22,7 +22,7 @@ namespace AppBase.UserSettingsHelpers
             UpdateInterval = "Automatic";
             DownloadOnlyWithWifi = false;
             Formats = new List<string>();
-            Formats.Add("PDF");
+            //Formats.Add("PDF");
             DateOfLastUpdate = DateTime.Now;
         }
     }

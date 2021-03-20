@@ -114,6 +114,16 @@ namespace AppBaseNamespace.ViewModels
             else if (app.IsFirst)
             {
                 CheckSender(checkboxSender);
+                foreach (var item in Items)
+                {
+                    if (item.EnglishName == MainPageViewModelBackup.previouslyChecked)
+                    {
+                        
+                        item.IsChecked = false;
+                        item.WasUpdated = true;
+                        break;
+                    }
+                }
                 app.IsFirst = false;
             }
             else if (!app.IsFirst && !checkboxSender.IsChecked && checkboxSender.EnglishName == MainPageViewModelBackup.previouslyChecked)

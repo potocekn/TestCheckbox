@@ -19,6 +19,7 @@ namespace AppBase.ViewModels
             this.app = app;
             bool isFirst = true;
             GoToNextPage = new Command(() => {
+                app.IsFirst = false;
                 navigation.PushAsync(new ResourceLanguagesFirstRunPage(app)); ////////////////////////////////////////////////////////////////////////////////////////////////////////
             });
             Items = new List<LanguageSettingsItemViewModel>();
