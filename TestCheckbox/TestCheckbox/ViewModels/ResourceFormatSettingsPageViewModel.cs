@@ -4,6 +4,7 @@ using System.Linq;
 using Xamarin.Forms;
 using AppBase.ViewModels;
 using AppBase.Resources;
+using AppBase.Helpers;
 
 namespace AppBaseNamespace
 {
@@ -13,7 +14,7 @@ namespace AppBaseNamespace
         public List<ItemViewModel> Languages { get; set; }
         App app;
         MainPageViewModel mainPageViewModel;
-        public ResourceFormatSettingsPageViewModel(App app, MainPageViewModel mainPageViewModel, List<string> languages ,List<ResourceFormatSettingsItemViewModel> switches)
+        public ResourceFormatSettingsPageViewModel(App app, MainPageViewModel mainPageViewModel, List<string> languages, List<ResourceFormatSettingsItemViewModel> switches)
         {
             this.app = app;
             this.mainPageViewModel = mainPageViewModel;
@@ -24,7 +25,7 @@ namespace AppBaseNamespace
                 {
                     IsChecked = app.userSettings.ChosenResourceLanguages.Contains(x),
                     Value = x,
-                    LabelText = ReturnTranslation(x),
+                    LabelText = LanguagesTranslationHelper.ReturnTranslation(x),
                     CheckedChangedCommand = new Command(() => {                        
                     })
                 })
@@ -51,20 +52,7 @@ namespace AppBaseNamespace
             }
         }
 
-        string ReturnTranslation(string original)
-        {            
-            switch (original)
-            {
-                case "English":
-                    return AppResources.englishLabel_Text;
-                case "Czech":
-                    return AppResources.czechLabel_Text;
-                case "German":
-                    return AppResources.germanLabel_Text;
-                default:
-                    return "";
-            }
-        }
+        
 
         void HandleWifiChange(bool isToggled)
         {

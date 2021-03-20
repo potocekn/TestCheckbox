@@ -33,7 +33,7 @@ namespace AppBase
             items.Add(chineseLabel.Text);
             shortcuts.Add("zh-Hans");
 
-            BindingContext = new AppLanguageFirstRunPageViewModel(app, items, shortcuts, englishVersions);
+            BindingContext = new AppLanguageFirstRunPageViewModel(app, Navigation, items, shortcuts, englishVersions);
         }
         
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)

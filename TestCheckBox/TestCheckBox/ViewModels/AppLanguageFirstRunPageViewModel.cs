@@ -12,11 +12,15 @@ namespace AppBase.ViewModels
     {
         public List<LanguageSettingsItemViewModel> Items { get; }
         App app { get; set; }
+        public Command GoToNextPage { get; set; }
 
-        public AppLanguageFirstRunPageViewModel(App app, IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
+        public AppLanguageFirstRunPageViewModel(App app, INavigation navigation, IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
         {
             this.app = app;
             bool isFirst = true;
+            GoToNextPage = new Command(() => {
+                navigation.PushAsync(new ResourceLanguagesFirstRunPage(app)); ////////////////////////////////////////////////////////////////////////////////////////////////////////
+            });
             Items = new List<LanguageSettingsItemViewModel>();
             int i = 0;
             for (int j = 0; j < items.Count(); j++)
