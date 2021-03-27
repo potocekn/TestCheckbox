@@ -7,7 +7,10 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
+using PCLStorage;
+using System.Diagnostics;
 
 namespace AppBase.ViewModels
 {
@@ -30,12 +33,67 @@ namespace AppBase.ViewModels
                 Path = "http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf",
                 FilePath = fileName               
             };
+            //SaveFile(item);
             //SaveFileAsync(item.Path, item.FilePath);
             item.OpenResource = new Command(() => { navigation.PushAsync(new pdfjsPage(item.FilePath)); });
+            item.ShareResource = new Command(async () => { await OnButtonClickShareAsync(item.FilePath); });
             Items.Add(item);
-           //SaveFile(item);
+           
+            fileName = Path.Combine(dir, "test2.pdf");
+            PDFPageItemViewModel item2 = new PDFPageItemViewModel()
+            {
+                Language = "English",
+                ResourceName = "Test Resource 2",
+                FileName = "test2.pdf",
+                Path = "http://www.4training.net/mediawiki/images/8/8b/Baptism.pdf",
+                FilePath = fileName
+            };
+            //SaveFile(item2);
+            item2.OpenResource = new Command(() => { navigation.PushAsync(new pdfjsPage(item2.FilePath)); });
+            item2.ShareResource = new Command(async () => { await OnButtonClickShareAsync(item2.FilePath); });
+            Items.Add(item2);
+            
         }
 
+
+    
+
+        private void SaveFile(PDFPageItemViewModel resource)
+        {
+            string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), resource.Language);
+
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+
+            string fileName = Path.Combine(dir, resource.FileName);
+            if (!File.Exists(fileName))
+            {
+                File.Create(fileName);
+                resource.FilePath = fileName;
+                using (var client = new WebClient())
+                {
+                    try
+                    {
+                        //client.DownloadFile(resource.Path, fileName);
+                        client.DownloadStringCompleted += (s, e) => {
+                            var text = e.Result; // get the downloaded text                            
+                            File.WriteAllText(fileName, text); // writes to local storage
+                            Debug.WriteLine(text);
+                        };
+                        var url = new Uri(resource.Path); // Html home page
+                        client.Encoding = Encoding.UTF8;
+                        client.DownloadDataAsync(url);
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+
+                }
+            }
+        }
 
         async void SaveFileAsync(string url, string filePath)
         {
@@ -78,6 +136,17 @@ namespace AppBase.ViewModels
                }
 
             }
+        }
+
+        public async Task OnButtonClickShareAsync(string filePath)
+        {           
+            
+            await Share.RequestAsync(new ShareFileRequest
+            {
+                Title = "Share",
+                File = new ShareFile(filePath)
+            });
+            
         }
 
     }    
