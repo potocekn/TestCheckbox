@@ -75,6 +75,182 @@
           <source>Language of the resources:</source>
           <target state="new">Language of the resources:</target>
         </trans-unit>
+        <trans-unit id="albanianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Albanian</source>
+          <target state="new">Albanian</target>
+        </trans-unit>
+        <trans-unit id="arabicLabel.Text" translate="yes" xml:space="preserve">
+          <source>Arabic</source>
+          <target state="new">Arabic</target>
+        </trans-unit>
+        <trans-unit id="azerbaijaniLabel.Text" translate="yes" xml:space="preserve">
+          <source>Azerbaijani</source>
+          <target state="new">Azerbaijani</target>
+        </trans-unit>
+        <trans-unit id="bulgarianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Bulgarian</source>
+          <target state="new">Bulgarian</target>
+        </trans-unit>
+        <trans-unit id="centralKurdishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Central Kurdish</source>
+          <target state="new">Central Kurdish</target>
+        </trans-unit>
+        <trans-unit id="croatianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Croatian</source>
+          <target state="new">Croatian</target>
+        </trans-unit>
+        <trans-unit id="dutchLabel.Text" translate="yes" xml:space="preserve">
+          <source>Dutch</source>
+          <target state="new">Dutch</target>
+        </trans-unit>
+        <trans-unit id="estonianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Estonian</source>
+          <target state="new">Estonian</target>
+        </trans-unit>
+        <trans-unit id="georgianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Georgian</source>
+          <target state="new">Georgian</target>
+        </trans-unit>
+        <trans-unit id="hausaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hausa</source>
+          <target state="new">Hausa</target>
+        </trans-unit>
+        <trans-unit id="hindiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hindi</source>
+          <target state="new">Hindi</target>
+        </trans-unit>
+        <trans-unit id="hungarianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hungarian</source>
+          <target state="new">Hungarian</target>
+        </trans-unit>
+        <trans-unit id="indonesianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Indonesian</source>
+          <target state="new">Indonesian</target>
+        </trans-unit>
+        <trans-unit id="isiXhosaLabel.Text" translate="yes" xml:space="preserve">
+          <source>isiXhosa</source>
+          <target state="new">isiXhosa</target>
+        </trans-unit>
+        <trans-unit id="italianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Italian</source>
+          <target state="new">Italian</target>
+        </trans-unit>
+        <trans-unit id="kannadaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kannada</source>
+          <target state="new">Kannada</target>
+        </trans-unit>
+        <trans-unit id="kiswahiliLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kiswahili</source>
+          <target state="new">Kiswahili</target>
+        </trans-unit>
+        <trans-unit id="koreanLabel.Text" translate="yes" xml:space="preserve">
+          <source>Korean</source>
+          <target state="new">Korean</target>
+        </trans-unit>
+        <trans-unit id="kyrgyzLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kyrgyz</source>
+          <target state="new">Kyrgyz</target>
+        </trans-unit>
+        <trans-unit id="malayalamLabel.Text" translate="yes" xml:space="preserve">
+          <source>Malayalam</source>
+          <target state="new">Malayalam</target>
+        </trans-unit>
+        <trans-unit id="malayLabel.Text" translate="yes" xml:space="preserve">
+          <source>Malay</source>
+          <target state="new">Malay</target>
+        </trans-unit>
+        <trans-unit id="norwegianBokmalLabel.Text" translate="yes" xml:space="preserve">
+          <source>Norwegian (Bokmål)</source>
+          <target state="new">Norwegian (Bokmål)</target>
+        </trans-unit>
+        <trans-unit id="pashtoLabel.Text" translate="yes" xml:space="preserve">
+          <source>Pashto</source>
+          <target state="new">Pashto</target>
+        </trans-unit>
+        <trans-unit id="persianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Persian</source>
+          <target state="new">Persian</target>
+        </trans-unit>
+        <trans-unit id="polishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Polish</source>
+          <target state="new">Polish</target>
+        </trans-unit>
+        <trans-unit id="portugueseBrazilLabel.Text" translate="yes" xml:space="preserve">
+          <source>Portuguese (Brazil)</source>
+          <target state="new">Portuguese (Brazil)</target>
+        </trans-unit>
+        <trans-unit id="portugueseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Portuguese</source>
+          <target state="new">Portuguese</target>
+        </trans-unit>
+        <trans-unit id="romanianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Romanian</source>
+          <target state="new">Romanian</target>
+        </trans-unit>
+        <trans-unit id="russianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Russian</source>
+          <target state="new">Russian</target>
+        </trans-unit>
+        <trans-unit id="serbianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Serbian</source>
+          <target state="new">Serbian</target>
+        </trans-unit>
+        <trans-unit id="slovakLabel.Text" translate="yes" xml:space="preserve">
+          <source>Slovak</source>
+          <target state="new">Slovak</target>
+        </trans-unit>
+        <trans-unit id="slovenianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Slovenian</source>
+          <target state="new">Slovenian</target>
+        </trans-unit>
+        <trans-unit id="spanishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Spanish</source>
+          <target state="new">Spanish</target>
+        </trans-unit>
+        <trans-unit id="swedishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Swedish</source>
+          <target state="new">Swedish</target>
+        </trans-unit>
+        <trans-unit id="tamilLabel.Text" translate="yes" xml:space="preserve">
+          <source>Tamil</source>
+          <target state="new">Tamil</target>
+        </trans-unit>
+        <trans-unit id="teluguLabel.Text" translate="yes" xml:space="preserve">
+          <source>Telugu</source>
+          <target state="new">Telugu</target>
+        </trans-unit>
+        <trans-unit id="thaiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Thai</source>
+          <target state="new">Thai</target>
+        </trans-unit>
+        <trans-unit id="tigrinyaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Tigrinya</source>
+          <target state="new">Tigrinya</target>
+        </trans-unit>
+        <trans-unit id="turkishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Turkish</source>
+          <target state="new">Turkish</target>
+        </trans-unit>
+        <trans-unit id="ukrainianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Ukrainian</source>
+          <target state="new">Ukrainian</target>
+        </trans-unit>
+        <trans-unit id="urduLabel.Text" translate="yes" xml:space="preserve">
+          <source>Urdu</source>
+          <target state="new">Urdu</target>
+        </trans-unit>
+        <trans-unit id="uzbekCyrillicLabel.Text" translate="yes" xml:space="preserve">
+          <source>Uzbek (Cyrillic)</source>
+          <target state="new">Uzbek (Cyrillic)</target>
+        </trans-unit>
+        <trans-unit id="uzbekLabel.Text" translate="yes" xml:space="preserve">
+          <source>Uzbek</source>
+          <target state="new">Uzbek</target>
+        </trans-unit>
+        <trans-unit id="vietnameseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Vietnamese</source>
+          <target state="new">Vietnamese</target>
+        </trans-unit>
       </group>
     </body>
   </file>

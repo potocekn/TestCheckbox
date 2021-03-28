@@ -61,11 +61,56 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Albanian.
+        /// </summary>
+        internal static string albanianLabel_Text {
+            get {
+                return ResourceManager.GetString("albanianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arabic.
+        /// </summary>
+        internal static string arabicLabel_Text {
+            get {
+                return ResourceManager.GetString("arabicLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automatic.
         /// </summary>
         internal static string AutomaticOptionLabel_Text {
             get {
                 return ResourceManager.GetString("AutomaticOptionLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Azerbaijani.
+        /// </summary>
+        internal static string azerbaijaniLabel_Text {
+            get {
+                return ResourceManager.GetString("azerbaijaniLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bulgarian.
+        /// </summary>
+        internal static string bulgarianLabel_Text {
+            get {
+                return ResourceManager.GetString("bulgarianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Central Kurdish.
+        /// </summary>
+        internal static string centralKurdishLabel_Text {
+            get {
+                return ResourceManager.GetString("centralKurdishLabel.Text", resourceCulture);
             }
         }
         
@@ -79,6 +124,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Croatian.
+        /// </summary>
+        internal static string croatianLabel_Text {
+            get {
+                return ResourceManager.GetString("croatianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Czech.
         /// </summary>
         internal static string czechLabel_Text {
@@ -88,11 +142,29 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dutch.
+        /// </summary>
+        internal static string dutchLabel_Text {
+            get {
+                return ResourceManager.GetString("dutchLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         internal static string englishLabel_Text {
             get {
                 return ResourceManager.GetString("englishLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estonian.
+        /// </summary>
+        internal static string estonianLabel_Text {
+            get {
+                return ResourceManager.GetString("estonianLabel.Text", resourceCulture);
             }
         }
         
@@ -124,11 +196,110 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Georgian.
+        /// </summary>
+        internal static string georgianLabel_Text {
+            get {
+                return ResourceManager.GetString("georgianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to German.
         /// </summary>
         internal static string germanLabel_Text {
             get {
                 return ResourceManager.GetString("germanLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hausa.
+        /// </summary>
+        internal static string hausaLabel_Text {
+            get {
+                return ResourceManager.GetString("hausaLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hindi.
+        /// </summary>
+        internal static string hindiLabel_Text {
+            get {
+                return ResourceManager.GetString("hindiLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hungarian.
+        /// </summary>
+        internal static string hungarianLabel_Text {
+            get {
+                return ResourceManager.GetString("hungarianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indonesian.
+        /// </summary>
+        internal static string indonesianLabel_Text {
+            get {
+                return ResourceManager.GetString("indonesianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to isiXhosa.
+        /// </summary>
+        internal static string isiXhosaLabel_Text {
+            get {
+                return ResourceManager.GetString("isiXhosaLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italian.
+        /// </summary>
+        internal static string italianLabel_Text {
+            get {
+                return ResourceManager.GetString("italianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kannada.
+        /// </summary>
+        internal static string kannadaLabel_Text {
+            get {
+                return ResourceManager.GetString("kannadaLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kiswahili.
+        /// </summary>
+        internal static string kiswahiliLabel_Text {
+            get {
+                return ResourceManager.GetString("kiswahiliLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korean.
+        /// </summary>
+        internal static string koreanLabel_Text {
+            get {
+                return ResourceManager.GetString("koreanLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kyrgyz.
+        /// </summary>
+        internal static string kyrgyzLabel_Text {
+            get {
+                return ResourceManager.GetString("kyrgyzLabel.Text", resourceCulture);
             }
         }
         
@@ -151,6 +322,33 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Malayalam.
+        /// </summary>
+        internal static string malayalamLabel_Text {
+            get {
+                return ResourceManager.GetString("malayalamLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Malay.
+        /// </summary>
+        internal static string malayLabel_Text {
+            get {
+                return ResourceManager.GetString("malayLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Norwegian (Bokmål).
+        /// </summary>
+        internal static string norwegianBokmalLabel_Text {
+            get {
+                return ResourceManager.GetString("norwegianBokmalLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Once a month.
         /// </summary>
         internal static string OnceAMonthOptionLabel_Text {
@@ -169,11 +367,74 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pashto.
+        /// </summary>
+        internal static string pashtoLabel_Text {
+            get {
+                return ResourceManager.GetString("pashtoLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Persian.
+        /// </summary>
+        internal static string persianLabel_Text {
+            get {
+                return ResourceManager.GetString("persianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polish.
+        /// </summary>
+        internal static string polishLabel_Text {
+            get {
+                return ResourceManager.GetString("polishLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portuguese (Brazil).
+        /// </summary>
+        internal static string portugueseBrazilLabel_Text {
+            get {
+                return ResourceManager.GetString("portugueseBrazilLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Portuguese.
+        /// </summary>
+        internal static string portugueseLabel_Text {
+            get {
+                return ResourceManager.GetString("portugueseLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Request.
         /// </summary>
         internal static string RequestUpdateButton_Text {
             get {
                 return ResourceManager.GetString("RequestUpdateButton.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Romanian.
+        /// </summary>
+        internal static string romanianLabel_Text {
+            get {
+                return ResourceManager.GetString("romanianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Russian.
+        /// </summary>
+        internal static string russianLabel_Text {
+            get {
+                return ResourceManager.GetString("russianLabel.Text", resourceCulture);
             }
         }
         
@@ -187,6 +448,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Serbian.
+        /// </summary>
+        internal static string serbianLabel_Text {
+            get {
+                return ResourceManager.GetString("serbianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string SettingsButton_Text {
@@ -196,11 +466,137 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slovak.
+        /// </summary>
+        internal static string slovakLabel_Text {
+            get {
+                return ResourceManager.GetString("slovakLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slovenian.
+        /// </summary>
+        internal static string slovenianLabel_Text {
+            get {
+                return ResourceManager.GetString("slovenianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spanish.
+        /// </summary>
+        internal static string spanishLabel_Text {
+            get {
+                return ResourceManager.GetString("spanishLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Swedish.
+        /// </summary>
+        internal static string swedishLabel_Text {
+            get {
+                return ResourceManager.GetString("swedishLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamil.
+        /// </summary>
+        internal static string tamilLabel_Text {
+            get {
+                return ResourceManager.GetString("tamilLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telugu.
+        /// </summary>
+        internal static string teluguLabel_Text {
+            get {
+                return ResourceManager.GetString("teluguLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thai.
+        /// </summary>
+        internal static string thaiLabel_Text {
+            get {
+                return ResourceManager.GetString("thaiLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tigrinya.
+        /// </summary>
+        internal static string tigrinyaLabel_Text {
+            get {
+                return ResourceManager.GetString("tigrinyaLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turkish.
+        /// </summary>
+        internal static string turkishLabel_Text {
+            get {
+                return ResourceManager.GetString("turkishLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukrainian.
+        /// </summary>
+        internal static string ukrainianLabel_Text {
+            get {
+                return ResourceManager.GetString("ukrainianLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Interval Settings.
         /// </summary>
         internal static string UpdateIntervalSettingsLabel_Text {
             get {
                 return ResourceManager.GetString("UpdateIntervalSettingsLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Urdu.
+        /// </summary>
+        internal static string urduLabel_Text {
+            get {
+                return ResourceManager.GetString("urduLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uzbek (Cyrillic).
+        /// </summary>
+        internal static string uzbekCyrillicLabel_Text {
+            get {
+                return ResourceManager.GetString("uzbekCyrillicLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uzbek.
+        /// </summary>
+        internal static string uzbekLabel_Text {
+            get {
+                return ResourceManager.GetString("uzbekLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vietnamese.
+        /// </summary>
+        internal static string vietnameseLabel_Text {
+            get {
+                return ResourceManager.GetString("vietnameseLabel.Text", resourceCulture);
             }
         }
         

@@ -75,6 +75,182 @@
           <source>Language of the resources:</source>
           <target state="translated">資源語言：</target>
         </trans-unit>
+        <trans-unit id="albanianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Albanian</source>
+          <target state="translated" state-qualifier="tm-suggestion">阿尔巴尼亚文</target>
+        </trans-unit>
+        <trans-unit id="arabicLabel.Text" translate="yes" xml:space="preserve">
+          <source>Arabic</source>
+          <target state="translated" state-qualifier="tm-suggestion">阿拉伯语</target>
+        </trans-unit>
+        <trans-unit id="azerbaijaniLabel.Text" translate="yes" xml:space="preserve">
+          <source>Azerbaijani</source>
+          <target state="translated" state-qualifier="tm-suggestion">阿塞拜疆语</target>
+        </trans-unit>
+        <trans-unit id="bulgarianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Bulgarian</source>
+          <target state="translated" state-qualifier="tm-suggestion">保加利亚文</target>
+        </trans-unit>
+        <trans-unit id="centralKurdishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Central Kurdish</source>
+          <target state="translated" state-qualifier="tm-suggestion">中库尔德语</target>
+        </trans-unit>
+        <trans-unit id="croatianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Croatian</source>
+          <target state="translated" state-qualifier="tm-suggestion">克罗地亚语</target>
+        </trans-unit>
+        <trans-unit id="dutchLabel.Text" translate="yes" xml:space="preserve">
+          <source>Dutch</source>
+          <target state="translated" state-qualifier="tm-suggestion">荷兰语</target>
+        </trans-unit>
+        <trans-unit id="estonianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Estonian</source>
+          <target state="translated" state-qualifier="tm-suggestion">爱沙尼亚文</target>
+        </trans-unit>
+        <trans-unit id="georgianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Georgian</source>
+          <target state="translated" state-qualifier="tm-suggestion">格鲁吉亚文</target>
+        </trans-unit>
+        <trans-unit id="hausaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hausa</source>
+          <target state="translated" state-qualifier="tm-suggestion">豪萨语</target>
+        </trans-unit>
+        <trans-unit id="hindiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hindi</source>
+          <target state="translated" state-qualifier="tm-suggestion">印地语</target>
+        </trans-unit>
+        <trans-unit id="hungarianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hungarian</source>
+          <target state="translated" state-qualifier="tm-suggestion">匈牙利语</target>
+        </trans-unit>
+        <trans-unit id="indonesianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Indonesian</source>
+          <target state="translated" state-qualifier="tm-suggestion">印度尼西亚语</target>
+        </trans-unit>
+        <trans-unit id="isiXhosaLabel.Text" translate="yes" xml:space="preserve">
+          <source>isiXhosa</source>
+          <target state="translated" state-qualifier="tm-suggestion">班图语</target>
+        </trans-unit>
+        <trans-unit id="italianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Italian</source>
+          <target state="translated" state-qualifier="tm-suggestion">意大利语</target>
+        </trans-unit>
+        <trans-unit id="kannadaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kannada</source>
+          <target state="translated" state-qualifier="tm-suggestion">埃纳德语</target>
+        </trans-unit>
+        <trans-unit id="kiswahiliLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kiswahili</source>
+          <target state="translated" state-qualifier="tm-suggestion">斯瓦希里语</target>
+        </trans-unit>
+        <trans-unit id="koreanLabel.Text" translate="yes" xml:space="preserve">
+          <source>Korean</source>
+          <target state="translated" state-qualifier="tm-suggestion">朝鲜语</target>
+        </trans-unit>
+        <trans-unit id="kyrgyzLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kyrgyz</source>
+          <target state="translated" state-qualifier="tm-suggestion">吉尔吉斯语</target>
+        </trans-unit>
+        <trans-unit id="malayalamLabel.Text" translate="yes" xml:space="preserve">
+          <source>Malayalam</source>
+          <target state="translated" state-qualifier="tm-suggestion">马拉雅拉姆语</target>
+        </trans-unit>
+        <trans-unit id="malayLabel.Text" translate="yes" xml:space="preserve">
+          <source>Malay</source>
+          <target state="translated" state-qualifier="tm-suggestion">马来语</target>
+        </trans-unit>
+        <trans-unit id="norwegianBokmalLabel.Text" translate="yes" xml:space="preserve">
+          <source>Norwegian (Bokmål)</source>
+          <target state="translated" state-qualifier="tm-suggestion">挪威语(博克马尔语)</target>
+        </trans-unit>
+        <trans-unit id="pashtoLabel.Text" translate="yes" xml:space="preserve">
+          <source>Pashto</source>
+          <target state="translated" state-qualifier="tm-suggestion">普什图语</target>
+        </trans-unit>
+        <trans-unit id="persianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Persian</source>
+          <target state="translated" state-qualifier="tm-suggestion">波斯文</target>
+        </trans-unit>
+        <trans-unit id="polishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Polish</source>
+          <target state="translated" state-qualifier="tm-suggestion">波兰语</target>
+        </trans-unit>
+        <trans-unit id="portugueseBrazilLabel.Text" translate="yes" xml:space="preserve">
+          <source>Portuguese (Brazil)</source>
+          <target state="translated" state-qualifier="tm-suggestion">葡萄牙语(巴西)</target>
+        </trans-unit>
+        <trans-unit id="portugueseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Portuguese</source>
+          <target state="translated" state-qualifier="tm-suggestion">葡萄牙语</target>
+        </trans-unit>
+        <trans-unit id="romanianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Romanian</source>
+          <target state="translated" state-qualifier="tm-suggestion">罗马尼亚语</target>
+        </trans-unit>
+        <trans-unit id="russianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Russian</source>
+          <target state="translated" state-qualifier="tm-suggestion">俄语</target>
+        </trans-unit>
+        <trans-unit id="serbianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Serbian</source>
+          <target state="translated" state-qualifier="tm-suggestion">塞尔维亚语</target>
+        </trans-unit>
+        <trans-unit id="slovakLabel.Text" translate="yes" xml:space="preserve">
+          <source>Slovak</source>
+          <target state="translated" state-qualifier="tm-suggestion">斯洛伐克语</target>
+        </trans-unit>
+        <trans-unit id="slovenianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Slovenian</source>
+          <target state="translated" state-qualifier="tm-suggestion">斯洛文尼亚语</target>
+        </trans-unit>
+        <trans-unit id="spanishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Spanish</source>
+          <target state="translated" state-qualifier="tm-suggestion">西班牙语</target>
+        </trans-unit>
+        <trans-unit id="swedishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Swedish</source>
+          <target state="translated" state-qualifier="tm-suggestion">瑞典语</target>
+        </trans-unit>
+        <trans-unit id="tamilLabel.Text" translate="yes" xml:space="preserve">
+          <source>Tamil</source>
+          <target state="translated" state-qualifier="tm-suggestion">泰米尔语</target>
+        </trans-unit>
+        <trans-unit id="teluguLabel.Text" translate="yes" xml:space="preserve">
+          <source>Telugu</source>
+          <target state="translated" state-qualifier="tm-suggestion">泰卢固语</target>
+        </trans-unit>
+        <trans-unit id="thaiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Thai</source>
+          <target state="translated" state-qualifier="tm-suggestion">泰语</target>
+        </trans-unit>
+        <trans-unit id="tigrinyaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Tigrinya</source>
+          <target state="translated" state-qualifier="tm-suggestion">提格里尼亚语</target>
+        </trans-unit>
+        <trans-unit id="turkishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Turkish</source>
+          <target state="translated" state-qualifier="tm-suggestion">土耳其语</target>
+        </trans-unit>
+        <trans-unit id="ukrainianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Ukrainian</source>
+          <target state="translated" state-qualifier="tm-suggestion">乌克兰文</target>
+        </trans-unit>
+        <trans-unit id="urduLabel.Text" translate="yes" xml:space="preserve">
+          <source>Urdu</source>
+          <target state="translated" state-qualifier="tm-suggestion">乌尔都语</target>
+        </trans-unit>
+        <trans-unit id="uzbekCyrillicLabel.Text" translate="yes" xml:space="preserve">
+          <source>Uzbek (Cyrillic)</source>
+          <target state="translated" state-qualifier="tm-suggestion">乌兹别克(西里尔语)</target>
+        </trans-unit>
+        <trans-unit id="uzbekLabel.Text" translate="yes" xml:space="preserve">
+          <source>Uzbek</source>
+          <target state="translated" state-qualifier="tm-suggestion">乌兹别克语</target>
+        </trans-unit>
+        <trans-unit id="vietnameseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Vietnamese</source>
+          <target state="translated" state-qualifier="tm-suggestion">越南文</target>
+        </trans-unit>
       </group>
     </body>
   </file>

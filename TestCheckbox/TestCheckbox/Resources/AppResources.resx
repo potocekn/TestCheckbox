@@ -117,17 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="albanianLabel.Text" xml:space="preserve">
+    <value>Albanian</value>
+  </data>
+  <data name="arabicLabel.Text" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
   <data name="AutomaticOptionLabel.Text" xml:space="preserve">
     <value>Automatic</value>
+  </data>
+  <data name="azerbaijaniLabel.Text" xml:space="preserve">
+    <value>Azerbaijani</value>
+  </data>
+  <data name="bulgarianLabel.Text" xml:space="preserve">
+    <value>Bulgarian</value>
+  </data>
+  <data name="centralKurdishLabel.Text" xml:space="preserve">
+    <value>Central Kurdish</value>
   </data>
   <data name="chineseLabel.Text" xml:space="preserve">
     <value>Chinese</value>
   </data>
+  <data name="croatianLabel.Text" xml:space="preserve">
+    <value>Croatian</value>
+  </data>
   <data name="czechLabel.Text" xml:space="preserve">
     <value>Czech</value>
   </data>
+  <data name="dutchLabel.Text" xml:space="preserve">
+    <value>Dutch</value>
+  </data>
   <data name="englishLabel.Text" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="estonianLabel.Text" xml:space="preserve">
+    <value>Estonian</value>
   </data>
   <data name="FormatButton.Text" xml:space="preserve">
     <value>Format Settings</value>
@@ -138,8 +162,41 @@
   <data name="frenchLabel.Text" xml:space="preserve">
     <value>French</value>
   </data>
+  <data name="georgianLabel.Text" xml:space="preserve">
+    <value>Georgian</value>
+  </data>
   <data name="germanLabel.Text" xml:space="preserve">
     <value>German</value>
+  </data>
+  <data name="hausaLabel.Text" xml:space="preserve">
+    <value>Hausa</value>
+  </data>
+  <data name="hindiLabel.Text" xml:space="preserve">
+    <value>Hindi</value>
+  </data>
+  <data name="hungarianLabel.Text" xml:space="preserve">
+    <value>Hungarian</value>
+  </data>
+  <data name="indonesianLabel.Text" xml:space="preserve">
+    <value>Indonesian</value>
+  </data>
+  <data name="isiXhosaLabel.Text" xml:space="preserve">
+    <value>isiXhosa</value>
+  </data>
+  <data name="italianLabel.Text" xml:space="preserve">
+    <value>Italian</value>
+  </data>
+  <data name="kannadaLabel.Text" xml:space="preserve">
+    <value>Kannada</value>
+  </data>
+  <data name="kiswahiliLabel.Text" xml:space="preserve">
+    <value>Kiswahili</value>
+  </data>
+  <data name="koreanLabel.Text" xml:space="preserve">
+    <value>Korean</value>
+  </data>
+  <data name="kyrgyzLabel.Text" xml:space="preserve">
+    <value>Kyrgyz</value>
   </data>
   <data name="LanguageChangeLabel.Text" xml:space="preserve">
     <value>Language Settings</value>
@@ -147,24 +204,99 @@
   <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
     <value>Language of the resources:</value>
   </data>
+  <data name="malayalamLabel.Text" xml:space="preserve">
+    <value>Malayalam</value>
+  </data>
+  <data name="malayLabel.Text" xml:space="preserve">
+    <value>Malay</value>
+  </data>
+  <data name="norwegianBokmalLabel.Text" xml:space="preserve">
+    <value>Norwegian (Bokmål)</value>
+  </data>
   <data name="OnceAMonthOptionLabel.Text" xml:space="preserve">
     <value>Once a month</value>
   </data>
   <data name="OnRequestOptionLabel.Text" xml:space="preserve">
     <value>On request</value>
   </data>
+  <data name="pashtoLabel.Text" xml:space="preserve">
+    <value>Pashto</value>
+  </data>
+  <data name="persianLabel.Text" xml:space="preserve">
+    <value>Persian</value>
+  </data>
+  <data name="polishLabel.Text" xml:space="preserve">
+    <value>Polish</value>
+  </data>
+  <data name="portugueseBrazilLabel.Text" xml:space="preserve">
+    <value>Portuguese (Brazil)</value>
+  </data>
+  <data name="portugueseLabel.Text" xml:space="preserve">
+    <value>Portuguese</value>
+  </data>
   <data name="RequestUpdateButton.Text" xml:space="preserve">
     <value>Update Request</value>
   </data>
+  <data name="romanianLabel.Text" xml:space="preserve">
+    <value>Romanian</value>
+  </data>
+  <data name="russianLabel.Text" xml:space="preserve">
+    <value>Russian</value>
+  </data>
   <data name="SaveButton.Text" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="serbianLabel.Text" xml:space="preserve">
+    <value>Serbian</value>
   </data>
   <data name="SettingsButton.Text" xml:space="preserve">
     <value>Settings</value>
     <comment>Setting tag on button</comment>
   </data>
+  <data name="slovakLabel.Text" xml:space="preserve">
+    <value>Slovak</value>
+  </data>
+  <data name="slovenianLabel.Text" xml:space="preserve">
+    <value>Slovenian</value>
+  </data>
+  <data name="spanishLabel.Text" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="swedishLabel.Text" xml:space="preserve">
+    <value>Swedish</value>
+  </data>
+  <data name="tamilLabel.Text" xml:space="preserve">
+    <value>Tamil</value>
+  </data>
+  <data name="teluguLabel.Text" xml:space="preserve">
+    <value>Telugu</value>
+  </data>
+  <data name="thaiLabel.Text" xml:space="preserve">
+    <value>Thai</value>
+  </data>
+  <data name="tigrinyaLabel.Text" xml:space="preserve">
+    <value>Tigrinya</value>
+  </data>
+  <data name="turkishLabel.Text" xml:space="preserve">
+    <value>Turkish</value>
+  </data>
+  <data name="ukrainianLabel.Text" xml:space="preserve">
+    <value>Ukrainian</value>
+  </data>
   <data name="UpdateIntervalSettingsLabel.Text" xml:space="preserve">
     <value>Update Interval Settings</value>
+  </data>
+  <data name="urduLabel.Text" xml:space="preserve">
+    <value>Urdu</value>
+  </data>
+  <data name="uzbekCyrillicLabel.Text" xml:space="preserve">
+    <value>Uzbek (Cyrillic)</value>
+  </data>
+  <data name="uzbekLabel.Text" xml:space="preserve">
+    <value>Uzbek</value>
+  </data>
+  <data name="vietnameseLabel.Text" xml:space="preserve">
+    <value>Vietnamese</value>
   </data>
   <data name="WifiLabel.Text" xml:space="preserve">
     <value>Download only when wifi is on</value>

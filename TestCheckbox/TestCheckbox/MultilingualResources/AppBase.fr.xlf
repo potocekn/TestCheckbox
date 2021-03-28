@@ -75,6 +75,182 @@
           <source>Language of the resources:</source>
           <target state="translated">Langue des ressources:</target>
         </trans-unit>
+        <trans-unit id="albanianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Albanian</source>
+          <target state="translated" state-qualifier="tm-suggestion">albanais</target>
+        </trans-unit>
+        <trans-unit id="arabicLabel.Text" translate="yes" xml:space="preserve">
+          <source>Arabic</source>
+          <target state="translated" state-qualifier="tm-suggestion">Arabe</target>
+        </trans-unit>
+        <trans-unit id="azerbaijaniLabel.Text" translate="yes" xml:space="preserve">
+          <source>Azerbaijani</source>
+          <target state="translated" state-qualifier="tm-suggestion">azerbaïdjanais</target>
+        </trans-unit>
+        <trans-unit id="bulgarianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Bulgarian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Bulgare</target>
+        </trans-unit>
+        <trans-unit id="centralKurdishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Central Kurdish</source>
+          <target state="translated" state-qualifier="tm-suggestion">Kurde central</target>
+        </trans-unit>
+        <trans-unit id="croatianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Croatian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Croate</target>
+        </trans-unit>
+        <trans-unit id="dutchLabel.Text" translate="yes" xml:space="preserve">
+          <source>Dutch</source>
+          <target state="translated" state-qualifier="tm-suggestion">Néerlandais</target>
+        </trans-unit>
+        <trans-unit id="estonianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Estonian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Estonien</target>
+        </trans-unit>
+        <trans-unit id="georgianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Georgian</source>
+          <target state="translated" state-qualifier="tm-suggestion">géorgien</target>
+        </trans-unit>
+        <trans-unit id="hausaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hausa</source>
+          <target state="translated" state-qualifier="tm-suggestion">haoussa</target>
+        </trans-unit>
+        <trans-unit id="hindiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hindi</source>
+          <target state="translated" state-qualifier="tm-suggestion">Hindou</target>
+        </trans-unit>
+        <trans-unit id="hungarianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Hungarian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Hongrois</target>
+        </trans-unit>
+        <trans-unit id="indonesianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Indonesian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Indonésien</target>
+        </trans-unit>
+        <trans-unit id="isiXhosaLabel.Text" translate="yes" xml:space="preserve">
+          <source>isiXhosa</source>
+          <target state="translated" state-qualifier="tm-suggestion">Xhosa</target>
+        </trans-unit>
+        <trans-unit id="italianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Italian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Italien</target>
+        </trans-unit>
+        <trans-unit id="kannadaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kannada</source>
+          <target state="translated" state-qualifier="tm-suggestion">kannada</target>
+        </trans-unit>
+        <trans-unit id="kiswahiliLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kiswahili</source>
+          <target state="translated" state-qualifier="tm-suggestion">Swahili</target>
+        </trans-unit>
+        <trans-unit id="koreanLabel.Text" translate="yes" xml:space="preserve">
+          <source>Korean</source>
+          <target state="translated" state-qualifier="tm-suggestion">Coréen</target>
+        </trans-unit>
+        <trans-unit id="kyrgyzLabel.Text" translate="yes" xml:space="preserve">
+          <source>Kyrgyz</source>
+          <target state="translated" state-qualifier="tm-suggestion">Kirghiz</target>
+        </trans-unit>
+        <trans-unit id="malayalamLabel.Text" translate="yes" xml:space="preserve">
+          <source>Malayalam</source>
+          <target state="translated" state-qualifier="tm-suggestion">Malayâlam</target>
+        </trans-unit>
+        <trans-unit id="malayLabel.Text" translate="yes" xml:space="preserve">
+          <source>Malay</source>
+          <target state="translated" state-qualifier="tm-suggestion">Malais</target>
+        </trans-unit>
+        <trans-unit id="norwegianBokmalLabel.Text" translate="yes" xml:space="preserve">
+          <source>Norwegian (Bokmål)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Norvégien (Bokmål)</target>
+        </trans-unit>
+        <trans-unit id="pashtoLabel.Text" translate="yes" xml:space="preserve">
+          <source>Pashto</source>
+          <target state="translated" state-qualifier="tm-suggestion">Pachto</target>
+        </trans-unit>
+        <trans-unit id="persianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Persian</source>
+          <target state="translated" state-qualifier="tm-suggestion">persan</target>
+        </trans-unit>
+        <trans-unit id="polishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Polish</source>
+          <target state="translated" state-qualifier="tm-suggestion">Polonais</target>
+        </trans-unit>
+        <trans-unit id="portugueseBrazilLabel.Text" translate="yes" xml:space="preserve">
+          <source>Portuguese (Brazil)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Portugais (Brésil)</target>
+        </trans-unit>
+        <trans-unit id="portugueseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Portuguese</source>
+          <target state="translated" state-qualifier="tm-suggestion">Portugais</target>
+        </trans-unit>
+        <trans-unit id="romanianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Romanian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Roumain</target>
+        </trans-unit>
+        <trans-unit id="russianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Russian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Russe</target>
+        </trans-unit>
+        <trans-unit id="serbianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Serbian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Serbe</target>
+        </trans-unit>
+        <trans-unit id="slovakLabel.Text" translate="yes" xml:space="preserve">
+          <source>Slovak</source>
+          <target state="translated" state-qualifier="tm-suggestion">Slovaque</target>
+        </trans-unit>
+        <trans-unit id="slovenianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Slovenian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Slovène</target>
+        </trans-unit>
+        <trans-unit id="spanishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Spanish</source>
+          <target state="translated" state-qualifier="tm-suggestion">Espagnol</target>
+        </trans-unit>
+        <trans-unit id="swedishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Swedish</source>
+          <target state="translated" state-qualifier="tm-suggestion">Suédois</target>
+        </trans-unit>
+        <trans-unit id="tamilLabel.Text" translate="yes" xml:space="preserve">
+          <source>Tamil</source>
+          <target state="translated" state-qualifier="tm-suggestion">tamoul</target>
+        </trans-unit>
+        <trans-unit id="teluguLabel.Text" translate="yes" xml:space="preserve">
+          <source>Telugu</source>
+          <target state="translated" state-qualifier="tm-suggestion">Télougou</target>
+        </trans-unit>
+        <trans-unit id="thaiLabel.Text" translate="yes" xml:space="preserve">
+          <source>Thai</source>
+          <target state="translated" state-qualifier="tm-suggestion">Thaï</target>
+        </trans-unit>
+        <trans-unit id="tigrinyaLabel.Text" translate="yes" xml:space="preserve">
+          <source>Tigrinya</source>
+          <target state="translated" state-qualifier="tm-suggestion">tigrinya</target>
+        </trans-unit>
+        <trans-unit id="turkishLabel.Text" translate="yes" xml:space="preserve">
+          <source>Turkish</source>
+          <target state="translated" state-qualifier="tm-suggestion">Turc</target>
+        </trans-unit>
+        <trans-unit id="ukrainianLabel.Text" translate="yes" xml:space="preserve">
+          <source>Ukrainian</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ukrainien</target>
+        </trans-unit>
+        <trans-unit id="urduLabel.Text" translate="yes" xml:space="preserve">
+          <source>Urdu</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ourdou</target>
+        </trans-unit>
+        <trans-unit id="uzbekCyrillicLabel.Text" translate="yes" xml:space="preserve">
+          <source>Uzbek (Cyrillic)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ouzbek (cyrillique)</target>
+        </trans-unit>
+        <trans-unit id="uzbekLabel.Text" translate="yes" xml:space="preserve">
+          <source>Uzbek</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ouzbek</target>
+        </trans-unit>
+        <trans-unit id="vietnameseLabel.Text" translate="yes" xml:space="preserve">
+          <source>Vietnamese</source>
+          <target state="translated" state-qualifier="tm-suggestion">Vietnamien</target>
+        </trans-unit>
       </group>
     </body>
   </file>
