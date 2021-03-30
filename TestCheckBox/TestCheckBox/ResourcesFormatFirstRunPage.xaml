@@ -5,7 +5,7 @@
              x:Class="AppBase.ResourcesFormatFirstRunPage">
     <ContentPage.Content>
         <StackLayout>            
-            <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" FontSize="Large" Margin="20"/>
+            <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.selectFormatOfResourcesLabel_Text}" FontSize="Large" Margin="20"/>
             <StackLayout>
                 <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
                 <Label x:Name="pdfLabel" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>

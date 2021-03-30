@@ -1,4 +1,5 @@
 ﻿using AppBase.Interfaces;
+using AppBase.UserSettingsHelpers;
 using AppBase.ViewModels;
 using AppBaseNamespace;
 using PCLStorage;
@@ -24,35 +25,17 @@ namespace AppBase
         {
             InitializeComponent();
             downloader.OnFileDownloaded += OnFileDownloaded;
-            DownloadFiles(downloader);
-            BindingContext = new PDFPageViewModel(app, Navigation);
+            DownloadFiles(downloader, app.resources);
+            BindingContext = new PDFPageViewModel(app, Navigation, app.resources);
         }
 
-        private void DownloadFiles(IDownloader downloader)
+        private void DownloadFiles(IDownloader downloader, List<ResourcesInfo> resources)
         {
-            string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
-            string fileName = Path.Combine(dir, "test.pdf");
-            PDFPageItemViewModel item = new PDFPageItemViewModel()
+            foreach (var item in resources)
             {
-                Language = "English",
-                ResourceName = "Test Resource",
-                FileName = "test.pdf",
-                Path = "http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf",
-                FilePath = fileName
-            };
-
-            downloader.DownloadFile(item.Path, dir, item.FileName);
-
-            fileName = Path.Combine(dir, "test2.pdf");
-            PDFPageItemViewModel item2 = new PDFPageItemViewModel()
-            {
-                Language = "English",
-                ResourceName = "Test Resource 2",
-                FileName = "test2.pdf",
-                Path = "http://www.4training.net/mediawiki/images/8/8b/Baptism.pdf",
-                FilePath = fileName
-            };
-            downloader.DownloadFile(item2.Path, dir, item2.FileName);
+                string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), item.Language);
+                downloader.DownloadFile(item.Url, dir, item.FileName);
+            }                       
         }
 
         private void OnFileDownloaded(object sender, DownloadEventArgs e)
@@ -91,7 +74,7 @@ namespace AppBase
                             File.WriteAllText(fileName, text); // writes to local storage
                             Console.WriteLine(text);
                         };
-                        var url = new Uri(resource.Path); // Html home page
+                        var url = new Uri(resource.Url); // Html home page
                         client.Encoding = Encoding.UTF8;
                         client.DownloadStringAsync(url);
                     }

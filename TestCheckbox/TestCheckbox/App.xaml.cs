@@ -13,11 +13,14 @@ namespace AppBaseNamespace
 {
     public partial class App : Application
     {
+        bool firstTimeRunning = true;
+        string userSettingsfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.json");
+        string resourcesfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resources.json");
+
         public bool IsFirst = true;
         public bool WasRefreshed = false;
-        bool firstTimeRunning = true;
-        string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.txt");
         public UserSettings userSettings;
+        public List<ResourcesInfo> resources;
 
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
         public App()
@@ -25,6 +28,7 @@ namespace AppBaseNamespace
             InitializeShortcuts();
             InitializeComponent();
             RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            RetrieveResources();
             SetAppLanguage(userSettings.AppLanguage);
             SynchronizeResources();
             if (firstTimeRunning)
@@ -65,12 +69,55 @@ namespace AppBaseNamespace
             
         }
 
+        private void RetrieveResources()
+        {
+            List<ResourcesInfo> resourcesInfos = new List<ResourcesInfo>();
+
+            if (File.Exists(resourcesfileName))
+            {
+                resourcesInfos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(File.ReadAllText(resourcesfileName).Trim());
+            }
+
+            resources = resourcesInfos;
+
+            /////////////////////////
+            ////    temporary   /////
+            /////////////////////////
+            //resources = new List<ResourcesInfo>();
+
+            //string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
+            //string fileName = Path.Combine(dir, "test.pdf");
+            //ResourcesInfo item = new ResourcesInfo()
+            //{
+            //    Language = "English",
+            //    ResourceName = "Test Resource",
+            //    FileName = "test.pdf",
+            //    Url = "http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf",
+            //    FilePath = fileName
+            //};
+            //resources.Add(item);
+
+            //fileName = Path.Combine(dir, "test2.pdf");
+            //ResourcesInfo item2 = new ResourcesInfo()
+            //{
+            //    Language = "English",
+            //    ResourceName = "Test Resource 2",
+            //    FileName = "test2.pdf",
+            //    Url = "http://www.4training.net/mediawiki/images/8/8b/Baptism.pdf",
+            //    FilePath = fileName
+            //};
+            //resources.Add(item2);
+            /////////////////////////
+            ////      end       /////
+            /////////////////////////
+        }
+
         private void RetrieveUserSettings(string path)
         {
             UserSettings result = new UserSettings(path);
-            if (File.Exists(fileName))
+            if (File.Exists(userSettingsfileName))
             {
-                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(fileName).Trim());
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(userSettingsfileName).Trim());
                 firstTimeRunning = false;
             }
 
@@ -82,7 +129,7 @@ namespace AppBaseNamespace
             WasRefreshed = true;
             userSettings.AppLanguage = previouslyChecked;
             Application.Current.Properties["currentLanguage"] = language;
-            File.WriteAllText(fileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
+            File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
             MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
         }
 
@@ -125,8 +172,14 @@ namespace AppBaseNamespace
 
         public void SaveUserSettings()
         {
-            File.WriteAllText(fileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
+            File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
         }
+
+        public void SaveResources()
+        {
+            File.WriteAllText(resourcesfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resources));
+        }
+
         protected override void OnStart()
         {
         }
@@ -134,6 +187,7 @@ namespace AppBaseNamespace
         protected override void OnSleep()
         {
             SaveUserSettings();
+            SaveResources();
         }
 
         protected override void OnResume()
