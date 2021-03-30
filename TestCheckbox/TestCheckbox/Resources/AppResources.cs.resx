@@ -64,4 +64,145 @@
   <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
     <value>Jazyk zdrojů:</value>
   </data>
+  <data name="albanianLabel.Text" xml:space="preserve">
+    <value>Albánština</value>
+  </data>
+  <data name="arabicLabel.Text" xml:space="preserve">
+    <value>Arabština</value>
+  </data>
+  <data name="azerbaijaniLabel.Text" xml:space="preserve">
+    <value>Ázerbájdžánština</value>
+  </data>
+  <data name="bulgarianLabel.Text" xml:space="preserve">
+    <value>Bulharština</value>
+  </data>
+  <data name="centralKurdishLabel.Text" xml:space="preserve">
+    <value>Kurdština (centrální)</value>
+  </data>
+  <data name="croatianLabel.Text" xml:space="preserve">
+    <value>Chorvatština</value>
+  </data>
+  <data name="dutchLabel.Text" xml:space="preserve">
+    <value>Holandština</value>
+  </data>
+  <data name="estonianLabel.Text" xml:space="preserve">
+    <value>Estonština</value>
+  </data>
+  <data name="georgianLabel.Text" xml:space="preserve">
+    <value>Gruzínština</value>
+  </data>
+  <data name="hausaLabel.Text" xml:space="preserve">
+    <value>Hauština</value>
+  </data>
+  <data name="hindiLabel.Text" xml:space="preserve">
+    <value>Hindština</value>
+  </data>
+  <data name="hungarianLabel.Text" xml:space="preserve">
+    <value>Maďarština</value>
+  </data>
+  <data name="indonesianLabel.Text" xml:space="preserve">
+    <value>Indonéština</value>
+  </data>
+  <data name="isiXhosaLabel.Text" xml:space="preserve">
+    <value>xhoština</value>
+  </data>
+  <data name="italianLabel.Text" xml:space="preserve">
+    <value>Italština</value>
+  </data>
+  <data name="kannadaLabel.Text" xml:space="preserve">
+    <value>Kannadština</value>
+  </data>
+  <data name="kiswahiliLabel.Text" xml:space="preserve">
+    <value>Svahilština</value>
+  </data>
+  <data name="koreanLabel.Text" xml:space="preserve">
+    <value>Korejština</value>
+  </data>
+  <data name="kyrgyzLabel.Text" xml:space="preserve">
+    <value>Kyrgyzština</value>
+  </data>
+  <data name="malayalamLabel.Text" xml:space="preserve">
+    <value>malajálamština</value>
+  </data>
+  <data name="malayLabel.Text" xml:space="preserve">
+    <value>Malajština</value>
+  </data>
+  <data name="norwegianBokmalLabel.Text" xml:space="preserve">
+    <value>Norština (Bokmal)</value>
+  </data>
+  <data name="pashtoLabel.Text" xml:space="preserve">
+    <value>Paštština</value>
+  </data>
+  <data name="persianLabel.Text" xml:space="preserve">
+    <value>Perština</value>
+  </data>
+  <data name="polishLabel.Text" xml:space="preserve">
+    <value>Polština</value>
+  </data>
+  <data name="portugueseBrazilLabel.Text" xml:space="preserve">
+    <value>Portugalština (Brazílie)</value>
+  </data>
+  <data name="portugueseLabel.Text" xml:space="preserve">
+    <value>Portugalština</value>
+  </data>
+  <data name="romanianLabel.Text" xml:space="preserve">
+    <value>Rumunština</value>
+  </data>
+  <data name="russianLabel.Text" xml:space="preserve">
+    <value>Ruština</value>
+  </data>
+  <data name="serbianLabel.Text" xml:space="preserve">
+    <value>Srbština</value>
+  </data>
+  <data name="slovakLabel.Text" xml:space="preserve">
+    <value>Slovenština</value>
+  </data>
+  <data name="slovenianLabel.Text" xml:space="preserve">
+    <value>Slovinština</value>
+  </data>
+  <data name="spanishLabel.Text" xml:space="preserve">
+    <value>Španělština</value>
+  </data>
+  <data name="swedishLabel.Text" xml:space="preserve">
+    <value>Švédština</value>
+  </data>
+  <data name="tamilLabel.Text" xml:space="preserve">
+    <value>Tamilština</value>
+  </data>
+  <data name="teluguLabel.Text" xml:space="preserve">
+    <value>Telugština</value>
+  </data>
+  <data name="thaiLabel.Text" xml:space="preserve">
+    <value>Thajština</value>
+  </data>
+  <data name="tigrinyaLabel.Text" xml:space="preserve">
+    <value>Tigriňňa</value>
+  </data>
+  <data name="turkishLabel.Text" xml:space="preserve">
+    <value>Turečtina</value>
+  </data>
+  <data name="ukrainianLabel.Text" xml:space="preserve">
+    <value>Ukrajinština</value>
+  </data>
+  <data name="urduLabel.Text" xml:space="preserve">
+    <value>Urdština</value>
+  </data>
+  <data name="uzbekCyrillicLabel.Text" xml:space="preserve">
+    <value>Uzbečtina (cyrilice)</value>
+  </data>
+  <data name="uzbekLabel.Text" xml:space="preserve">
+    <value>Uzbečtina</value>
+  </data>
+  <data name="vietnameseLabel.Text" xml:space="preserve">
+    <value>Vietnamština</value>
+  </data>
+  <data name="selectAppLanguageLabel.Text" xml:space="preserve">
+    <value>Vyberte prosím jazyk aplikace.</value>
+  </data>
+  <data name="selectFormatOfResourcesLabel.Text" xml:space="preserve">
+    <value>Vyberte prosím formáty zdrojů, které chcete uložit.</value>
+  </data>
+  <data name="selectResourceLanguagesLabel.Text" xml:space="preserve">
+    <value>Vyberte prosím jazyky zdrojů, které vás zajímají.</value>
+  </data>
 </root>

@@ -448,6 +448,33 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, select the language of the application..
+        /// </summary>
+        internal static string selectAppLanguageLabel_Text {
+            get {
+                return ResourceManager.GetString("selectAppLanguageLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, select the format of resources you wish to save..
+        /// </summary>
+        internal static string selectFormatOfResourcesLabel_Text {
+            get {
+                return ResourceManager.GetString("selectFormatOfResourcesLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, select the resource languages you are interested in..
+        /// </summary>
+        internal static string selectResourceLanguagesLabel_Text {
+            get {
+                return ResourceManager.GetString("selectResourceLanguagesLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Serbian.
         /// </summary>
         internal static string serbianLabel_Text {

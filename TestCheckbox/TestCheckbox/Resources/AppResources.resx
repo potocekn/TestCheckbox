@@ -246,6 +246,15 @@
   <data name="SaveButton.Text" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="selectAppLanguageLabel.Text" xml:space="preserve">
+    <value>Please, select the language of the application.</value>
+  </data>
+  <data name="selectFormatOfResourcesLabel.Text" xml:space="preserve">
+    <value>Please, select the format of resources you wish to save.</value>
+  </data>
+  <data name="selectResourceLanguagesLabel.Text" xml:space="preserve">
+    <value>Please, select the resource languages you are interested in.</value>
+  </data>
   <data name="serbianLabel.Text" xml:space="preserve">
     <value>Serbian</value>
   </data>

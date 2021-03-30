@@ -251,6 +251,18 @@
           <source>Vietnamese</source>
           <target state="new">Vietnamese</target>
         </trans-unit>
+        <trans-unit id="selectAppLanguageLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please, select the language of the application.</source>
+          <target state="new">Please, select the language of the application.</target>
+        </trans-unit>
+        <trans-unit id="selectFormatOfResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please, select the format of resources you wish to save.</source>
+          <target state="new">Please, select the format of resources you wish to save.</target>
+        </trans-unit>
+        <trans-unit id="selectResourceLanguagesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please, select the resource languages you are interested in.</source>
+          <target state="new">Please, select the resource languages you are interested in.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

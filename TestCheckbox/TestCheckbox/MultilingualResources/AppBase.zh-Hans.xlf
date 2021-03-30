@@ -251,6 +251,18 @@
           <source>Vietnamese</source>
           <target state="translated" state-qualifier="tm-suggestion">越南文</target>
         </trans-unit>
+        <trans-unit id="selectAppLanguageLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please, select the language of the application.</source>
+          <target state="translated">請選擇應用程序的語言。</target>
+        </trans-unit>
+        <trans-unit id="selectFormatOfResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please, select the format of resources you wish to save.</source>
+          <target state="translated">請選擇您要保存的資源格式。</target>
+        </trans-unit>
+        <trans-unit id="selectResourceLanguagesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please, select the resource languages you are interested in.</source>
+          <target state="translated">請選擇您感興趣的資源語言。</target>
+        </trans-unit>
       </group>
     </body>
   </file>

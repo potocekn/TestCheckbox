@@ -64,4 +64,145 @@
   <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
     <value>Langue des ressources:</value>
   </data>
+  <data name="albanianLabel.Text" xml:space="preserve">
+    <value>albanais</value>
+  </data>
+  <data name="arabicLabel.Text" xml:space="preserve">
+    <value>Arabe</value>
+  </data>
+  <data name="azerbaijaniLabel.Text" xml:space="preserve">
+    <value>azerbaïdjanais</value>
+  </data>
+  <data name="bulgarianLabel.Text" xml:space="preserve">
+    <value>Bulgare</value>
+  </data>
+  <data name="centralKurdishLabel.Text" xml:space="preserve">
+    <value>Kurde central</value>
+  </data>
+  <data name="croatianLabel.Text" xml:space="preserve">
+    <value>Croate</value>
+  </data>
+  <data name="dutchLabel.Text" xml:space="preserve">
+    <value>Néerlandais</value>
+  </data>
+  <data name="estonianLabel.Text" xml:space="preserve">
+    <value>Estonien</value>
+  </data>
+  <data name="georgianLabel.Text" xml:space="preserve">
+    <value>géorgien</value>
+  </data>
+  <data name="hausaLabel.Text" xml:space="preserve">
+    <value>haoussa</value>
+  </data>
+  <data name="hindiLabel.Text" xml:space="preserve">
+    <value>Hindou</value>
+  </data>
+  <data name="hungarianLabel.Text" xml:space="preserve">
+    <value>Hongrois</value>
+  </data>
+  <data name="indonesianLabel.Text" xml:space="preserve">
+    <value>Indonésien</value>
+  </data>
+  <data name="isiXhosaLabel.Text" xml:space="preserve">
+    <value>Xhosa</value>
+  </data>
+  <data name="italianLabel.Text" xml:space="preserve">
+    <value>Italien</value>
+  </data>
+  <data name="kannadaLabel.Text" xml:space="preserve">
+    <value>kannada</value>
+  </data>
+  <data name="kiswahiliLabel.Text" xml:space="preserve">
+    <value>Swahili</value>
+  </data>
+  <data name="koreanLabel.Text" xml:space="preserve">
+    <value>Coréen</value>
+  </data>
+  <data name="kyrgyzLabel.Text" xml:space="preserve">
+    <value>Kirghiz</value>
+  </data>
+  <data name="malayalamLabel.Text" xml:space="preserve">
+    <value>Malayâlam</value>
+  </data>
+  <data name="malayLabel.Text" xml:space="preserve">
+    <value>Malais</value>
+  </data>
+  <data name="norwegianBokmalLabel.Text" xml:space="preserve">
+    <value>Norvégien (Bokmål)</value>
+  </data>
+  <data name="pashtoLabel.Text" xml:space="preserve">
+    <value>Pachto</value>
+  </data>
+  <data name="persianLabel.Text" xml:space="preserve">
+    <value>persan</value>
+  </data>
+  <data name="polishLabel.Text" xml:space="preserve">
+    <value>Polonais</value>
+  </data>
+  <data name="portugueseBrazilLabel.Text" xml:space="preserve">
+    <value>Portugais (Brésil)</value>
+  </data>
+  <data name="portugueseLabel.Text" xml:space="preserve">
+    <value>Portugais</value>
+  </data>
+  <data name="romanianLabel.Text" xml:space="preserve">
+    <value>Roumain</value>
+  </data>
+  <data name="russianLabel.Text" xml:space="preserve">
+    <value>Russe</value>
+  </data>
+  <data name="serbianLabel.Text" xml:space="preserve">
+    <value>Serbe</value>
+  </data>
+  <data name="slovakLabel.Text" xml:space="preserve">
+    <value>Slovaque</value>
+  </data>
+  <data name="slovenianLabel.Text" xml:space="preserve">
+    <value>Slovène</value>
+  </data>
+  <data name="spanishLabel.Text" xml:space="preserve">
+    <value>Espagnol</value>
+  </data>
+  <data name="swedishLabel.Text" xml:space="preserve">
+    <value>Suédois</value>
+  </data>
+  <data name="tamilLabel.Text" xml:space="preserve">
+    <value>tamoul</value>
+  </data>
+  <data name="teluguLabel.Text" xml:space="preserve">
+    <value>Télougou</value>
+  </data>
+  <data name="thaiLabel.Text" xml:space="preserve">
+    <value>Thaï</value>
+  </data>
+  <data name="tigrinyaLabel.Text" xml:space="preserve">
+    <value>tigrinya</value>
+  </data>
+  <data name="turkishLabel.Text" xml:space="preserve">
+    <value>Turc</value>
+  </data>
+  <data name="ukrainianLabel.Text" xml:space="preserve">
+    <value>Ukrainien</value>
+  </data>
+  <data name="urduLabel.Text" xml:space="preserve">
+    <value>Ourdou</value>
+  </data>
+  <data name="uzbekCyrillicLabel.Text" xml:space="preserve">
+    <value>Ouzbek (cyrillique)</value>
+  </data>
+  <data name="uzbekLabel.Text" xml:space="preserve">
+    <value>Ouzbek</value>
+  </data>
+  <data name="vietnameseLabel.Text" xml:space="preserve">
+    <value>Vietnamien</value>
+  </data>
+  <data name="selectAppLanguageLabel.Text" xml:space="preserve">
+    <value>Veuillez sélectionner la langue de l'application.</value>
+  </data>
+  <data name="selectFormatOfResourcesLabel.Text" xml:space="preserve">
+    <value>Veuillez sélectionner le format des ressources que vous souhaitez enregistrer.</value>
+  </data>
+  <data name="selectResourceLanguagesLabel.Text" xml:space="preserve">
+    <value>Veuillez sélectionner les langues de ressources qui vous intéressent.</value>
+  </data>
 </root>
