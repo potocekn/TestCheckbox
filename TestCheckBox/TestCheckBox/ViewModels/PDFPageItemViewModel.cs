@@ -17,7 +17,5 @@ namespace AppBase.ViewModels
         public string Path { get; set; }
         public Command OpenResource { get; set; }
         public Command ShareResource { get; set; }
-
-
     }
 }
