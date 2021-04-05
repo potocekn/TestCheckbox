@@ -27,10 +27,25 @@ namespace AppBase.ViewModels
 
         void GetSource(string url)
         {
-            IDownloader downloader = DependencyService.Get<IDownloader>();
-            string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Images");
-            downloader.DownloadFile("http://www.4training.net/File:Relationship_Triangle.png", dir, "testImage.png");
-            string img = "http://www.4training.net/File:Relationship_Triangle.png";
+            //IDownloader downloader = DependencyService.Get<IDownloader>();
+            //string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Images");
+
+            //downloader.DownloadFile("https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png", dir, "testImage.png");
+            //string pathToFile = Path.Combine(dir, "testImage.png");
+            ////string img = "http://www.4training.net/File:Relationship_Triangle.png";
+            //string img = "file://" + pathToFile;
+            //byte[] image = new byte[0];
+            //try
+            //{
+            //    image = File.ReadAllBytes(pathToFile);
+            //}
+            //catch (Exception e)
+            //{
+
+            //}
+            
+            string base64String = Xamarin.Essentials.Preferences.Get("testImage.png", string.Empty);
+
             string htmlCode = "<!DOCTYPE html>" +
 "<html class=\"client-nojs\" lang=\"en\" dir=\"ltr\">" +
 "<head>" +
@@ -44,9 +59,9 @@ namespace AppBase.ViewModels
                                         "<div id=\"bodyContent\" class=\"mw-body-content\">" +
                                         "<div id=\"siteSub\">" + "From 4training</div>" +
                                       "<div id=\"contentSub\">" + "</div>" +
-"<img src=\"" + img +"\">" +
+"<img src=\"data:image/png;base64," + base64String + "\"></img>" +
 "<h2>" + "<span class=\"mw-headline\" id=\"Story\">" + "Story</span>" + "</h2>" +
-    "<p>" + "(Matthew 3:11, 13 - 17; 28:18 - 20)" +
+    "<p>" + "(Matthew 3:11, 13 - 17; 28:18 - 20)"+
 "</p>" + "<p>" + "<i>" + "Just before Jesus began to teach and heal people, He went out to the Jordan River to be baptized.A prophet named John was there calling people to turn from their sins because the Savior was coming soon.Jesus was that Savior they had been waiting for!</i>" +
     "</p>" + "<p>" + "<i>" + "Jesus had no sins to repent from, but He wanted to be baptized by John in order to be an example for us to follow and to show that He agreed with John’s message.At first John didn’t want to baptize Jesus and told Him, “I need to be baptized by you!” John knew that Jesus was much greater than him.However, after Jesus told John that it was the right thing to do, John agreed to baptize him.</i>" +
         "</p>" + "<p>" + "<i>" + "John baptized Jesus. So Jesus went down under the water and when He came up out of the water, God’s voice from heaven said, “This is my Son whom I love; with Him I am well pleased.”</i>" +
@@ -106,7 +121,7 @@ namespace AppBase.ViewModels
                 htmlCode = client.DownloadString(url);
             }*/
             HTMLSource.Html = htmlCode;
-            HTMLSource.BaseUrl = img;
+            //HTMLSource.BaseUrl = "https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png";
         }
     }
 }

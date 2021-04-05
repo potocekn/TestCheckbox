@@ -8,6 +8,8 @@ using System.IO;
 using System.Collections.Generic;
 using AppBase.UserSettingsHelpers;
 using AppBase;
+using AppBase.Interfaces;
+using AppBase.Helpers;
 
 namespace AppBaseNamespace
 {
@@ -69,7 +71,7 @@ namespace AppBaseNamespace
             
         }
 
-        private void RetrieveResources()
+        private async void RetrieveResources()
         {
             List<ResourcesInfo> resourcesInfos = new List<ResourcesInfo>();
 
@@ -83,30 +85,34 @@ namespace AppBaseNamespace
             /////////////////////////
             ////    temporary   /////
             /////////////////////////
-            //resources = new List<ResourcesInfo>();
+            resources = new List<ResourcesInfo>();
 
-            //string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
-            //string fileName = Path.Combine(dir, "test.pdf");
-            //ResourcesInfo item = new ResourcesInfo()
-            //{
-            //    Language = "English",
-            //    ResourceName = "Test Resource",
-            //    FileName = "test.pdf",
-            //    Url = "http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf",
-            //    FilePath = fileName
-            //};
-            //resources.Add(item);
+            string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
+            string fileName = Path.Combine(dir, "test.pdf");
+            ResourcesInfo item = new ResourcesInfo()
+            {
+                Language = "English",
+                ResourceName = "Test Resource",
+                FileName = "test.pdf",
+                Url = "http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf",
+                FilePath = fileName
+            };
+            resources.Add(item);
 
-            //fileName = Path.Combine(dir, "test2.pdf");
-            //ResourcesInfo item2 = new ResourcesInfo()
-            //{
-            //    Language = "English",
-            //    ResourceName = "Test Resource 2",
-            //    FileName = "test2.pdf",
-            //    Url = "http://www.4training.net/mediawiki/images/8/8b/Baptism.pdf",
-            //    FilePath = fileName
-            //};
-            //resources.Add(item2);
+            fileName = Path.Combine(dir, "test2.pdf");
+            ResourcesInfo item2 = new ResourcesInfo()
+            {
+                Language = "English",
+                ResourceName = "Test Resource 2",
+                FileName = "test2.pdf",
+                Url = "http://www.4training.net/mediawiki/images/8/8b/Baptism.pdf",
+                FilePath = fileName
+            };
+            resources.Add(item2);
+
+            var downloadedImage = await ImageService.DownloadImage("https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png");
+
+            ImageService.SaveToDisk("testImage.png", downloadedImage);
             /////////////////////////
             ////      end       /////
             /////////////////////////

@@ -1,4 +1,5 @@
-﻿using AppBase.ViewModels;
+﻿using AppBase.Interfaces;
+using AppBase.ViewModels;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,8 @@ namespace AppBase
     {
         public HTMLPage(App app)
         {
-            InitializeComponent();
-            BindingContext = new HTMLPageViewModel(app);
+            InitializeComponent();            
+            BindingContext = new HTMLPageViewModel(app);            
             webView.Source = (BindingContext as HTMLPageViewModel).HTMLSource;
         }
     }

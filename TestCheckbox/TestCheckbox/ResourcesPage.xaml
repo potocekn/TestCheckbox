@@ -6,8 +6,7 @@
         <StackLayout>
             <Button Text="PDFs" Command="{Binding GoToPDFs}"/>
             <Button Text="HTMLs WebView" Command="{Binding GoToHTMLs}"/>
-            <Button Text="HTMLs Labels" Command="{Binding GoToHTMLsLabels}>
-                
+            <Button Text="HTMLs Labels" Command="{Binding GoToHTMLsLabels}"/>             
                 
         </StackLayout>
     </ContentPage.Content>
