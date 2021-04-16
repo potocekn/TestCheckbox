@@ -110,6 +110,17 @@ namespace AppBaseNamespace
             };
             resources.Add(item2);
 
+            fileName = Path.Combine(dir, "test3.odt");
+            ResourcesInfo item3 = new ResourcesInfo()
+            {
+                Language = "English",
+                ResourceName = "Test Resource ODT",
+                FileName = "test3.odt",
+                Url = "https://www.4training.net/mediawiki/images/a/a8/Church.odt",
+                FilePath = fileName
+            };
+            resources.Add(item3);
+
             var downloadedImage = await ImageService.DownloadImage("https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png");
 
             ImageService.SaveToDisk("testImage.png", downloadedImage);
