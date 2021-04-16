@@ -1,5 +1,4 @@
 ﻿using AppBaseNamespace;
-using Plugin.XamarinFormsSaveOpenPDFPackage;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,7 +29,7 @@ namespace AppBase.ViewModels
             });
         }
 
-        async void LoadAndOpenResource()
+        /*async void LoadAndOpenResource()
         {
             var httpClient = new HttpClient();
             var stream = await httpClient.GetStreamAsync("http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf");
@@ -42,6 +41,6 @@ namespace AppBase.ViewModels
             }
 
                 
-        }
+        }*/
     }
 }

@@ -1,6 +1,5 @@
 ﻿using AppBase.Interfaces;
 using AppBaseNamespace;
-using Plugin.XamarinFormsSaveOpenPDFPackage;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -58,8 +57,8 @@ namespace AppBase.ViewModels
               "<h1 id=\"firstHeading\" class=\"firstHeading\" lang=\"en\">" + "Baptism </h1>" +
                                         "<div id=\"bodyContent\" class=\"mw-body-content\">" +
                                         "<div id=\"siteSub\">" + "From 4training</div>" +
-                                      "<div id=\"contentSub\">" + "</div>" +
-"<img src=\"data:image/png;base64," + base64String + "\"></img>" +
+                                      "<div id=\"contentSub\">" + "</div>" + 
+"<img src=\"data:image/png;base64," + base64String + "\" width=\"300\" height=\"200\"></img>" +
 "<h2>" + "<span class=\"mw-headline\" id=\"Story\">" + "Story</span>" + "</h2>" +
     "<p>" + "(Matthew 3:11, 13 - 17; 28:18 - 20)"+
 "</p>" + "<p>" + "<i>" + "Just before Jesus began to teach and heal people, He went out to the Jordan River to be baptized.A prophet named John was there calling people to turn from their sins because the Savior was coming soon.Jesus was that Savior they had been waiting for!</i>" +
