@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label x:Name="labelTest"  
+                <Label x:Name="labelTest"  TextColor="DarkSlateGray"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
             </StackLayout>
