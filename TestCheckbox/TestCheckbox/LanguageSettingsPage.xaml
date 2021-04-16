@@ -7,13 +7,13 @@
         <ScrollView>
             <StackLayout>
 
-                <Label x:Name="LanguageChangeLabel" Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Margin="20, 10,0,0" FontSize="30"/>
+                <Label x:Name="LanguageChangeLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Margin="20, 10,0,0" FontSize="30"/>
                 <StackLayout BindableLayout.ItemsSource="{Binding Items}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50,10,0,0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
-                            <Label Text="{Binding Value}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Value}" TextColor="DarkSlateGray" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Label.GestureRecognizers>
@@ -23,7 +23,7 @@
                 </BindableLayout.ItemTemplate>
                     <StackLayout Orientation="Horizontal">
                         <CheckBox x:Name="englishCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50,10,0,0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
-                        <Label x:Name="englishLabel" Text="{x:Static resources:AppResources.englishLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="englishLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.englishLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                             </Label.GestureRecognizers>
@@ -32,7 +32,7 @@
                     
                     <StackLayout Orientation="Horizontal">
                         <CheckBox x:Name="germanCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50,10,0,0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
-                        <Label x:Name="germanLabel" Text="{x:Static resources:AppResources.germanLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="germanLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.germanLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                             </Label.GestureRecognizers>
@@ -41,7 +41,7 @@
                     
                     <StackLayout Orientation="Horizontal">
                         <CheckBox x:Name="czechCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50,10,0,0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
-                        <Label x:Name="czechLabel" Text="{x:Static resources:AppResources.czechLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="czechLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.czechLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                             </Label.GestureRecognizers>
@@ -50,7 +50,7 @@
 
                     <StackLayout Orientation="Horizontal">
                         <CheckBox x:Name="frenchCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50,10,0,0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
-                        <Label x:Name="frenchLabel" Text="{x:Static resources:AppResources.frenchLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="frenchLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.frenchLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                             </Label.GestureRecognizers>
@@ -59,7 +59,7 @@
                     
                     <StackLayout Orientation="Horizontal">
                         <CheckBox x:Name="chineseCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50,10,0,0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
-                        <Label x:Name="chineseLabel" Text="{x:Static resources:AppResources.chineseLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="chineseLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.chineseLabel_Text}" FontSize="20" Margin="0,12,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                             </Label.GestureRecognizers>

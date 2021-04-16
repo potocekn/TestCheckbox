@@ -4,19 +4,19 @@
              xmlns:resources="clr-namespace:AppBase.Resources"
              x:Class="AppBase.ResourcesFormatFirstRunPage">
     <ContentPage.Content>
-        <StackLayout>            
-            <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.selectFormatOfResourcesLabel_Text}" FontSize="Large" Margin="20"/>
+        <StackLayout>
+            <Label x:Name="FormatSelectionLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.selectFormatOfResourcesLabel_Text}" FontSize="Large" Margin="20"/>
             <StackLayout>
                 <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                <Label x:Name="pdfLabel" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
+                <Label x:Name="pdfLabel" TextColor="DarkSlateGray" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
             </StackLayout>
             <StackLayout>
                 <Switch x:Name="htmlSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                <Label  x:Name="htmlLabel" Text="HTML" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
+                <Label  x:Name="htmlLabel" TextColor="DarkSlateGray" Text="HTML" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
             </StackLayout>
             <StackLayout>
                 <Switch x:Name="odtSwitch" Toggled="OnToggled"  VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                <Label  x:Name="odtLabel" Text="ODT" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
+                <Label  x:Name="odtLabel" TextColor="DarkSlateGray" Text="ODT" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
             </StackLayout>
             <Button Text="Next" HorizontalOptions="End" Margin="0,0, 20,0" WidthRequest="100" HeightRequest="50"  BackgroundColor="#2196F3" TextColor="White" Command="{Binding GoToNextPage}"/>
         </StackLayout>        
