@@ -10,6 +10,7 @@ using AppBase.UserSettingsHelpers;
 using AppBase;
 using AppBase.Interfaces;
 using AppBase.Helpers;
+using Xamarin.Essentials;
 
 namespace AppBaseNamespace
 {
@@ -71,7 +72,7 @@ namespace AppBaseNamespace
             
         }
 
-        private async void RetrieveResources()
+        private void RetrieveResources()
         {
             List<ResourcesInfo> resourcesInfos = new List<ResourcesInfo>();
 
@@ -80,11 +81,76 @@ namespace AppBaseNamespace
                 resourcesInfos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(File.ReadAllText(resourcesfileName).Trim());
             }
 
-            resources = resourcesInfos;
+            resources = resourcesInfos;           
+        }
 
-            /////////////////////////
-            ////    temporary   /////
-            /////////////////////////
+        private void RetrieveUserSettings(string path)
+        {
+            UserSettings result = new UserSettings(path);
+            if (File.Exists(userSettingsfileName))
+            {
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(userSettingsfileName).Trim());
+                firstTimeRunning = false;
+            }
+
+            userSettings = result;
+        }
+
+        public void ReloadApp(string language, string previouslyChecked)
+        {
+            WasRefreshed = true;
+            userSettings.AppLanguage = previouslyChecked;
+            Application.Current.Properties["currentLanguage"] = language;
+            File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
+            MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
+        }
+
+        void SynchronizeResources()
+        {
+            switch (userSettings.UpdateInterval)
+            {
+                case "Automatic":
+                    HandleAutomaticUpdate(DateTime.Now);
+                    break;
+                case "Once a Month":
+                    HandleOnceAMonthUpdate(DateTime.Now);
+                    break;
+                case "On request":                    
+                    break;
+                default:
+                    HandleAutomaticUpdate(DateTime.Now);
+                    break;
+            }
+        }
+
+        public  void HandleOnRequestUpdate(DateTime now)
+        {
+            //toto tu sa bude volat po kliknuti na button request update
+        }
+
+        private void HandleOnceAMonthUpdate(DateTime now)
+        {           
+            if (now.Subtract(userSettings.DateOfLastUpdate).TotalDays > 28)
+            {                
+                HandleAutomaticUpdate(now);
+            }
+        }
+
+        private void HandleAutomaticUpdate(DateTime now)
+        {
+            userSettings.DateOfLastUpdate = now;
+            //tuto sa bude so serverom komunikovat
+
+            var current = Connectivity.NetworkAccess;
+
+            if (current == NetworkAccess.Internet)
+            {
+                DownloadTestFiles();
+            }            
+        }
+
+        private async void DownloadTestFiles()
+        {           
             resources = new List<ResourcesInfo>();
 
             string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
@@ -123,68 +189,7 @@ namespace AppBaseNamespace
 
             var downloadedImage = await ImageService.DownloadImage("https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png");
 
-            ImageService.SaveToDisk("testImage.png", downloadedImage);
-            /////////////////////////
-            ////      end       /////
-            /////////////////////////
-        }
-
-        private void RetrieveUserSettings(string path)
-        {
-            UserSettings result = new UserSettings(path);
-            if (File.Exists(userSettingsfileName))
-            {
-                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(userSettingsfileName).Trim());
-                firstTimeRunning = false;
-            }
-
-            userSettings = result;
-        }
-
-        public void ReloadApp(string language, string previouslyChecked)
-        {
-            WasRefreshed = true;
-            userSettings.AppLanguage = previouslyChecked;
-            Application.Current.Properties["currentLanguage"] = language;
-            File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
-            MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
-        }
-
-        void SynchronizeResources()
-        {
-            switch (userSettings.UpdateInterval)
-            {
-                case "Automatic":
-                    HandleAutomaticUpdate(DateTime.Now);
-                    break;
-                case "Once a month":
-                    HandleOnceAMonthUpdate(DateTime.Now);
-                    break;
-                case "On request":                    
-                    break;
-                default:
-                    HandleAutomaticUpdate(DateTime.Now);
-                    break;
-            }
-        }
-
-        public  void HandleOnRequestUpdate(DateTime now)
-        {
-            //toto tu sa bude volat po kliknuti na button request update
-        }
-
-        private void HandleOnceAMonthUpdate(DateTime now)
-        {           
-            if (now.Subtract(userSettings.DateOfLastUpdate).TotalDays > 28)
-            {                
-                HandleAutomaticUpdate(now);
-            }
-        }
-
-        private void HandleAutomaticUpdate(DateTime now)
-        {
-            userSettings.DateOfLastUpdate = now;
-            //tuto sa bude so serverom komunikovat
+            ImageService.SaveToDisk("testImage.png", downloadedImage);            
         }
 
         public void SaveUserSettings()
