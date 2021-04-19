@@ -86,7 +86,7 @@ namespace AppBase
                        "</body>" +
                        "</html>";
 
-            editor.Text = htmlCode;
+            labelTest.Text = htmlCode;
         }
     }
 }
