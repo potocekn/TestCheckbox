@@ -16,33 +16,8 @@ namespace AppBase
             var localPath = string.Empty;
 
             if (Device.RuntimePlatform == Device.Android)
-            {
-                //var dependency = DependencyService.Get<ILocalFileProvider>();
-
-                //if (dependency == null)
-                //{
-                //    DisplayAlert("Error loading PDF", "Computer says no", "OK");
-
-                //    return;
-                //}
-
-                //var fileName = Guid.NewGuid().ToString();
-
-                //// Download PDF locally for viewing
-                //using (var httpClient = new HttpClient())
-                //{
-                //    var pdfStream = Task.Run(() => httpClient.GetStreamAsync(url)).Result;
-
-                //    localPath =
-                //        Task.Run(() => dependency.SaveFileToDisk(pdfStream, $"{fileName}.pdf")).Result;
-                //}
-                localPath = path;
-                //if (string.IsNullOrWhiteSpace(localPath))
-                //{
-                //    DisplayAlert("Error loading PDF", "Computer says no", "OK");
-
-                //    return;
-                //}
+            {                
+                localPath = path;                
             }
 
             if (Device.RuntimePlatform == Device.Android)
