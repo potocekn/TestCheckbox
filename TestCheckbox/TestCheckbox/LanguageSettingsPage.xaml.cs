@@ -34,7 +34,7 @@ namespace AppBaseNamespace
 
         async void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            await ((LanguageSettingsPageViewModel)BindingContext).OnCheckBoxCheckedChangedAsync(((sender as CheckBox).BindingContext as LanguageSettingsItemViewModel));
+            await ((LanguageSettingsPageViewModel)BindingContext).OnCheckBoxCheckedChangedAsync(((sender as CheckBox).BindingContext as LanguageSettingsItem));
 
         }
         

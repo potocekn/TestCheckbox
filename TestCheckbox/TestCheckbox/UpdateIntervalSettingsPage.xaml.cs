@@ -15,7 +15,7 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UpdateIntervalSettingsPage : ContentPage
     {
-        List<UpdateIntervalSettingsItemViewModel> Checkboxes = new List<UpdateIntervalSettingsItemViewModel>();
+        List<UpdateIntervalSettingsItem> Checkboxes = new List<UpdateIntervalSettingsItem>();
         public UpdateIntervalSettingsPage(App app, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
@@ -52,7 +52,7 @@ namespace AppBase
 
         void AddItem(string name, bool isChecked, bool wasUpdated, string englishName)
         {
-            Checkboxes.Add(new UpdateIntervalSettingsItemViewModel()
+            Checkboxes.Add(new UpdateIntervalSettingsItem()
             {
                 Name = name,
                 WasUpdated = wasUpdated,
@@ -62,7 +62,7 @@ namespace AppBase
         }
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            (BindingContext as UpdateIntervalSettingsPageViewModel).OnCheckedChanged(((sender as CheckBox).BindingContext as UpdateIntervalSettingsItemViewModel));
+            (BindingContext as UpdateIntervalSettingsPageViewModel).OnCheckedChanged(((sender as CheckBox).BindingContext as UpdateIntervalSettingsItem));
         }
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {

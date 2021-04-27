@@ -17,10 +17,10 @@ namespace AppBase
         public ResourcesFormatFirstRunPage(App app)
         {
             InitializeComponent();
-            List<ResourceFormatSettingsItemViewModel> switches = new List<ResourceFormatSettingsItemViewModel>();
-            switches.Add(new ResourceFormatSettingsItemViewModel(pdfSwitch, pdfLabel.Text));
-            switches.Add(new ResourceFormatSettingsItemViewModel(htmlSwitch, htmlLabel.Text));
-            switches.Add(new ResourceFormatSettingsItemViewModel(odtSwitch, odtLabel.Text));
+            List<ResourceFormatSettingsItem> switches = new List<ResourceFormatSettingsItem>();
+            switches.Add(new ResourceFormatSettingsItem(pdfSwitch, pdfLabel.Text));
+            switches.Add(new ResourceFormatSettingsItem(htmlSwitch, htmlLabel.Text));
+            switches.Add(new ResourceFormatSettingsItem(odtSwitch, odtLabel.Text));
             BindingContext = new ResourcesFormatFirstRunPageViewModel(app, Navigation, switches);
         }
 

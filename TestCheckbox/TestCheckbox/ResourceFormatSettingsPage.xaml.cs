@@ -19,12 +19,12 @@ namespace AppBaseNamespace
             InitializeComponent();
             
             List<string> languages = new List<string> { "English", "Czech", "German" };
-            List<ResourceFormatSettingsItemViewModel> switches = new List<ResourceFormatSettingsItemViewModel>();
+            List<ResourceFormatSettingsItem> switches = new List<ResourceFormatSettingsItem>();
             
-            switches.Add(new ResourceFormatSettingsItemViewModel(wifiSwitch, "wifi"));
-            switches.Add(new ResourceFormatSettingsItemViewModel(pdfSwitch, pdfLabel.Text));
-            switches.Add(new ResourceFormatSettingsItemViewModel(htmlSwitch, htmlLabel.Text));
-            switches.Add(new ResourceFormatSettingsItemViewModel(odtSwitch, odtLabel.Text));
+            switches.Add(new ResourceFormatSettingsItem(wifiSwitch, "wifi"));
+            switches.Add(new ResourceFormatSettingsItem(pdfSwitch, pdfLabel.Text));
+            switches.Add(new ResourceFormatSettingsItem(htmlSwitch, htmlLabel.Text));
+            switches.Add(new ResourceFormatSettingsItem(odtSwitch, odtLabel.Text));
 
             BindingContext = new ResourceFormatSettingsPageViewModel(app, mainPageViewModel, languages, switches);
 
