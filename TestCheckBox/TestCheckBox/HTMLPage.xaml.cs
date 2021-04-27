@@ -1,4 +1,5 @@
 ﻿using AppBase.Interfaces;
+using AppBase.Models;
 using AppBase.ViewModels;
 using AppBaseNamespace;
 using System;
@@ -15,10 +16,10 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HTMLPage : ContentPage
     {
-        public HTMLPage(App app)
+        public HTMLPage(HtmlRecord record)
         {
             InitializeComponent();            
-            BindingContext = new HTMLPageViewModel(app);            
+            BindingContext = new HTMLPageViewModel(record);            
             webView.Source = (BindingContext as HTMLPageViewModel).HTMLSource;
         }
     }

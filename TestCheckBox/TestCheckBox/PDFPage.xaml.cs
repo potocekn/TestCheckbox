@@ -21,12 +21,12 @@ namespace AppBase
     public partial class PDFPage : ContentPage
     {
         IDownloader downloader = DependencyService.Get<IDownloader>();
-        public PDFPage(App app)
+        public PDFPage(List<ResourcesInfo> resources)
         {
             InitializeComponent();
             downloader.OnFileDownloaded += OnFileDownloaded;
-            DownloadFiles(downloader, app.resources);
-            BindingContext = new PDFPageViewModel(app, Navigation, app.resources);
+            DownloadFiles(downloader, resources);
+            BindingContext = new PDFPageViewModel(Navigation, resources);
         }
 
         private void DownloadFiles(IDownloader downloader, List<ResourcesInfo> resources)
@@ -50,7 +50,7 @@ namespace AppBase
             }
         }
 
-        private void SaveFile(PDFPageItemViewModel resource)
+        private void SaveFile(PDFPageItem resource)
         {
             string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), resource.Language);
 
@@ -86,10 +86,6 @@ namespace AppBase
                 }
             }
         }
-
-        //public async void OnButtonClickShare(object sender, EventArgs args)
-        //{
-        //    await (BindingContext as PDFPageViewModel).OnButtonClickShareAsync(sender as Button);
-        //}
+               
     }
 }

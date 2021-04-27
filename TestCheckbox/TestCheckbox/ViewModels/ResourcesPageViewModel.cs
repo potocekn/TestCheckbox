@@ -19,28 +19,14 @@ namespace AppBase.ViewModels
         {
             this.app = app;
             GoToPDFs = new Command(() => {
-                navigation.PushAsync(new PDFPage(app));
+                navigation.PushAsync(new PDFPage(app.resources));
             });
             GoToHTMLs = new Command(() => {
-                navigation.PushAsync(new HTMLPage(app));
+                navigation.PushAsync(new HTMLResourcesPage());
             });
             GoToHTMLsLabels = new Command(() => {
                 navigation.PushAsync(new LabelPage());
             });
-        }
-
-        /*async void LoadAndOpenResource()
-        {
-            var httpClient = new HttpClient();
-            var stream = await httpClient.GetStreamAsync("http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf");
-
-            using (var memoryStream = new MemoryStream())
-            {
-                await stream.CopyToAsync(memoryStream);
-                await CrossXamarinFormsSaveOpenPDFPackage.Current.SaveAndView("test.pdf", "application/pdf", memoryStream, PDFOpenContext.InApp);
-            }
-
-                
-        }*/
+        }                
     }
 }
