@@ -8,6 +8,9 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// Class representing view model of the page that is shown on the very first run of the application where user decides what language of application will be used.
+    /// </summary>
     public class AppLanguageFirstRunPageViewModel
     {
         public List<LanguageSettingsItemViewModel> Items { get; }
@@ -17,32 +20,55 @@ namespace AppBase.ViewModels
         public AppLanguageFirstRunPageViewModel(App app, INavigation navigation, IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
         {
             this.app = app;
-            bool isFirst = true;
+            
             GoToNextPage = new Command(() => {
                 app.IsFirst = false;
-                navigation.PushAsync(new ResourceLanguagesFirstRunPage(app)); ////////////////////////////////////////////////////////////////////////////////////////////////////////
+                navigation.PushAsync(new ResourceLanguagesFirstRunPage(app)); 
             });
-            Items = new List<LanguageSettingsItemViewModel>();
+            Items = CreateItems(items,shortcuts,englishVersions);
+        }
+
+        /// <summary>
+        /// Method that creates list of Items that should be displayed in the page.
+        /// </summary>
+        /// <param name="items">list of languages</param>
+        /// <param name="shortcuts">list of shortcuts of languages</param>
+        /// <param name="englishVersions">list of english names of languages</param>
+        /// <returns>list of LanguageSettingsItems that should be displayed</returns>
+        private List<LanguageSettingsItemViewModel> CreateItems(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
+        {
+            bool isFirst = true;
+            var result = new List<LanguageSettingsItemViewModel>();
             int i = 0;
             for (int j = 0; j < items.Count(); j++)
             {
                 var item = items.ElementAt(j);
                 if (isFirst)
                 {
-                    AddNewItem(true, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));
+                    AddNewItem(result, true, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));
                     isFirst = false;
                 }
                 else
                 {
-                    AddNewItem(false, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));
+                    AddNewItem(result, false, false, item, shortcuts.ElementAt(i), englishVersions.ElementAt(i));
                 }
                 i++;
             }
+            return result;
         }
 
-        private void AddNewItem(bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
+        /// <summary>
+        /// Adds new LanguageSettingsItem into the given list.
+        /// </summary>
+        /// <param name="whereToAdd">list where the item should be added</param>
+        /// <param name="isChecked">if the checkbox next to the language label should be checked</param>
+        /// <param name="wasUpdated">if the checkbox was updated</param>
+        /// <param name="value">string representation of what language should be displayed</param>
+        /// <param name="shortcut">shortcut of the language that should be displayed</param>
+        /// <param name="englishName">english name for the language that should be displayed</param>
+        private void AddNewItem(List<LanguageSettingsItemViewModel> whereToAdd, bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
         {
-            Items.Add(new LanguageSettingsItemViewModel()
+            whereToAdd.Add(new LanguageSettingsItemViewModel()
             {
                 IsChecked = isChecked,
                 WasUpdated = wasUpdated,
@@ -53,6 +79,11 @@ namespace AppBase.ViewModels
             });
         }
 
+        /// <summary>
+        /// Method that ensures if label was clicked on, checkbox next to it will be updated
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">event arguments</param>
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Label label = (sender as Label);
@@ -66,6 +97,11 @@ namespace AppBase.ViewModels
             }
         }
 
+        /// <summary>
+        /// Methos that handles situation, that checkbox IsChecked status changed. Method has to check if there is something checked in the list.
+        /// If not, it needs to do some additional checking.
+        /// </summary>
+        /// <param name="sender"></param>
         public void OnCheckBoxCheckedChanged(LanguageSettingsItemViewModel sender)
         {
             if (sender.WasUpdated == true)
@@ -77,6 +113,9 @@ namespace AppBase.ViewModels
             HandleCheckChange(sender);            
         }
 
+        /// <summary>
+        /// Handles the situation when all checkboxes in the list are not checked. In that case checks item containing English.
+        /// </summary>
         private void CheckAndHandleAllFalse()
         {
             bool allFalse = true;
@@ -99,6 +138,10 @@ namespace AppBase.ViewModels
             }
         }
 
+        /// <summary>
+        /// Method that handles check change for the checkbox.
+        /// </summary>
+        /// <param name="sender">sender object in form of LanguageSettingsItemViewModel</param>
         private void HandleCheckChange(LanguageSettingsItemViewModel sender)
         {
             sender.IsChecked = true;
