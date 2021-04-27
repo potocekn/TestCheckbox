@@ -38,7 +38,7 @@ namespace AppBase
         
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            ((AppLanguageFirstRunPageViewModel)BindingContext).OnCheckBoxCheckedChanged(((sender as CheckBox).BindingContext as LanguageSettingsItemViewModel));
+            ((AppLanguageFirstRunPageViewModel)BindingContext).OnCheckBoxCheckedChanged(((sender as CheckBox).BindingContext as LanguageSettingsItem));
 
         }
 
