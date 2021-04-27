@@ -11,8 +11,7 @@ namespace AppBaseNamespace.ViewModels
         public string Value { get; set; }
         public string LabelText { get; set; }
         public Command CheckedChangedCommand { get; set; }
-        public CheckBox CorrespondingCheckbox { get; set; }
-            
+        public CheckBox CorrespondingCheckbox { get; set; }    
 
     }
 }

@@ -49,8 +49,7 @@ namespace AppBase.ViewModels
             {
                 Title = "Share",
                 File = new ShareFile(filePath)
-            });
-            
+            });            
         }
 
     }    
