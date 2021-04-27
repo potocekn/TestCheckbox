@@ -4,8 +4,16 @@ using System.Text;
 
 namespace AppBase.Helpers
 {
+    /// <summary>
+    /// Class containing helper methods for Popup messages.
+    /// </summary>
     public static class PopupMessageHelpers
     {
+        /// <summary>
+        /// Method that creates message related to the change of app language.
+        /// </summary>
+        /// <param name="from">Language in which the message should be created.</param>
+        /// <returns>Created message in given language in string form.</returns>
         public static string CreateMessageFrom(string from)
         {
             StringBuilder result = new StringBuilder();
@@ -40,6 +48,13 @@ namespace AppBase.Helpers
             return result.ToString();
         }
 
+        /// <summary>
+        /// Method that creates message related to the application language change in 2 given languages.
+        /// In case of both languages being the same only one part of the message is created.
+        /// </summary>
+        /// <param name="from">Name of the language that represents current application language.</param>
+        /// <param name="to">Name of the language that represents desired application language. </param>
+        /// <returns></returns>
         public static string CreatePopUpMessage(string from, string to)
         {
             StringBuilder result = new StringBuilder();
@@ -56,6 +71,12 @@ namespace AppBase.Helpers
             return result.ToString();
         }
 
+        /// <summary>
+        /// Method that returns translation of the word "yes" in given language.
+        /// Default is "yes".
+        /// </summary>
+        /// <param name="from">language for the translation</param>
+        /// <returns>translation of the word "yes" in string form</returns>
         public static string CreateYesMessageFrom(string from)
         {
             StringBuilder result = new StringBuilder();
@@ -83,6 +104,13 @@ namespace AppBase.Helpers
 
             return result.ToString();
         }
+
+        /// <summary>
+        /// Creates multilingual message that says "yes" in two languages. This is used as a part of popup message for app language change.
+        /// </summary>
+        /// <param name="from">current language of the application</param>
+        /// <param name="to">language to which app will change</param>
+        /// <returns>created message in given 2 languages</returns>
         public static string CreateYesMessage(string from, string to)
         {
             StringBuilder result = new StringBuilder();
@@ -98,6 +126,13 @@ namespace AppBase.Helpers
             }
             return result.ToString();
         }
+
+        /// <summary>
+        /// Method that returns translation of the word "no" in given language.
+        /// Default is "no".
+        /// </summary>
+        /// <param name="from">language for the translation</param>
+        /// <returns>translation of the word "no" in string form</returns>
         public static string CreateNoMessageFrom(string from)
         {
             StringBuilder result = new StringBuilder();
@@ -125,6 +160,13 @@ namespace AppBase.Helpers
 
             return result.ToString();
         }
+
+        /// <summary>
+        /// Creates multilingual message that says "no" in two languages. This is used as a part of popup message for app language change.
+        /// </summary>
+        /// <param name="from">current language of the application</param>
+        /// <param name="to">language to which app will change</param>
+        /// <returns>created message in given 2 languages</returns>
         public static string CreateNoMessage(string from, string to)
         {
             StringBuilder result = new StringBuilder();
