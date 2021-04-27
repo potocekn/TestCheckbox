@@ -11,7 +11,7 @@ namespace AppBase.ViewModels
 {
     class ResourceLanguagesFirstRunPageViewModel
     {
-        public List<ItemViewModel> Languages { get; set; }
+        public List<CheckBoxItem> Languages { get; set; }
         App app;
         public Command GoToNextPage { get; set; }
 
@@ -20,7 +20,7 @@ namespace AppBase.ViewModels
             this.app = app;
             Languages = languages
                .Where(x => !string.IsNullOrEmpty(x))
-               .Select(x => new ItemViewModel()
+               .Select(x => new CheckBoxItem()
                {
                    IsChecked = false,
                    Value = x,
@@ -38,7 +38,7 @@ namespace AppBase.ViewModels
         {
             foreach (var item in Languages)
             {
-                if (item.Value == ((sender as CheckBox).BindingContext as ItemViewModel).Value)
+                if (item.Value == ((sender as CheckBox).BindingContext as CheckBoxItem).Value)
                 {
                     if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.Value))
                     {

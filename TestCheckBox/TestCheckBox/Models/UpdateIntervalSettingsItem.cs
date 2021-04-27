@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
-    public class UpdateIntervalSettingsItemViewModel : INotifyPropertyChanged
+    public class UpdateIntervalSettingsItem : INotifyPropertyChanged
     {
         private bool isChecked;        
         public bool IsChecked

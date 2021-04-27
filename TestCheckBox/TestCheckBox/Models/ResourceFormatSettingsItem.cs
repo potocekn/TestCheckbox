@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
-    public class ResourceFormatSettingsItemViewModel
+    public class ResourceFormatSettingsItem
     {
         public Switch CorrespondingSwitch { get; set; }
         public string Name { get; set; }
 
-        public ResourceFormatSettingsItemViewModel(Switch correspondingSwitch, string name)
+        public ResourceFormatSettingsItem(Switch correspondingSwitch, string name)
         {
             CorrespondingSwitch = correspondingSwitch;
             Name = name;

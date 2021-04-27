@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace AppBaseNamespace.ViewModels
 {
-    public class LanguageSettingsItemViewModel: INotifyPropertyChanged
+    public class LanguageSettingsItem: INotifyPropertyChanged
     {
         
         private bool isCheck;      

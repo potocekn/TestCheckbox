@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
-    class PDFPageItemViewModel
+    class PDFPageItem
     {
         public string Language { get; set; }
         public string ResourceName { get; set; }

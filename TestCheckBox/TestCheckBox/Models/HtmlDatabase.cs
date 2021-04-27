@@ -30,7 +30,8 @@ namespace AppBase.Models
 
         public Task<int> SavePageAsync(HtmlRecord record)
         {
-            if (record.ID != 0)
+            var alreadyThere = ContainsRecordWithSameName(record.PageName);
+            if (record.ID != 0 || (alreadyThere != null))
             {
                 // Update an existing note.
                 return database.UpdateAsync(record);
@@ -40,6 +41,19 @@ namespace AppBase.Models
                 // Save a new note.
                 return database.InsertAsync(record);
             }
+        }
+
+        private HtmlRecord ContainsRecordWithSameName(string name)
+        {
+            var records = GetPagesAsync();
+            foreach (var item in records.Result)
+            {
+                if (item.PageName == name)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public Task<int> DeletePageAsync(HtmlRecord record)

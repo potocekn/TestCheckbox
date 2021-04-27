@@ -9,16 +9,16 @@ namespace AppBase.ViewModels
 {
     public class UpdateIntervalSettingsPageViewModel
     {
-        public List<UpdateIntervalSettingsItemViewModel> Items { get; set; }
+        public List<UpdateIntervalSettingsItem> Items { get; set; }
         MainPageViewModel MainPageViewModelBackup { get; set; }
         App app { get; set; }
-        public UpdateIntervalSettingsPageViewModel(App app, MainPageViewModel mainPageViewModel, List<UpdateIntervalSettingsItemViewModel> switches)
+        public UpdateIntervalSettingsPageViewModel(App app, MainPageViewModel mainPageViewModel, List<UpdateIntervalSettingsItem> switches)
         {
             this.app = app;
             MainPageViewModelBackup = mainPageViewModel;
             Items = switches;             
         }
-        private void HandleCheckChange(UpdateIntervalSettingsItemViewModel sender)
+        private void HandleCheckChange(UpdateIntervalSettingsItem sender)
         {
             sender.IsChecked = true;
             sender.WasUpdated = true;
@@ -50,13 +50,13 @@ namespace AppBase.ViewModels
 
             if (allFalse)
             {
-                UpdateIntervalSettingsItemViewModel automatic = Items.Find(x => (x.Name == "Automatic"));
+                UpdateIntervalSettingsItem automatic = Items.Find(x => (x.Name == "Automatic"));
                 automatic.IsChecked = true;
                 automatic.WasUpdated = true;
                 automatic.NotifyPropertyChanged("IsChecked");
             }
         }
-        public void OnCheckedChanged(UpdateIntervalSettingsItemViewModel sender)
+        public void OnCheckedChanged(UpdateIntervalSettingsItem sender)
         {
             if (sender.WasUpdated == true)
             {

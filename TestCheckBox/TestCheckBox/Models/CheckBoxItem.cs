@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace AppBaseNamespace.ViewModels
 {
-    public class ItemViewModel
+    public class CheckBoxItem
     {
         public bool IsChecked { get; set; }
         public string Value { get; set; }

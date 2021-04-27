@@ -10,18 +10,18 @@ namespace AppBaseNamespace
 {
     internal class ResourceFormatSettingsPageViewModel
     {
-        public List<ResourceFormatSettingsItemViewModel> Switches { get; }
-        public List<ItemViewModel> Languages { get; set; }
+        public List<ResourceFormatSettingsItem> Switches { get; }
+        public List<CheckBoxItem> Languages { get; set; }
         App app;
         MainPageViewModel mainPageViewModel;
-        public ResourceFormatSettingsPageViewModel(App app, MainPageViewModel mainPageViewModel, List<string> languages, List<ResourceFormatSettingsItemViewModel> switches)
+        public ResourceFormatSettingsPageViewModel(App app, MainPageViewModel mainPageViewModel, List<string> languages, List<ResourceFormatSettingsItem> switches)
         {
             this.app = app;
             this.mainPageViewModel = mainPageViewModel;
             
             Languages = languages
                 .Where(x => !string.IsNullOrEmpty(x))
-                .Select(x => new ItemViewModel()
+                .Select(x => new CheckBoxItem()
                 {
                     IsChecked = app.userSettings.ChosenResourceLanguages.Contains(x),
                     Value = x,
@@ -82,7 +82,7 @@ namespace AppBaseNamespace
         {
             foreach (var item in Languages)
             {
-                if (item.Value == ((sender as CheckBox).BindingContext as ItemViewModel).Value)
+                if (item.Value == ((sender as CheckBox).BindingContext as CheckBoxItem).Value)
                 {
                     if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.Value))
                     {

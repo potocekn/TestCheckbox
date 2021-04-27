@@ -15,19 +15,16 @@ using AppBase.UserSettingsHelpers;
 namespace AppBase.ViewModels
 {
     class PDFPageViewModel
-    {
-        App app { get; set; }
+    {     
+        public List<PDFPageItem> Items { get; set; }
 
-        public List<PDFPageItemViewModel> Items { get; set; }
-
-        public PDFPageViewModel(App app, INavigation navigation, List<ResourcesInfo> resources)
-        {
-            this.app = app;
-            Items = new List<PDFPageItemViewModel>();
+        public PDFPageViewModel(INavigation navigation, List<ResourcesInfo> resources)
+        {           
+            Items = new List<PDFPageItem>();
 
             foreach (var resource in resources)
             {
-                PDFPageItemViewModel itemViewModel = new PDFPageItemViewModel()
+                PDFPageItem itemViewModel = new PDFPageItem()
                 {
                     Language = resource.Language,
                     ResourceName = resource.ResourceName,

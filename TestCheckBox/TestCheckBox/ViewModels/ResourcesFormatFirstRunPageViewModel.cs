@@ -11,11 +11,11 @@ namespace AppBase.ViewModels
 {
     public class ResourcesFormatFirstRunPageViewModel
     {
-        public List<ResourceFormatSettingsItemViewModel> Switches { get; }
+        public List<ResourceFormatSettingsItem> Switches { get; }
         App app;
         public Command GoToNextPage { get; set; }
 
-        public ResourcesFormatFirstRunPageViewModel(App app, INavigation navigation, List<ResourceFormatSettingsItemViewModel> switches)
+        public ResourcesFormatFirstRunPageViewModel(App app, INavigation navigation, List<ResourceFormatSettingsItem> switches)
         {
             this.app = app;
             Switches = switches;

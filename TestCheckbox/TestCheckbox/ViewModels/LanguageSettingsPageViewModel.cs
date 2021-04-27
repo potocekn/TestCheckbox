@@ -14,7 +14,7 @@ namespace AppBaseNamespace.ViewModels
 {
     public class LanguageSettingsPageViewModel
     {
-        public List<LanguageSettingsItemViewModel> Items { get; }
+        public List<LanguageSettingsItem> Items { get; }
         MainPageViewModel MainPageViewModelBackup { get; set; }
         App app { get; set; }
         LanguageSettingsPage SettingsPageBackup { get; set; }
@@ -25,7 +25,7 @@ namespace AppBaseNamespace.ViewModels
             this.SettingsPageBackup = page;
             bool isFirst = true;
             MainPageViewModelBackup = mainPageViewModel;
-            Items = new List<LanguageSettingsItemViewModel>();
+            Items = new List<LanguageSettingsItem>();
          
             int i = 0;
             for (int j = 0; j < items.Count(); j++)            
@@ -62,7 +62,7 @@ namespace AppBaseNamespace.ViewModels
 
         private void AddNewItem(bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
         {
-            Items.Add(new LanguageSettingsItemViewModel()
+            Items.Add(new LanguageSettingsItem()
             {
                 IsChecked = isChecked,
                 WasUpdated = wasUpdated,
@@ -73,7 +73,7 @@ namespace AppBaseNamespace.ViewModels
             });
         }
 
-        private void UncheckSender(LanguageSettingsItemViewModel sender)
+        private void UncheckSender(LanguageSettingsItem sender)
         {
             if (!sender.WasUpdated)
             {
@@ -84,13 +84,13 @@ namespace AppBaseNamespace.ViewModels
 
         private void CheckPreviouslyChecked()
         {
-            LanguageSettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
+            LanguageSettingsItem previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
             OnCheckBoxCheckedChanged(previouslyChecked);
             app.WasRefreshed = false;
         }      
       
 
-        public async Task OnCheckBoxCheckedChangedAsync(LanguageSettingsItemViewModel checkboxSender)
+        public async Task OnCheckBoxCheckedChangedAsync(LanguageSettingsItem checkboxSender)
         {
 
             if (checkboxSender.IsChecked && !app.IsFirst && !app.WasRefreshed && checkboxSender.EnglishName != MainPageViewModelBackup.previouslyChecked)
@@ -143,7 +143,7 @@ namespace AppBaseNamespace.ViewModels
             }
         }
 
-        private void CheckSender(LanguageSettingsItemViewModel sender)
+        private void CheckSender(LanguageSettingsItem sender)
         {
             sender.IsChecked = true;
             sender.WasUpdated = true;
@@ -168,7 +168,7 @@ namespace AppBaseNamespace.ViewModels
 
             if (moreThanOneChecked)
             {
-                LanguageSettingsItemViewModel previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
+                LanguageSettingsItem previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
                 previouslyChecked.IsChecked = true;
                 await OnCheckBoxCheckedChangedAsync(previouslyChecked);
             }
@@ -188,7 +188,7 @@ namespace AppBaseNamespace.ViewModels
 
             if (allFalse)
             {
-                LanguageSettingsItemViewModel english = Items.Find(x => (x.EnglishName == "English"));
+                LanguageSettingsItem english = Items.Find(x => (x.EnglishName == "English"));
                 english.IsChecked = true;
                 english.WasUpdated = true;
                 english.NotifyPropertyChanged("IsChecked");
@@ -218,7 +218,7 @@ namespace AppBaseNamespace.ViewModels
             }
         }
 
-        private void HandleCheckChange(LanguageSettingsItemViewModel sender)
+        private void HandleCheckChange(LanguageSettingsItem sender)
         {
             sender.IsChecked = true;
             sender.WasUpdated = true;
@@ -233,7 +233,7 @@ namespace AppBaseNamespace.ViewModels
             }
         }
 
-        private void HandleLanguageChange(LanguageSettingsItemViewModel sender)
+        private void HandleLanguageChange(LanguageSettingsItem sender)
         {
             MainPageViewModelBackup.previouslyChecked = sender.EnglishName;
             CultureInfo language = new CultureInfo(sender.Shortcut);
@@ -243,7 +243,7 @@ namespace AppBaseNamespace.ViewModels
             if (!app.WasRefreshed) app.ReloadApp(sender.Shortcut, MainPageViewModelBackup.previouslyChecked);
         }
 
-        public void OnCheckBoxCheckedChanged(LanguageSettingsItemViewModel sender)
+        public void OnCheckBoxCheckedChanged(LanguageSettingsItem sender)
         {
             if (sender.WasUpdated == true)
             {

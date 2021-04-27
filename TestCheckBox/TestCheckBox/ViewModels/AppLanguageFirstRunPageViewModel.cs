@@ -13,7 +13,7 @@ namespace AppBase.ViewModels
     /// </summary>
     public class AppLanguageFirstRunPageViewModel
     {
-        public List<LanguageSettingsItemViewModel> Items { get; }
+        public List<LanguageSettingsItem> Items { get; }
         App app { get; set; }
         public Command GoToNextPage { get; set; }
 
@@ -35,10 +35,10 @@ namespace AppBase.ViewModels
         /// <param name="shortcuts">list of shortcuts of languages</param>
         /// <param name="englishVersions">list of english names of languages</param>
         /// <returns>list of LanguageSettingsItems that should be displayed</returns>
-        private List<LanguageSettingsItemViewModel> CreateItems(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
+        private List<LanguageSettingsItem> CreateItems(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
         {
             bool isFirst = true;
-            var result = new List<LanguageSettingsItemViewModel>();
+            var result = new List<LanguageSettingsItem>();
             int i = 0;
             for (int j = 0; j < items.Count(); j++)
             {
@@ -66,9 +66,9 @@ namespace AppBase.ViewModels
         /// <param name="value">string representation of what language should be displayed</param>
         /// <param name="shortcut">shortcut of the language that should be displayed</param>
         /// <param name="englishName">english name for the language that should be displayed</param>
-        private void AddNewItem(List<LanguageSettingsItemViewModel> whereToAdd, bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
+        private void AddNewItem(List<LanguageSettingsItem> whereToAdd, bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
         {
-            whereToAdd.Add(new LanguageSettingsItemViewModel()
+            whereToAdd.Add(new LanguageSettingsItem()
             {
                 IsChecked = isChecked,
                 WasUpdated = wasUpdated,
@@ -102,7 +102,7 @@ namespace AppBase.ViewModels
         /// If not, it needs to do some additional checking.
         /// </summary>
         /// <param name="sender"></param>
-        public void OnCheckBoxCheckedChanged(LanguageSettingsItemViewModel sender)
+        public void OnCheckBoxCheckedChanged(LanguageSettingsItem sender)
         {
             if (sender.WasUpdated == true)
             {
@@ -131,7 +131,7 @@ namespace AppBase.ViewModels
 
             if (allFalse)
             {
-                LanguageSettingsItemViewModel english = Items.Find(x => (x.EnglishName == "English"));
+                LanguageSettingsItem english = Items.Find(x => (x.EnglishName == "English"));
                 english.IsChecked = true;
                 english.WasUpdated = true;
                 english.NotifyPropertyChanged("IsChecked");
@@ -142,7 +142,7 @@ namespace AppBase.ViewModels
         /// Method that handles check change for the checkbox.
         /// </summary>
         /// <param name="sender">sender object in form of LanguageSettingsItemViewModel</param>
-        private void HandleCheckChange(LanguageSettingsItemViewModel sender)
+        private void HandleCheckChange(LanguageSettingsItem sender)
         {
             sender.IsChecked = true;
             sender.WasUpdated = true;
