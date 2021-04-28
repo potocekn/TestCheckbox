@@ -8,6 +8,9 @@ using AppBase.Helpers;
 
 namespace AppBaseNamespace
 {
+    /// <summary>
+    /// Class representing view model for resource format settings page. The model remembers all switches and all languages of the resources.
+    /// </summary>
     internal class ResourceFormatSettingsPageViewModel
     {
         public List<ResourceFormatSettingsItem> Switches { get; }
@@ -33,6 +36,11 @@ namespace AppBaseNamespace
             Switches = switches;            
         }
 
+        /// <summary>
+        /// Method that handles toggle change of the switch.
+        /// </summary>
+        /// <param name="sender">switch that changes status</param>
+        /// <param name="e">event args</param>
         public void OnToggled(object sender, ToggledEventArgs e)
         {            
             foreach (var item in Switches)
@@ -51,14 +59,22 @@ namespace AppBaseNamespace
                 }
             }
         }
-
-        
-
+               
+        /// <summary>
+        /// Method that handles change of toggled property of the wifi switch.
+        /// </summary>
+        /// <param name="isToggled">bool representing is switch is toggled or not</param>
         void HandleWifiChange(bool isToggled)
         {
             app.userSettings.DownloadOnlyWithWifi = isToggled;
             app.SaveUserSettings();
         }
+
+        /// <summary>
+        /// Methoid that handles change of the toggled property for the format switch.
+        /// </summary>
+        /// <param name="name">name of the format</param>
+        /// <param name="isToggled">bool representing is switch is toggled or not</param>
         void HandleFormatChange(string name, bool isToggled)
         {
             if (isToggled)
@@ -78,6 +94,11 @@ namespace AppBaseNamespace
             app.SaveUserSettings();
         }
 
+        /// <summary>
+        /// Method that handles checkbox change for languages of resources.
+        /// </summary>
+        /// <param name="sender">checkbox that changed</param>
+        /// <param name="e">event args</param>
         public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             foreach (var item in Languages)

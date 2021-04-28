@@ -7,6 +7,10 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {    
+    /// <summary>
+    /// Class that represents the view model of the settings page. The model contains commands that go to different settings options
+    /// such as app language change, change of the update interval and change of the resources formats.
+    /// </summary>
     public class SettingsPageViewModel
     {
         public Command GoToLanguageSettings { get; }

@@ -7,6 +7,11 @@ using Xamarin.Forms;
 
 namespace AppBaseNamespace.ViewModels
 {
+    /// <summary>
+    /// Class representing one item in the language settings view model.
+    /// Item has information about the IsChecked status, name of the language, english version of the language name, shortcut code of the language
+    /// and method for notifying IsChecked property on change.
+    /// </summary>
     public class LanguageSettingsItem: INotifyPropertyChanged
     {
         

@@ -7,6 +7,10 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// Class representing the view model of the update interval settings page. 
+    /// The model remembers all the interval options and languages of the resources.
+    /// </summary>
     public class UpdateIntervalSettingsPageViewModel
     {
         public List<UpdateIntervalSettingsItem> Items { get; set; }
@@ -18,6 +22,11 @@ namespace AppBase.ViewModels
             MainPageViewModelBackup = mainPageViewModel;
             Items = switches;             
         }
+
+        /// <summary>
+        /// Method that handles IsChecked property when the language of resources changes.
+        /// </summary>
+        /// <param name="sender">object that changed status</param>
         private void HandleCheckChange(UpdateIntervalSettingsItem sender)
         {
             sender.IsChecked = true;
@@ -35,6 +44,10 @@ namespace AppBase.ViewModels
             }
         }
 
+        /// <summary>
+        /// Method that handles situation when all the checkboxes are unchecked.
+        /// In that case "Automatic" option is checked.
+        /// </summary>
         private void CheckAndHandleAllFalse()
         {
             bool allFalse = true;
@@ -56,6 +69,11 @@ namespace AppBase.ViewModels
                 automatic.NotifyPropertyChanged("IsChecked");
             }
         }
+
+        /// <summary>
+        /// Method that handles the change of checkbox status.
+        /// </summary>
+        /// <param name="sender">object that changed status</param>
         public void OnCheckedChanged(UpdateIntervalSettingsItem sender)
         {
             if (sender.WasUpdated == true)
@@ -67,6 +85,11 @@ namespace AppBase.ViewModels
             HandleCheckChange(sender);
         }
 
+        /// <summary>
+        /// Method that enables checking checkbox by clicking on the label next to it.
+        /// </summary>
+        /// <param name="sender">label that was clicked on</param>
+        /// <param name="e">event args</param>
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Label label = (sender as Label);

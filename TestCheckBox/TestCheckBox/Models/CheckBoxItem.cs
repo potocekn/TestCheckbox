@@ -5,6 +5,10 @@ using Xamarin.Forms;
 
 namespace AppBaseNamespace.ViewModels
 {
+    /// <summary>
+    /// Class representing check box and the label that is next to it. It is used in lists of checkboxes for selecting language of the application
+    /// or language of the resources.
+    /// </summary>
     public class CheckBoxItem
     {
         public bool IsChecked { get; set; }

@@ -5,6 +5,10 @@ using SQLite;
 
 namespace AppBase.Models
 {
+    /// <summary>
+    /// Class representing one record in the database for HTML resources.
+    /// Primary key is ID.
+    /// </summary>
     public class HtmlRecord
     {
         [PrimaryKey, AutoIncrement]

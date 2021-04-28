@@ -9,6 +9,9 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// Class representing view model of the resource languages that is displayed on the very forst run of the application.
+    /// </summary>
     class ResourceLanguagesFirstRunPageViewModel
     {
         public List<CheckBoxItem> Languages { get; set; }
@@ -34,6 +37,11 @@ namespace AppBase.ViewModels
             });
         }
 
+        /// <summary>
+        /// Method that handles checkbox IsChecked change for specified sender.
+        /// </summary>
+        /// <param name="sender">checkbox that changes status</param>
+        /// <param name="e">event args</param>
         public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             foreach (var item in Languages)

@@ -11,6 +11,9 @@ using AppBase;
 
 namespace AppBaseNamespace.ViewModels
 {
+    /// <summary>
+    /// Class representing the view model of the main page. Class remembers its title and has commands that redirect main page to settings or resources.
+    /// </summary>
     public class MainPageViewModel
     {
         private List<string> textCollection = new List<string> { "English", "Czech", "German"};

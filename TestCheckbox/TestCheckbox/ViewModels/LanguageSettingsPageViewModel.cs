@@ -12,6 +12,9 @@ using Xamarin.Forms;
 
 namespace AppBaseNamespace.ViewModels
 {
+    /// <summary>
+    /// Class representing the view model for language settings page.
+    /// </summary>
     public class LanguageSettingsPageViewModel
     {
         public List<LanguageSettingsItem> Items { get; }
@@ -60,6 +63,14 @@ namespace AppBaseNamespace.ViewModels
             }                  
         }
 
+        /// <summary>
+        /// Adds new item into the Items list.
+        /// </summary>
+        /// <param name="isChecked">bool value representing IsChecked state (if the item was selected)</param>
+        /// <param name="wasUpdated">if the item has already been updated</param>
+        /// <param name="value">value being displayed</param>
+        /// <param name="shortcut">shortcut of the language</param>
+        /// <param name="englishName">english name of the language</param>
         private void AddNewItem(bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
         {
             Items.Add(new LanguageSettingsItem()
@@ -73,6 +84,10 @@ namespace AppBaseNamespace.ViewModels
             });
         }
 
+        /// <summary>
+        /// Method used to change the IsChecked state of the given object to false.
+        /// </summary>
+        /// <param name="sender">the object that is being unchecked</param>
         private void UncheckSender(LanguageSettingsItem sender)
         {
             if (!sender.WasUpdated)
@@ -82,6 +97,9 @@ namespace AppBaseNamespace.ViewModels
             }
         }
 
+        /// <summary>
+        /// Method used for checking the item that was previously checked and written in the Main page view model backup.
+        /// </summary>
         private void CheckPreviouslyChecked()
         {
             LanguageSettingsItem previouslyChecked = Items.Find(x => (x.EnglishName == MainPageViewModelBackup.previouslyChecked));
@@ -89,7 +107,14 @@ namespace AppBaseNamespace.ViewModels
             app.WasRefreshed = false;
         }      
       
-
+        /// <summary>
+        /// Method that handles checkbox IsChecked changed status asynchronously.
+        /// Displays message if the user wants to change from previous language to the newly selected one.
+        /// On the very first run the English option is checked by default.
+        /// If user unchecked option that has been previously checked (there would be no checked item) English option is checked.
+        /// </summary>
+        /// <param name="checkboxSender">object that changed status</param>
+        /// <returns></returns>
         public async Task OnCheckBoxCheckedChangedAsync(LanguageSettingsItem checkboxSender)
         {
 
@@ -143,12 +168,20 @@ namespace AppBaseNamespace.ViewModels
             }
         }
 
+        /// <summary>
+        /// Method that sets IsChecked to true for the sender object
+        /// </summary>
+        /// <param name="sender">oject that changed status</param>
         private void CheckSender(LanguageSettingsItem sender)
         {
             sender.IsChecked = true;
             sender.WasUpdated = true;
         }
 
+        /// <summary>
+        /// Method that handles the situation where more than one would be checked. In this situation the newest is checked and rest is unchecked.
+        /// </summary>
+        /// <returns></returns>
         private async Task CheckAndHandleMoreThanOneChecked()
         {
             bool moreThanOneChecked = false;
@@ -173,6 +206,10 @@ namespace AppBaseNamespace.ViewModels
                 await OnCheckBoxCheckedChangedAsync(previouslyChecked);
             }
         }
+
+        /// <summary>
+        /// Method that handles the situation that no checkbox is checked. If this situation happens, English option is checked.
+        /// </summary>
         private void CheckAndHandleAllFalse()
         {
             bool allFalse = true;
@@ -194,6 +231,12 @@ namespace AppBaseNamespace.ViewModels
                 english.NotifyPropertyChanged("IsChecked");
             }
         }
+
+        /// <summary>
+        /// Method that enables checkbox being checked via click on the label next to it.
+        /// </summary>
+        /// <param name="sender">Label that was clicked on</param>
+        /// <param name="e">event args</param>
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Label label = (sender as Label);
@@ -206,18 +249,10 @@ namespace AppBaseNamespace.ViewModels
                 }
             }
         }
-
-        public async Task CheckCheckboxfromLabelClick(Label label)
-        {
-            foreach (var item in Items)
-            {
-                if (label.Text == item.Value)
-                {                    
-                   await OnCheckBoxCheckedChangedAsync(item);                    
-                }
-            }
-        }
-
+        /// <summary>
+        /// Method that handles IsChecked changed status for the sender object.
+        /// </summary>
+        /// <param name="sender">sender that changed status</param>
         private void HandleCheckChange(LanguageSettingsItem sender)
         {
             sender.IsChecked = true;
@@ -233,6 +268,12 @@ namespace AppBaseNamespace.ViewModels
             }
         }
 
+        /// <summary>
+        /// Method that handles change of the application language. All necessary information in app are set to the new language and 
+        /// multilingual app resources' culture changes to the new language.
+        /// In the end the app is refreshed.
+        /// </summary>
+        /// <param name="sender"></param>
         private void HandleLanguageChange(LanguageSettingsItem sender)
         {
             MainPageViewModelBackup.previouslyChecked = sender.EnglishName;
@@ -243,6 +284,12 @@ namespace AppBaseNamespace.ViewModels
             if (!app.WasRefreshed) app.ReloadApp(sender.Shortcut, MainPageViewModelBackup.previouslyChecked);
         }
 
+        /// <summary>
+        /// Method that handles checkbox status change. If the sender has already been updated the situation 
+        /// for all checkboxes being unchecked needs to be handled first. Then the check change of the sender can be handled. and if the language changed
+        /// the method for setting language of the application needs to be called.
+        /// </summary>
+        /// <param name="sender"></param>
         public void OnCheckBoxCheckedChanged(LanguageSettingsItem sender)
         {
             if (sender.WasUpdated == true)

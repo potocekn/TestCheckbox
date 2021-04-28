@@ -11,6 +11,9 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// Class representing HTML Page view model. Class contains its HTML source and a command to open the resource.
+    /// </summary>
     class HTMLPageViewModel
     {  
         public HtmlWebViewSource HTMLSource { get; set; }

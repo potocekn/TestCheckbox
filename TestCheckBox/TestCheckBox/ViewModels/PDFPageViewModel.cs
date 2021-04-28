@@ -14,6 +14,9 @@ using AppBase.UserSettingsHelpers;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// Class representing view model of the PDF page. The model remembers all PDF resources. 
+    /// </summary>
     class PDFPageViewModel
     {     
         public List<PDFPageItem> Items { get; set; }
@@ -38,7 +41,11 @@ namespace AppBase.ViewModels
             }
         }
 
-
+        /// <summary>
+        /// Method used for sharing the resource specified with path.
+        /// </summary>
+        /// <param name="filePath">path to the file that will be shared</param>
+        /// <returns></returns>
         public async Task OnButtonClickShareAsync(string filePath)
         {           
             
