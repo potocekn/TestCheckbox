@@ -8,6 +8,9 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// Class representing the vie model of the resources page. The model contains commands that go to the PDF or HTML resources.
+    /// </summary>
     public class ResourcesPageViewModel
     {
         App app { get; set; }
