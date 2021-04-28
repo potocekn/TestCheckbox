@@ -263,6 +263,15 @@
           <source>Please, select the resource languages you are interested in.</source>
           <target state="translated">Bitte wählen Sie die Sprachen der Ressourcen aus, an denen Sie interessiert sind.</target>
         </trans-unit>
+        <trans-unit id="ResourcesButton.Text" translate="yes" xml:space="preserve">
+          <source>Resources</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ressourcen</target>
+        </trans-unit>
+        <trans-unit id="AboutLabel.Text" translate="yes" xml:space="preserve">
+          <source>This application is a tool to bring training resources closer to people for daily use.</source>
+          <target state="needs-review-translation">Diese Anwendung ist ein Werkzeug, um Schulungsressourcen den Menschen für den täglichen Gebrauch näher zu bringen.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -205,4 +205,10 @@
   <data name="selectResourceLanguagesLabel.Text" xml:space="preserve">
     <value>Vyberte prosím jazyky zdrojů, které vás zajímají.</value>
   </data>
+  <data name="ResourcesButton.Text" xml:space="preserve">
+    <value>Zdroje</value>
+  </data>
+  <data name="AboutLabel.Text" xml:space="preserve">
+    <value>Tato aplikace je nástroj pro přiblížení vzdělávacích zdrojů lidem pro každodenní použití.</value>
+  </data>
 </root>

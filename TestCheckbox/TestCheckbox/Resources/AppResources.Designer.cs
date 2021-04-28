@@ -61,6 +61,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This application is a tool to bring training resources closer to people for daily use..
+        /// </summary>
+        internal static string AboutLabel_Text {
+            get {
+                return ResourceManager.GetString("AboutLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Albanian.
         /// </summary>
         internal static string albanianLabel_Text {
@@ -417,6 +426,15 @@ namespace AppBase.Resources {
         internal static string RequestUpdateButton_Text {
             get {
                 return ResourceManager.GetString("RequestUpdateButton.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        internal static string ResourcesButton_Text {
+            get {
+                return ResourceManager.GetString("ResourcesButton.Text", resourceCulture);
             }
         }
         

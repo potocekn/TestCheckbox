@@ -10,13 +10,15 @@
         </StackLayout>
     </NavigationPage.TitleView>
 
-    <StackLayout Orientation="Horizontal">
-        <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-            <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}" BackgroundColor="GhostWhite"/>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}" BackgroundColor="GhostWhite"/>
+            </StackLayout>
+            <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="{x:Static resources:AppResources.ResourcesButton_Text}" Command="{Binding GoToResources}" BackgroundColor="GhostWhite"/>
+            </StackLayout>
         </StackLayout>
-        <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-            <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="Resources" Command="{Binding GoToResources}" BackgroundColor="GhostWhite"/>
-        </StackLayout>
+        <Label x:Name="AboutLabel" x:Uid="AboutLabel" Text="{x:Static resources:AppResources.AboutLabel_Text}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="90,120,85,0"/>
     </StackLayout>
-
 </ContentPage>

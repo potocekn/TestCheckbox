@@ -205,4 +205,10 @@
   <data name="selectResourceLanguagesLabel.Text" xml:space="preserve">
     <value>請選擇您感興趣的資源語言。</value>
   </data>
+  <data name="ResourcesButton.Text" xml:space="preserve">
+    <value>资源</value>
+  </data>
+  <data name="AboutLabel.Text" xml:space="preserve">
+    <value>該應用程序是一種工具，用於使培訓資源更貼近人們的日常使用。</value>
+  </data>
 </root>

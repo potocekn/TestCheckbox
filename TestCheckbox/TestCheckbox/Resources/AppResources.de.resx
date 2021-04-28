@@ -205,4 +205,10 @@
   <data name="selectResourceLanguagesLabel.Text" xml:space="preserve">
     <value>Bitte wählen Sie die Sprachen der Ressourcen aus, an denen Sie interessiert sind.</value>
   </data>
+  <data name="ResourcesButton.Text" xml:space="preserve">
+    <value>Ressourcen</value>
+  </data>
+  <data name="AboutLabel.Text" xml:space="preserve">
+    <value>Diese Anwendung ist ein Werkzeug, um Schulungsressourcen den Menschen für den täglichen Gebrauch näher zu bringen.</value>
+  </data>
 </root>

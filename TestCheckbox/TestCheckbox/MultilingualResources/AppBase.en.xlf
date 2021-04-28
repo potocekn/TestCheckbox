@@ -263,6 +263,14 @@
           <source>Please, select the resource languages you are interested in.</source>
           <target state="new">Please, select the resource languages you are interested in.</target>
         </trans-unit>
+        <trans-unit id="ResourcesButton.Text" translate="yes" xml:space="preserve">
+          <source>Resources</source>
+          <target state="new">Resources</target>
+        </trans-unit>
+        <trans-unit id="AboutLabel.Text" translate="yes" xml:space="preserve">
+          <source>This application is a tool to bring training resources closer to people for daily use.</source>
+          <target state="new">This application is a tool to bring training resources closer to people for daily use.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
