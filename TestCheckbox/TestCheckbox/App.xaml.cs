@@ -12,6 +12,7 @@ using AppBase.Interfaces;
 using AppBase.Helpers;
 using Xamarin.Essentials;
 using AppBase.Models;
+using System.Linq;
 
 namespace AppBaseNamespace
 {
@@ -157,14 +158,24 @@ namespace AppBaseNamespace
         private void HandleAutomaticUpdate(DateTime now)
         {
             userSettings.DateOfLastUpdate = now;
-            //tuto sa bude so serverom komunikovat
-
-            var current = Connectivity.NetworkAccess;
-
-            if (current == NetworkAccess.Internet)
+            
+            if (userSettings.DownloadOnlyWithWifi)
             {
-                DownloadTestFiles();
-            }            
+                var profiles = Connectivity.ConnectionProfiles;
+                if (profiles.Contains(ConnectionProfile.WiFi))
+                {
+                    DownloadTestFiles();
+                }
+            }
+            else
+            {
+                var current = Connectivity.NetworkAccess;
+
+                if (current == NetworkAccess.Internet)
+                {
+                    DownloadTestFiles();
+                }
+            }      
         }
 
         private async void SaveHtmlToDbs()
