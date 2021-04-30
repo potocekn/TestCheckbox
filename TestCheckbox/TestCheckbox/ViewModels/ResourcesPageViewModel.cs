@@ -21,7 +21,7 @@ namespace AppBase.ViewModels
         {
             this.app = app;
             GoToPDFs = new Command(() => {
-                navigation.PushAsync(new PDFPage(app.resources));
+                navigation.PushAsync(new PDFPage(app.resourcesPDF));
             });
             GoToHTMLs = new Command(() => {
                 navigation.PushAsync(new HTMLResourcesPage());

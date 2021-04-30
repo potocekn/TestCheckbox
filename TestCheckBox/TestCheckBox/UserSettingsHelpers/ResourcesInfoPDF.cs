@@ -7,7 +7,7 @@ namespace AppBase.UserSettingsHelpers
     /// <summary>
     /// Class representing necessary information about downloaded resources such as language of resource, name, file name and full path to the file. 
     /// </summary>
-    public class ResourcesInfo
+    public class ResourcesInfoPDF
     {
         public string Language { get; set; }
         public string ResourceName { get; set; }

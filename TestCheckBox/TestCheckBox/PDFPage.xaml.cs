@@ -21,7 +21,7 @@ namespace AppBase
     public partial class PDFPage : ContentPage
     {
         IDownloader downloader = DependencyService.Get<IDownloader>();
-        public PDFPage(List<ResourcesInfo> resources)
+        public PDFPage(List<ResourcesInfoPDF> resources)
         {
             InitializeComponent();
             downloader.OnFileDownloaded += OnFileDownloaded;
@@ -29,7 +29,7 @@ namespace AppBase
             BindingContext = new PDFPageViewModel(Navigation, resources);
         }
 
-        private void DownloadFiles(IDownloader downloader, List<ResourcesInfo> resources)
+        private void DownloadFiles(IDownloader downloader, List<ResourcesInfoPDF> resources)
         {
             foreach (var item in resources)
             {
@@ -48,44 +48,6 @@ namespace AppBase
             {
                 DisplayAlert("XF Downloader", "Error while saving the file", "Close");
             }
-        }
-
-        private void SaveFile(PDFPageItem resource)
-        {
-            string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), resource.Language);
-
-            if (!Directory.Exists(dir))
-            {
-                Directory.CreateDirectory(dir);
-            }
-
-            string fileName = Path.Combine(dir, resource.FileName);
-            if (!File.Exists(fileName))
-            {
-                File.Create(fileName);
-                resource.FilePath = fileName;
-                using (var client = new WebClient())
-                {
-                    try
-                    {
-                        //client.DownloadFile(resource.Path, fileName);
-                        client.DownloadStringCompleted += (s, e) => {
-                            var text = e.Result; // get the downloaded text                            
-                            File.WriteAllText(fileName, text); // writes to local storage
-                            Console.WriteLine(text);
-                        };
-                        var url = new Uri(resource.Url); // Html home page
-                        client.Encoding = Encoding.UTF8;
-                        client.DownloadStringAsync(url);
-                    }
-                    catch (Exception e)
-                    {
-
-                    }
-
-                }
-            }
-        }
-               
+        }      
     }
 }

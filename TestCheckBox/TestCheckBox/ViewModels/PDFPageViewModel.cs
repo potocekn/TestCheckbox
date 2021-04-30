@@ -21,7 +21,7 @@ namespace AppBase.ViewModels
     {     
         public List<PDFPageItem> Items { get; set; }
 
-        public PDFPageViewModel(INavigation navigation, List<ResourcesInfo> resources)
+        public PDFPageViewModel(INavigation navigation, List<ResourcesInfoPDF> resources)
         {           
             Items = new List<PDFPageItem>();
 

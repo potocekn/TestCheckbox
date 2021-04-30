@@ -25,7 +25,8 @@ namespace AppBaseNamespace
         public bool IsFirst = true;
         public bool WasRefreshed = false;
         public UserSettings userSettings;
-        public List<ResourcesInfo> resources;
+        public List<ResourcesInfoPDF> resourcesPDF;
+        public Dictionary<string, string> resourcesHTML;
 
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
 
@@ -93,14 +94,14 @@ namespace AppBaseNamespace
 
         private void RetrieveResources()
         {
-            List<ResourcesInfo> resourcesInfos = new List<ResourcesInfo>();
+            List<ResourcesInfoPDF> resourcesInfos = new List<ResourcesInfoPDF>();
 
             if (File.Exists(resourcesfileName))
             {
-                resourcesInfos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(File.ReadAllText(resourcesfileName).Trim());
+                resourcesInfos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfoPDF>>(File.ReadAllText(resourcesfileName).Trim());
             }
 
-            resources = resourcesInfos;           
+            resourcesPDF = resourcesInfos;           
         }
 
         private void RetrieveUserSettings(string path)
@@ -333,13 +334,46 @@ namespace AppBaseNamespace
             await Database.SavePageAsync(record2);
         }
 
+        private void DownloadPDFFiles()
+        {
+            IDownloader downloader = DependencyService.Get<IDownloader>();
+            foreach (var item in resourcesPDF)
+            {
+                string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), item.Language);
+                downloader.DownloadFile(item.Url, dir, item.FileName);
+            }  
+        }
+
+        private async void DownloadHTMLFiles(string url)
+        {
+            foreach (var item in resourcesHTML)
+            {
+                string contents;
+                using (var wc = new System.Net.WebClient())
+                {
+                    //key == language, value == name
+                    contents = wc.DownloadString(url + "/" + item.Key + "/" + item.Value);
+                }
+
+                HtmlRecord record = new HtmlRecord
+                {
+                    PageContent = contents,
+                    PageName = item.Value,
+                    PageLanguage = item.Key
+                };
+
+                await Database.SavePageAsync(record);
+
+            }
+        }
+
         private async void DownloadTestFiles()
         {           
-            resources = new List<ResourcesInfo>();
+            resourcesPDF = new List<ResourcesInfoPDF>();
 
             string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
             string fileName = Path.Combine(dir, "test.pdf");
-            ResourcesInfo item = new ResourcesInfo()
+            ResourcesInfoPDF item = new ResourcesInfoPDF()
             {
                 Language = "English",
                 ResourceName = "Test Resource",
@@ -347,10 +381,10 @@ namespace AppBaseNamespace
                 Url = "http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf",
                 FilePath = fileName
             };
-            resources.Add(item);
+            resourcesPDF.Add(item);
 
             fileName = Path.Combine(dir, "test2.pdf");
-            ResourcesInfo item2 = new ResourcesInfo()
+            ResourcesInfoPDF item2 = new ResourcesInfoPDF()
             {
                 Language = "English",
                 ResourceName = "Test Resource 2",
@@ -358,10 +392,10 @@ namespace AppBaseNamespace
                 Url = "http://www.4training.net/mediawiki/images/8/8b/Baptism.pdf",
                 FilePath = fileName
             };
-            resources.Add(item2);
+            resourcesPDF.Add(item2);
 
             fileName = Path.Combine(dir, "test3.odt");
-            ResourcesInfo item3 = new ResourcesInfo()
+            ResourcesInfoPDF item3 = new ResourcesInfoPDF()
             {
                 Language = "English",
                 ResourceName = "Test Resource ODT",
@@ -369,7 +403,7 @@ namespace AppBaseNamespace
                 Url = "https://www.4training.net/mediawiki/images/a/a8/Church.odt",
                 FilePath = fileName
             };
-            resources.Add(item3);
+            resourcesPDF.Add(item3);
 
             var downloadedImage = await ImageService.DownloadImage("https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png");
 
@@ -383,7 +417,7 @@ namespace AppBaseNamespace
 
         public void SaveResources()
         {
-            File.WriteAllText(resourcesfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resources));
+            File.WriteAllText(resourcesfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resourcesPDF));
         }
 
         protected override void OnStart()
