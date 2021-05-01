@@ -122,7 +122,6 @@ namespace AppBaseNamespace
                             break;
                     }
 
-
                 }
             }
             app.SaveUserSettings();
