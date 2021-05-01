@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppBase.FirstRunDownloadResourcesPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Downloading selected resources! Please make sure you have connection to the Internet and hit the download button."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Download" Command="{Binding DownloadResources}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
