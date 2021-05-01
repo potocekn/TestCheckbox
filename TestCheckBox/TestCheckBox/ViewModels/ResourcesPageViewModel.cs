@@ -12,15 +12,19 @@ namespace AppBase.ViewModels
     /// Class representing the vie model of the resources page. The model contains commands that go to the PDF or HTML resources.
     /// </summary>
     public class ResourcesPageViewModel
-    {
-        App app { get; set; }
+    {       
+        public bool IsPDFSelected { get; set; }
+        public bool IsHTMLSelected { get; set; }
+        public bool IsODTSelected { get; set; }
         public Command GoToPDFs { get; set; }
         public Command GoToHTMLs { get; set; }
         public Command GoToODTs { get; set; }
 
         public ResourcesPageViewModel(App app, INavigation navigation)
         {
-            this.app = app;
+            IsHTMLSelected = app.userSettings.Formats.Contains("HTML");
+            IsPDFSelected = app.userSettings.Formats.Contains("PDF");
+            IsODTSelected = app.userSettings.Formats.Contains("ODT");
             GoToPDFs = new Command(() => {
                 navigation.PushAsync(new PDFPage(app.resourcesPDF));
             });

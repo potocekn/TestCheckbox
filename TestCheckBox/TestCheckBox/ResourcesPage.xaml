@@ -4,9 +4,9 @@
              x:Class="AppBase.ResourcesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="PDFs" Command="{Binding GoToPDFs}"/>
-            <Button Text="HTMLs" Command="{Binding GoToHTMLs}"/>
-            <Button Text="ODTs" Command="{Binding GoToODTs}"/>
+            <Button Text="PDFs" Command="{Binding GoToPDFs}" IsVisible="{Binding IsPDFSelected}"/>
+            <Button Text="HTMLs" Command="{Binding GoToHTMLs}" IsVisible="{Binding IsHTMLSelected}"/>
+            <Button Text="ODTs" Command="{Binding GoToODTs}" IsVisible="{Binding IsODTSelected}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
