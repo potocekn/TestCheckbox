@@ -5,7 +5,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="PDFs" Command="{Binding GoToPDFs}"/>
-            <Button Text="HTMLs" Command="{Binding GoToHTMLs}"/>              
+            <Button Text="HTMLs" Command="{Binding GoToHTMLs}"/>
+            <Button Text="ODTs" Command="{Binding GoToODTs}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

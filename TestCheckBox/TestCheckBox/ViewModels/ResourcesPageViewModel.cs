@@ -15,7 +15,8 @@ namespace AppBase.ViewModels
     {
         App app { get; set; }
         public Command GoToPDFs { get; set; }
-        public Command GoToHTMLs { get; set; }        
+        public Command GoToHTMLs { get; set; }
+        public Command GoToODTs { get; set; }
 
         public ResourcesPageViewModel(App app, INavigation navigation)
         {
@@ -25,7 +26,10 @@ namespace AppBase.ViewModels
             });
             GoToHTMLs = new Command(() => {
                 navigation.PushAsync(new HTMLResourcesPage());
-            });            
+            });
+            GoToODTs = new Command(() => {
+                navigation.PushAsync(new ODTPage(app.resourcesODT));
+            });
         }                
     }
 }

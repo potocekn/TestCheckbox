@@ -18,14 +18,16 @@ namespace AppBaseNamespace
 {
     public partial class App : Application
     {
-        bool firstTimeRunning = true;
+        public bool firstTimeRunning = true;
         string userSettingsfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.json");
-        string resourcesfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resources.json");
+        string resourcesPDFfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesPDF.json");
+        string resourcesODTfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesODT.json");
 
         public bool IsFirst = true;
         public bool WasRefreshed = false;
         public UserSettings userSettings;
         public List<ResourcesInfoPDF> resourcesPDF;
+        public List<ResourcesInfoPDF> resourcesODT;
         public Dictionary<string, string> resourcesHTML;
 
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
@@ -49,13 +51,16 @@ namespace AppBaseNamespace
             InitializeShortcuts();
             InitializeComponent();
             RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            RetrieveResources();
-            Thread.Sleep(6000);
-            SaveHtmlToDbs();
-            SetAppLanguage(userSettings.AppLanguage);
-            SynchronizeResources();
-            if (firstTimeRunning)
+            if (!firstTimeRunning)
             {
+                RetrieveResources();
+                SaveHtmlToDbs();
+                SetAppLanguage(userSettings.AppLanguage);
+                SynchronizeResources();
+            }
+            
+            if (firstTimeRunning)
+            {                
                 MainPage = new NavigationPage(new AppLanguageFirstRunPage(this));
             }
             else
@@ -63,6 +68,16 @@ namespace AppBaseNamespace
                 MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
             }
             
+        }
+
+        private void FirstRunReloadApp()
+        {
+            firstTimeRunning = false;            
+            RetrieveResources();
+            SaveHtmlToDbs();
+            SetAppLanguage(userSettings.AppLanguage);
+            SynchronizeResources();
+            MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
         }
 
         private void InitializeShortcuts()
@@ -91,17 +106,33 @@ namespace AppBaseNamespace
             AppResources.Culture = language; 
             
         }
-
         private void RetrieveResources()
         {
-            List<ResourcesInfoPDF> resourcesInfos = new List<ResourcesInfoPDF>();
+            RetrieveResourcesPDF();
+            RetrieveResourcesODT();
+        }
+        private void RetrieveResourcesPDF()
+        {
+            List<ResourcesInfoPDF> resourcesInfosPDF = new List<ResourcesInfoPDF>();
 
-            if (File.Exists(resourcesfileName))
+            if (File.Exists(resourcesPDFfileName))
             {
-                resourcesInfos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfoPDF>>(File.ReadAllText(resourcesfileName).Trim());
+                resourcesInfosPDF = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfoPDF>>(File.ReadAllText(resourcesPDFfileName).Trim());
             }
 
-            resourcesPDF = resourcesInfos;           
+            resourcesPDF = resourcesInfosPDF;           
+        }
+
+        private void RetrieveResourcesODT()
+        {
+            List<ResourcesInfoPDF> resourcesInfosODT = new List<ResourcesInfoPDF>();
+
+            if (File.Exists(resourcesODTfileName))
+            {
+                resourcesInfosODT = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfoPDF>>(File.ReadAllText(resourcesODTfileName).Trim());
+            }
+
+            resourcesODT = resourcesInfosODT;
         }
 
         private void RetrieveUserSettings(string path)
@@ -121,7 +152,7 @@ namespace AppBaseNamespace
             WasRefreshed = true;
             userSettings.AppLanguage = previouslyChecked;
             Application.Current.Properties["currentLanguage"] = language;
-            File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
+            File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));           
             MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
         }
 
@@ -367,10 +398,11 @@ namespace AppBaseNamespace
             }
         }
 
-        private async void DownloadTestFiles()
+        public async void DownloadTestFiles()
         {           
             resourcesPDF = new List<ResourcesInfoPDF>();
-
+            resourcesODT = new List<ResourcesInfoPDF>();
+            IDownloader downloader = DependencyService.Get<IDownloader>();
             string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
             string fileName = Path.Combine(dir, "test.pdf");
             ResourcesInfoPDF item = new ResourcesInfoPDF()
@@ -394,6 +426,12 @@ namespace AppBaseNamespace
             };
             resourcesPDF.Add(item2);
 
+            foreach (var pdf in resourcesPDF)
+            {
+                string save_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), pdf.Language);
+                downloader.DownloadFile(pdf.Url, save_dir, pdf.FileName);
+            }
+
             fileName = Path.Combine(dir, "test3.odt");
             ResourcesInfoPDF item3 = new ResourcesInfoPDF()
             {
@@ -403,7 +441,13 @@ namespace AppBaseNamespace
                 Url = "https://www.4training.net/mediawiki/images/a/a8/Church.odt",
                 FilePath = fileName
             };
-            resourcesPDF.Add(item3);
+            resourcesODT.Add(item3);
+
+            foreach (var odt in resourcesODT)
+            {
+                string save_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), odt.Language);
+                downloader.DownloadFile(odt.Url, save_dir, odt.FileName);
+            }
 
             var downloadedImage = await ImageService.DownloadImage("https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png");
 
@@ -417,7 +461,8 @@ namespace AppBaseNamespace
 
         public void SaveResources()
         {
-            File.WriteAllText(resourcesfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resourcesPDF));
+            File.WriteAllText(resourcesPDFfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resourcesPDF));
+            File.WriteAllText(resourcesODTfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resourcesODT));
         }
 
         protected override void OnStart()

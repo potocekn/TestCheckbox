@@ -26,8 +26,9 @@ namespace AppBase.ViewModels
             GoToNextPage = new Command(() => {
                 if (app.userSettings.Formats.Count == 0)
                 {
-                    app.userSettings.Formats.Add("PDF");
+                    app.userSettings.Formats.Add("HTML");
                 }
+                app.DownloadTestFiles();
                 string shortcut = GetShortcut(app.userSettings.AppLanguage);
                 CultureInfo language = new CultureInfo(shortcut);
                 Thread.CurrentThread.CurrentUICulture = language;
