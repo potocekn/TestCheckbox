@@ -5,6 +5,8 @@ using Xamarin.Forms;
 using AppBase.ViewModels;
 using AppBase.Resources;
 using AppBase.Helpers;
+using System.IO;
+using AppBase.UserSettingsHelpers;
 
 namespace AppBaseNamespace
 {
@@ -82,6 +84,21 @@ namespace AppBaseNamespace
                 if (!app.userSettings.Formats.Contains(name))
                 {
                     app.userSettings.Formats.Add(name);
+                    //download resources
+                    switch (name)
+                    {
+                        case "HTML":
+                            UpdateSyncHelpers.SaveHtmlToDbs(); /////////////////for now
+                            break;
+                        case "PDF":
+                            UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
+                            break;
+                        case "ODT":
+                            UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
+                            break;
+                        default:
+                            break;
+                    }                     
                 }
             }
             else
@@ -89,9 +106,43 @@ namespace AppBaseNamespace
                 if (app.userSettings.Formats.Contains(name))
                 {
                     app.userSettings.Formats.Remove(name);
+                    //remove resources
+                    switch (name)
+                    {
+                        case "HTML":
+                            RemoveHTMLs();
+                            break;
+                        case "PDF":
+                            RemoveFiles(app.resourcesPDF);
+                            break;
+                        case "ODT":
+                            RemoveFiles(app.resourcesODT); 
+                            break;
+                        default:
+                            break;
+                    }
+
+
                 }
             }
             app.SaveUserSettings();
+        }
+
+        void RemoveHTMLs()
+        {
+            var records = App.Database.GetPagesAsync();
+            foreach (var item in records.Result)
+            {
+                App.Database.DeletePageAsync(item);
+            }
+        }
+
+        void RemoveFiles(List<ResourcesInfoPDF> list)
+        {
+            foreach (var item in list)
+            {
+                File.Delete(item.FilePath);
+            }
         }
 
         /// <summary>
