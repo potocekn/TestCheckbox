@@ -4,8 +4,11 @@ using AppBase.UserSettingsHelpers;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -34,7 +37,7 @@ namespace AppBase.Helpers
 
         public static void HandleOnRequestUpdate(DateTime now, App app)
         {
-            //toto tu sa bude volat po kliknuti na button request update
+            HandleAutomaticUpdate(now, app);
         }
 
         public static void HandleOnceAMonthUpdate(DateTime now, App app)
@@ -54,7 +57,7 @@ namespace AppBase.Helpers
                 var profiles = Connectivity.ConnectionProfiles;
                 if (profiles.Contains(ConnectionProfile.WiFi))
                 {
-                    DownloadTestFiles(app);
+                    DownloadHTMLFiles(app.URL, app);
                 }
             }
             else
@@ -63,7 +66,7 @@ namespace AppBase.Helpers
 
                 if (current == NetworkAccess.Internet)
                 {
-                    DownloadTestFiles(app);
+                    DownloadHTMLFiles(app.URL, app);
                 }
             }
         }
@@ -78,25 +81,50 @@ namespace AppBase.Helpers
             }
         }
 
+        private static Dictionary<string, List<string>> DownloadLanguagesWithResources(string url)
+        {
+            string contents = "";
+            using (HttpClient client = new HttpClient())
+            {
+                contents = client.GetStringAsync(url + "/LanguagesWithResources.json").GetAwaiter().GetResult();
+            }
+            
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(contents);
+        }
+
         private static async void DownloadHTMLFiles(string url, App app)
         {
-            foreach (var item in app.resourcesHTML)
+            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(url);
+
+            foreach (var item in app.userSettings.ChosenResourceLanguages)
             {
                 string contents;
                 using (var wc = new System.Net.WebClient())
                 {
                     //key == language, value == name
-                    contents = wc.DownloadString(url + "/" + item.Key + "/" + item.Value);
-                }
+                    
+                    foreach (var language in languagesWithResources.Keys)
+                    {
+                        CultureInfo ci = new CultureInfo(language);
+                        if (ci.DisplayName == item)
+                        {
+                            foreach (var val in languagesWithResources[language])
+                            {
+                                contents = wc.DownloadString(url + "/" + language + "/" + val + ".html");
+                                HtmlRecord record = new HtmlRecord
+                                {
+                                    PageContent = contents,
+                                    PageName = val + "(" + item + ")",
+                                    PageLanguage = item
+                                };
 
-                HtmlRecord record = new HtmlRecord
-                {
-                    PageContent = contents,
-                    PageName = item.Value,
-                    PageLanguage = item.Key
-                };
-
-                await App.Database.SavePageAsync(record);
+                                await App.Database.SavePageAsync(record);
+                            }
+                            
+                        }
+                    }
+                    
+                }            
 
             }
         }

@@ -25,6 +25,7 @@ namespace AppBaseNamespace
 
         public bool IsFirst = true;
         public bool WasRefreshed = false;
+        public string URL = "https://raw.githubusercontent.com/potocekn/ResourcesTest/master";
         public UserSettings userSettings;
         public List<ResourcesInfoPDF> resourcesPDF;
         public List<ResourcesInfoPDF> resourcesODT;
