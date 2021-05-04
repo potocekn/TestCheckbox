@@ -271,6 +271,10 @@
           <source>This application is a tool to bring training resources closer to people for daily use.</source>
           <target state="new">This application is a tool to bring training resources closer to people for daily use.</target>
         </trans-unit>
+        <trans-unit id="connectionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please make sure you are connected to Internet as resources need to be downloaded.</source>
+          <target state="new">Please make sure you are connected to Internet as resources need to be downloaded.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

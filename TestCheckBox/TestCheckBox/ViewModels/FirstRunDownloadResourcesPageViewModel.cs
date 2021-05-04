@@ -11,16 +11,14 @@ using Xamarin.Forms;
 namespace AppBase.ViewModels
 {
     class FirstRunDownloadResourcesPageViewModel
-    {        
-        public Command DownloadResources { get; set; }
-
-        public FirstRunDownloadResourcesPageViewModel(App app)
-        {            
-            DownloadResources = new Command(() => { Download(app); });
+    {  
+        public FirstRunDownloadResourcesPageViewModel()
+        {
+                        
         }
 
-        void Download(App app)
-        {
+        public void Download(App app)
+        {            
             UpdateSyncHelpers.HandleAutomaticUpdate(DateTime.Now, app);
             UpdateApp(app);
         }

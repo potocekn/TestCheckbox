@@ -14,10 +14,10 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResourceLanguagesFirstRunPage : ContentPage
     {
-        public ResourceLanguagesFirstRunPage(App app)
+        public ResourceLanguagesFirstRunPage(App app, List<string> languages)
         {
             InitializeComponent();
-            List<string> languages = new List<string> { "English", "Czech", "German" };
+            //List<string> languages = new List<string> { "English", "Czech", "German" };
             BindingContext = new ResourceLanguagesFirstRunPageViewModel(app, Navigation, languages);
         }
 

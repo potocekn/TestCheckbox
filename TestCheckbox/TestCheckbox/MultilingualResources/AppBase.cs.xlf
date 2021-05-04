@@ -272,6 +272,10 @@
           <target state="needs-review-translation">Tato aplikace je nástroj pro přiblížení vzdělávacích zdrojů lidem pro každodenní použití.</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
+        <trans-unit id="connectionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please make sure you are connected to Internet as resources need to be downloaded.</source>
+          <target state="new">Please make sure you are connected to Internet as resources need to be downloaded.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

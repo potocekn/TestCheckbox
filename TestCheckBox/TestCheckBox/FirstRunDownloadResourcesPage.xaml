@@ -7,7 +7,7 @@
             <Label Text="Downloading selected resources! Please make sure you have connection to the Internet and hit the download button."
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Download" Command="{Binding DownloadResources}"/>
+            <Button Text="Download" Clicked="OnButtonClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

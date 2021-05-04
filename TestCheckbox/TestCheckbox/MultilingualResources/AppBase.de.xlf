@@ -272,6 +272,10 @@
           <target state="needs-review-translation">Diese Anwendung ist ein Werkzeug, um Schulungsressourcen den Menschen für den täglichen Gebrauch näher zu bringen.</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
+        <trans-unit id="connectionLabel.Text" translate="yes" xml:space="preserve">
+          <source>Please make sure you are connected to Internet as resources need to be downloaded.</source>
+          <target state="new">Please make sure you are connected to Internet as resources need to be downloaded.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

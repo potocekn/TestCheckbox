@@ -54,10 +54,9 @@ namespace AppBaseNamespace
             RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             if (!firstTimeRunning)
             {
-                RetrieveResources();
-                UpdateSyncHelpers.SaveHtmlToDbs();
+                RetrieveResources();                
                 SetAppLanguage(userSettings.AppLanguage);
-                UpdateSyncHelpers.SynchronizeResources(this);
+                UpdateSyncHelpers.SynchronizeResources(this);                
             }
             
             if (firstTimeRunning)

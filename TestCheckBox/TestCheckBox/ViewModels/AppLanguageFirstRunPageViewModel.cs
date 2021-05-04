@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AppBase.ViewModels
@@ -22,8 +23,13 @@ namespace AppBase.ViewModels
             this.app = app;
             
             GoToNextPage = new Command(() => {
-                app.IsFirst = false;
-                navigation.PushAsync(new ResourceLanguagesFirstRunPage(app)); 
+                var current = Connectivity.NetworkAccess;
+                if (current == NetworkAccess.Internet)
+                {
+                    app.IsFirst = false;
+                    var languages = Helpers.UpdateSyncHelpers.DownloadLanguages(app.URL);
+                    navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, languages));
+                }
             });
             Items = CreateItems(items,shortcuts,englishVersions);
         }

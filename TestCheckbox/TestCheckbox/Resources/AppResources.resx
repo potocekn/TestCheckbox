@@ -141,6 +141,9 @@
   <data name="chineseLabel.Text" xml:space="preserve">
     <value>Chinese</value>
   </data>
+  <data name="connectionLabel.Text" xml:space="preserve">
+    <value>Please make sure you are connected to Internet as resources need to be downloaded.</value>
+  </data>
   <data name="croatianLabel.Text" xml:space="preserve">
     <value>Croatian</value>
   </data>

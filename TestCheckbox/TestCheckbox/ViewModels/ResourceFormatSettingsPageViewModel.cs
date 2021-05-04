@@ -73,7 +73,7 @@ namespace AppBaseNamespace
         }
 
         /// <summary>
-        /// Methoid that handles change of the toggled property for the format switch.
+        /// Method that handles change of the toggled property for the format switch.
         /// </summary>
         /// <param name="name">name of the format</param>
         /// <param name="isToggled">bool representing is switch is toggled or not</param>
@@ -88,7 +88,7 @@ namespace AppBaseNamespace
                     switch (name)
                     {
                         case "HTML":
-                            UpdateSyncHelpers.SaveHtmlToDbs(); /////////////////for now
+                            UpdateSyncHelpers.DownloadHTMLFiles(app.URL, app); 
                             break;
                         case "PDF":
                             UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now

@@ -68,6 +68,7 @@
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
+            <Label x:Name="connectionLabel" Text="{x:Static resources:AppResources.connectionLabel_Text}" Margin="50, 10,0,0" FontSize="20"/>
             <Button Text="Next" HorizontalOptions="End" Margin="0,0,20,0" WidthRequest="100" HeightRequest="50" BackgroundColor="#2196F3" TextColor="White" Command="{Binding GoToNextPage}"/>
         </StackLayout>
     </ContentPage.Content>

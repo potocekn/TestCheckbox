@@ -133,6 +133,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please make sure you are connected to Internet as resources need to be downloaded..
+        /// </summary>
+        internal static string connectionLabel_Text {
+            get {
+                return ResourceManager.GetString("connectionLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Croatian.
         /// </summary>
         internal static string croatianLabel_Text {
