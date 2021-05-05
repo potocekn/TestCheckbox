@@ -51,7 +51,24 @@ namespace AppBase.Helpers
         public static void HandleAutomaticUpdate(DateTime now, App app)
         {
             app.userSettings.DateOfLastUpdate = now;
-            DownloadHTMLFiles(app.URL, app);
+            foreach (var format in app.userSettings.Formats)
+            {
+                switch (format)
+                {
+                    case "PDF":
+                        DownloadTestFiles(app);
+                        break;
+                    case "HTML":
+                        DownloadHTMLFiles(app);
+                        break;
+                    case "ODT":
+                        DownloadTestFiles(app);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
         }
 
         private static void DownloadPDFFiles(App app)
@@ -121,12 +138,12 @@ namespace AppBase.Helpers
             return canDownload;
         }
 
-        public static async void DownloadHTMLFiles(string url, App app)
+        public static async void DownloadHTMLFiles(App app)
         { 
             if (!CanDownload(app)) return;
 
-            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(url);
-            List<string> changes = DownloadChangedFiles(url);
+            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);
+            List<string> changes = DownloadChangedFiles(app.URL);
 
             foreach (var item in app.userSettings.ChosenResourceLanguages)
             {
@@ -146,7 +163,7 @@ namespace AppBase.Helpers
 
                                 if (existingDbsRecord == null)
                                 {
-                                    contents = wc.DownloadString(url + "/" + language + "/" + val + ".html");
+                                    contents = wc.DownloadString(app.URL + "/" + language + "/" + val + ".html");
                                     HtmlRecord record = new HtmlRecord
                                     {
                                         PageContent = contents,
@@ -160,7 +177,7 @@ namespace AppBase.Helpers
                                 {
                                     if (changes.Contains(language + "/" + val + ".html"))
                                     {
-                                        contents = wc.DownloadString(url + "/" + language + "/" + val + ".html");
+                                        contents = wc.DownloadString(app.URL + "/" + language + "/" + val + ".html");
                                         existingDbsRecord.PageContent = contents;
                                         await App.Database.SavePageAsync(existingDbsRecord);
                                     }
