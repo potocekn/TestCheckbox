@@ -16,9 +16,8 @@ namespace AppBaseNamespace
     {       
         public ResourceFormatSettingsPage(App app, MainPageViewModel mainPageViewModel)
         {
-            InitializeComponent();
+            InitializeComponent();            
             
-            List<string> languages = new List<string> { "English", "Czech", "German" };
             List<ResourceFormatSettingsItem> switches = new List<ResourceFormatSettingsItem>();
             
             switches.Add(new ResourceFormatSettingsItem(wifiSwitch, "wifi"));
@@ -26,7 +25,7 @@ namespace AppBaseNamespace
             switches.Add(new ResourceFormatSettingsItem(htmlSwitch, htmlLabel.Text));
             switches.Add(new ResourceFormatSettingsItem(odtSwitch, odtLabel.Text));
 
-            BindingContext = new ResourceFormatSettingsPageViewModel(app, mainPageViewModel, languages, switches);
+            BindingContext = new ResourceFormatSettingsPageViewModel(app, mainPageViewModel, app.availableLanguages, switches);
 
             if (app.userSettings.DownloadOnlyWithWifi) wifiSwitch.IsToggled = true;
             foreach (var item in app.userSettings.Formats)
@@ -45,6 +44,11 @@ namespace AppBaseNamespace
         void OnToggled(object sender, ToggledEventArgs e)
         {
             (BindingContext as ResourceFormatSettingsPageViewModel).OnToggled(sender, e);
+        }
+
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            (BindingContext as ResourceFormatSettingsPageViewModel).TapGestureRecognizer_Tapped(sender, e);
         }
     }
 }

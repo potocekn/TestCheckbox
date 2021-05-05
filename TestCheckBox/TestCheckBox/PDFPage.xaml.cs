@@ -24,8 +24,8 @@ namespace AppBase
         public PDFPage(List<ResourcesInfoPDF> resources)
         {
             InitializeComponent();
-            downloader.OnFileDownloaded += OnFileDownloaded;
-            DownloadFiles(downloader, resources);
+            //downloader.OnFileDownloaded += OnFileDownloaded;
+            //DownloadFiles(downloader, resources);
             BindingContext = new PDFPageViewModel(Navigation, resources);
         }
 
