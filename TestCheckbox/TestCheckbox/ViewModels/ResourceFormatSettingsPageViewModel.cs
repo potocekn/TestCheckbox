@@ -136,12 +136,54 @@ namespace AppBaseNamespace
             }
         }
 
+        void RemoveHTMLs(string language)
+        {
+            var records = App.Database.GetPagesAsync();
+            foreach (var item in records.Result)
+            {
+                if (item.PageLanguage == language)
+                {
+                    App.Database.DeletePageAsync(item);
+                }
+            }
+        }
+
         void RemoveFiles(List<ResourcesInfoPDF> list)
         {
             foreach (var item in list)
             {
                 File.Delete(item.FilePath);
             }
+        }
+
+        void RemoveFiles(string language, List<ResourcesInfoPDF> list)
+        {
+            List<ResourcesInfoPDF> toBeDeleted = new List<ResourcesInfoPDF>();
+            foreach (var item in list)
+            {
+                if (item.Language == language)
+                {
+                    File.Delete(item.FilePath);
+                    toBeDeleted.Add(item);
+                }
+            }
+
+            DeleteFromList(toBeDeleted, list);
+        }
+
+        void DeleteFromList(List<ResourcesInfoPDF> whatToDelete, List<ResourcesInfoPDF> fromWhere)
+        {
+            foreach (var item in whatToDelete)
+            {
+                fromWhere.Remove(item);
+            }
+        }
+
+        void RemoveFiles(string language)
+        {
+            RemoveHTMLs(language);
+            RemoveFiles(language, app.resourcesPDF);
+            RemoveFiles(language, app.resourcesODT);
         }
 
         /// <summary>
@@ -158,12 +200,14 @@ namespace AppBaseNamespace
                     if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
                         app.userSettings.ChosenResourceLanguages.Add(item.EnglishName);
+                        UpdateSyncHelpers.HandleAutomaticUpdate(DateTime.Now, app);
                         app.SaveUserSettings();
                         break;
                     }
                     else if (!(sender as CheckBox).IsChecked && app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
                         app.userSettings.ChosenResourceLanguages.Remove(item.EnglishName);
+                        RemoveFiles(item.EnglishName);
                         app.SaveUserSettings();
                         break;
                     }
