@@ -22,11 +22,13 @@ namespace AppBaseNamespace
         string userSettingsfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.json");
         string resourcesPDFfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesPDF.json");
         string resourcesODTfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesODT.json");
+        string languagesFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "languages.json");
 
         public bool IsFirst = true;
         public bool WasRefreshed = false;
         public string URL = "https://raw.githubusercontent.com/potocekn/ResourcesTest/master";
         public UserSettings userSettings;
+        public List<string> availableLanguages = new List<string>();
         public List<ResourcesInfoPDF> resourcesPDF;
         public List<ResourcesInfoPDF> resourcesODT;
         public Dictionary<string, string> resourcesHTML;
@@ -54,6 +56,7 @@ namespace AppBaseNamespace
             RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             if (!firstTimeRunning)
             {
+                RetrieveLanguages();
                 RetrieveResources();                
                 SetAppLanguage(userSettings.AppLanguage);
                 UpdateSyncHelpers.SynchronizeResources(this);                
@@ -137,6 +140,16 @@ namespace AppBaseNamespace
             userSettings = result;
         }
 
+        private void RetrieveLanguages()
+        {
+            List<string> result = new List<string>();
+            if (File.Exists(userSettingsfileName))
+            {
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(languagesFileName).Trim());                
+            }
+            availableLanguages = result;
+        }
+
         public void ReloadApp(string language, string previouslyChecked)
         {
             WasRefreshed = true;
@@ -149,6 +162,11 @@ namespace AppBaseNamespace
         public void SaveUserSettings()
         {
             File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
+        }
+
+        public void SaveLanguages()
+        {
+            File.WriteAllText(languagesFileName, Newtonsoft.Json.JsonConvert.SerializeObject(availableLanguages));
         }
 
         public void SaveResources()
@@ -165,6 +183,7 @@ namespace AppBaseNamespace
         {
             SaveUserSettings();
             SaveResources();
+            SaveLanguages();
         }
 
         protected override void OnResume()

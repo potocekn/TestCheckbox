@@ -27,8 +27,8 @@ namespace AppBase.ViewModels
                 if (current == NetworkAccess.Internet)
                 {
                     app.IsFirst = false;
-                    var languages = Helpers.UpdateSyncHelpers.DownloadLanguages(app.URL);
-                    navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, languages));
+                    app.availableLanguages = Helpers.UpdateSyncHelpers.DownloadLanguages(app.URL);
+                    navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, app.availableLanguages));
                 }
             });
             Items = CreateItems(items,shortcuts,englishVersions);
