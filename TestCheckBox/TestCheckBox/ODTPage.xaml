@@ -7,7 +7,7 @@
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Button Text="{Binding ResourceName}"  Command="{Binding ShareResource}"/>                        
+                        <Button Text="{Binding ResourceName}"  Command="{Binding ShareResource}" BackgroundColor="GhostWhite"/>                        
                     </StackLayout>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>            
