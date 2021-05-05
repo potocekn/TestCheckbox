@@ -12,8 +12,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Row="0" Grid.Column="0" Text="{Binding ResourceName}" Command="{Binding OpenResource}"/>
-                            <Button Grid.Row="0" Grid.Column="1" WidthRequest="100" Text="Share"  Command="{Binding ShareResource}"/>
+                            <Button Grid.Row="0" Grid.Column="0" Text="{Binding ResourceName}" Command="{Binding OpenResource}" BackgroundColor="GhostWhite"/>
+                            <Button Grid.Row="0" Grid.Column="1" WidthRequest="100" Text="Share"  Command="{Binding ShareResource}" BackgroundColor="GhostWhite"/>
                         </Grid>
                     </StackLayout>
                 </DataTemplate>

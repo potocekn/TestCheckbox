@@ -5,9 +5,12 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Downloading selected resources! Please make sure you have connection to the Internet and hit the download button."
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Download" Clicked="OnButtonClicked" />
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="50, 10,0,0" 
+                   FontSize="20"   />
+            <Button Text="Download" Clicked="OnButtonClicked"  HorizontalOptions="Center" Margin="0,0,0, 200"
+                    WidthRequest="200" HeightRequest="50" BackgroundColor="#2196F3" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

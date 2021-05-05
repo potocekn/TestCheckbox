@@ -7,7 +7,7 @@
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Button Text="{Binding PageName}" Command="{Binding OpenResource}"/>                        
+                        <Button Text="{Binding PageName}" Command="{Binding OpenResource}" BackgroundColor="GhostWhite"/>                        
                     </StackLayout>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>            
