@@ -14,7 +14,7 @@ namespace AppBase.ViewModels
     /// </summary>
     class ResourceLanguagesFirstRunPageViewModel
     {
-        public List<CheckBoxItem> Languages { get; set; }
+        public List<LanguageSettingsItem> Languages { get; set; }
         App app;
         public Command GoToNextPage { get; set; }
 
@@ -23,13 +23,12 @@ namespace AppBase.ViewModels
             this.app = app;
             Languages = languages
                .Where(x => !string.IsNullOrEmpty(x))
-               .Select(x => new CheckBoxItem()
+               .Select(x => new LanguageSettingsItem()
                {
                    IsChecked = false,
-                   Value = x,
-                   LabelText = LanguagesTranslationHelper.ReturnTranslation(x),
-                   CheckedChangedCommand = new Command(() => {
-                   })
+                   Value = LanguagesTranslationHelper.ReturnTranslation(x),
+                   EnglishName = x,
+                   WasUpdated = false                   
                })
                .ToList();
             GoToNextPage = new Command(() => {
@@ -46,20 +45,38 @@ namespace AppBase.ViewModels
         {
             foreach (var item in Languages)
             {
-                if (item.Value == ((sender as CheckBox).BindingContext as CheckBoxItem).Value)
+                if (item.EnglishName == ((sender as CheckBox).BindingContext as LanguageSettingsItem).EnglishName)
                 {
-                    if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.Value))
+                    if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
-                        app.userSettings.ChosenResourceLanguages.Add(item.Value);
+                        app.userSettings.ChosenResourceLanguages.Add(item.EnglishName);
                         app.SaveUserSettings();
                         break;
                     }
-                    else if (!(sender as CheckBox).IsChecked && app.userSettings.ChosenResourceLanguages.Contains(item.Value))
+                    else if (!(sender as CheckBox).IsChecked && app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
-                        app.userSettings.ChosenResourceLanguages.Remove(item.Value);
+                        app.userSettings.ChosenResourceLanguages.Remove(item.EnglishName);
                         app.SaveUserSettings();
                         break;
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method that ensures if label was clicked on, checkbox next to it will be updated
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">event arguments</param>
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Label label = (sender as Label);
+            foreach (var item in Languages)
+            {
+                if (label.Text == item.EnglishName)
+                {
+                    item.IsChecked = !item.IsChecked;
+                    break;
                 }
             }
         }

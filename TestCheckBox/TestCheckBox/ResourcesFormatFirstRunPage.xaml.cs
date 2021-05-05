@@ -27,6 +27,6 @@ namespace AppBase
         void OnToggled(object sender, ToggledEventArgs e)
         {
             (BindingContext as ResourcesFormatFirstRunPageViewModel).OnToggled(sender, e);
-        }
+        }       
     }
 }

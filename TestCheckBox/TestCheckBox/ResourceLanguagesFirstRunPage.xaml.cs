@@ -25,5 +25,10 @@ namespace AppBase
         {
             (BindingContext as ResourceLanguagesFirstRunPageViewModel).OnCheckBoxCheckedChanged(sender, e);
         }
+
+        public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            (BindingContext as ResourceLanguagesFirstRunPageViewModel).TapGestureRecognizer_Tapped(sender, e);
+        }
     }
 }
