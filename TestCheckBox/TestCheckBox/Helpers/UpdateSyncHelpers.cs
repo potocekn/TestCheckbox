@@ -191,6 +191,7 @@ namespace AppBase.Helpers
 
         public static async void DownloadTestFiles(App app)
         {
+            if (!CanDownload(app)) return;
             app.resourcesPDF = new List<ResourcesInfoPDF>();
             app.resourcesODT = new List<ResourcesInfoPDF>();
             IDownloader downloader = DependencyService.Get<IDownloader>();
@@ -220,7 +221,14 @@ namespace AppBase.Helpers
             foreach (var pdf in app.resourcesPDF)
             {
                 string save_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), pdf.Language);
-                downloader.DownloadFile(pdf.Url, save_dir, pdf.FileName);
+                try
+                {
+                    downloader.DownloadFile(pdf.Url, save_dir, pdf.FileName);
+                }
+                catch (Exception e)
+                {
+                    
+                }
             }
 
             fileName = Path.Combine(dir, "test3.odt");
