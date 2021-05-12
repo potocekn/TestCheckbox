@@ -41,7 +41,7 @@
     <XliffResource Include="MultilingualResources\AppBase.zh-Hans.xlf" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ResourceFormatSettingsPage.xaml.cs">
+    <Compile Update="Pages\ResourceFormatSettingsPage.xaml.cs">
       <DependentUpon>ResourceFormatSettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Resources\AppResources.Designer.cs">
@@ -49,55 +49,55 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Update="LanguageSettingsPage.xaml.cs">
+    <Compile Update="Pages\LanguageSettingsPage.xaml.cs">
       <DependentUpon>LanguageSettingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="AppLanguageFirstRunPage.xaml">
+    <EmbeddedResource Update="Pages\AppLanguageFirstRunPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="FileLocationSettingsPage.xaml">
+    <EmbeddedResource Update="Pages\FileLocationSettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="FirstRunDownloadResourcesPage.xaml">
+    <EmbeddedResource Update="Pages\FirstRunDownloadResourcesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="HTMLPage.xaml">
+    <EmbeddedResource Update="Pages\HTMLPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ODTPage.xaml">
+    <EmbeddedResource Update="Pages\ODTPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="pdfjsPage.xaml">
+    <EmbeddedResource Update="Pages\pdfjsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="PDFPage.xaml">
+    <EmbeddedResource Update="Pages\PDFPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ResourceFormatSettingsPage.xaml">
+    <EmbeddedResource Update="Pages\ResourceFormatSettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ResourceLanguagesFirstRunPage.xaml">
+    <EmbeddedResource Update="Pages\ResourceLanguagesFirstRunPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ResourcesFormatFirstRunPage.xaml">
+    <EmbeddedResource Update="Pages\ResourcesFormatFirstRunPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ResourcesPage.xaml">
+    <EmbeddedResource Update="Pages\ResourcesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\AppResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="LanguageSettingsPage.xaml">
+    <EmbeddedResource Update="Pages\LanguageSettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="SettingsPage.xaml">
+    <EmbeddedResource Update="Pages\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="UpdateIntervalSettingsPage.xaml">
+    <EmbeddedResource Update="Pages\UpdateIntervalSettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
