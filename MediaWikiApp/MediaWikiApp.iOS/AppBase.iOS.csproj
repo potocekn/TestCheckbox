@@ -149,7 +149,7 @@
     <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
   </Target>
   <ItemGroup>
-    <ProjectReference Include="..\TestCheckbox\AppBase.csproj">
+    <ProjectReference Include="..\MediaWikiApp\AppBase.csproj">
       <Project>{1F0C12D3-B70D-444C-9AED-706561307458}</Project>
       <Name>AppBase</Name>
     </ProjectReference>

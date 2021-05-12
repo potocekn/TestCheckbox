@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBase.Android", "TestCheckbox\TestCheckbox.Android\AppBase.Android.csproj", "{7382D043-A29F-4091-A7C2-8D78317E79A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBase.Android", "MediaWikiApp\MediaWikiApp.Android\AppBase.Android.csproj", "{7382D043-A29F-4091-A7C2-8D78317E79A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBase.iOS", "TestCheckbox\TestCheckbox.iOS\AppBase.iOS.csproj", "{9D86A5FF-7E02-4BB2-8AAE-45D75B81A324}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppBase.iOS", "MediaWikiApp\MediaWikiApp.iOS\AppBase.iOS.csproj", "{9D86A5FF-7E02-4BB2-8AAE-45D75B81A324}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppBase", "TestCheckbox\TestCheckbox\AppBase.csproj", "{1F0C12D3-B70D-444C-9AED-706561307458}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppBase", "MediaWikiApp\MediaWikiApp\AppBase.csproj", "{1F0C12D3-B70D-444C-9AED-706561307458}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
