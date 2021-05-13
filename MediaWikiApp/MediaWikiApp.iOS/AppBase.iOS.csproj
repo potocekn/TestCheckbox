@@ -72,7 +72,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomRenderers\PdfWebViewRenderer.cs" />
-    <Compile Include="IosDownloader.cs" />
+    <Compile Include="PlatformsSpecifics\IosDownloader.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

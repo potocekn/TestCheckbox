@@ -65,7 +65,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AndroidDownloader.cs" />
+    <Compile Include="PlatformSpecifics\AndroidDownloader.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PlatformSpecifics\LocalFileProvider.cs" />
     <Compile Include="Renderers\PdfWebViewRenderer.cs" />
