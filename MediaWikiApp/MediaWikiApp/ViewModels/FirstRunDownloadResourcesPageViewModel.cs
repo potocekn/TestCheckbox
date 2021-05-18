@@ -19,7 +19,7 @@ namespace AppBase.ViewModels
 
         public void Download(App app)
         {            
-            UpdateSyncHelpers.HandleAutomaticUpdate(DateTime.Now, app);
+            UpdateSyncHelpers.DownloadResources(app);
             UpdateApp(app);
         }
 

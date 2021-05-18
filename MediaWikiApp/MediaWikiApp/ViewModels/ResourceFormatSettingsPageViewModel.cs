@@ -200,7 +200,7 @@ namespace AppBaseNamespace
                     if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
                         app.userSettings.ChosenResourceLanguages.Add(item.EnglishName);
-                        UpdateSyncHelpers.HandleAutomaticUpdate(DateTime.Now, app);
+                        UpdateSyncHelpers.DownloadResources(app);
                         app.SaveUserSettings();
                         break;
                     }
