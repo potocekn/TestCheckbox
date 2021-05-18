@@ -35,12 +35,17 @@ namespace AppBase.Helpers
             }
         }
 
-        public static void HandleOnRequestUpdate(DateTime now, App app)
+        public static void DownloadResources(App app)
+        {
+            HandleAutomaticUpdate(DateTime.Now, app);
+        }
+
+        private static void HandleOnRequestUpdate(DateTime now, App app)
         {
             HandleAutomaticUpdate(now, app);
         }
 
-        public static void HandleOnceAMonthUpdate(DateTime now, App app)
+        private static void HandleOnceAMonthUpdate(DateTime now, App app)
         {
             if (now.Subtract(app.userSettings.DateOfLastUpdate).TotalDays > 28)
             {
@@ -48,7 +53,7 @@ namespace AppBase.Helpers
             }
         }
 
-        public static void HandleAutomaticUpdate(DateTime now, App app)
+        private static void HandleAutomaticUpdate(DateTime now, App app)
         {
             app.userSettings.DateOfLastUpdate = now;
             foreach (var format in app.userSettings.Formats)
@@ -103,15 +108,37 @@ namespace AppBase.Helpers
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(contents);
         }
 
-        private static List<string> DownloadChangedFiles(string url)
-        {
+        private static List<ChangesItem> DownloadChangedFiles(string url)
+        {            
             string contents = "";
             using (HttpClient client = new HttpClient())
             {
                 contents = client.GetStringAsync(url + "/Changes.json").GetAwaiter().GetResult();
             }
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(contents);
+            var contentsDeserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<List<List<object>>>(contents);
+            var result = ParseChangesResults(contentsDeserialized);
+            return result; 
+        }
+
+
+        private static  List<ChangesItem> ParseChangesResults(List<List<object>> changes)
+        {
+            List<ChangesItem> result = new List<ChangesItem>();
+
+            foreach (var change in changes)
+            {
+                string fileName = (string)change[0];
+                int versionNumber = Convert.ToInt32(change[1]);               
+                ChangesItem newItem = new ChangesItem()
+                {
+                    FileName = fileName,
+                    VersionNumber = versionNumber
+                };
+                result.Add(newItem);
+            }
+
+            return result;
         }
 
 
@@ -142,11 +169,10 @@ namespace AppBase.Helpers
         { 
             if (!CanDownload(app)) return;
 
-            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);
-            List<string> changes = DownloadChangedFiles(app.URL);
+            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);            
 
             foreach (var item in app.userSettings.ChosenResourceLanguages)
-            {
+            {               
                 string contents;
                 using (var wc = new System.Net.WebClient())
                 {
@@ -154,20 +180,23 @@ namespace AppBase.Helpers
                     
                     foreach (var language in languagesWithResources.Keys)
                     {
+                        List<ChangesItem> changes = DownloadChangedFiles(app.URL + '/' + language);
                         CultureInfo ci = new CultureInfo(language);
                         if (ci.DisplayName == item)
                         {
-                            foreach (var val in languagesWithResources[language])
+                            foreach (var change in changes)
                             {
-                                var existingDbsRecord = App.Database.GetPageAsync(val + "(" + item + ")").Result;
+                                var resourceName = change.FileName.Split('/', '.')[1];
+                                var existingDbsRecord = App.Database.GetPageAsync(resourceName + "(" + item + ")").Result;
+                                string fullRecordURL = app.URL + "/" + change.FileName;                                
 
                                 if (existingDbsRecord == null)
                                 {
-                                    contents = wc.DownloadString(app.URL + "/" + language + "/" + val + ".html");
+                                    contents = wc.DownloadString(fullRecordURL);
                                     HtmlRecord record = new HtmlRecord
                                     {
                                         PageContent = contents,
-                                        PageName = val + "(" + item + ")",
+                                        PageName = resourceName + "(" + item + ")",
                                         PageLanguage = item
                                     };
 
@@ -175,12 +204,13 @@ namespace AppBase.Helpers
                                 }
                                 else
                                 {
-                                    if (changes.Contains(language + "/" + val + ".html"))
+                                    if (change.VersionNumber > existingDbsRecord.VersionNumber)
                                     {
-                                        contents = wc.DownloadString(app.URL + "/" + language + "/" + val + ".html");
+                                        contents = wc.DownloadString(fullRecordURL);
                                         existingDbsRecord.PageContent = contents;
+                                        existingDbsRecord.VersionNumber = change.VersionNumber;
                                         await App.Database.SavePageAsync(existingDbsRecord);
-                                    }
+                                    }                                                                                                                                          
                                 }
                             }                            
                         }
