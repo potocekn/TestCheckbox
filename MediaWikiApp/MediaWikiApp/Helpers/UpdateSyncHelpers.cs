@@ -186,7 +186,7 @@ namespace AppBase.Helpers
             return canDownload;
         }
 
-        static async Task<bool> Test(List<ChangesItem> changes, string language, string URL, WebClient wc)
+        static async Task<bool> SaveChanges(List<ChangesItem> changes, string language, string URL, WebClient wc)
         {
             try
             {
@@ -250,7 +250,7 @@ namespace AppBase.Helpers
                             CultureInfo ci = new CultureInfo(language);
                             if (ci.DisplayName == item)
                             {
-                                bool result = await Test(changes, item, app.URL, wc);
+                                bool result = await SaveChanges(changes, item, app.URL, wc);
                             }
                         }
                     }                    
