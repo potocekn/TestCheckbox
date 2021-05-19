@@ -61,7 +61,21 @@ namespace AppBaseNamespace
                 }
             }
         }
-               
+
+        internal void RequestUpdate(ResourceFormatSettingsPage page)
+        {
+            bool success = UpdateSyncHelpers.DownloadResources(app);
+            if (success)
+            {
+                page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
+            }
+            else
+            {
+                page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
+            }
+            
+        }
+
         /// <summary>
         /// Method that handles change of toggled property of the wifi switch.
         /// </summary>
@@ -158,6 +172,7 @@ namespace AppBaseNamespace
 
         void RemoveFiles(string language, List<ResourcesInfoPDF> list)
         {
+            if (list == null) return;
             List<ResourcesInfoPDF> toBeDeleted = new List<ResourcesInfoPDF>();
             foreach (var item in list)
             {
@@ -200,7 +215,7 @@ namespace AppBaseNamespace
                     if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
                         app.userSettings.ChosenResourceLanguages.Add(item.EnglishName);
-                        UpdateSyncHelpers.DownloadResources(app);
+                        //UpdateSyncHelpers.DownloadResources(app);
                         app.SaveUserSettings();
                         break;
                     }

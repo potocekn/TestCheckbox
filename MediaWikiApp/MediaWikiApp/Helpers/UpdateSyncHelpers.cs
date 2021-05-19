@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -28,6 +29,7 @@ namespace AppBase.Helpers
                     HandleOnceAMonthUpdate(DateTime.Now, app);
                     break;
                 case "On request":
+                    HandleOnRequestUpdate(DateTime.Now, app);
                     break;
                 default:
                     HandleAutomaticUpdate(DateTime.Now, app);
@@ -35,9 +37,9 @@ namespace AppBase.Helpers
             }
         }
 
-        public static void DownloadResources(App app)
+        public static bool DownloadResources(App app)
         {
-            HandleAutomaticUpdate(DateTime.Now, app);
+            return HandleAutomaticUpdate(DateTime.Now, app);
         }
 
         private static void HandleOnRequestUpdate(DateTime now, App app)
@@ -53,7 +55,7 @@ namespace AppBase.Helpers
             }
         }
 
-        private static void HandleAutomaticUpdate(DateTime now, App app)
+        private static bool HandleAutomaticUpdate(DateTime now, App app)
         {
             app.userSettings.DateOfLastUpdate = now;
             foreach (var format in app.userSettings.Formats)
@@ -62,18 +64,18 @@ namespace AppBase.Helpers
                 {
                     case "PDF":
                         DownloadTestFiles(app);
-                        break;
+                        return true; //for now
                     case "HTML":
-                        DownloadHTMLFiles(app);
-                        break;
+                        var result = DownloadHTMLFiles(app);
+                        return result.Result;                        
                     case "ODT":
                         DownloadTestFiles(app);
-                        break;
+                        return true; //for now
                     default:
-                        break;
+                        return false;                        
                 }
             }
-            
+            return false;
         }
 
         private static void DownloadPDFFiles(App app)
@@ -89,12 +91,19 @@ namespace AppBase.Helpers
         private static Dictionary<string, List<string>> DownloadLanguagesWithResources(string url)
         {
             string contents = "";
-            using (HttpClient client = new HttpClient())
+            try
             {
-                contents = client.GetStringAsync(url + "/LanguagesWithResources.json").GetAwaiter().GetResult();
+                using (HttpClient client = new HttpClient())
+                {
+                    contents = client.GetStringAsync(url + "/LanguagesWithResources.json").GetAwaiter().GetResult();
+                }
+
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(contents);
             }
-            
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(contents);
+            catch
+            {
+                return null;
+            }            
         }
 
         public static List<string> DownloadLanguages(string url)
@@ -111,19 +120,27 @@ namespace AppBase.Helpers
         private static List<ChangesItem> DownloadChangedFiles(string url)
         {            
             string contents = "";
-            using (HttpClient client = new HttpClient())
+            try
             {
-                contents = client.GetStringAsync(url + "/Changes.json").GetAwaiter().GetResult();
-            }
+                using (HttpClient client = new HttpClient())
+                {
+                    contents = client.GetStringAsync(url + "/Changes.json").GetAwaiter().GetResult();
+                }
 
-            var contentsDeserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<List<List<object>>>(contents);
-            var result = ParseChangesResults(contentsDeserialized);
-            return result; 
+                var contentsDeserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<List<List<object>>>(contents);
+                var result = ParseChangesResults(contentsDeserialized);
+                return result;
+            }
+            catch 
+            {
+                return null;
+            }            
         }
 
 
         private static  List<ChangesItem> ParseChangesResults(List<List<object>> changes)
         {
+            if (changes == null) return null;
             List<ChangesItem> result = new List<ChangesItem>();
 
             foreach (var change in changes)
@@ -165,58 +182,70 @@ namespace AppBase.Helpers
             return canDownload;
         }
 
-        public static async void DownloadHTMLFiles(App app)
+        public static async Task<bool> DownloadHTMLFiles(App app)
         { 
-            if (!CanDownload(app)) return;
+            if (!CanDownload(app)) return false;
 
-            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);            
+            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);
+            if (languagesWithResources == null) return false;
 
             foreach (var item in app.userSettings.ChosenResourceLanguages)
             {               
                 string contents;
-                using (var wc = new System.Net.WebClient())
+
+                try
                 {
-                    //key == language, value == name
-                    
-                    foreach (var language in languagesWithResources.Keys)
+                    using (var wc = new System.Net.WebClient())
                     {
-                        List<ChangesItem> changes = DownloadChangedFiles(app.URL + '/' + language);
-                        CultureInfo ci = new CultureInfo(language);
-                        if (ci.DisplayName == item)
+                        //key == language, value == name                    
+                        foreach (var language in languagesWithResources.Keys)
                         {
-                            foreach (var change in changes)
+                            List<ChangesItem> changes = DownloadChangedFiles(app.URL + '/' + language);
+                            CultureInfo ci = new CultureInfo(language);
+                            if (ci.DisplayName == item)
                             {
-                                var resourceName = change.FileName.Split('/', '.')[1];
-                                var existingDbsRecord = App.Database.GetPageAsync(resourceName + "(" + item + ")").Result;
-                                string fullRecordURL = app.URL + "/" + change.FileName;                                
-
-                                if (existingDbsRecord == null)
+                                foreach (var change in changes)
                                 {
-                                    contents = wc.DownloadString(fullRecordURL);
-                                    HtmlRecord record = new HtmlRecord
-                                    {
-                                        PageContent = contents,
-                                        PageName = resourceName + "(" + item + ")",
-                                        PageLanguage = item
-                                    };
+                                    var resourceName = change.FileName.Split('/', '.')[1];
+                                    var existingDbsRecord = App.Database.GetPageAsync(resourceName + "(" + item + ")").Result;
+                                    string fullRecordURL = app.URL + "/" + change.FileName;
 
-                                    await App.Database.SavePageAsync(record);
-                                }
-                                else
-                                {
-                                    if (change.VersionNumber > existingDbsRecord.VersionNumber)
+                                    if (existingDbsRecord == null)
                                     {
                                         contents = wc.DownloadString(fullRecordURL);
-                                        existingDbsRecord.PageContent = contents;
-                                        existingDbsRecord.VersionNumber = change.VersionNumber;
-                                        await App.Database.SavePageAsync(existingDbsRecord);
-                                    }                                                                                                                                          
+                                        HtmlRecord record = new HtmlRecord
+                                        {
+                                            PageContent = contents,
+                                            PageName = resourceName + "(" + item + ")",
+                                            PageLanguage = item
+                                        };
+
+                                        await App.Database.SavePageAsync(record);
+                                    }
+                                    else
+                                    {
+                                        if (change.VersionNumber > existingDbsRecord.VersionNumber)
+                                        {
+                                            contents = wc.DownloadString(fullRecordURL);
+                                            existingDbsRecord.PageContent = contents;
+                                            existingDbsRecord.VersionNumber = change.VersionNumber;
+                                            await App.Database.SavePageAsync(existingDbsRecord);
+                                        }
+                                    }
                                 }
-                            }                            
+                            }
                         }
-                    }                    
+                    }
+
+                    return true;
                 }
+                catch 
+                {
+                    return false;
+                }
+                
             }
+            return true;
         }
 
         public static async void DownloadTestFiles(App app)

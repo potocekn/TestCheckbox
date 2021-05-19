@@ -43,7 +43,8 @@
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
                 </StackLayout>
-            </StackLayout>
+                <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" Clicked="RequestUpdateButton_Clicked"/>
+            </StackLayout>            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

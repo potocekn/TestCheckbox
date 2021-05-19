@@ -1,4 +1,5 @@
-﻿using AppBase.ViewModels;
+﻿using AppBase.Helpers;
+using AppBase.ViewModels;
 using AppBaseNamespace.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -49,6 +50,11 @@ namespace AppBaseNamespace
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             (BindingContext as ResourceFormatSettingsPageViewModel).TapGestureRecognizer_Tapped(sender, e);
+        }
+
+        private void RequestUpdateButton_Clicked(object sender, EventArgs e)
+        {
+            (BindingContext as ResourceFormatSettingsPageViewModel).RequestUpdate(this);
         }
     }
 }

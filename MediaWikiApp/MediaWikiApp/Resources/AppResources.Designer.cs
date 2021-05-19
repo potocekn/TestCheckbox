@@ -448,6 +448,33 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resources Downloaded.
+        /// </summary>
+        internal static string ResourcesDownloadedMessage_Text {
+            get {
+                return ResourceManager.GetString("ResourcesDownloadedMessage.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string ResourcesDownloadedTitle_Text {
+            get {
+                return ResourceManager.GetString("ResourcesDownloadedTitle.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unsuccessful download. Pleas make sure you have Internet access..
+        /// </summary>
+        internal static string ResourcesDownloadedUnsuccessful_Text {
+            get {
+                return ResourceManager.GetString("ResourcesDownloadedUnsuccessful.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Romanian.
         /// </summary>
         internal static string romanianLabel_Text {

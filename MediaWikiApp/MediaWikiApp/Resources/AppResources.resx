@@ -246,6 +246,15 @@
   <data name="ResourcesButton.Text" xml:space="preserve">
     <value>Resources</value>
   </data>
+  <data name="ResourcesDownloadedMessage.Text" xml:space="preserve">
+    <value>Resources Downloaded</value>
+  </data>
+  <data name="ResourcesDownloadedTitle.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ResourcesDownloadedUnsuccessful.Text" xml:space="preserve">
+    <value>Unsuccessful download. Pleas make sure you have Internet access.</value>
+  </data>
   <data name="romanianLabel.Text" xml:space="preserve">
     <value>Romanian</value>
   </data>

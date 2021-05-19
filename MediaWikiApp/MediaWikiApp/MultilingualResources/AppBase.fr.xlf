@@ -276,6 +276,18 @@
           <source>Please make sure you are connected to Internet as resources need to be downloaded.</source>
           <target state="new">Please make sure you are connected to Internet as resources need to be downloaded.</target>
         </trans-unit>
+        <trans-unit id="ResourcesDownloadedMessage.Text" translate="yes" xml:space="preserve">
+          <source>Resources Downloaded</source>
+          <target state="new">Resources Downloaded</target>
+        </trans-unit>
+        <trans-unit id="ResourcesDownloadedTitle.Text" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="ResourcesDownloadedUnsuccessful.Text" translate="yes" xml:space="preserve">
+          <source>Unsuccessful download. Pleas make sure you have Internet access.</source>
+          <target state="new">Unsuccessful download. Pleas make sure you have Internet access.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
