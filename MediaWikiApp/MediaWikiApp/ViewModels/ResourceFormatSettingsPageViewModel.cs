@@ -62,16 +62,16 @@ namespace AppBaseNamespace
             }
         }
 
-        internal void RequestUpdate(ResourceFormatSettingsPage page)
+        internal async void RequestUpdate(ResourceFormatSettingsPage page)
         {
-            UpdateSyncHelpers.DownloadResources(app);
-            if (true)
+            bool result = await UpdateSyncHelpers.DownloadResources(app);
+            if (result)
             {
-                page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
+                await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
             }
             else
             {
-                page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
+                await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
             }
             
         }

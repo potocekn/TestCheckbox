@@ -18,12 +18,12 @@ namespace AppBase.Helpers
 {
     static class UpdateSyncHelpers
     {
-        public static void SynchronizeResources(App app)
+        public static async void SynchronizeResources(App app)
         {
             switch (app.userSettings.UpdateInterval)
             {
                 case "Automatic":
-                    HandleAutomaticUpdate(DateTime.Now, app);
+                    await HandleAutomaticUpdate(DateTime.Now, app);
                     break;
                 case "Once a Month":
                     HandleOnceAMonthUpdate(DateTime.Now, app);
@@ -32,30 +32,30 @@ namespace AppBase.Helpers
                     HandleOnRequestUpdate(DateTime.Now, app);
                     break;
                 default:
-                    HandleAutomaticUpdate(DateTime.Now, app);
+                    await HandleAutomaticUpdate(DateTime.Now, app);
                     break;
             }
         }
 
-        public static void DownloadResources(App app)
+        public static async Task<bool> DownloadResources(App app)
         {
-            HandleAutomaticUpdate(DateTime.Now, app);
+           return await HandleAutomaticUpdate(DateTime.Now, app);
         }
 
-        private static void HandleOnRequestUpdate(DateTime now, App app)
+        private static async void HandleOnRequestUpdate(DateTime now, App app)
         {
-            HandleAutomaticUpdate(now, app);
+            await HandleAutomaticUpdate(now, app);
         }
 
-        private static void HandleOnceAMonthUpdate(DateTime now, App app)
+        private static async void HandleOnceAMonthUpdate(DateTime now, App app)
         {
             if (now.Subtract(app.userSettings.DateOfLastUpdate).TotalDays > 28)
             {
-                HandleAutomaticUpdate(now, app);
+                await HandleAutomaticUpdate(now, app);
             }
         }
 
-        private static void HandleAutomaticUpdate(DateTime now, App app)
+        private static async Task<bool> HandleAutomaticUpdate(DateTime now, App app)
         {
             app.userSettings.DateOfLastUpdate = now;
             foreach (var format in app.userSettings.Formats)
@@ -67,9 +67,9 @@ namespace AppBase.Helpers
                         //return true; //for now
                         break;
                     case "HTML":
-                        DownloadHTMLFiles(app);
+                        return await DownloadHTMLFiles(app);
                         //return result.Result;
-                        break;
+                        //break;
                     case "ODT":
                         DownloadTestFiles(app);
                         //return true; //for now
@@ -79,7 +79,7 @@ namespace AppBase.Helpers
                         break;
                 }
             }
-           // return false;
+           return false;
         }
 
         private static void DownloadPDFFiles(App app)
@@ -186,16 +186,58 @@ namespace AppBase.Helpers
             return canDownload;
         }
 
-        public static async void DownloadHTMLFiles(App app)
+        static async Task<bool> Test(List<ChangesItem> changes, string language, string URL, WebClient wc)
+        {
+            try
+            {
+                foreach (var change in changes)
+                {
+                    var resourceName = change.FileName.Split('/', '.')[1];
+                    var existingDbsRecord = App.Database.GetPageAsync(resourceName + "(" + language + ")").Result;
+                    string fullRecordURL = URL + "/" + change.FileName;
+
+                    if (existingDbsRecord == null)
+                    {
+                        string contents = wc.DownloadString(fullRecordURL);
+                        HtmlRecord record = new HtmlRecord
+                        {
+                            PageContent = contents,
+                            PageName = resourceName + "(" + language + ")",
+                            PageLanguage = language
+                        };
+
+                        await App.Database.SavePageAsync(record);
+                    }
+                    else
+                    {
+                        if (change.VersionNumber > existingDbsRecord.VersionNumber)
+                        {
+                            string contents = wc.DownloadString(fullRecordURL);
+                            existingDbsRecord.PageContent = contents;
+                            existingDbsRecord.VersionNumber = change.VersionNumber;
+                            await App.Database.SavePageAsync(existingDbsRecord);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+           
+        }
+
+        public static async Task<bool> DownloadHTMLFiles(App app)
         { 
-            if (!CanDownload(app)) return;
+            if (!CanDownload(app)) return false;
 
             Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);
-            if (languagesWithResources == null) return;
+            if (languagesWithResources == null) return false;
 
             foreach (var item in app.userSettings.ChosenResourceLanguages)
             {               
-                string contents;
+                //string contents;
 
                 try
                 {
@@ -208,46 +250,18 @@ namespace AppBase.Helpers
                             CultureInfo ci = new CultureInfo(language);
                             if (ci.DisplayName == item)
                             {
-                                foreach (var change in changes)
-                                {
-                                    var resourceName = change.FileName.Split('/', '.')[1];
-                                    var existingDbsRecord = App.Database.GetPageAsync(resourceName + "(" + item + ")").Result;
-                                    string fullRecordURL = app.URL + "/" + change.FileName;
-
-                                    if (existingDbsRecord == null)
-                                    {
-                                        contents = wc.DownloadString(fullRecordURL);
-                                        HtmlRecord record = new HtmlRecord
-                                        {
-                                            PageContent = contents,
-                                            PageName = resourceName + "(" + item + ")",
-                                            PageLanguage = item
-                                        };
-
-                                        await App.Database.SavePageAsync(record);
-                                    }
-                                    else
-                                    {
-                                        if (change.VersionNumber > existingDbsRecord.VersionNumber)
-                                        {
-                                            contents = wc.DownloadString(fullRecordURL);
-                                            existingDbsRecord.PageContent = contents;
-                                            existingDbsRecord.VersionNumber = change.VersionNumber;
-                                            await App.Database.SavePageAsync(existingDbsRecord);
-                                        }
-                                    }
-                                }
+                                bool result = await Test(changes, item, app.URL, wc);
                             }
                         }
                     }                    
                 }
                 catch 
                 {
-                    return;
+                    return false ;
                 }
                 
             }
-            return;
+            return true;
         }
 
         public static async void DownloadTestFiles(App app)
