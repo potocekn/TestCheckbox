@@ -64,8 +64,8 @@ namespace AppBaseNamespace
 
         internal void RequestUpdate(ResourceFormatSettingsPage page)
         {
-            bool success = UpdateSyncHelpers.DownloadResources(app);
-            if (success)
+            UpdateSyncHelpers.DownloadResources(app);
+            if (true)
             {
                 page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
             }

@@ -37,9 +37,9 @@ namespace AppBase.Helpers
             }
         }
 
-        public static bool DownloadResources(App app)
+        public static void DownloadResources(App app)
         {
-            return HandleAutomaticUpdate(DateTime.Now, app);
+            HandleAutomaticUpdate(DateTime.Now, app);
         }
 
         private static void HandleOnRequestUpdate(DateTime now, App app)
@@ -55,7 +55,7 @@ namespace AppBase.Helpers
             }
         }
 
-        private static bool HandleAutomaticUpdate(DateTime now, App app)
+        private static void HandleAutomaticUpdate(DateTime now, App app)
         {
             app.userSettings.DateOfLastUpdate = now;
             foreach (var format in app.userSettings.Formats)
@@ -64,18 +64,22 @@ namespace AppBase.Helpers
                 {
                     case "PDF":
                         DownloadTestFiles(app);
-                        return true; //for now
+                        //return true; //for now
+                        break;
                     case "HTML":
-                        var result = DownloadHTMLFiles(app);
-                        return result.Result;                        
+                        DownloadHTMLFiles(app);
+                        //return result.Result;
+                        break;
                     case "ODT":
                         DownloadTestFiles(app);
-                        return true; //for now
+                        //return true; //for now
+                        break;
                     default:
-                        return false;                        
+                        //return false;
+                        break;
                 }
             }
-            return false;
+           // return false;
         }
 
         private static void DownloadPDFFiles(App app)
@@ -182,12 +186,12 @@ namespace AppBase.Helpers
             return canDownload;
         }
 
-        public static async Task<bool> DownloadHTMLFiles(App app)
+        public static async void DownloadHTMLFiles(App app)
         { 
-            if (!CanDownload(app)) return false;
+            if (!CanDownload(app)) return;
 
             Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);
-            if (languagesWithResources == null) return false;
+            if (languagesWithResources == null) return;
 
             foreach (var item in app.userSettings.ChosenResourceLanguages)
             {               
@@ -235,17 +239,15 @@ namespace AppBase.Helpers
                                 }
                             }
                         }
-                    }
-
-                    return true;
+                    }                    
                 }
                 catch 
                 {
-                    return false;
+                    return;
                 }
                 
             }
-            return true;
+            return;
         }
 
         public static async void DownloadTestFiles(App app)
