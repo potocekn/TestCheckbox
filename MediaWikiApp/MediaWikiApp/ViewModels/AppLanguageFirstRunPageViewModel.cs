@@ -28,6 +28,7 @@ namespace AppBase.ViewModels
                 {
                     app.IsFirst = false;
                     app.availableLanguages = Helpers.UpdateSyncHelpers.DownloadLanguages(app.URL);
+                    app.SaveLanguages();
                     navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, app.availableLanguages));
                 }
             });
