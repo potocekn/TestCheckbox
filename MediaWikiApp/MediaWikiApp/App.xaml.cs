@@ -143,7 +143,7 @@ namespace AppBaseNamespace
         private void RetrieveLanguages()
         {
             List<string> result = new List<string>();
-            if (File.Exists(userSettingsfileName))
+            if (File.Exists(languagesFileName))
             {
                 result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(languagesFileName).Trim());                
             }
