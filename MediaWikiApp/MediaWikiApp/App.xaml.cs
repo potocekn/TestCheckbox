@@ -54,23 +54,18 @@ namespace AppBaseNamespace
             InitializeShortcuts();
             InitializeComponent();
             RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            RetrieveLanguages();
             if (!firstTimeRunning)
-            {
-                RetrieveLanguages();
+            {                
                 RetrieveResources();                
                 SetAppLanguage(userSettings.AppLanguage);
-                UpdateSyncHelpers.SynchronizeResources(this);                
-            }
-            
-            if (firstTimeRunning)
-            {                
-                MainPage = new NavigationPage(new AppLanguageFirstRunPage(this));
+                UpdateSyncHelpers.SynchronizeResources(this);
+                MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
             }
             else
             {
-                MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
-            }
-            
+                MainPage = new NavigationPage(new AppLanguageFirstRunPage(this));
+            }                  
         }
 
         private void InitializeShortcuts()
@@ -133,8 +128,7 @@ namespace AppBaseNamespace
             UserSettings result = new UserSettings(path);
             if (File.Exists(userSettingsfileName))
             {
-                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(userSettingsfileName).Trim());
-                firstTimeRunning = false;
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(userSettingsfileName).Trim());                
             }
 
             userSettings = result;
@@ -145,7 +139,8 @@ namespace AppBaseNamespace
             List<string> result = new List<string>();
             if (File.Exists(languagesFileName))
             {
-                result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(languagesFileName).Trim());                
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(File.ReadAllText(languagesFileName).Trim());
+                firstTimeRunning = false;
             }
             availableLanguages = result;
         }
@@ -166,7 +161,8 @@ namespace AppBaseNamespace
 
         public void SaveLanguages()
         {
-            File.WriteAllText(languagesFileName, Newtonsoft.Json.JsonConvert.SerializeObject(availableLanguages));
+            if ((availableLanguages != null) && (availableLanguages.Count > 0))
+                File.WriteAllText(languagesFileName, Newtonsoft.Json.JsonConvert.SerializeObject(availableLanguages));
         }
 
         public void SaveResources()
