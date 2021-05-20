@@ -1,4 +1,5 @@
-﻿using AppBaseNamespace;
+﻿using AppBase.Resources;
+using AppBaseNamespace;
 using AppBaseNamespace.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace AppBase.ViewModels
         App app { get; set; }
         public Command GoToNextPage { get; set; }
 
-        public AppLanguageFirstRunPageViewModel(App app, INavigation navigation, IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
+        public AppLanguageFirstRunPageViewModel(App app, AppLanguageFirstRunPage page, INavigation navigation, IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
         {
             this.app = app;
             
@@ -26,10 +27,14 @@ namespace AppBase.ViewModels
                 var current = Connectivity.NetworkAccess;
                 if (current == NetworkAccess.Internet)
                 {
-                    app.IsFirst = false;
+                    //app.IsFirst = false;
                     app.availableLanguages = Helpers.UpdateSyncHelpers.DownloadLanguages(app.URL);
                     app.SaveLanguages();
                     navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, app.availableLanguages));
+                }
+                else
+                {
+                    page.DisplayAlert("", AppResources.NoInternetMessage_Text, "OK");
                 }
             });
             Items = CreateItems(items,shortcuts,englishVersions);
