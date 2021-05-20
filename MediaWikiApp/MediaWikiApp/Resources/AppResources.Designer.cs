@@ -70,6 +70,51 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 此操作將重新啟動應用程序!.
+        /// </summary>
+        internal static string ActionWillRestartApplicationInChinese_Text {
+            get {
+                return ResourceManager.GetString("ActionWillRestartApplicationInChinese.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tato akce restartuje aplikaci!.
+        /// </summary>
+        internal static string ActionWillRestartApplicationInCzech_Text {
+            get {
+                return ResourceManager.GetString("ActionWillRestartApplicationInCzech.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This action will restart the application!.
+        /// </summary>
+        internal static string ActionWillRestartApplicationInEnglish_Text {
+            get {
+                return ResourceManager.GetString("ActionWillRestartApplicationInEnglish.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cette action redémarrera l&apos;application!.
+        /// </summary>
+        internal static string ActionWillRestartApplicationInFrench_Text {
+            get {
+                return ResourceManager.GetString("ActionWillRestartApplicationInFrench.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Diese Aktion startet die Anwendung neu!.
+        /// </summary>
+        internal static string ActionWillRestartApplicationInGerman_Text {
+            get {
+                return ResourceManager.GetString("ActionWillRestartApplicationInGerman.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Albanian.
         /// </summary>
         internal static string albanianLabel_Text {
@@ -331,6 +376,51 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 您想更改應用程序的語言嗎?.
+        /// </summary>
+        internal static string LanguageChangeQuestionInChinese_Text {
+            get {
+                return ResourceManager.GetString("LanguageChangeQuestionInChinese.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chcete změnit jazyk aplikace?.
+        /// </summary>
+        internal static string LanguageChangeQuestionInCzech_Text {
+            get {
+                return ResourceManager.GetString("LanguageChangeQuestionInCzech.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to change language of the application?.
+        /// </summary>
+        internal static string LanguageChangeQuestionInEnglish_Text {
+            get {
+                return ResourceManager.GetString("LanguageChangeQuestionInEnglish.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Souhaitez-vous changer la langue de l&apos;application?.
+        /// </summary>
+        internal static string LanguageChangeQuestionInFrench_Text {
+            get {
+                return ResourceManager.GetString("LanguageChangeQuestionInFrench.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Möchten Sie die Sprache der Anwendung ändern?.
+        /// </summary>
+        internal static string LanguageChangeQuestionInGerman_Text {
+            get {
+                return ResourceManager.GetString("LanguageChangeQuestionInGerman.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language of the resources:.
         /// </summary>
         internal static string LanguageOfResourcesLabel_Text {
@@ -354,6 +444,60 @@ namespace AppBase.Resources {
         internal static string malayLabel_Text {
             get {
                 return ResourceManager.GetString("malayLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 是的.
+        /// </summary>
+        internal static string NoInChinese_Text {
+            get {
+                return ResourceManager.GetString("NoInChinese.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ne.
+        /// </summary>
+        internal static string NoInCzech_Text {
+            get {
+                return ResourceManager.GetString("NoInCzech.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string NoInEnglish_Text {
+            get {
+                return ResourceManager.GetString("NoInEnglish.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non.
+        /// </summary>
+        internal static string NoInFrench_Text {
+            get {
+                return ResourceManager.GetString("NoInFrench.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nein.
+        /// </summary>
+        internal static string NoInGerman_Text {
+            get {
+                return ResourceManager.GetString("NoInGerman.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please make sure you have access to internet and try again..
+        /// </summary>
+        internal static string NoInternetMessage_Text {
+            get {
+                return ResourceManager.GetString("NoInternetMessage.Text", resourceCulture);
             }
         }
         
@@ -687,6 +831,51 @@ namespace AppBase.Resources {
         internal static string WifiLabel_Text {
             get {
                 return ResourceManager.GetString("WifiLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 是的.
+        /// </summary>
+        internal static string YesInChinese_Text {
+            get {
+                return ResourceManager.GetString("YesInChinese.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ano.
+        /// </summary>
+        internal static string YesInCzech_Text {
+            get {
+                return ResourceManager.GetString("YesInCzech.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string YesInEnglish_Text {
+            get {
+                return ResourceManager.GetString("YesInEnglish.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oui.
+        /// </summary>
+        internal static string YesInFrench_Text {
+            get {
+                return ResourceManager.GetString("YesInFrench.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ja.
+        /// </summary>
+        internal static string YesInGerman_Text {
+            get {
+                return ResourceManager.GetString("YesInGerman.Text", resourceCulture);
             }
         }
     }

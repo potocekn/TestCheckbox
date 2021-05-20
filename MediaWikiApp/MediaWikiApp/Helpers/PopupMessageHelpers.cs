@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppBase.Resources;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,28 +21,28 @@ namespace AppBase.Helpers
             switch (from)
             {
                 case "English":
-                    result.Append("Would you like to change language of the application?\n");
-                    result.Append("This action will restart the application!\n");
+                    result.Append(AppResources.LanguageChangeQuestionInEnglish_Text + '\n');
+                    result.Append(AppResources.ActionWillRestartApplicationInEnglish_Text + '\n');
                     break;
                 case "German":
-                    result.Append("Möchten Sie die Sprache der Anwendung ändern?\n");
-                    result.Append("Diese Aktion startet die Anwendung neu!\n");
+                    result.Append(AppResources.LanguageChangeQuestionInGerman_Text + '\n');
+                    result.Append(AppResources.ActionWillRestartApplicationInGerman_Text + '\n');
                     break;
                 case "Czech":
-                    result.Append("Chcete změnit jazyk aplikace?\n");
-                    result.Append("Tato akce restartuje aplikaci!\n");
+                    result.Append(AppResources.LanguageChangeQuestionInCzech_Text + '\n');
+                    result.Append(AppResources.ActionWillRestartApplicationInCzech_Text + '\n');
                     break;
                 case "French":
-                    result.Append("Souhaitez-vous changer la langue de l'application?\n");
-                    result.Append("Cette action redémarrera l'application!\n");
+                    result.Append(AppResources.LanguageChangeQuestionInFrench_Text + '\n');
+                    result.Append(AppResources.ActionWillRestartApplicationInFrench_Text + '\n');
                     break;
                 case "Chinese":
-                    result.Append("您想更改應用程序的語言嗎?\n");
-                    result.Append("此操作將重新啟動應用程序!\n");
+                    result.Append(AppResources.LanguageChangeQuestionInChinese_Text + '\n');
+                    result.Append(AppResources.ActionWillRestartApplicationInChinese_Text + '\n');
                     break;
                 default:
-                    result.Append("Would you like to change language of the application?\n");
-                    result.Append("This action will restart the application!\n");
+                    result.Append(AppResources.LanguageChangeQuestionInEnglish_Text + '\n');
+                    result.Append(AppResources.ActionWillRestartApplicationInEnglish_Text + '\n');
                     break;
             }
 
@@ -83,22 +84,22 @@ namespace AppBase.Helpers
             switch (from)
             {
                 case "English":
-                    result.Append("Yes");
+                    result.Append(AppResources.YesInEnglish_Text);
                     break;
                 case "German":
-                    result.Append("Ja");
+                    result.Append(AppResources.YesInGerman_Text);
                     break;
                 case "Czech":
-                    result.Append("Ano");
+                    result.Append(AppResources.YesInCzech_Text);
                     break;
                 case "French":
-                    result.Append("Oui");
+                    result.Append(AppResources.YesInFrench_Text);
                     break;
                 case "Chinese":
-                    result.Append("是的");
+                    result.Append(AppResources.YesInChinese_Text);
                     break;
                 default:
-                    result.Append("Yes");
+                    result.Append(AppResources.YesInEnglish_Text);
                     break;
             }
 
@@ -139,22 +140,22 @@ namespace AppBase.Helpers
             switch (from)
             {
                 case "English":
-                    result.Append("No");
+                    result.Append(AppResources.NoInEnglish_Text);
                     break;
                 case "German":
-                    result.Append("Nein");
+                    result.Append(AppResources.NoInGerman_Text);
                     break;
                 case "Czech":
-                    result.Append("Ne");
+                    result.Append(AppResources.NoInCzech_Text);
                     break;
                 case "French":
-                    result.Append("Non");
+                    result.Append(AppResources.NoInFrench_Text);
                     break;
                 case "Chinese":
-                    result.Append("是的");
+                    result.Append(AppResources.NoInChinese_Text);
                     break;
                 default:
-                    result.Append("不");
+                    result.Append(AppResources.NoInEnglish_Text);
                     break;
             }
 

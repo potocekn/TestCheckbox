@@ -288,6 +288,90 @@
           <source>Unsuccessful download. Pleas make sure you have Internet access.</source>
           <target state="new">Unsuccessful download. Pleas make sure you have Internet access.</target>
         </trans-unit>
+        <trans-unit id="NoInternetMessage.Text" translate="yes" xml:space="preserve">
+          <source>Please make sure you have access to internet and try again.</source>
+          <target state="new">Please make sure you have access to internet and try again.</target>
+        </trans-unit>
+        <trans-unit id="ActionWillRestartApplicationInChinese.Text" translate="yes" xml:space="preserve">
+          <source>此操作將重新啟動應用程序!</source>
+          <target state="new">此操作將重新啟動應用程序!</target>
+        </trans-unit>
+        <trans-unit id="ActionWillRestartApplicationInCzech.Text" translate="yes" xml:space="preserve">
+          <source>Tato akce restartuje aplikaci!</source>
+          <target state="new">Tato akce restartuje aplikaci!</target>
+        </trans-unit>
+        <trans-unit id="ActionWillRestartApplicationInEnglish.Text" translate="yes" xml:space="preserve">
+          <source>This action will restart the application!</source>
+          <target state="new">This action will restart the application!</target>
+        </trans-unit>
+        <trans-unit id="ActionWillRestartApplicationInFrench.Text" translate="yes" xml:space="preserve">
+          <source>Cette action redémarrera l'application!</source>
+          <target state="new">Cette action redémarrera l'application!</target>
+        </trans-unit>
+        <trans-unit id="ActionWillRestartApplicationInGerman.Text" translate="yes" xml:space="preserve">
+          <source>Diese Aktion startet die Anwendung neu!</source>
+          <target state="new">Diese Aktion startet die Anwendung neu!</target>
+        </trans-unit>
+        <trans-unit id="LanguageChangeQuestionInChinese.Text" translate="yes" xml:space="preserve">
+          <source>您想更改應用程序的語言嗎?</source>
+          <target state="new">您想更改應用程序的語言嗎?</target>
+        </trans-unit>
+        <trans-unit id="LanguageChangeQuestionInCzech.Text" translate="yes" xml:space="preserve">
+          <source>Chcete změnit jazyk aplikace?</source>
+          <target state="new">Chcete změnit jazyk aplikace?</target>
+        </trans-unit>
+        <trans-unit id="LanguageChangeQuestionInEnglish.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to change language of the application?</source>
+          <target state="new">Would you like to change language of the application?</target>
+        </trans-unit>
+        <trans-unit id="LanguageChangeQuestionInFrench.Text" translate="yes" xml:space="preserve">
+          <source>Souhaitez-vous changer la langue de l'application?</source>
+          <target state="new">Souhaitez-vous changer la langue de l'application?</target>
+        </trans-unit>
+        <trans-unit id="LanguageChangeQuestionInGerman.Text" translate="yes" xml:space="preserve">
+          <source>Möchten Sie die Sprache der Anwendung ändern?</source>
+          <target state="new">Möchten Sie die Sprache der Anwendung ändern?</target>
+        </trans-unit>
+        <trans-unit id="NoInChinese.Text" translate="yes" xml:space="preserve">
+          <source>是的</source>
+          <target state="new">是的</target>
+        </trans-unit>
+        <trans-unit id="NoInCzech.Text" translate="yes" xml:space="preserve">
+          <source>Ne</source>
+          <target state="new">Ne</target>
+        </trans-unit>
+        <trans-unit id="NoInEnglish.Text" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="NoInFrench.Text" translate="yes" xml:space="preserve">
+          <source>Non</source>
+          <target state="new">Non</target>
+        </trans-unit>
+        <trans-unit id="NoInGerman.Text" translate="yes" xml:space="preserve">
+          <source>Nein</source>
+          <target state="new">Nein</target>
+        </trans-unit>
+        <trans-unit id="YesInChinese.Text" translate="yes" xml:space="preserve">
+          <source>是的</source>
+          <target state="new">是的</target>
+        </trans-unit>
+        <trans-unit id="YesInCzech.Text" translate="yes" xml:space="preserve">
+          <source>Ano</source>
+          <target state="new">Ano</target>
+        </trans-unit>
+        <trans-unit id="YesInEnglish.Text" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="YesInFrench.Text" translate="yes" xml:space="preserve">
+          <source>Oui</source>
+          <target state="new">Oui</target>
+        </trans-unit>
+        <trans-unit id="YesInGerman.Text" translate="yes" xml:space="preserve">
+          <source>Ja</source>
+          <target state="new">Ja</target>
+        </trans-unit>
       </group>
     </body>
   </file>
