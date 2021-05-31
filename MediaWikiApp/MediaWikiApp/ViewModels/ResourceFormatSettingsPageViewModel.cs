@@ -102,13 +102,13 @@ namespace AppBaseNamespace
                     switch (name)
                     {
                         case "HTML":
-                            UpdateSyncHelpers.DownloadHTMLFiles(app); 
+                            //UpdateSyncHelpers.DownloadHTMLFiles(app); 
                             break;
                         case "PDF":
-                            UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
+                            //UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
                             break;
                         case "ODT":
-                            UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
+                            //UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
                             break;
                         default:
                             break;
@@ -164,10 +164,13 @@ namespace AppBaseNamespace
 
         void RemoveFiles(List<ResourcesInfoPDF> list)
         {
+            if (list == null)
+                return;
             foreach (var item in list)
             {
                 File.Delete(item.FilePath);
             }
+            list = new List<ResourcesInfoPDF>();
         }
 
         void RemoveFiles(string language, List<ResourcesInfoPDF> list)

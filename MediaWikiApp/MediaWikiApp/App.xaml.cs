@@ -29,8 +29,8 @@ namespace AppBaseNamespace
         public string URL = "https://raw.githubusercontent.com/potocekn/ResourcesTest/master";
         public UserSettings userSettings;
         public List<string> availableLanguages = new List<string>();
-        public List<ResourcesInfoPDF> resourcesPDF;
-        public List<ResourcesInfoPDF> resourcesODT;
+        public List<ResourcesInfoPDF> resourcesPDF = new List<ResourcesInfoPDF>();
+        public List<ResourcesInfoPDF> resourcesODT = new List<ResourcesInfoPDF>();
         public Dictionary<string, string> resourcesHTML;
 
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
