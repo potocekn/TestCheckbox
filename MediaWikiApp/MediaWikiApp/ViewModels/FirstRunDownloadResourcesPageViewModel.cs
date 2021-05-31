@@ -17,9 +17,9 @@ namespace AppBase.ViewModels
                         
         }
 
-        public void Download(App app)
+        public async void Download(App app)
         {            
-            UpdateSyncHelpers.DownloadResources(app);
+            await UpdateSyncHelpers.DownloadResources(app);
             UpdateApp(app);
         }
 
