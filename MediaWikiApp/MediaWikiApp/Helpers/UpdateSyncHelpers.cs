@@ -18,6 +18,8 @@ namespace AppBase.Helpers
 {
     static class UpdateSyncHelpers
     {
+        static Dictionary<string, List<ChangesItem>> changes = new Dictionary<string, List<ChangesItem>>();
+        static Dictionary<string, List<string>> languagesWithResources = new Dictionary<string, List<string>>();
         public static async void SynchronizeResources(App app)
         {
             switch (app.userSettings.UpdateInterval)
@@ -58,20 +60,37 @@ namespace AppBase.Helpers
         private static async Task<bool> HandleAutomaticUpdate(DateTime now, App app)
         {
             app.userSettings.DateOfLastUpdate = now;
+            languagesWithResources = DownloadLanguagesWithResources(app.URL);
+            foreach (var language in languagesWithResources.Keys)
+            {
+                CultureInfo ci = new CultureInfo(language);
+                List<ChangesItem> language_changes = DownloadChangedFiles(app.URL + '/' + language);
+                if (changes.Keys.Contains(language))
+                {
+                    changes[language] = language_changes;
+                }
+                else
+                {
+                    changes.Add(language, language_changes);
+                }                
+            }
+
+            bool result = true;
+
             foreach (var format in app.userSettings.Formats)
             {
+                
                 switch (format)
                 {
-                    case "PDF":
-                        DownloadTestFiles(app);
-                        //return true; //for now
-                        break;
                     case "HTML":
-                        return await DownloadHTMLFiles(app);
-                        //return result.Result;
-                        //break;
+                        result &= await DownloadHTMLFiles(app);                    
+                        break;
+                    case "PDF":
+                        result &= DownloadSpecialFormatFiles(app, app.resourcesPDF, ".pdf", "PDF");
+                        //return true; //for now
+                        break;                    
                     case "ODT":
-                        DownloadTestFiles(app);
+                        result &= DownloadSpecialFormatFiles(app, app.resourcesODT, ".odt", "ODT");
                         //return true; //for now
                         break;
                     default:
@@ -79,17 +98,82 @@ namespace AppBase.Helpers
                         break;
                 }
             }
-           return false;
+           return result;
         }
 
-        private static void DownloadPDFFiles(App app)
+        private static bool DownloadSpecialFormatFiles(App app, List<ResourcesInfoPDF> list, string fileFormat, string formatFolder)
         {
-            IDownloader downloader = DependencyService.Get<IDownloader>();
-            foreach (var item in app.resourcesPDF)
+            if (languagesWithResources == null)
+                return false;
+
+            try
             {
-                string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), item.Language);
-                downloader.DownloadFile(item.Url, dir, item.FileName);
+                IDownloader downloader = DependencyService.Get<IDownloader>();
+                foreach (var language in languagesWithResources.Keys)
+                {
+                    CultureInfo ci = new CultureInfo(language);
+                    if (!app.userSettings.ChosenResourceLanguages.Contains(ci.DisplayName))
+                    {
+                        continue;
+                    }
+                    string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ci.DisplayName);
+
+                    foreach (var resource in languagesWithResources[language])
+                    {
+                        if (list == null)
+                        {
+                            list = new List<ResourcesInfoPDF>();
+                        }
+                        var found = list.Find(x => x.FileName.Contains(resource) && x.FileName.Contains(language));
+                        ResourcesInfoPDF newResource;
+                        if (found == null)
+                        {
+                            newResource = new ResourcesInfoPDF()
+                            {
+                                FileName = resource + "-" + language + fileFormat,
+                                Language = ci.DisplayName,
+                                ResourceName = resource + "-" + language,
+                                FilePath = Path.Combine(dir, resource + "-" + language + fileFormat),
+                                Url = app.URL + "/" + language + "/" + formatFolder + "/" + resource + "-" + language + fileFormat
+                            };
+                            list.Add(newResource);
+                        }
+                        else
+                        {
+                            newResource = found;
+                        }
+
+                        bool changesContainResource = false;
+                        if (changes.Keys.Contains(language))
+                        {
+                            foreach (var change in changes[language])
+                            {
+                                if (change.FileName.Contains(resource))
+                                {
+                                    if (change.VersionNumber > newResource.Version)
+                                    {
+                                        changesContainResource = true;
+                                        newResource.Version = change.VersionNumber;
+                                        downloader.DownloadFile(newResource.Url, dir, newResource.FileName);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (!changesContainResource)
+                        {
+                            newResource.Version = 1;
+                            downloader.DownloadFile(newResource.Url, dir, newResource.FileName);
+                        }
+
+                    }
+                }
+                return true;
             }
+            catch
+            {
+                return false;
+            }            
         }
 
         private static Dictionary<string, List<string>> DownloadLanguagesWithResources(string url)
@@ -132,7 +216,7 @@ namespace AppBase.Helpers
                 }
 
                 var contentsDeserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<List<List<object>>>(contents);
-                var result = ParseChangesResults(contentsDeserialized);
+                var result = ParseChangesResults(contentsDeserialized);                
                 return result;
             }
             catch 
@@ -192,7 +276,7 @@ namespace AppBase.Helpers
             {
                 foreach (var change in changes)
                 {
-                    var resourceName = change.FileName.Split('/', '.')[1];
+                    var resourceName = change.FileName.Split('/', '.')[2];
                     var existingDbsRecord = App.Database.GetPageAsync(resourceName + "(" + language + ")").Result;
                     string fullRecordURL = URL + "/" + change.FileName;
 
@@ -231,14 +315,11 @@ namespace AppBase.Helpers
         public static async Task<bool> DownloadHTMLFiles(App app)
         { 
             if (!CanDownload(app)) return false;
-
-            Dictionary<string, List<string>> languagesWithResources = DownloadLanguagesWithResources(app.URL);
+                        
             if (languagesWithResources == null) return false;
 
             foreach (var item in app.userSettings.ChosenResourceLanguages)
-            {               
-                //string contents;
-
+            {                              
                 try
                 {
                     using (var wc = new System.Net.WebClient())
@@ -246,12 +327,16 @@ namespace AppBase.Helpers
                         //key == language, value == name                    
                         foreach (var language in languagesWithResources.Keys)
                         {
-                            List<ChangesItem> changes = DownloadChangedFiles(app.URL + '/' + language);
                             CultureInfo ci = new CultureInfo(language);
-                            if (ci.DisplayName == item)
+                            List<ChangesItem> language_changes;
+                            bool success = changes.TryGetValue(language, out language_changes);
+                            if (success)
                             {
-                                bool result = await SaveChanges(changes, item, app.URL, wc);
-                            }
+                                if (ci.DisplayName == item)
+                                {
+                                    bool result = await SaveChanges(language_changes, item, app.URL, wc);
+                                }
+                            }                            
                         }
                     }                    
                 }
