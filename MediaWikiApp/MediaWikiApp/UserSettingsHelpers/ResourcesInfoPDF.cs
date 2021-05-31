@@ -13,6 +13,7 @@ namespace AppBase.UserSettingsHelpers
         public string ResourceName { get; set; }
         public string FileName { get; set; }
         public string FilePath { get; set; }
+        public int Version { get; set; } = 0;
         public string Url { get; set; }
     }
 }
