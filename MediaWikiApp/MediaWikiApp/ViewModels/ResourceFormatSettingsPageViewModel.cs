@@ -61,9 +61,28 @@ namespace AppBaseNamespace
                 }
             }
         }
+        
+        void DeleteUntoggledFormats()
+        {
+            if (!app.userSettings.Formats.Contains("PDF"))
+            {
+                RemoveFiles(ref app.resourcesPDF);
+            }
+
+            if (!app.userSettings.Formats.Contains("ODT"))
+            {
+                RemoveFiles(ref app.resourcesODT);
+            }
+
+            if (!app.userSettings.Formats.Contains("HTML"))
+            {
+                RemoveHTMLs();
+            }
+        }
 
         internal async void RequestUpdate(ResourceFormatSettingsPage page)
         {
+            DeleteUntoggledFormats();
             bool result = await UpdateSyncHelpers.DownloadResources(app);
             if (result)
             {
@@ -97,45 +116,14 @@ namespace AppBaseNamespace
             {
                 if (!app.userSettings.Formats.Contains(name))
                 {
-                    app.userSettings.Formats.Add(name);
-                    //download resources
-                    switch (name)
-                    {
-                        case "HTML":
-                            //UpdateSyncHelpers.DownloadHTMLFiles(app); 
-                            break;
-                        case "PDF":
-                            //UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
-                            break;
-                        case "ODT":
-                            //UpdateSyncHelpers.DownloadTestFiles(app);/////////////////for now
-                            break;
-                        default:
-                            break;
-                    }                     
+                    app.userSettings.Formats.Add(name);                                 
                 }
             }
             else
             {
                 if (app.userSettings.Formats.Contains(name))
                 {
-                    app.userSettings.Formats.Remove(name);
-                    //remove resources
-                    switch (name)
-                    {
-                        case "HTML":
-                            RemoveHTMLs();
-                            break;
-                        case "PDF":
-                            RemoveFiles(app.resourcesPDF);
-                            break;
-                        case "ODT":
-                            RemoveFiles(app.resourcesODT); 
-                            break;
-                        default:
-                            break;
-                    }
-
+                    app.userSettings.Formats.Remove(name);                    
                 }
             }
             app.SaveUserSettings();
@@ -162,7 +150,7 @@ namespace AppBaseNamespace
             }
         }
 
-        void RemoveFiles(List<ResourcesInfoPDF> list)
+        void RemoveFiles(ref List<ResourcesInfoPDF> list)
         {
             if (list == null)
                 return;
