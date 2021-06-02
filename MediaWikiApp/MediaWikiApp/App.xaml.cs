@@ -155,6 +155,11 @@ namespace AppBaseNamespace
             MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
         }
 
+        public void ReloadApp()
+        {           
+            MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+        }
+
         public void SaveUserSettings()
         {
             File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));

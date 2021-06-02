@@ -10,7 +10,7 @@
         </StackLayout>
     </NavigationPage.TitleView>
 
-    <StackLayout>
+    <StackLayout>        
         <StackLayout Orientation="Horizontal">
             <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                 <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}" BackgroundColor="GhostWhite"/>
@@ -20,5 +20,16 @@
             </StackLayout>
         </StackLayout>
         <Label x:Name="AboutLabel" x:Uid="AboutLabel" Text="{x:Static resources:AppResources.AboutLabel_Text}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="90,120,85,0"/>
+
+        <StackLayout BindableLayout.ItemsSource="{Binding ResourceLanguages}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Button Text="{Binding LanguageName}" Command="{Binding OpenResources}" BackgroundColor="GhostWhite"/>
+                    </StackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+
     </StackLayout>
 </ContentPage>

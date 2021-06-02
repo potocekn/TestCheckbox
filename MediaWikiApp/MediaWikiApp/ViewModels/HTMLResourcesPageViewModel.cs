@@ -25,6 +25,6 @@ namespace AppBase.ViewModels
 
                 Items.Add(resource);
             }
-        }
+        }        
     }
 }

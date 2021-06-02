@@ -1,4 +1,5 @@
-﻿using AppBase.ViewModels;
+﻿using AppBase.Models;
+using AppBase.ViewModels;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,12 @@ namespace AppBase
             InitializeComponent();
             var records = App.Database.GetPagesAsync();
             BindingContext = new HTMLResourcesPageViewModel(Navigation, records.Result);
+        }
+
+        public HTMLResourcesPage(List<HtmlRecord> records)
+        {
+            InitializeComponent();            
+            BindingContext = new HTMLResourcesPageViewModel(Navigation, records);
         }
     }
 }

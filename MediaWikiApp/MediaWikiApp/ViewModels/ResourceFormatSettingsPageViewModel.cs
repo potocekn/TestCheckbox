@@ -8,6 +8,7 @@ using AppBase.Helpers;
 using System.IO;
 using AppBase.UserSettingsHelpers;
 using System;
+using System.Globalization;
 
 namespace AppBaseNamespace
 {
@@ -32,10 +33,24 @@ namespace AppBaseNamespace
                     IsChecked = app.userSettings.ChosenResourceLanguages.Contains(x),
                     EnglishName = x,
                     Value = LanguagesTranslationHelper.ReturnTranslation(x),
-                    WasUpdated = false
+                    WasUpdated = false, 
+                    Shortcut = GetLanguageShortcut(x)
                 })
                 .ToList();
             Switches = switches;            
+        }
+
+        string GetLanguageShortcut(string languageName)
+        {
+            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
+            foreach (var item in cultures)
+            {
+                if (item.EnglishName == languageName)
+                {
+                    return item.TwoLetterISOLanguageName;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -83,16 +98,29 @@ namespace AppBaseNamespace
         internal async void RequestUpdate(ResourceFormatSettingsPage page)
         {
             DeleteUntoggledFormats();
+            DeleteUncheckedLanguageFiles();
             bool result = await UpdateSyncHelpers.DownloadResources(app);
             if (result)
             {
                 await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
+                app.ReloadApp();
             }
             else
             {
                 await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
             }
             
+        }
+
+        private void DeleteUncheckedLanguageFiles()
+        {
+            foreach (var item in Languages)
+            {
+                if (!app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
+                {
+                    RemoveFiles(item.Shortcut);
+                }
+            }
         }
 
         /// <summary>
@@ -131,8 +159,8 @@ namespace AppBaseNamespace
 
         void RemoveHTMLs()
         {
-            var records = App.Database.GetPagesAsync();
-            foreach (var item in records.Result)
+            var records = App.Database.GetPagesAsync().Result;
+            foreach (var item in records)
             {
                 App.Database.DeletePageAsync(item);
             }
@@ -140,8 +168,8 @@ namespace AppBaseNamespace
 
         void RemoveHTMLs(string language)
         {
-            var records = App.Database.GetPagesAsync();
-            foreach (var item in records.Result)
+            var records = App.Database.GetPagesAsync().Result;
+            foreach (var item in records)
             {
                 if (item.PageLanguage == language)
                 {
@@ -165,9 +193,10 @@ namespace AppBaseNamespace
         {
             if (list == null) return;
             List<ResourcesInfoPDF> toBeDeleted = new List<ResourcesInfoPDF>();
+            CultureInfo ci = new CultureInfo(language);
             foreach (var item in list)
             {
-                if (item.Language == language)
+                if (item.Language == ci.EnglishName)
                 {
                     File.Delete(item.FilePath);
                     toBeDeleted.Add(item);
@@ -213,7 +242,7 @@ namespace AppBaseNamespace
                     else if (!(sender as CheckBox).IsChecked && app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
                         app.userSettings.ChosenResourceLanguages.Remove(item.EnglishName);
-                        RemoveFiles(item.EnglishName);
+                        //RemoveFiles(item.EnglishName);
                         app.SaveUserSettings();
                         break;
                     }

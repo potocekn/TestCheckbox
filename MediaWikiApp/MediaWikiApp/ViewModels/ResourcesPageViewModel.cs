@@ -1,4 +1,5 @@
-﻿using AppBaseNamespace;
+﻿using AppBase.Models;
+using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +35,22 @@ namespace AppBase.ViewModels
             GoToODTs = new Command(() => {
                 navigation.PushAsync(new ODTPage(app.resourcesODT));
             });
-        }                
+        }
+
+        public ResourcesPageViewModel(ResourceLanguageInfo resourceLanguageInfo, INavigation navigation)
+        {
+            IsHTMLSelected = !(resourceLanguageInfo.HTMLs.Count == 0);
+            IsPDFSelected = !(resourceLanguageInfo.PDFs.Count == 0);
+            IsODTSelected = !(resourceLanguageInfo.ODTs.Count == 0);
+            GoToPDFs = new Command(() => {
+                navigation.PushAsync(new PDFPage(resourceLanguageInfo.PDFs));
+            });
+            GoToHTMLs = new Command(() => {
+                navigation.PushAsync(new HTMLResourcesPage(resourceLanguageInfo.HTMLs));
+            });
+            GoToODTs = new Command(() => {
+                navigation.PushAsync(new ODTPage(resourceLanguageInfo.ODTs));
+            });
+        }
     }
 }

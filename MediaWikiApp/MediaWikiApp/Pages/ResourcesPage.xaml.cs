@@ -1,4 +1,5 @@
-﻿using AppBase.ViewModels;
+﻿using AppBase.Models;
+using AppBase.ViewModels;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,12 @@ namespace AppBase
         {
             InitializeComponent();
             BindingContext = new ResourcesPageViewModel(app, navigation);
+        }
+
+        public ResourcesPage(ResourceLanguageInfo resourceLanguageInfo, INavigation navigation)
+        {
+            InitializeComponent();
+            BindingContext = new ResourcesPageViewModel(resourceLanguageInfo, navigation);
         }
     }
 }
