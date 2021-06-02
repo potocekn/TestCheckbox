@@ -50,14 +50,14 @@ namespace AppBaseNamespace
             }
         }
         public App()
-        {
+        {            
             InitializeShortcuts();
             InitializeComponent();
             RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             RetrieveLanguages();
             if (!firstTimeRunning)
-            {                
-                RetrieveResources();                
+            {
+                RetrieveResources();
                 SetAppLanguage(userSettings.AppLanguage);
                 UpdateSyncHelpers.SynchronizeResources(this);
                 MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
@@ -65,7 +65,8 @@ namespace AppBaseNamespace
             else
             {
                 MainPage = new NavigationPage(new AppLanguageFirstRunPage(this));
-            }                  
+            }      
+                         
         }
 
         private void InitializeShortcuts()

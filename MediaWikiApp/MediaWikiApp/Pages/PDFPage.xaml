@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:AppBase.Resources"
              x:Class="AppBase.PDFPage">
     <ContentPage.Content>
         <StackLayout BindableLayout.ItemsSource="{Binding Items}">
@@ -13,7 +14,7 @@
                                 <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
                             <Button Grid.Row="0" Grid.Column="0" Text="{Binding ResourceName}" Command="{Binding OpenResource}" BackgroundColor="GhostWhite"/>
-                            <Button Grid.Row="0" Grid.Column="1" WidthRequest="100" Text="Share"  Command="{Binding ShareResource}" BackgroundColor="GhostWhite"/>
+                            <Button Grid.Row="0" Grid.Column="1" WidthRequest="100" Text="{x:Static resources:AppResources.ShareButton_Text}"  Command="{Binding ShareResource}" BackgroundColor="GhostWhite"/>
                         </Grid>
                     </StackLayout>
                 </DataTemplate>

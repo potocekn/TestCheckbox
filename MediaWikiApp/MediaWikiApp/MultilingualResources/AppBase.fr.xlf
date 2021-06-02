@@ -372,6 +372,10 @@
           <source>Ja</source>
           <target state="new">Ja</target>
         </trans-unit>
+        <trans-unit id="ShareButton.Text" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="new">Share</target>
+        </trans-unit>
       </group>
     </body>
   </file>

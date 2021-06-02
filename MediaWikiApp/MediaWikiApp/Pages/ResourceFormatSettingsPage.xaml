@@ -11,7 +11,7 @@
                     <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
                     <Label x:Name="WifiLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.WifiLabel_Text}" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
 
-                    <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" FontSize="Large" Margin="20"/>
+                    <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" FontSize="Large" Margin="20, 0"/>
                     <StackLayout>
                         <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
                         <Label x:Name="pdfLabel" TextColor="DarkSlateGray" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
@@ -43,7 +43,8 @@
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
                 </StackLayout>
-                <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" Clicked="RequestUpdateButton_Clicked"/>
+                <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" Clicked="RequestUpdateButton_Clicked"
+                        HorizontalOptions="Center" Margin="0,0,0, 200" WidthRequest="200" HeightRequest="50" BackgroundColor="#2196F3" TextColor="White"/>
             </StackLayout>            
         </ScrollView>
     </ContentPage.Content>

@@ -328,6 +328,9 @@
     <value>Settings</value>
     <comment>Setting tag on button</comment>
   </data>
+  <data name="ShareButton.Text" xml:space="preserve">
+    <value>Share</value>
+  </data>
   <data name="slovakLabel.Text" xml:space="preserve">
     <value>Slovak</value>
   </data>

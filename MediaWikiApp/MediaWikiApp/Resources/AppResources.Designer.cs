@@ -691,6 +691,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Share.
+        /// </summary>
+        internal static string ShareButton_Text {
+            get {
+                return ResourceManager.GetString("ShareButton.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Slovak.
         /// </summary>
         internal static string slovakLabel_Text {

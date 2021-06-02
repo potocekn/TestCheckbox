@@ -59,6 +59,7 @@ namespace AppBase.Helpers
 
         private static async Task<bool> HandleAutomaticUpdate(DateTime now, App app)
         {
+            if (!CanDownload(app)) return false;
             app.userSettings.DateOfLastUpdate = now;
             languagesWithResources = DownloadLanguagesWithResources(app.URL);
             foreach (var language in languagesWithResources.Keys)
@@ -103,7 +104,9 @@ namespace AppBase.Helpers
 
         private static bool DownloadSpecialFormatFiles(App app, List<ResourcesInfoPDF> list, string fileFormat, string formatFolder)
         {
-            if (languagesWithResources == null)
+            if (!CanDownload(app)) return false;
+
+            if (languagesWithResources == null || languagesWithResources.Count == 0)
                 return false;
 
             try
@@ -277,7 +280,7 @@ namespace AppBase.Helpers
                 foreach (var change in changes)
                 {
                     var resourceName = change.FileName.Split('/', '.')[2];
-                    var existingDbsRecord = App.Database.GetPageAsync(resourceName + "(" + language + ")").Result;
+                    var existingDbsRecord = App.Database.GetPageAsync(resourceName + "-" + language).Result;
                     string fullRecordURL = URL + "/" + change.FileName;
 
                     if (existingDbsRecord == null)
@@ -286,7 +289,7 @@ namespace AppBase.Helpers
                         HtmlRecord record = new HtmlRecord
                         {
                             PageContent = contents,
-                            PageName = resourceName + "(" + language + ")",
+                            PageName = resourceName + "-" + language,
                             PageLanguage = language
                         };
 
@@ -334,7 +337,7 @@ namespace AppBase.Helpers
                             {
                                 if (ci.DisplayName == item)
                                 {
-                                    bool result = await SaveChanges(language_changes, item, app.URL, wc);
+                                    bool result = await SaveChanges(language_changes, language, app.URL, wc);
                                 }
                             }                            
                         }
