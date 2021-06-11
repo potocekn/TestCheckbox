@@ -7,19 +7,18 @@
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label Text="Training App" TextColor="White" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+            <Button  x:Name="SettingsButton" x:Uid="SettingsButton" ImageSource="settings.png" Command="{Binding GoToSettings}" 
+                        BackgroundColor="#2196F3" WidthRequest="50"/>
+
         </StackLayout>
     </NavigationPage.TitleView>
 
     <StackLayout>        
-        <StackLayout Orientation="Horizontal">
-            <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                <Button  x:Name="SettingsButton" x:Uid="SettingsButton" Text="{x:Static resources:AppResources.SettingsButton_Text}" Command="{Binding GoToSettings}" BackgroundColor="GhostWhite"/>
-            </StackLayout>
-            <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="{x:Static resources:AppResources.ResourcesButton_Text}" Command="{Binding GoToResources}" BackgroundColor="GhostWhite"/>
-            </StackLayout>
+               
+        <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+            <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="{x:Static resources:AppResources.ResourcesButton_Text}" Command="{Binding GoToResources}" BackgroundColor="GhostWhite"/>
         </StackLayout>
-        <Label x:Name="AboutLabel" x:Uid="AboutLabel" Text="{x:Static resources:AppResources.AboutLabel_Text}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="90,120,85,0"/>
 
         <StackLayout BindableLayout.ItemsSource="{Binding ResourceLanguages}">
             <BindableLayout.ItemTemplate>
@@ -31,5 +30,7 @@
             </BindableLayout.ItemTemplate>
         </StackLayout>
 
+        <Label x:Name="AboutLabel" x:Uid="AboutLabel" Text="{x:Static resources:AppResources.AboutLabel_Text}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="90,0,85,0"/>
+                
     </StackLayout>
 </ContentPage>
