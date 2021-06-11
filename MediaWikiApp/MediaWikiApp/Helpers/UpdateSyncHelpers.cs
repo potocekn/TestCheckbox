@@ -61,6 +61,7 @@ namespace AppBase.Helpers
         {
             if (!CanDownload(app)) return false;
             app.userSettings.DateOfLastUpdate = now;
+            app.availableLanguages = DownloadLanguages(app.URL);
             languagesWithResources = DownloadLanguagesWithResources(app.URL);
             foreach (var language in languagesWithResources.Keys)
             {
@@ -200,9 +201,9 @@ namespace AppBase.Helpers
         public static List<string> DownloadLanguages(string url)
         {
             string contents = "";
-            using (HttpClient client = new HttpClient())
+            using (WebClient client = new WebClient())
             {
-                contents = client.GetStringAsync(url + "/Languages.json").GetAwaiter().GetResult();
+                contents = client.DownloadString(url + "/Languages.json");
             }
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(contents);
