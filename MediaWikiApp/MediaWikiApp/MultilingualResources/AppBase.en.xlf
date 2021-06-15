@@ -375,6 +375,14 @@
           <source>Share</source>
           <target state="new">Share</target>
         </trans-unit>
+        <trans-unit id="Download.Text" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target state="new">Download</target>
+        </trans-unit>
+        <trans-unit id="DownloadInfoText.Text" translate="yes" xml:space="preserve">
+          <source>Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</source>
+          <target state="new">Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

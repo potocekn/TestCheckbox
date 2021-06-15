@@ -205,6 +205,24 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        internal static string Download_Text {
+            get {
+                return ResourceManager.GetString("Download.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading selected resources! Please make sure you have connection to the Internet and hit the download button..
+        /// </summary>
+        internal static string DownloadInfoText_Text {
+            get {
+                return ResourceManager.GetString("DownloadInfoText.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dutch.
         /// </summary>
         internal static string dutchLabel_Text {

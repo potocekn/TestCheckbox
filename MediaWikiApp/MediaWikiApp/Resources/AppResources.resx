@@ -165,6 +165,12 @@
   <data name="czechLabel.Text" xml:space="preserve">
     <value>Czech</value>
   </data>
+  <data name="Download.Text" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="DownloadInfoText.Text" xml:space="preserve">
+    <value>Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</value>
+  </data>
   <data name="dutchLabel.Text" xml:space="preserve">
     <value>Dutch</value>
   </data>
