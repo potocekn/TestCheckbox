@@ -383,6 +383,14 @@
           <source>Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</source>
           <target state="new">Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</target>
         </trans-unit>
+        <trans-unit id="ResourcesDownloadStartMessage.Text" translate="yes" xml:space="preserve">
+          <source>Downloading of resources started. This may take a while, please wait until message about the result shows up.</source>
+          <target state="new">Downloading of resources started. This may take a while, please wait until message about the result shows up.</target>
+        </trans-unit>
+        <trans-unit id="ResourcesDownloadStartTitle.Text" translate="yes" xml:space="preserve">
+          <source>Starting download</source>
+          <target state="new">Starting download</target>
+        </trans-unit>
       </group>
     </body>
   </file>

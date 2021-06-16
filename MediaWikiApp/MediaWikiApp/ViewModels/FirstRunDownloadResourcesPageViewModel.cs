@@ -17,14 +17,23 @@ namespace AppBase.ViewModels
                         
         }
 
-        public async void Download(App app)
-        {            
-            await UpdateSyncHelpers.DownloadResources(app);
-            UpdateApp(app);
+        public async void Download(App app, FirstRunDownloadResourcesPage page)
+        {
+            if (!UpdateSyncHelpers.CanDownload(app))
+            {
+                await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
+            }
+            else
+            {
+                await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
+                await UpdateSyncHelpers.DownloadResources(app);
+                UpdateApp(app);
+            }            
         }
 
         void UpdateApp(App app)
         {
+            app.userSettings.WasFirstDownload = true;
             string shortcut = GetShortcut(app.userSettings.AppLanguage);
             CultureInfo language = new CultureInfo(shortcut);
             Thread.CurrentThread.CurrentUICulture = language;

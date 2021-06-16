@@ -637,6 +637,24 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading of resources started. This may take a while, please wait until message about the result shows up..
+        /// </summary>
+        internal static string ResourcesDownloadStartMessage_Text {
+            get {
+                return ResourceManager.GetString("ResourcesDownloadStartMessage.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting download.
+        /// </summary>
+        internal static string ResourcesDownloadStartTitle_Text {
+            get {
+                return ResourceManager.GetString("ResourcesDownloadStartTitle.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Romanian.
         /// </summary>
         internal static string romanianLabel_Text {

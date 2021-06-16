@@ -309,6 +309,12 @@
   <data name="ResourcesDownloadedUnsuccessful.Text" xml:space="preserve">
     <value>Unsuccessful download. Pleas make sure you have Internet access.</value>
   </data>
+  <data name="ResourcesDownloadStartMessage.Text" xml:space="preserve">
+    <value>Downloading of resources started. This may take a while, please wait until message about the result shows up.</value>
+  </data>
+  <data name="ResourcesDownloadStartTitle.Text" xml:space="preserve">
+    <value>Starting download</value>
+  </data>
   <data name="romanianLabel.Text" xml:space="preserve">
     <value>Romanian</value>
   </data>

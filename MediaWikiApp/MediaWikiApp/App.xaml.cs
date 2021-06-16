@@ -24,7 +24,7 @@ namespace AppBaseNamespace
         string resourcesODTfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesODT.json");
         string languagesFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "languages.json");
 
-        public bool IsFirst = true;
+        public bool IsFirst = true;        
         public bool WasRefreshed = false;
         public string URL = "https://raw.githubusercontent.com/potocekn/ResourcesTest/master";
         public UserSettings userSettings;
@@ -60,7 +60,14 @@ namespace AppBaseNamespace
                 RetrieveResources();
                 SetAppLanguage(userSettings.AppLanguage);
                 UpdateSyncHelpers.SynchronizeResources(this);
-                MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+                if (userSettings.WasFirstDownload)
+                {
+                    MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new FirstRunDownloadResourcesPage(this));
+                }                
             }
             else
             {

@@ -97,6 +97,7 @@ namespace AppBaseNamespace
 
         internal async void RequestUpdate(ResourceFormatSettingsPage page)
         {
+            await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
             DeleteUntoggledFormats();
             DeleteUncheckedLanguageFiles();
             bool result = await UpdateSyncHelpers.DownloadResources(app);

@@ -25,7 +25,7 @@ namespace AppBase
         {
             (sender as Button).IsEnabled = false;
             (sender as Button).TextColor = Color.Gray;           
-            (BindingContext as FirstRunDownloadResourcesPageViewModel).Download(app);
+            (BindingContext as FirstRunDownloadResourcesPageViewModel).Download(app, this);
         }
     }
 }

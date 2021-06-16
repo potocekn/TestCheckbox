@@ -18,6 +18,7 @@ namespace AppBase.UserSettingsHelpers
         public bool DownloadOnlyWithWifi { get; set; }
         public List<string> Formats { get; set; }
         public DateTime DateOfLastUpdate { get; set; }
+        public bool WasFirstDownload { get; set; }
 
         public UserSettings(string path)
         {
@@ -29,6 +30,7 @@ namespace AppBase.UserSettingsHelpers
             Formats = new List<string>();
             //Formats.Add("PDF");
             DateOfLastUpdate = DateTime.Now;
+            WasFirstDownload = false;
         }
     }
 }

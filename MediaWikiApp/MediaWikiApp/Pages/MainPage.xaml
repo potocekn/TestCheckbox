@@ -17,20 +17,26 @@
     <StackLayout>        
                
         <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-            <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="{x:Static resources:AppResources.ResourcesButton_Text}" Command="{Binding GoToResources}" BackgroundColor="GhostWhite"/>
+            <Button  x:Name="ResourcesButton" x:Uid="ResourcesButton" Text="{x:Static resources:AppResources.ResourcesButton_Text}" Command="{Binding GoToResources}" BackgroundColor="#B3D9FF"/>
         </StackLayout>
 
         <StackLayout BindableLayout.ItemsSource="{Binding ResourceLanguages}">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Button Text="{Binding LanguageName}" Command="{Binding OpenResources}" BackgroundColor="GhostWhite"/>
+                        <Button Text="{Binding LanguageName}" Command="{Binding OpenResources}" BackgroundColor="#E6F2FF" FontSize="Default"/>
                     </StackLayout>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
         </StackLayout>
 
-        <Label x:Name="AboutLabel" x:Uid="AboutLabel" Text="{x:Static resources:AppResources.AboutLabel_Text}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="90,0,85,0"/>
+        <Label x:Name="AboutLabel" x:Uid="AboutLabel" Text="{x:Static resources:AppResources.AboutLabel_Text}"               
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" 
+               Padding="100"
+               FontSize="Medium"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"/>
                 
     </StackLayout>
 </ContentPage>

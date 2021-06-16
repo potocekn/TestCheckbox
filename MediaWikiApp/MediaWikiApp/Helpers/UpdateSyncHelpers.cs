@@ -251,7 +251,7 @@ namespace AppBase.Helpers
         }
 
 
-        private static bool CanDownload(App app)
+        public static bool CanDownload(App app)
         {
             bool canDownload = false;
             if (app.userSettings.DownloadOnlyWithWifi)

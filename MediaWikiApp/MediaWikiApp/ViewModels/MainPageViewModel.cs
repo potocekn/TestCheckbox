@@ -49,7 +49,7 @@ namespace AppBaseNamespace.ViewModels
             {
                 ResourceLanguageInfo resourceLanguageInfo = new ResourceLanguageInfo();
 
-                resourceLanguageInfo.LanguageName = language;
+                resourceLanguageInfo.LanguageName = AppBase.Helpers.LanguagesTranslationHelper.ReturnTranslation(language);
                 resourceLanguageInfo.PDFs = SeparatePDFsForLanguage(language, app);
                 resourceLanguageInfo.ODTs = SeparateODTsForLanguage(language, app);
                 resourceLanguageInfo.HTMLs = SeparateHTMLsForLanguage(language);
