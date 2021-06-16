@@ -1,4 +1,5 @@
 ﻿using AppBase.Helpers;
+using AppBase.Pages;
 using AppBase.Resources;
 using AppBaseNamespace;
 using System;
@@ -26,7 +27,8 @@ namespace AppBase.ViewModels
             Switches = switches;
             
             GoToNextPage = new Command(() => {
-                navigation.PushAsync(new FirstRunDownloadResourcesPage(app));                                
+                navigation.PushAsync(new UpdateIntervalFirstRunPage(app));
+                //navigation.PushAsync(new FirstRunDownloadResourcesPage(app));                                
             });
         }
 
@@ -43,9 +45,27 @@ namespace AppBase.ViewModels
             {
                 if (item.CorrespondingSwitch == (sender as Switch))
                 {
-                    HandleFormatChange(item.Name, (sender as Switch).IsToggled);                    
+                    if (item.Name == "wifi")
+                    {
+                        HandleWifiChange((sender as Switch).IsToggled);
+                    }
+                    else
+                    {
+                        HandleFormatChange(item.Name, (sender as Switch).IsToggled);
+                    }
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Method that handles change of toggled property of the wifi switch.
+        /// </summary>
+        /// <param name="isToggled">bool representing is switch is toggled or not</param>
+        void HandleWifiChange(bool isToggled)
+        {
+            app.userSettings.DownloadOnlyWithWifi = isToggled;
+            app.SaveUserSettings();
         }
 
         /// <summary>

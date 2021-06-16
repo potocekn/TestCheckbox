@@ -47,7 +47,7 @@ namespace AppBase
                 AddItem(OnRequestOptionLabel.Text, false, false, englishOnRequest.Text);
             }           
            
-            BindingContext = new UpdateIntervalSettingsPageViewModel(app, mainPageViewModel, Checkboxes);
+            BindingContext = new UpdateIntervalSettingsPageViewModel(app, Checkboxes);
         }
 
         void AddItem(string name, bool isChecked, bool wasUpdated, string englishName)

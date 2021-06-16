@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace AppBase.ViewModels
@@ -17,17 +18,19 @@ namespace AppBase.ViewModels
                         
         }
 
-        public async void Download(App app, FirstRunDownloadResourcesPage page)
+        public async Task<bool> Download(App app, FirstRunDownloadResourcesPage page)
         {
             if (!UpdateSyncHelpers.CanDownload(app))
             {
                 await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
+                return false;
             }
             else
             {
                 await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
                 await UpdateSyncHelpers.DownloadResources(app);
                 UpdateApp(app);
+                return true;
             }            
         }
 

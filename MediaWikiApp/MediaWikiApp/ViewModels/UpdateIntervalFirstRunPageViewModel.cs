@@ -1,5 +1,4 @@
 ﻿using AppBaseNamespace;
-using AppBaseNamespace.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,18 +6,16 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
-    /// <summary>
-    /// Class representing the view model of the update interval settings page. 
-    /// The model remembers all the interval options and languages of the resources.
-    /// </summary>
-    public class UpdateIntervalSettingsPageViewModel
+    public class UpdateIntervalFirstRunPageViewModel
     {
-        public List<UpdateIntervalSettingsItem> Items { get; set; }        
+        public List<UpdateIntervalSettingsItem> Items { get; set; }
+        public Command GoToDownload { get; set; }
         App app { get; set; }
-        public UpdateIntervalSettingsPageViewModel(App app, List<UpdateIntervalSettingsItem> switches)
+        public UpdateIntervalFirstRunPageViewModel(App app, List<UpdateIntervalSettingsItem> switches, INavigation navigation)
         {
-            this.app = app;            
-            Items = switches;             
+            this.app = app;
+            Items = switches;
+            GoToDownload = new Command(() => navigation.PushAsync(new FirstRunDownloadResourcesPage(app)));
         }
 
         /// <summary>

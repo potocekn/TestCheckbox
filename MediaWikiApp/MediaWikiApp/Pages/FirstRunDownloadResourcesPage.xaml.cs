@@ -21,11 +21,16 @@ namespace AppBase
             InitializeComponent();
             BindingContext = new FirstRunDownloadResourcesPageViewModel();
         }
-        public void OnButtonClicked(object sender, EventArgs args)
+        public async void OnButtonClicked(object sender, EventArgs args)
         {
             (sender as Button).IsEnabled = false;
             (sender as Button).TextColor = Color.Gray;           
-            (BindingContext as FirstRunDownloadResourcesPageViewModel).Download(app, this);
+            bool downloaded = await (BindingContext as FirstRunDownloadResourcesPageViewModel).Download(app, this);
+            if (!downloaded)
+            {
+                (sender as Button).IsEnabled = true;
+                (sender as Button).TextColor = Color.White;
+            }
         }
     }
 }

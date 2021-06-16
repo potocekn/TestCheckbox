@@ -5,6 +5,9 @@
              x:Class="AppBase.ResourcesFormatFirstRunPage">
     <ContentPage.Content>
         <StackLayout>
+            <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
+            <Label x:Name="WifiLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.WifiLabel_Text}" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
+
             <Label x:Name="FormatSelectionLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.selectFormatOfResourcesLabel_Text}" FontSize="Large" Margin="20"/>
             <StackLayout>
                 <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
