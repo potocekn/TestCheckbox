@@ -11,6 +11,9 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// ViewModel for the very first downloading of resources based on the first user selections.
+    /// </summary>
     class FirstRunDownloadResourcesPageViewModel
     {  
         public FirstRunDownloadResourcesPageViewModel()
@@ -18,6 +21,13 @@ namespace AppBase.ViewModels
                         
         }
 
+        /// <summary>
+        /// Method for downloading the resources.
+        /// </summary>
+        /// <param name="app">Reference to the current app.</param>
+        /// <param name="page">reference to the doenload page (the page from which the method is called)
+        /// - needed for displaying messages</param>
+        /// <returns>Boolean if the download was successful.</returns>
         public async Task<bool> Download(App app, FirstRunDownloadResourcesPage page)
         {
             if (!UpdateSyncHelpers.CanDownload(app))
@@ -34,6 +44,11 @@ namespace AppBase.ViewModels
             }            
         }
 
+        /// <summary>
+        /// Method for updating the application. The method sets the proper language and sets the user settings flags
+        /// which indicate if the first run initialization is finished.
+        /// </summary>
+        /// <param name="app">The referrence to the current app.</param>
         void UpdateApp(App app)
         {
             app.userSettings.WasFirstDownload = true;

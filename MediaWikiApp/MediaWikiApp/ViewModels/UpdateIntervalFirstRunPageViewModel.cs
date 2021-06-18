@@ -6,6 +6,9 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// A class that represents view model for the update interval settings page during the very first run of the application.
+    /// </summary>
     public class UpdateIntervalFirstRunPageViewModel
     {
         public List<UpdateIntervalSettingsItem> Items { get; set; }

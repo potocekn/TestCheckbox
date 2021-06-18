@@ -40,6 +40,11 @@ namespace AppBaseNamespace
             Switches = switches;            
         }
 
+        /// <summary>
+        /// Message for converting the language full name to the 2-letter ISO shortcut.
+        /// </summary>
+        /// <param name="languageName">The full name of the language.</param>
+        /// <returns></returns>
         string GetLanguageShortcut(string languageName)
         {
             CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
@@ -77,6 +82,9 @@ namespace AppBaseNamespace
             }
         }
         
+        /// <summary>
+        /// Method for deleting the formats that are no longer selected.
+        /// </summary>
         void DeleteUntoggledFormats()
         {
             if (!app.userSettings.Formats.Contains("PDF"))
@@ -95,6 +103,11 @@ namespace AppBaseNamespace
             }
         }
 
+        /// <summary>
+        /// Method for requesting update of the resources. The update deletes the unselected formats and languages and downloads the newly
+        /// selected language resources.
+        /// </summary>
+        /// <param name="page"></param>
         internal async void RequestUpdate(ResourceFormatSettingsPage page)
         {
             await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
@@ -113,6 +126,9 @@ namespace AppBaseNamespace
             
         }
 
+        /// <summary>
+        /// Method for deleting the unselected languages. All files and database records are deleted for these languages.
+        /// </summary>
         private void DeleteUncheckedLanguageFiles()
         {
             foreach (var item in Languages)
@@ -158,6 +174,9 @@ namespace AppBaseNamespace
             app.SaveUserSettings();
         }
 
+        /// <summary>
+        /// Method for removing all of the HTML records.
+        /// </summary>
         void RemoveHTMLs()
         {
             var records = App.Database.GetPagesAsync().Result;
@@ -167,6 +186,10 @@ namespace AppBaseNamespace
             }
         }
 
+        /// <summary>
+        /// Method for removing HTML files for given language.
+        /// </summary>
+        /// <param name="language">The language for which to delete.</param>
         void RemoveHTMLs(string language)
         {
             var records = App.Database.GetPagesAsync().Result;
@@ -179,6 +202,10 @@ namespace AppBaseNamespace
             }
         }
 
+        /// <summary>
+        /// Method for removing the PDF or ODT files.
+        /// </summary>
+        /// <param name="list">list of files to delete.</param>
         void RemoveFiles(ref List<ResourcesInfoPDF> list)
         {
             if (list == null)
@@ -190,6 +217,11 @@ namespace AppBaseNamespace
             list = new List<ResourcesInfoPDF>();
         }
 
+        /// <summary>
+        /// Method for deleting PDF or ODT files for specified language.
+        /// </summary>
+        /// <param name="language">Language for which to delete.</param>
+        /// <param name="list">List of files to delete.</param>
         void RemoveFiles(string language, List<ResourcesInfoPDF> list)
         {
             if (list == null) return;
@@ -207,6 +239,11 @@ namespace AppBaseNamespace
             DeleteFromList(toBeDeleted, list);
         }
 
+        /// <summary>
+        /// Method for deleting the subset of resource list.
+        /// </summary>
+        /// <param name="whatToDelete">files to delete.</param>
+        /// <param name="fromWhere">from what list to delete.</param>
         void DeleteFromList(List<ResourcesInfoPDF> whatToDelete, List<ResourcesInfoPDF> fromWhere)
         {
             foreach (var item in whatToDelete)
@@ -215,6 +252,10 @@ namespace AppBaseNamespace
             }
         }
 
+        /// <summary>
+        /// Method for removing all files and formats of given language.
+        /// </summary>
+        /// <param name="language">The language for which language to delete.</param>
         void RemoveFiles(string language)
         {
             RemoveHTMLs(language);

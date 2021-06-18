@@ -23,12 +23,6 @@ namespace AppBase.ViewModels
         {            
             this.HTMLSource = new HtmlWebViewSource();
             HTMLSource.Html = record.PageContent;
-        }
-
-        void GetSource(string url)
-        {            
-            var record = App.Database.GetPageAsync("Prayer3");
-            HTMLSource.Html = record.Result.PageContent;            
-        }
+        }       
     }
 }

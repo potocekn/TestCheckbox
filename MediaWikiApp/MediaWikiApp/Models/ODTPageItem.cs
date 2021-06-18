@@ -5,6 +5,10 @@ using Xamarin.Forms;
 
 namespace AppBase.Models
 {
+    /// <summary>
+    /// Class representing an ODT file that is used by the ODT page. Each instance of this class
+    /// has its own button that is used for sharing the resource.
+    /// </summary>
     class ODTPageItem
     {
         public string Language { get; set; }
