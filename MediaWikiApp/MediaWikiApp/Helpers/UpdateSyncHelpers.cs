@@ -16,10 +16,20 @@ using Xamarin.Forms;
 
 namespace AppBase.Helpers
 {
+    /// <summary>
+    /// Class that contains methods for ensuring synchronization of resources with the github server.
+    /// </summary>
     static class UpdateSyncHelpers
     {
         static Dictionary<string, List<ChangesItem>> changes = new Dictionary<string, List<ChangesItem>>();
         static Dictionary<string, List<string>> languagesWithResources = new Dictionary<string, List<string>>();
+
+        /// <summary>
+        /// Application responsible for choosing the correct form of update strategy based on the user settings saved in the application.
+        /// The default strategy is the automatic update.
+        /// </summary>
+        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// lists of resources in the app would be correctly updated and saved. </param>
         public static async void SynchronizeResources(App app)
         {
             switch (app.userSettings.UpdateInterval)
@@ -39,16 +49,34 @@ namespace AppBase.Helpers
             }
         }
 
+        /// <summary>
+        /// Wrapper function for requesting update. The wrapper was made because the update method should not be called uncontrolled.
+        /// </summary>
+        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// lists of resources in the app would be correctly updated and saved. </param>
+        /// <returns>Boolean that represents if the update was successful. True => successful, False => not successful.</returns>
         public static async Task<bool> DownloadResources(App app)
         {
            return await HandleAutomaticUpdate(DateTime.Now, app);
         }
 
+        /// <summary>
+        /// Method for handling the "On request" update strategy.
+        /// </summary>
+        /// <param name="now">the actual date and time</param>
+        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// lists of resources in the app would be correctly updated and saved. </param>
         private static async void HandleOnRequestUpdate(DateTime now, App app)
         {
             await HandleAutomaticUpdate(now, app);
         }
 
+        /// <summary>
+        /// Method for handling the "Once a month" update strategy. Update is done after at least 28 days.
+        /// </summary>
+        /// <param name="now">the actual date and time</param>
+        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// lists of resources in the app would be correctly updated and saved. </param>
         private static async void HandleOnceAMonthUpdate(DateTime now, App app)
         {
             if (now.Subtract(app.userSettings.DateOfLastUpdate).TotalDays > 28)
@@ -57,6 +85,14 @@ namespace AppBase.Helpers
             }
         }
 
+        /// <summary>
+        /// Method for handling the "Automatic" update strategy. Update consists of synchronizing with the guthub repository and 
+        /// downloading the changed or new resources. 
+        /// </summary>
+        /// <param name="now">the actual date and time</param>
+        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// lists of resources in the app would be correctly updated and saved. </param>
+        /// <returns>Boolean that represents if the update was successful. True => successful, False => not successful.</returns>
         private static async Task<bool> HandleAutomaticUpdate(DateTime now, App app)
         {
             if (!CanDownload(app)) return false;
@@ -88,21 +124,27 @@ namespace AppBase.Helpers
                         result &= await DownloadHTMLFiles(app);                    
                         break;
                     case "PDF":
-                        result &= DownloadSpecialFormatFiles(app, app.resourcesPDF, ".pdf", "PDF");
-                        //return true; //for now
+                        result &= DownloadSpecialFormatFiles(app, app.resourcesPDF, ".pdf", "PDF");                       
                         break;                    
                     case "ODT":
-                        result &= DownloadSpecialFormatFiles(app, app.resourcesODT, ".odt", "ODT");
-                        //return true; //for now
+                        result &= DownloadSpecialFormatFiles(app, app.resourcesODT, ".odt", "ODT");                        
                         break;
-                    default:
-                        //return false;
+                    default:                       
                         break;
                 }
             }
            return result;
         }
 
+        /// <summary>
+        /// Method for downloading the PDF or ODT files from the github repository.
+        /// </summary>
+        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// lists of resources in the app would be correctly updated and saved. </param>
+        /// <param name="list">List of current resources of given format in the application.</param>
+        /// <param name="fileFormat">Format of the files that should be downloaded/updated. (".pdf for PDF files and ".odt" for ODT files)</param>
+        /// <param name="formatFolder">The name of the folder in the repository where the resources are stored ("PDF" or "ODT").</param>
+        /// <returns>Boolean that represents if the update was successful. True => successful, False => not successful.</returns>
         private static bool DownloadSpecialFormatFiles(App app, List<ResourcesInfoPDF> list, string fileFormat, string formatFolder)
         {
             if (!CanDownload(app)) return false;
@@ -180,6 +222,13 @@ namespace AppBase.Helpers
             }            
         }
 
+        /// <summary>
+        /// Method used for downloading the dictionary that contains the shortcut of the language as a key 
+        /// and as values the names of all resources available for given language. 
+        /// This file is stored in the main github repository, in the root folder as "LanguagesWithResources.json" 
+        /// </summary>
+        /// <param name="url">The url of the github repository - the root folder, master branch.</param>
+        /// <returns>Dictionary of languages and their available resources.</returns>
         private static Dictionary<string, List<string>> DownloadLanguagesWithResources(string url)
         {
             string contents = "";
@@ -198,6 +247,12 @@ namespace AppBase.Helpers
             }            
         }
 
+        /// <summary>
+        /// Method for downloading a list of all available languages from the github repository. All languages available on the mediawiki server are
+        /// stored in the root folder of the github repository in the "Languages.json" file.
+        /// </summary>
+        /// <param name="url">The url of the github repository - the root folder, master branch.</param>
+        /// <returns>List of all available languages on the mediawiki server.</returns>
         public static List<string> DownloadLanguages(string url)
         {
             string contents = "";
@@ -209,6 +264,12 @@ namespace AppBase.Helpers
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(contents);
         }
 
+        /// <summary>
+        /// Method for downloading a list of all changed files for a specific language. Every resource has a version number. The tuple of 
+        /// (resource name, version number) is stored in the "Changes.json" file in the specific language folder in the github repository.
+        /// </summary>
+        /// <param name="url">The url of the github repository + the language folder.</param>
+        /// <returns>The list of resources and their actual version numbers.</returns>
         private static List<ChangesItem> DownloadChangedFiles(string url)
         {            
             string contents = "";
@@ -229,7 +290,12 @@ namespace AppBase.Helpers
             }            
         }
 
-
+        /// <summary>
+        /// Method for creating ChangesItems from deserialized json file. The version number is converted from string to int. 
+        /// The method expects the correct format of the version number.
+        /// </summary>
+        /// <param name="changes">Deserialized json result from the Changes.json file in the language folder.</param>
+        /// <returns>The list of resources and their actual version numbers.</returns>
         private static  List<ChangesItem> ParseChangesResults(List<List<object>> changes)
         {
             if (changes == null) return null;
@@ -237,8 +303,9 @@ namespace AppBase.Helpers
 
             foreach (var change in changes)
             {
-                string fileName = (string)change[0];
-                int versionNumber = Convert.ToInt32(change[1]);               
+                string fileName = (string)change[0];                
+                int versionNumber = Convert.ToInt32(change[1]);
+                
                 ChangesItem newItem = new ChangesItem()
                 {
                     FileName = fileName,
@@ -250,7 +317,12 @@ namespace AppBase.Helpers
             return result;
         }
 
-
+        /// <summary>
+        /// Method used for determining if conditions for downloading are satisfied - internet access + if user 
+        /// requested to download only when wifi is on, then the type of connection has to be wifi.
+        /// </summary>
+        /// <param name="app">Reference to the current app.</param>
+        /// <returns>If it is possible to start download.</returns>
         public static bool CanDownload(App app)
         {
             bool canDownload = false;
@@ -274,6 +346,15 @@ namespace AppBase.Helpers
             return canDownload;
         }
 
+        /// <summary>
+        /// Method for downloading and saving the changed files. When the version of resource is higher that the app remembers, 
+        /// the new version has to be downloaded and has to replace the older version.
+        /// </summary>
+        /// <param name="changes">List of items that are changed.</param>
+        /// <param name="language">For which language the update should be done (shortcut).</param>
+        /// <param name="URL">URL to the folder where the resource files are located.</param>
+        /// <param name="wc">the Web client used for downloading.</param>
+        /// <returns>Boolean if the operation was successful.</returns>
         static async Task<bool> SaveChanges(List<ChangesItem> changes, string language, string URL, WebClient wc)
         {
             try
@@ -316,6 +397,11 @@ namespace AppBase.Helpers
            
         }
 
+        /// <summary>
+        /// Method for downloading the HTML files for each language that user selected.
+        /// </summary>
+        /// <param name="app">The reference to the current app so that the Database can be properly updated.</param>
+        /// <returns>Boolean if the operation was successful.</returns>
         public static async Task<bool> DownloadHTMLFiles(App app)
         { 
             if (!CanDownload(app)) return false;
@@ -351,71 +437,6 @@ namespace AppBase.Helpers
                 
             }
             return true;
-        }
-
-        public static async void DownloadTestFiles(App app)
-        {
-            if (!CanDownload(app)) return;
-            app.resourcesPDF = new List<ResourcesInfoPDF>();
-            app.resourcesODT = new List<ResourcesInfoPDF>();
-            IDownloader downloader = DependencyService.Get<IDownloader>();
-            string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "English");
-            string fileName = Path.Combine(dir, "test.pdf");
-            ResourcesInfoPDF item = new ResourcesInfoPDF()
-            {
-                Language = "English",
-                ResourceName = "Test Resource",
-                FileName = "test.pdf",
-                Url = "http://www.4training.net/mediawiki/images/a/af/Gods_Story_%28five_fingers%29.pdf",
-                FilePath = fileName
-            };
-            app.resourcesPDF.Add(item);
-
-            fileName = Path.Combine(dir, "test2.pdf");
-            ResourcesInfoPDF item2 = new ResourcesInfoPDF()
-            {
-                Language = "English",
-                ResourceName = "Test Resource 2",
-                FileName = "test2.pdf",
-                Url = "http://www.4training.net/mediawiki/images/8/8b/Baptism.pdf",
-                FilePath = fileName
-            };
-            app.resourcesPDF.Add(item2);
-
-            foreach (var pdf in app.resourcesPDF)
-            {
-                string save_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), pdf.Language);
-                try
-                {
-                    downloader.DownloadFile(pdf.Url, save_dir, pdf.FileName);
-                }
-                catch (Exception e)
-                {
-                    
-                }
-            }
-
-            fileName = Path.Combine(dir, "test3.odt");
-            ResourcesInfoPDF item3 = new ResourcesInfoPDF()
-            {
-                Language = "English",
-                ResourceName = "Test Resource ODT",
-                FileName = "test3.odt",
-                Url = "https://www.4training.net/mediawiki/images/a/a8/Church.odt",
-                FilePath = fileName
-            };
-            app.resourcesODT.Add(item3);
-
-            foreach (var odt in app.resourcesODT)
-            {
-                string save_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), odt.Language);
-                downloader.DownloadFile(odt.Url, save_dir, odt.FileName);
-            }
-
-            var downloadedImage = await ImageService.DownloadImage("https://www.4training.net/mediawiki/images/3/3b/Relationship_Triangle.png");
-
-            ImageService.SaveToDisk("testImage.png", downloadedImage);
-        }
-        
+        }       
     }
 }

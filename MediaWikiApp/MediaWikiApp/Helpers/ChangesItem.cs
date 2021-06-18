@@ -4,6 +4,10 @@ using System.Text;
 
 namespace AppBase.Helpers
 {
+    /// <summary>
+    /// Class that represents files with their actual version number. This class is used when determining if new version 
+    /// of resource is available and should be downloaded.
+    /// </summary>
     class ChangesItem
     {
         public string FileName { get; set; }
