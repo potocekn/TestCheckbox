@@ -27,9 +27,9 @@
 
                 <CheckBox  x:Name="OnRequestOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3"/>
                 <Label x:Name="OnRequestOptionLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
-                <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" IsEnabled="False"/>
+                
             </StackLayout>
-
+            <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" IsVisible="{Binding IsOnRequest}" Clicked="RequestUpdateButton_Clicked"/>
             <Label x:Name="englishAutomatic" TextColor="DarkSlateGray" Text="Automatic" IsVisible="False"/>
             <Label x:Name="englishOnceAMonth" TextColor="DarkSlateGray" Text="Once a Month" IsVisible="False"/>
             <Label x:Name="englishOnRequest" TextColor="DarkSlateGray" Text="On Request" IsVisible="False"/>

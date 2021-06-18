@@ -26,7 +26,7 @@ namespace AppBaseNamespace
             switches.Add(new ResourceFormatSettingsItem(htmlSwitch, htmlLabel.Text));
             switches.Add(new ResourceFormatSettingsItem(odtSwitch, odtLabel.Text));
 
-            BindingContext = new ResourceFormatSettingsPageViewModel(app, mainPageViewModel, app.availableLanguages, switches);
+            BindingContext = new ResourceFormatSettingsPageViewModel(app, this, app.availableLanguages, switches);
 
             if (app.userSettings.DownloadOnlyWithWifi) wifiSwitch.IsToggled = true;
             foreach (var item in app.userSettings.Formats)
@@ -54,7 +54,7 @@ namespace AppBaseNamespace
 
         private void RequestUpdateButton_Clicked(object sender, EventArgs e)
         {
-            (BindingContext as ResourceFormatSettingsPageViewModel).RequestUpdate(this);
+            (BindingContext as ResourceFormatSettingsPageViewModel).RequestUpdate();
         }
     }
 }

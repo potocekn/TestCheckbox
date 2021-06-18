@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppBase.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,7 +15,7 @@ namespace AppBase.UserSettingsHelpers
         public string ResourcesLocation { get; set; }
         public string AppLanguage { get; set; }
         public List<string> ChosenResourceLanguages { get; set; }
-        public string UpdateInterval { get; set; }
+        public UpdateIntervalOption UpdateInterval { get; set; }
         public bool DownloadOnlyWithWifi { get; set; }
         public List<string> Formats { get; set; }
         public DateTime DateOfLastUpdate { get; set; }
@@ -25,7 +26,7 @@ namespace AppBase.UserSettingsHelpers
             ResourcesLocation = path;
             AppLanguage = "English";
             ChosenResourceLanguages = new List<string>();
-            UpdateInterval = "Automatic";
+            UpdateInterval = UpdateIntervalOption.AUTOMATIC;
             DownloadOnlyWithWifi = false;
             Formats = new List<string>();
             //Formats.Add("PDF");

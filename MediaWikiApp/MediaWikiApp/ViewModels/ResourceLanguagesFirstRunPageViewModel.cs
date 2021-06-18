@@ -1,6 +1,6 @@
 ﻿using AppBase.Helpers;
 using AppBaseNamespace;
-using AppBaseNamespace.ViewModels;
+using AppBaseNamespace.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

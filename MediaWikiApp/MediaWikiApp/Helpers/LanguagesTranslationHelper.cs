@@ -1,6 +1,7 @@
 ﻿using AppBase.Resources;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace AppBase.Helpers
@@ -10,6 +11,25 @@ namespace AppBase.Helpers
     /// </summary>
     public static class LanguagesTranslationHelper
     {
+
+        /// <summary>
+        /// Message for converting the language full name to the 2-letter ISO shortcut.
+        /// </summary>
+        /// <param name="languageName">The full name of the language.</param>
+        /// <returns></returns>
+        public static string GetLanguageShortcut(string languageName)
+        {
+            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
+            foreach (var item in cultures)
+            {
+                if (item.EnglishName == languageName)
+                {
+                    return item.TwoLetterISOLanguageName;
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// Static method that returns value of label for given language. This method is needed for rendering language names in multilingual mode.
         /// By returning the value of label it returns already translated string representation of language name (multilingual app tool kit translated it).

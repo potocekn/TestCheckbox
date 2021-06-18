@@ -1,4 +1,5 @@
-﻿using AppBaseNamespace;
+﻿using AppBase.Models;
+using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,7 +30,7 @@ namespace AppBase.ViewModels
         {
             sender.IsChecked = true;
             sender.WasUpdated = true;
-            app.userSettings.UpdateInterval = sender.EnglishName;
+            app.userSettings.UpdateInterval = UpdateintervalOptionExtensions.GetUpdateIntervalOption(sender.EnglishName);
             app.SaveUserSettings();
             foreach (var item in Items)
             {
@@ -41,6 +42,8 @@ namespace AppBase.ViewModels
                 }
             }
         }
+
+        
 
         /// <summary>
         /// Method that handles situation when all the checkboxes are unchecked.

@@ -34,13 +34,13 @@ namespace AppBase.Helpers
         {
             switch (app.userSettings.UpdateInterval)
             {
-                case "Automatic":
+                case UpdateIntervalOption.AUTOMATIC:
                     await HandleAutomaticUpdate(DateTime.Now, app);
                     break;
-                case "Once a Month":
+                case UpdateIntervalOption.ONCE_A_MONTH:
                     HandleOnceAMonthUpdate(DateTime.Now, app);
                     break;
-                case "On request":
+                case UpdateIntervalOption.ON_REQUEST:
                     HandleOnRequestUpdate(DateTime.Now, app);
                     break;
                 default:

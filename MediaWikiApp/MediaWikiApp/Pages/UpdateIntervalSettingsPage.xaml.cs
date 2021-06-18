@@ -20,7 +20,7 @@ namespace AppBase
         {
             InitializeComponent();
 
-            if (app.userSettings.UpdateInterval == englishAutomatic.Text)
+            if (app.userSettings.UpdateInterval == Models.UpdateIntervalOption.AUTOMATIC)
             {
                 AddItem(AutomaticOptionLabel.Text, true, false, englishAutomatic.Text);
             }
@@ -29,7 +29,7 @@ namespace AppBase
                 AddItem(AutomaticOptionLabel.Text, false, false, englishAutomatic.Text);
             }
 
-            if (app.userSettings.UpdateInterval == englishOnceAMonth.Text)
+            if (app.userSettings.UpdateInterval == Models.UpdateIntervalOption.ONCE_A_MONTH)
             {
                 AddItem(OnceAMonthOptionLabel.Text, true, false, englishOnceAMonth.Text);
             }
@@ -38,15 +38,14 @@ namespace AppBase
                 AddItem(OnceAMonthOptionLabel.Text, false, false, englishOnceAMonth.Text);
             }
 
-            if (app.userSettings.UpdateInterval == englishOnRequest.Text)
+            if (app.userSettings.UpdateInterval == Models.UpdateIntervalOption.ON_REQUEST)
             {
                 AddItem(OnRequestOptionLabel.Text, true, false, englishOnRequest.Text);
             }
             else
             {
                 AddItem(OnRequestOptionLabel.Text, false, false, englishOnRequest.Text);
-            }           
-           
+            }
             BindingContext = new UpdateIntervalSettingsPageViewModel(app, Checkboxes);
         }
 
@@ -67,6 +66,11 @@ namespace AppBase
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             (BindingContext as UpdateIntervalSettingsPageViewModel).TapGestureRecognizer_Tapped(sender, e);
+        }
+
+        private void RequestUpdateButton_Clicked(object sender, EventArgs e)
+        {
+            (BindingContext as UpdateIntervalSettingsPageViewModel).RequestUpdate(this);
         }
     }
 }

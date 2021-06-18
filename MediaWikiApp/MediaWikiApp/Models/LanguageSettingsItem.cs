@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Xamarin.Forms;
 
-namespace AppBaseNamespace.ViewModels
+namespace AppBaseNamespace.Models
 {
     /// <summary>
     /// Class representing one item in the language settings view model.
