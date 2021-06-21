@@ -2,13 +2,70 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:AppBase.Resources"
+             xmlns:local="clr-namespace:AppBase.Controls" 
              x:Class="AppBase.SettingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" Command="{Binding GoToLanguageSettings}" BackgroundColor="GhostWhite" />
-            <Button Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" Command="{Binding GoToUpdateIntervalSettings}" BackgroundColor="GhostWhite"/>
-            <Button x:Name="FormatButton" Text="{x:Static resources:AppResources.FormatButton_Text}" Command="{Binding GoToResourceFormatSettings}" BackgroundColor="GhostWhite"/>
-            <Button x:Name="LocationButton" IsVisible="false" Text="File Location Settings" Command="{Binding GoToFileLocationSettings}" BackgroundColor="GhostWhite"/>
-        </StackLayout>
+        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
+            <StackLayout>
+                <Frame CornerRadius="40"
+                       BackgroundColor="#D3D6EB"             
+                       WidthRequest="200"
+                       HeightRequest="50"
+                       HorizontalOptions="Center"
+                       Margin="0, 30, 0, 0"
+                >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{x:Static resources:AppResources.SettingsButton_Text}" 
+                           TextColor="#929AD3" 
+                           FontSize="Medium" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center" 
+                           TextTransform="Uppercase"
+                           Grid.Column="0"
+                           BackgroundColor="#D3D6EB"
+                        />
+                        <Image Source="settings.png" Grid.Column="1"/>
+                    </Grid>                            
+                </Frame>
+                <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" 
+                        TextColor="#929AD3"
+                        TextTransform="Uppercase"
+                        Command="{Binding GoToLanguageSettings}" 
+                        BackgroundColor="#D3D6EB" 
+                        CornerRadius="40"
+                        WidthRequest="200"
+                        HeightRequest="75"
+                        HorizontalOptions="Center"
+                        Margin="0, 15, 0, 0"                       
+                />
+                <Button Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" 
+                        TextColor="#929AD3"
+                        TextTransform="Uppercase"
+                        Command="{Binding GoToUpdateIntervalSettings}" 
+                        BackgroundColor="#D3D6EB"
+                        CornerRadius="40"
+                        WidthRequest="200"
+                        HeightRequest="75"
+                        HorizontalOptions="Center"
+                        Margin="0, 15, 0, 0"
+                />
+                <Button x:Name="FormatButton" 
+                        Text="{x:Static resources:AppResources.FormatButton_Text}" 
+                        TextColor="#929AD3"
+                        TextTransform="Uppercase"
+                        Command="{Binding GoToResourceFormatSettings}" 
+                        BackgroundColor="#D3D6EB"
+                        CornerRadius="40"
+                        WidthRequest="200"
+                        HeightRequest="75"
+                        HorizontalOptions="Center"
+                        Margin="0, 15, 0, 0"
+                />            
+            </StackLayout>
+        </local:GradientColorStack>
     </ContentPage.Content>
 </ContentPage>

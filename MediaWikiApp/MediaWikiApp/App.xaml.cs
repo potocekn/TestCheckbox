@@ -62,16 +62,22 @@ namespace AppBaseNamespace
                 UpdateSyncHelpers.SynchronizeResources(this);
                 if (userSettings.WasFirstDownload)
                 {
-                    MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+                    var navPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                    MainPage = navPage;
                 }
                 else
                 {
-                    MainPage = new NavigationPage(new FirstRunDownloadResourcesPage(this));
+                    var navPage = new NavigationPage(new FirstRunDownloadResourcesPage(this));
+                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                    MainPage = navPage;
                 }                
             }
             else
             {
-                MainPage = new NavigationPage(new AppLanguageFirstRunPage(this));
+                var navPage = new NavigationPage(new AppLanguageFirstRunPage(this));
+                navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                MainPage = navPage;                
             }      
                          
         }
@@ -159,7 +165,9 @@ namespace AppBaseNamespace
             userSettings.AppLanguage = previouslyChecked;
             Application.Current.Properties["currentLanguage"] = language;
             File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));           
-            MainPage = new NavigationPage(new MainPage(this, previouslyChecked));
+            var navPage = new NavigationPage(new MainPage(this, previouslyChecked));            
+            navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+            MainPage = navPage;
         }
 
         public void ReloadApp()

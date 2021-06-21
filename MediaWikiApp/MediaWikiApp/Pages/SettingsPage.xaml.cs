@@ -16,7 +16,7 @@ namespace AppBase
     {
         public SettingsPage(App app, MainPageViewModel mainPageViewModel)
         {
-            InitializeComponent();
+            InitializeComponent();            
             BindingContext = new SettingsPageViewModel(app,Navigation, mainPageViewModel);
         }
     }
