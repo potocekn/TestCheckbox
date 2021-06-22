@@ -15,7 +15,7 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FileLocationSettingsPage : ContentPage
     {
-        public FileLocationSettingsPage(App app, MainPageViewModel mainPageViewModel)
+        public FileLocationSettingsPage(App app)
         {
             InitializeComponent();
             BindingContext = new FileLocationSettingsPageViewModel(app);

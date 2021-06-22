@@ -4,7 +4,7 @@
              x:Class="AppBase.FileLocationSettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Select file location" Clicked="OnClicked"/>
+            <Label Text="Loading initial data ..."/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
