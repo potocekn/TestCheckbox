@@ -5,16 +5,17 @@
              xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBase.ResourcesFormatFirstRunPage">
     <ContentPage.Content>
-        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
-        <StackLayout>
-            <Frame CornerRadius="40"
+        <ScrollView>
+            <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
+                <StackLayout>
+                    <Frame CornerRadius="40"
                    BackgroundColor="#C8C9CF"             
                    WidthRequest="250"
                    HeightRequest="100"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"                            
             >
-                <Label x:Name="FormatSelectionLabel"                       
+                        <Label x:Name="FormatSelectionLabel"                       
                        Text="{x:Static resources:AppResources.selectFormatOfResourcesLabel_Text}"  
                        TextColor="#929AD3"                                                     
                        FontSize="16"
@@ -23,21 +24,21 @@
                        VerticalOptions="Center"
                        BackgroundColor="#C8C9CF"
                 />
-            </Frame>
+                    </Frame>
 
-            <Frame CornerRadius="40"
+                    <Frame CornerRadius="40"
                    BackgroundColor="#D3D6EB"                               
                    HorizontalOptions="Center"
                    Margin="0, 10, 0, 0"
                    WidthRequest="250"
             >
-                <StackLayout>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="2*" />
-                        </Grid.ColumnDefinitions>
-                        <Switch x:Name="pdfSwitch" 
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Switch x:Name="pdfSwitch" 
                                 Toggled="OnToggled" 
                                 VerticalOptions="Center" 
                                 HorizontalOptions="End"                               
@@ -45,7 +46,7 @@
                                 ThumbColor="#929AD3"
                                 Grid.Column="0"
                         />
-                        <Label x:Name="pdfLabel" 
+                                <Label x:Name="pdfLabel" 
                                TextColor="#929AD3" 
                                Text="PDF" 
                                HorizontalOptions="Start" 
@@ -53,13 +54,13 @@
                                FontSize="Medium"
                                Grid.Column="1"
                         />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="2*" />
-                        </Grid.ColumnDefinitions>
-                        <Switch x:Name="htmlSwitch" 
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Switch x:Name="htmlSwitch" 
                                 Toggled="OnToggled" 
                                 VerticalOptions="Center" 
                                 HorizontalOptions="End"                             
@@ -67,7 +68,7 @@
                                 ThumbColor="#929AD3"
                                 Grid.Column="0"
                         />
-                        <Label  x:Name="htmlLabel" 
+                                <Label  x:Name="htmlLabel" 
                                 TextColor="#929AD3" 
                                 Text="HTML" 
                                 HorizontalOptions="Start" 
@@ -75,13 +76,13 @@
                                 FontSize="Medium"
                                 Grid.Column="1"
                         />
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="2*" />
-                        </Grid.ColumnDefinitions>
-                        <Switch x:Name="odtSwitch" 
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Switch x:Name="odtSwitch" 
                                 Toggled="OnToggled"  
                                 VerticalOptions="Center" 
                                 HorizontalOptions="End"                            
@@ -89,7 +90,7 @@
                                 ThumbColor="#929AD3"
                                 Grid.Column="0"
                         />
-                        <Label  x:Name="odtLabel" 
+                                <Label  x:Name="odtLabel" 
                                 TextColor="#929AD3" 
                                 Text="ODT" 
                                 HorizontalOptions="Start" 
@@ -97,22 +98,22 @@
                                 FontSize="Medium"
                                 Grid.Column="1"
                         />
-                    </Grid>
-                </StackLayout>
-            </Frame>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
 
-            <Frame CornerRadius="40"
+                    <Frame CornerRadius="40"
                    BackgroundColor="#D3D6EB"                               
                    HorizontalOptions="Center"
                    Margin="0, 10, 0, 0"
                    WidthRequest="250"
             >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="3*" />
-                    </Grid.ColumnDefinitions>
-                    <Switch x:Name="wifiSwitch" 
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Switch x:Name="wifiSwitch" 
                         Toggled="OnToggled" 
                         VerticalOptions="Center" 
                         HorizontalOptions="Start"                        
@@ -120,7 +121,7 @@
                         ThumbColor="#929AD3"
                         Grid.Column="0"
                     />
-                    <Label x:Name="WifiLabel" 
+                            <Label x:Name="WifiLabel" 
                            TextColor="#929AD3" 
                            Text="{x:Static resources:AppResources.WifiLabel_Text}" 
                            HorizontalOptions="Start" 
@@ -128,9 +129,9 @@
                            FontSize="Medium"
                            Grid.Column="1"
                     />
-                </Grid>
-            </Frame>
-            <Button Text="Next" 
+                        </Grid>
+                    </Frame>
+                    <Button Text="Next" 
                     HorizontalOptions="End" 
                     Margin="0,10,20,10" 
                     WidthRequest="100" 
@@ -141,7 +142,8 @@
                     CornerRadius="40"  
                     Command="{Binding GoToNextPage}"
             />
-        </StackLayout>
-        </local:GradientColorStack>
+                </StackLayout>
+            </local:GradientColorStack>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

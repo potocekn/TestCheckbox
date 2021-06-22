@@ -1,12 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBase.ResourcesPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="PDFs" Command="{Binding GoToPDFs}" IsVisible="{Binding IsPDFSelected}" BackgroundColor="GhostWhite"/>
-            <Button Text="HTMLs" Command="{Binding GoToHTMLs}" IsVisible="{Binding IsHTMLSelected}" BackgroundColor="GhostWhite"/>
-            <Button Text="ODTs" Command="{Binding GoToODTs}" IsVisible="{Binding IsODTSelected}" BackgroundColor="GhostWhite"/>
-        </StackLayout>
+        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
+            <ScrollView>
+                <StackLayout>
+                    <Button Text="PDFs" 
+                            Command="{Binding GoToPDFs}" 
+                            IsVisible="{Binding IsPDFSelected}"                             
+                            BackgroundColor="#D3D6EB"
+                            TextColor="#929AD3"
+                            CornerRadius="40"
+                            Margin="0,30,0,0"                                        
+                            HorizontalOptions="Center"
+                            FontSize="Medium"
+                            WidthRequest="250"
+                            HeightRequest="50"
+                    />
+                    <Button Text="HTMLs" 
+                            Command="{Binding GoToHTMLs}" 
+                            IsVisible="{Binding IsHTMLSelected}" 
+                            BackgroundColor="#D3D6EB"
+                            TextColor="#929AD3"
+                            CornerRadius="40"
+                            Margin="0,20,0,0"                                        
+                            HorizontalOptions="Center"
+                            FontSize="Medium"
+                            WidthRequest="250"
+                            HeightRequest="50"
+                    />
+                    <Button Text="ODTs" 
+                            Command="{Binding GoToODTs}" 
+                            IsVisible="{Binding IsODTSelected}" 
+                            BackgroundColor="#D3D6EB"
+                            TextColor="#929AD3"
+                            CornerRadius="40"
+                            Margin="0,20,0,0"                                        
+                            HorizontalOptions="Center"
+                            FontSize="Medium"
+                            WidthRequest="250"
+                            HeightRequest="50"
+                    />
+                </StackLayout>
+            </ScrollView>
+        </local:GradientColorStack>
     </ContentPage.Content>
 </ContentPage>

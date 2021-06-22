@@ -171,8 +171,10 @@ namespace AppBaseNamespace
         }
 
         public void ReloadApp()
-        {           
-            MainPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+        {
+            var navPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+            navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+            MainPage = navPage;
         }
 
         public void SaveUserSettings()

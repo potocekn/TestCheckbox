@@ -5,21 +5,22 @@
              xmlns:local="clr-namespace:AppBase.Controls" 
              x:Class="AppBase.SettingsPage">
     <ContentPage.Content>
-        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
-            <StackLayout>
-                <Frame CornerRadius="40"
+        <ScrollView>
+            <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
+                <StackLayout>
+                    <Frame CornerRadius="40"
                        BackgroundColor="#C8C9CF"             
                        WidthRequest="200"
                        HeightRequest="50"
                        HorizontalOptions="Center"
                        Margin="0, 30, 0, 0"
                 >
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{x:Static resources:AppResources.SettingsButton_Text}" 
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{x:Static resources:AppResources.SettingsButton_Text}" 
                            TextColor="#929AD3" 
                            FontSize="Medium" 
                            HorizontalTextAlignment="Center" 
@@ -28,10 +29,10 @@
                            Grid.Column="0"
                            BackgroundColor="#C8C9CF"
                         />
-                        <Image Source="settings.png" Grid.Column="1"/>
-                    </Grid>                            
-                </Frame>
-                <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" 
+                            <Image Source="settings.png" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+                    <Button Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" 
                         TextColor="#929AD3"
                         TextTransform="Uppercase"
                         Command="{Binding GoToLanguageSettings}" 
@@ -42,7 +43,7 @@
                         HorizontalOptions="Center"
                         Margin="0, 15, 0, 0"                       
                 />
-                <Button Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" 
+                    <Button Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" 
                         TextColor="#929AD3"
                         TextTransform="Uppercase"
                         Command="{Binding GoToUpdateIntervalSettings}" 
@@ -53,7 +54,7 @@
                         HorizontalOptions="Center"
                         Margin="0, 15, 0, 0"
                 />
-                <Button x:Name="FormatButton" 
+                    <Button x:Name="FormatButton" 
                         Text="{x:Static resources:AppResources.FormatButton_Text}" 
                         TextColor="#929AD3"
                         TextTransform="Uppercase"
@@ -64,8 +65,9 @@
                         HeightRequest="75"
                         HorizontalOptions="Center"
                         Margin="0, 15, 0, 0"
-                />            
-            </StackLayout>
-        </local:GradientColorStack>
+                />
+                </StackLayout>
+            </local:GradientColorStack>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

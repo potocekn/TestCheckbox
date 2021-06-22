@@ -2,24 +2,63 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:AppBase.Resources"
+             xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBase.PDFPage">
     <ContentPage.Content>
-        <StackLayout BindableLayout.ItemsSource="{Binding Items}">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Grid RowDefinitions="1*, Auto">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="100" />
-                            </Grid.ColumnDefinitions>
-                            <Button Grid.Row="0" Grid.Column="0" Text="{Binding ResourceName}" Command="{Binding OpenResource}" BackgroundColor="GhostWhite"/>
-                            <Button Grid.Row="0" Grid.Column="1" WidthRequest="100" ImageSource="share.png"  Command="{Binding ShareResource}" BackgroundColor="GhostWhite"/>
-                        </Grid>
+        <ScrollView>
+            <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
+                <Frame CornerRadius="40"
+                       BackgroundColor="#C8C9CF"             
+                       WidthRequest="200"
+                       HeightRequest="30"
+                       HorizontalOptions="Center"
+                       Margin="0, 30, 0, 0"
+                >
+                    <Label Text="{x:Static resources:AppResources.ResourcesButton_Text}" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="#929AD3"
+                       TextTransform="Uppercase"
+                       FontSize="Large"
+                />
+                </Frame>
+                <Frame CornerRadius="40"
+                       BackgroundColor="#D3D6EB"             
+                       WidthRequest="250"                  
+                       HorizontalOptions="Center"
+                       Margin="0, 30, 0, 0"
+                >
+                    <StackLayout BindableLayout.ItemsSource="{Binding Items}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Grid RowDefinitions="1*, Auto">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="4*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Row="0" 
+                                                Grid.Column="0" 
+                                                Text="{Binding ResourceName}" 
+                                                Command="{Binding OpenResource}" 
+                                                BackgroundColor="#D3D6EB"
+                                                Margin="0,5,0,0"
+                                        />
+                                        <Button Grid.Row="0" 
+                                                Grid.Column="1" 
+                                                WidthRequest="100" 
+                                                ImageSource="share.png"  
+                                                Command="{Binding ShareResource}" 
+                                                BackgroundColor="#D3D6EB"
+                                        />
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                        <Button Text="Test resource" Command="{Binding OpenResource}"/>
                     </StackLayout>
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
-            <Button Text="Test resource" Command="{Binding OpenResource}"/>
-        </StackLayout>
+                </Frame>
+            </local:GradientColorStack>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
