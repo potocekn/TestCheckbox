@@ -2,50 +2,203 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:AppBase.Resources"
+             xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBaseNamespace.ResourceFormatSettingsPage">
     <ContentPage.Content>
+        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
         <ScrollView>
-            <StackLayout>
-                                  
+            <StackLayout>                                  
                 <StackLayout>
-                    <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                    <Label x:Name="WifiLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.WifiLabel_Text}" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
-
-                    <Label x:Name="FormatSelectionLabel" Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" FontSize="Large" Margin="20, 0"/>
-                    <StackLayout>
-                        <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                        <Label x:Name="pdfLabel" TextColor="DarkSlateGray" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <Switch x:Name="htmlSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                        <Label  x:Name="htmlLabel" TextColor="DarkSlateGray" Text="HTML" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <Switch x:Name="odtSwitch" Toggled="OnToggled"  VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                        <Label  x:Name="odtLabel" TextColor="DarkSlateGray" Text="ODT" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
-                    </StackLayout>
+                    <Frame CornerRadius="40"
+                           BackgroundColor="#C8C9CF"                               
+                           HorizontalOptions="Center"
+                           Margin="0, 10, 0, 0"
+                           WidthRequest="250"
+                    >
+                        <Label x:Name="FormatSelectionLabel" 
+                               Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" 
+                               TextColor="#929AD3"                                  
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"                           
+                               FontSize="Medium"
+                               TextTransform="Uppercase"
+                               BackgroundColor="#C8C9CF"
+                        />
+                    </Frame>
+                    <Frame CornerRadius="40"
+                           BackgroundColor="#D3D6EB"                               
+                           HorizontalOptions="Center"
+                           Margin="0, 10, 0, 0"
+                           WidthRequest="250"
+                    >
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Switch x:Name="pdfSwitch" 
+                                        Toggled="OnToggled" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="End"                               
+                                        OnColor="#C2C8ED" 
+                                        ThumbColor="#929AD3"
+                                        Grid.Column="0"
+                                />
+                                <Label x:Name="pdfLabel" 
+                                       TextColor="#929AD3" 
+                                       Text="PDF" 
+                                       HorizontalOptions="Start" 
+                                       VerticalOptions="Center"                                
+                                       FontSize="15"
+                                       Grid.Column="1"
+                                       TextTransform="Uppercase"
+                                />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Switch x:Name="htmlSwitch" 
+                                        Toggled="OnToggled" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="End"                             
+                                        OnColor="#C2C8ED" 
+                                        ThumbColor="#929AD3"
+                                        Grid.Column="0"
+                                />
+                                <Label  x:Name="htmlLabel" 
+                                        TextColor="#929AD3" 
+                                        Text="HTML" 
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center"                                
+                                        FontSize="15"
+                                        Grid.Column="1"
+                                        TextTransform="Uppercase"
+                                />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Switch x:Name="odtSwitch" 
+                                        Toggled="OnToggled"  
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="End"                            
+                                        OnColor="#C2C8ED" 
+                                        ThumbColor="#929AD3"
+                                        Grid.Column="0"
+                                />
+                                <Label  x:Name="odtLabel" 
+                                        TextColor="#929AD3" 
+                                        Text="ODT" 
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center"
+                                        FontSize="15"
+                                        Grid.Column="1"
+                                        TextTransform="Uppercase"
+                                />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="40"
+                           BackgroundColor="#D3D6EB"                               
+                           HorizontalOptions="Center"
+                           Margin="0, 10, 0, 0"
+                           WidthRequest="250"
+                    >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Switch x:Name="wifiSwitch" 
+                                    Toggled="OnToggled" 
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Start"                        
+                                    OnColor="#C2C8ED" 
+                                    ThumbColor="#929AD3"
+                                    Grid.Column="0"
+                            />
+                            <Label x:Name="WifiLabel" 
+                                   Text="{x:Static resources:AppResources.WifiLabel_Text}" 
+                                   TextColor="#929AD3"                                  
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Center"                           
+                                   FontSize="15"
+                                   Grid.Column="1"
+                                   TextTransform="Uppercase"
+                            />
+                        </Grid>
+                    </Frame>
                 </StackLayout>
 
-                <StackLayout>
-                    <Label x:Name="LanguageOfResourcesLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.LanguageOfResourcesLabel_Text}" FontSize="Large" Margin="20"/>
-                    <StackLayout BindableLayout.ItemsSource="{Binding Languages}">
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" Margin="50, 0, 0, 0" VerticalOptions="CenterAndExpand" Color="#2196F3"/>
-                                    <Label Text="{Binding Value}" TextColor="DarkSlateGray" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                        </Label.GestureRecognizers>
-                                    </Label>
-                                </StackLayout>
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
+                <Frame CornerRadius="40"
+                       BackgroundColor="#C8C9CF"                               
+                       HorizontalOptions="Center"
+                       Margin="0, 10, 0, 0"
+                       WidthRequest="250"
+                >
+                    <Label x:Name="LanguageOfResourcesLabel" 
+                           TextColor="#929AD3" 
+                           Text="{x:Static resources:AppResources.LanguageOfResourcesLabel_Text}" 
+                           FontSize="Medium"            
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" 
+                           TextTransform="Uppercase"
+                           BackgroundColor="#C8C9CF"
+                    />
+                </Frame>
+
+                <Frame CornerRadius="40"
+                       BackgroundColor="#D3D6EB"                               
+                       HorizontalOptions="Center"
+                       Margin="0, 10, 0, 0"
+                       WidthRequest="250"
+                >
+                    <StackLayout>                        
+                        <StackLayout BindableLayout.ItemsSource="{Binding Languages}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding IsChecked}" 
+                                                  CheckedChanged="OnCheckBoxCheckedChanged" 
+                                                  Margin="50, 0, 0, 0" 
+                                                  VerticalOptions="CenterAndExpand" 
+                                                  Color="#929AD3"
+                                        />
+                                        <Label Text="{Binding Value}" 
+                                               TextColor="#929AD3" 
+                                               FontSize="15" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="FillAndExpand"                                               
+                                               TextTransform="Uppercase">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
                     </StackLayout>
-                </StackLayout>
-                <Button x:Name="RequestUpdateButton" Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" Clicked="RequestUpdateButton_Clicked"
-                        HorizontalOptions="Center" Margin="0,0,0, 200" WidthRequest="200" HeightRequest="50" BackgroundColor="#2196F3" TextColor="White"/>
+                </Frame>
+                <Button x:Name="RequestUpdateButton" 
+                        Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" 
+                        Clicked="RequestUpdateButton_Clicked"
+                        HorizontalOptions="Center" 
+                        Margin="0,20,0,200" 
+                        WidthRequest="200" 
+                        HeightRequest="50" 
+                        BackgroundColor="#D3D6EB" 
+                        TextColor="#929AD3"
+                        TextTransform="Uppercase"
+                        CornerRadius="40"
+                />
             </StackLayout>            
         </ScrollView>
+        </local:GradientColorStack>
     </ContentPage.Content>
 </ContentPage>

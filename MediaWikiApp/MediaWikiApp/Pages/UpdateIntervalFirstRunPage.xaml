@@ -2,40 +2,122 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:AppBase.Resources"
+             xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBase.Pages.UpdateIntervalFirstRunPage">
     <ContentPage.Content>
-        <StackLayout >
-            <Label x:Name="UpdateIntervalSettingsLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" Margin="20" FontSize="Large"/>
-            <StackLayout BindableLayout.ItemsSource="{Binding Items}">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3" />
-                            <Label Text="{Binding Name}" TextColor="DarkSlateGray" HorizontalOptions="Center" Margin=" 0, 15, 0, 0" FontSize="Medium">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </StackLayout>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-                <CheckBox x:Name="AutomaticOptionCheckbox"  IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3" />
-                <Label x:Name="AutomaticOptionLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.AutomaticOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
+            <StackLayout >
+                <Frame CornerRadius="40"
+                       BackgroundColor="#C8C9CF"             
+                       WidthRequest="250"
+                       HeightRequest="50"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"                            
+                >
+                    <Label x:Name="UpdateIntervalSettingsLabel"                            
+                           Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" 
+                           TextColor="#929AD3"                                                     
+                           FontSize="16"
+                           TextTransform="Uppercase"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           BackgroundColor="#C8C9CF"
+                    />
+                </Frame>
+                <Frame CornerRadius="40"
+                       BackgroundColor="#D3D6EB"                               
+                       HorizontalOptions="Center"
+                       Margin="0, 10, 0, 0"
+                       WidthRequest="250"
+                >
+                    <StackLayout BindableLayout.ItemsSource="{Binding Items}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding IsChecked}" 
+                                              CheckedChanged="OnCheckBoxCheckedChanged" 
+                                              VerticalOptions="Start" 
+                                              HorizontalOptions="Start" 
+                                              Margin="50, 10, 0, 0" 
+                                              Color="#929AD3" 
+                                    />
+                                    <Label Text="{Binding Name}" 
+                                           TextColor="#929AD3" 
+                                           HorizontalOptions="Center" 
+                                           Margin=" 0, 15, 0, 0" 
+                                           FontSize="Medium">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                        <CheckBox x:Name="AutomaticOptionCheckbox"  
+                                  IsChecked="{Binding IsChecked}" 
+                                  CheckedChanged="OnCheckBoxCheckedChanged" 
+                                  VerticalOptions="Start" 
+                                  HorizontalOptions="Start" 
+                                  Margin="50, 10, 0, 0" 
+                                  Color="#929AD3" 
+                        />
+                        <Label x:Name="AutomaticOptionLabel" 
+                               TextColor="#929AD3" 
+                               Text="{x:Static resources:AppResources.AutomaticOptionLabel_Text}" 
+                               HorizontalOptions="Center" 
+                               Margin="-40, -32, 0, 0" 
+                               FontSize="Medium"
+                        />
 
-                <CheckBox  x:Name="OnceAMonthOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3"/>
-                <Label x:Name="OnceAMonthOptionLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.OnceAMonthOptionLabel_Text}" HorizontalOptions="CenterAndExpand" Margin="-40, -32, 0, 0" FontSize="Medium"/>
+                        <CheckBox  x:Name="OnceAMonthOptionCheckbox" 
+                                   IsChecked="{Binding IsChecked}" 
+                                   CheckedChanged="OnCheckBoxCheckedChanged" 
+                                   VerticalOptions="Start" 
+                                   HorizontalOptions="Start" 
+                                   Margin="50, 10, 0, 0" 
+                                   Color="#929AD3"
+                        />
+                        <Label x:Name="OnceAMonthOptionLabel" 
+                               TextColor="#929AD3" 
+                               Text="{x:Static resources:AppResources.OnceAMonthOptionLabel_Text}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               Margin="-40, -32, 0, 0" 
+                               FontSize="Medium"
+                        />
 
-                <CheckBox  x:Name="OnRequestOptionCheckbox" IsChecked="{Binding IsChecked}" CheckedChanged="OnCheckBoxCheckedChanged" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" Color="#2196F3"/>
-                <Label x:Name="OnRequestOptionLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" HorizontalOptions="Center" Margin="-40, -32, 0, 0" FontSize="Medium"/>
-                
-            </StackLayout>
-            <Button x:Name="NextGoToDownload" 
-                   Text="Next" HorizontalOptions="End" Margin="0,0,20,0" WidthRequest="100" HeightRequest="50" BackgroundColor="#2196F3" TextColor="White" 
-                    Command="{Binding GoToDownload}"
+                        <CheckBox  x:Name="OnRequestOptionCheckbox" 
+                                   IsChecked="{Binding IsChecked}" 
+                                   CheckedChanged="OnCheckBoxCheckedChanged" 
+                                   VerticalOptions="Start" 
+                                   HorizontalOptions="Start" 
+                                   Margin="50, 10, 0, 0" 
+                                   Color="#929AD3"
+                        />
+                        <Label x:Name="OnRequestOptionLabel" 
+                               TextColor="#929AD3" 
+                               Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" 
+                               HorizontalOptions="Center" 
+                               Margin="-40, -32, 0, 0" 
+                               FontSize="Medium"
+                        />
+                    </StackLayout>
+                </Frame>                
+                <Button x:Name="NextGoToDownload" 
+                        Text="Next"                         
+                        HorizontalOptions="End" 
+                        Margin="0,10,20,10" 
+                        WidthRequest="100" 
+                        HeightRequest="50"                        
+                        TextColor="#929AD3"
+                        TextTransform="Uppercase"
+                        BackgroundColor="#D3D6EB" 
+                        CornerRadius="40"
+                        Command="{Binding GoToDownload}"
              />
             <Label x:Name="englishAutomatic" TextColor="DarkSlateGray" Text="Automatic" IsVisible="False"/>
             <Label x:Name="englishOnceAMonth" TextColor="DarkSlateGray" Text="Once a Month" IsVisible="False"/>
             <Label x:Name="englishOnRequest" TextColor="DarkSlateGray" Text="On Request" IsVisible="False"/>
         </StackLayout>
+        </local:GradientColorStack>
     </ContentPage.Content>
 </ContentPage>

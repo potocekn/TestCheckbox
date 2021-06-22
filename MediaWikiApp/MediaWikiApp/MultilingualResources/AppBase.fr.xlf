@@ -68,12 +68,14 @@
           <target state="translated">Télécharger uniquement lorsque le Wi-Fi est activé</target>
         </trans-unit>
         <trans-unit id="FormatSelectionLabel.Text" translate="yes" xml:space="preserve">
-          <source>Format of the resources:</source>
-          <target state="translated">Format des ressources:</target>
+          <source>Format of the resources</source>
+          <target state="needs-review-translation">Format des ressources:</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="LanguageOfResourcesLabel.Text" translate="yes" xml:space="preserve">
-          <source>Language of the resources:</source>
-          <target state="translated">Langue des ressources:</target>
+          <source>Resources' language</source>
+          <target state="needs-review-translation">Langue des ressources:</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="albanianLabel.Text" translate="yes" xml:space="preserve">
           <source>Albanian</source>
@@ -381,8 +383,8 @@
           <target state="new">Download</target>
         </trans-unit>
         <trans-unit id="DownloadInfoText.Text" translate="yes" xml:space="preserve">
-          <source>Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</source>
-          <target state="new">Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</target>
+          <source>Please make sure you have connection to the Internet and hit the download button.</source>
+          <target state="new">Please make sure you have connection to the Internet and hit the download button.</target>
         </trans-unit>
         <trans-unit id="ResourcesDownloadStartMessage.Text" translate="yes" xml:space="preserve">
           <source>Downloading of resources started. This may take a while, please wait until message about the result shows up.</source>
@@ -391,6 +393,10 @@
         <trans-unit id="ResourcesDownloadStartTitle.Text" translate="yes" xml:space="preserve">
           <source>Starting download</source>
           <target state="new">Starting download</target>
+        </trans-unit>
+        <trans-unit id="DownloadingSelectedResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>Downloading selected resources ...</source>
+          <target state="new">Downloading selected resources ...</target>
         </trans-unit>
       </group>
     </body>

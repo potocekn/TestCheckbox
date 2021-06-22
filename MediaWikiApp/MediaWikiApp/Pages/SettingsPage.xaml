@@ -8,7 +8,7 @@
         <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
             <StackLayout>
                 <Frame CornerRadius="40"
-                       BackgroundColor="#D3D6EB"             
+                       BackgroundColor="#C8C9CF"             
                        WidthRequest="200"
                        HeightRequest="50"
                        HorizontalOptions="Center"
@@ -26,7 +26,7 @@
                            VerticalTextAlignment="Center" 
                            TextTransform="Uppercase"
                            Grid.Column="0"
-                           BackgroundColor="#D3D6EB"
+                           BackgroundColor="#C8C9CF"
                         />
                         <Image Source="settings.png" Grid.Column="1"/>
                     </Grid>                            

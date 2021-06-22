@@ -214,11 +214,20 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Downloading selected resources! Please make sure you have connection to the Internet and hit the download button..
+        ///   Looks up a localized string similar to Please make sure you have connection to the Internet and hit the download button..
         /// </summary>
         internal static string DownloadInfoText_Text {
             get {
                 return ResourceManager.GetString("DownloadInfoText.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading selected resources ....
+        /// </summary>
+        internal static string DownloadingSelectedResourcesLabel_Text {
+            get {
+                return ResourceManager.GetString("DownloadingSelectedResourcesLabel.Text", resourceCulture);
             }
         }
         
@@ -259,7 +268,7 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Format of the resources:.
+        ///   Looks up a localized string similar to Format of the resources.
         /// </summary>
         internal static string FormatSelectionLabel_Text {
             get {
@@ -439,7 +448,7 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language of the resources:.
+        ///   Looks up a localized string similar to Resources&apos; language.
         /// </summary>
         internal static string LanguageOfResourcesLabel_Text {
             get {

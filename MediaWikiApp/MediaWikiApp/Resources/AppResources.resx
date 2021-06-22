@@ -169,7 +169,10 @@
     <value>Download</value>
   </data>
   <data name="DownloadInfoText.Text" xml:space="preserve">
-    <value>Downloading selected resources! Please make sure you have connection to the Internet and hit the download button.</value>
+    <value>Please make sure you have connection to the Internet and hit the download button.</value>
+  </data>
+  <data name="DownloadingSelectedResourcesLabel.Text" xml:space="preserve">
+    <value>Downloading selected resources ...</value>
   </data>
   <data name="dutchLabel.Text" xml:space="preserve">
     <value>Dutch</value>
@@ -184,7 +187,7 @@
     <value>Format Settings</value>
   </data>
   <data name="FormatSelectionLabel.Text" xml:space="preserve">
-    <value>Format of the resources:</value>
+    <value>Format of the resources</value>
   </data>
   <data name="frenchLabel.Text" xml:space="preserve">
     <value>French</value>
@@ -244,7 +247,7 @@
     <value>Möchten Sie die Sprache der Anwendung ändern?</value>
   </data>
   <data name="LanguageOfResourcesLabel.Text" xml:space="preserve">
-    <value>Language of the resources:</value>
+    <value>Resources' language</value>
   </data>
   <data name="malayalamLabel.Text" xml:space="preserve">
     <value>Malayalam</value>

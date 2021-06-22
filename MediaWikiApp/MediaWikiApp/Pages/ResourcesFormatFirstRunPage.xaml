@@ -2,26 +2,146 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:AppBase.Resources"
+             xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBase.ResourcesFormatFirstRunPage">
     <ContentPage.Content>
+        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
         <StackLayout>
-            <Switch x:Name="wifiSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="20, 20, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-            <Label x:Name="WifiLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.WifiLabel_Text}" HorizontalOptions="Start" Margin="80, -33, 0, 0" FontSize="Medium"/>
+            <Frame CornerRadius="40"
+                   BackgroundColor="#C8C9CF"             
+                   WidthRequest="250"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"                            
+            >
+                <Label x:Name="FormatSelectionLabel"                       
+                       Text="{x:Static resources:AppResources.selectFormatOfResourcesLabel_Text}"  
+                       TextColor="#929AD3"                                                     
+                       FontSize="16"
+                       TextTransform="Uppercase"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       BackgroundColor="#C8C9CF"
+                />
+            </Frame>
 
-            <Label x:Name="FormatSelectionLabel" TextColor="DarkSlateGray" Text="{x:Static resources:AppResources.selectFormatOfResourcesLabel_Text}" FontSize="Large" Margin="20"/>
-            <StackLayout>
-                <Switch x:Name="pdfSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                <Label x:Name="pdfLabel" TextColor="DarkSlateGray" Text="PDF" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
-            </StackLayout>
-            <StackLayout>
-                <Switch x:Name="htmlSwitch" Toggled="OnToggled" VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                <Label  x:Name="htmlLabel" TextColor="DarkSlateGray" Text="HTML" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
-            </StackLayout>
-            <StackLayout>
-                <Switch x:Name="odtSwitch" Toggled="OnToggled"  VerticalOptions="Start" HorizontalOptions="Start" Margin="50, 10, 0, 0" OnColor="SkyBlue" ThumbColor="#2196F3"/>
-                <Label  x:Name="odtLabel" TextColor="DarkSlateGray" Text="ODT" HorizontalOptions="CenterAndExpand" Margin="-100, -32, 0, 0" FontSize="Medium"/>
-            </StackLayout>
-            <Button Text="Next" HorizontalOptions="End" Margin="0,0, 20,0" WidthRequest="100" HeightRequest="50"  BackgroundColor="#2196F3" TextColor="White" Command="{Binding GoToNextPage}"/>
-        </StackLayout>        
+            <Frame CornerRadius="40"
+                   BackgroundColor="#D3D6EB"                               
+                   HorizontalOptions="Center"
+                   Margin="0, 10, 0, 0"
+                   WidthRequest="250"
+            >
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Switch x:Name="pdfSwitch" 
+                                Toggled="OnToggled" 
+                                VerticalOptions="Center" 
+                                HorizontalOptions="End"                               
+                                OnColor="#C2C8ED" 
+                                ThumbColor="#929AD3"
+                                Grid.Column="0"
+                        />
+                        <Label x:Name="pdfLabel" 
+                               TextColor="#929AD3" 
+                               Text="PDF" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"                                
+                               FontSize="Medium"
+                               Grid.Column="1"
+                        />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Switch x:Name="htmlSwitch" 
+                                Toggled="OnToggled" 
+                                VerticalOptions="Center" 
+                                HorizontalOptions="End"                             
+                                OnColor="#C2C8ED" 
+                                ThumbColor="#929AD3"
+                                Grid.Column="0"
+                        />
+                        <Label  x:Name="htmlLabel" 
+                                TextColor="#929AD3" 
+                                Text="HTML" 
+                                HorizontalOptions="Start" 
+                                VerticalOptions="Center"                                
+                                FontSize="Medium"
+                                Grid.Column="1"
+                        />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <Switch x:Name="odtSwitch" 
+                                Toggled="OnToggled"  
+                                VerticalOptions="Center" 
+                                HorizontalOptions="End"                            
+                                OnColor="#C2C8ED" 
+                                ThumbColor="#929AD3"
+                                Grid.Column="0"
+                        />
+                        <Label  x:Name="odtLabel" 
+                                TextColor="#929AD3" 
+                                Text="ODT" 
+                                HorizontalOptions="Start" 
+                                VerticalOptions="Center"
+                                FontSize="Medium"
+                                Grid.Column="1"
+                        />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <Frame CornerRadius="40"
+                   BackgroundColor="#D3D6EB"                               
+                   HorizontalOptions="Center"
+                   Margin="0, 10, 0, 0"
+                   WidthRequest="250"
+            >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <Switch x:Name="wifiSwitch" 
+                        Toggled="OnToggled" 
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Start"                        
+                        OnColor="#C2C8ED" 
+                        ThumbColor="#929AD3"
+                        Grid.Column="0"
+                    />
+                    <Label x:Name="WifiLabel" 
+                           TextColor="#929AD3" 
+                           Text="{x:Static resources:AppResources.WifiLabel_Text}" 
+                           HorizontalOptions="Start" 
+                           VerticalOptions="Center"                           
+                           FontSize="Medium"
+                           Grid.Column="1"
+                    />
+                </Grid>
+            </Frame>
+            <Button Text="Next" 
+                    HorizontalOptions="End" 
+                    Margin="0,10,20,10" 
+                    WidthRequest="100" 
+                    HeightRequest="50"                        
+                    TextColor="#929AD3"
+                    TextTransform="Uppercase"
+                    BackgroundColor="#D3D6EB" 
+                    CornerRadius="40"  
+                    Command="{Binding GoToNextPage}"
+            />
+        </StackLayout>
+        </local:GradientColorStack>
     </ContentPage.Content>
 </ContentPage>
