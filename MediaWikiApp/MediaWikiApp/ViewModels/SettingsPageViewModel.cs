@@ -29,10 +29,7 @@ namespace AppBase.ViewModels
             });
             GoToResourceFormatSettings = new Command(() => {
                 navigation.PushAsync(new ResourceFormatSettingsPage(app, mainPageViewModel));
-            });
-            GoToFileLocationSettings = new Command(() => {
-                navigation.PushAsync(new FileLocationSettingsPage(app, mainPageViewModel));
-            });
+            });            
         }
     }
 }
