@@ -50,36 +50,8 @@ namespace AppBaseNamespace
             }
         }
         public App()
-        {            
-            InitializeShortcuts();
-            InitializeComponent();
-            RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            RetrieveLanguages();
-            if (!firstTimeRunning)
-            {
-                RetrieveResources();
-                SetAppLanguage(userSettings.AppLanguage);
-                UpdateSyncHelpers.SynchronizeResources(this);
-                if (userSettings.WasFirstDownload)
-                {
-                    var navPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
-                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
-                    MainPage = navPage;
-                }
-                else
-                {
-                    var navPage = new NavigationPage(new FirstRunDownloadResourcesPage(this));
-                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
-                    MainPage = navPage;
-                }                
-            }
-            else
-            {
-                var navPage = new NavigationPage(new AppLanguageFirstRunPage(this));
-                navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
-                MainPage = navPage;                
-            }      
-                         
+        {     
+            InitializeComponent();                        
         }
 
         private void InitializeShortcuts()
@@ -195,7 +167,34 @@ namespace AppBaseNamespace
         }
 
         protected override void OnStart()
-        {
+        {           
+            InitializeShortcuts();
+            RetrieveUserSettings(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            RetrieveLanguages();
+            if (!firstTimeRunning)
+            {
+                RetrieveResources();
+                SetAppLanguage(userSettings.AppLanguage);
+                UpdateSyncHelpers.SynchronizeResources(this);
+                if (userSettings.WasFirstDownload)
+                {
+                    var navPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
+                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                    MainPage = navPage;
+                }
+                else
+                {
+                    var navPage = new NavigationPage(new FirstRunDownloadResourcesPage(this));
+                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                    MainPage = navPage;
+                }
+            }
+            else
+            {
+                var navPage = new NavigationPage(new AppLanguageFirstRunPage(this));
+                navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                MainPage = navPage;
+            }
         }
 
         protected override void OnSleep()
