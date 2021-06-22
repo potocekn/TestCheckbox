@@ -1,16 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:AppBase.Resources"
+             xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBase.ODTPage">
     <ContentPage.Content>
-        <StackLayout BindableLayout.ItemsSource="{Binding Items}">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Button Text="{Binding ResourceName}"  Command="{Binding ShareResource}" BackgroundColor="GhostWhite"/>                        
-                    </StackLayout>
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>            
-        </StackLayout>
+        <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
+            <ScrollView>
+                <StackLayout>
+                    <Frame CornerRadius="40"
+                           BackgroundColor="#C8C9CF"             
+                           WidthRequest="200"
+                           HeightRequest="30"
+                           HorizontalOptions="Center"
+                           Margin="0, 30, 0, 0"
+                    >
+                        <Label Text="{x:Static resources:AppResources.ODTResourcesLabel_Text}" 
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="#929AD3"
+                           TextTransform="Uppercase"
+                           FontSize="Large"
+                            />
+                    </Frame>
+                    <Frame CornerRadius="40"
+                           BackgroundColor="#D3D6EB"             
+                           WidthRequest="250"                  
+                           HorizontalOptions="Center"
+                           Margin="0, 30, 0, 0"
+                    >
+                        <StackLayout BindableLayout.ItemsSource="{Binding Items}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Button Text="{Binding ResourceName}"  
+                                                Command="{Binding ShareResource}" 
+                                                BackgroundColor="#D3D6EB"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </local:GradientColorStack>
     </ContentPage.Content>
 </ContentPage>

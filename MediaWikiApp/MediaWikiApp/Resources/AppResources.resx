@@ -204,6 +204,9 @@
   <data name="hindiLabel.Text" xml:space="preserve">
     <value>Hindi</value>
   </data>
+  <data name="HTMLResourcesLabel.Text" xml:space="preserve">
+    <value>HTML Resources</value>
+  </data>
   <data name="hungarianLabel.Text" xml:space="preserve">
     <value>Hungarian</value>
   </data>
@@ -276,6 +279,9 @@
   <data name="norwegianBokmalLabel.Text" xml:space="preserve">
     <value>Norwegian (Bokmål)</value>
   </data>
+  <data name="ODTResourcesLabel.Text" xml:space="preserve">
+    <value>ODT Resources</value>
+  </data>
   <data name="OnceAMonthOptionLabel.Text" xml:space="preserve">
     <value>Once a month</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="pashtoLabel.Text" xml:space="preserve">
     <value>Pashto</value>
+  </data>
+  <data name="PDFResourcesLabel.Text" xml:space="preserve">
+    <value>PDF Resources</value>
   </data>
   <data name="persianLabel.Text" xml:space="preserve">
     <value>Persian</value>

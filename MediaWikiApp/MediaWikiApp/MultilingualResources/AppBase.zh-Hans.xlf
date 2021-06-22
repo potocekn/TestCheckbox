@@ -398,6 +398,18 @@
           <source>Downloading selected resources ...</source>
           <target state="new">Downloading selected resources ...</target>
         </trans-unit>
+        <trans-unit id="HTMLResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>HTML Resources</source>
+          <target state="new">HTML Resources</target>
+        </trans-unit>
+        <trans-unit id="ODTResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>ODT Resources</source>
+          <target state="new">ODT Resources</target>
+        </trans-unit>
+        <trans-unit id="PDFResourcesLabel.Text" translate="yes" xml:space="preserve">
+          <source>PDF Resources</source>
+          <target state="new">PDF Resources</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -14,7 +14,7 @@
                        HorizontalOptions="Center"
                        Margin="0, 30, 0, 0"
                 >
-                    <Label Text="{x:Static resources:AppResources.ResourcesButton_Text}" 
+                    <Label Text="{x:Static resources:AppResources.PDFResourcesLabel_Text}" 
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        TextColor="#929AD3"

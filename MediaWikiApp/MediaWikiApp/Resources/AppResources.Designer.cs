@@ -322,6 +322,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HTML Resources.
+        /// </summary>
+        internal static string HTMLResourcesLabel_Text {
+            get {
+                return ResourceManager.GetString("HTMLResourcesLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hungarian.
         /// </summary>
         internal static string hungarianLabel_Text {
@@ -538,6 +547,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ODT Resources.
+        /// </summary>
+        internal static string ODTResourcesLabel_Text {
+            get {
+                return ResourceManager.GetString("ODTResourcesLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Once a month.
         /// </summary>
         internal static string OnceAMonthOptionLabel_Text {
@@ -561,6 +579,15 @@ namespace AppBase.Resources {
         internal static string pashtoLabel_Text {
             get {
                 return ResourceManager.GetString("pashtoLabel.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF Resources.
+        /// </summary>
+        internal static string PDFResourcesLabel_Text {
+            get {
+                return ResourceManager.GetString("PDFResourcesLabel.Text", resourceCulture);
             }
         }
         
