@@ -108,6 +108,19 @@
                             />
                         </StackLayout>
                     </Frame>
+                    <Button x:Name="RequestUpdateButton" 
+                            Text="{x:Static resources:AppResources.RequestUpdateButton_Text}" 
+                            Clicked="RequestUpdateButton_Clicked"
+                            HorizontalOptions="Center" 
+                            Margin="0,20,0,200" 
+                            WidthRequest="250" 
+                            HeightRequest="50" 
+                            BackgroundColor="#D3D6EB" 
+                            TextColor="#929AD3"
+                            TextTransform="Uppercase"
+                            CornerRadius="{OnPlatform Android='40', iOS='20'}"
+                            IsVisible="{Binding IsOnRequest}"
+                    />
                     <Label x:Name="englishAutomatic" TextColor="DarkSlateGray" Text="Automatic" IsVisible="False"/>
                     <Label x:Name="englishOnceAMonth" TextColor="DarkSlateGray" Text="Once a Month" IsVisible="False"/>
                     <Label x:Name="englishOnRequest" TextColor="DarkSlateGray" Text="On Request" IsVisible="False"/>
