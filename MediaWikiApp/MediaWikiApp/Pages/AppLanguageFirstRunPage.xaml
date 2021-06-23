@@ -10,20 +10,21 @@
             <StackLayout>                
                 <StackLayout>
                     <Frame CornerRadius="40"
-                            BackgroundColor="#C8C9CF"             
-                            WidthRequest="250"
-                            HeightRequest="60"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"                            
+                           BackgroundColor="#8B93C9"             
+                           WidthRequest="250"
+                           HeightRequest="60"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"     
+                           Margin="{OnPlatform Android='0,0,0,0', iOS='0,20,0,0'}"
                     >   
                         <Label x:Name="LanguageChangeLabel" 
-                                TextColor="#929AD3" 
-                                Text="{x:Static resources:AppResources.selectAppLanguageLabel_Text}"                                
-                                FontSize="16"
-                                TextTransform="Uppercase"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center"
-                               BackgroundColor="#C8C9CF"
+                               TextColor="#D3D6EB" 
+                               Text="{x:Static resources:AppResources.selectAppLanguageLabel_Text}"                                
+                               FontSize="16"
+                               TextTransform="Uppercase"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               BackgroundColor="#8B93C9"                               
                         />
                                 
                     </Frame>
@@ -48,7 +49,8 @@
                                                TextColor="#929AD3" 
                                                FontSize="20"  
                                                VerticalOptions="CenterAndExpand" 
-                                               HorizontalOptions="FillAndExpand">
+                                               HorizontalOptions="FillAndExpand"
+                                               TextTransform="Uppercase">
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                             </Label.GestureRecognizers>
@@ -69,7 +71,8 @@
                                        TextColor="#929AD3" 
                                        FontSize="20" 
                                        VerticalOptions="CenterAndExpand" 
-                                       HorizontalOptions="FillAndExpand">
+                                       HorizontalOptions="FillAndExpand"
+                                       TextTransform="Uppercase">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                     </Label.GestureRecognizers>
@@ -89,7 +92,8 @@
                                        TextColor="#929AD3" 
                                        FontSize="20" 
                                        VerticalOptions="CenterAndExpand" 
-                                       HorizontalOptions="FillAndExpand">
+                                       HorizontalOptions="FillAndExpand"
+                                       TextTransform="Uppercase">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                     </Label.GestureRecognizers>
@@ -109,7 +113,8 @@
                                        TextColor="#929AD3" 
                                        FontSize="20" 
                                        VerticalOptions="CenterAndExpand" 
-                                       HorizontalOptions="FillAndExpand">
+                                       HorizontalOptions="FillAndExpand"
+                                       TextTransform="Uppercase">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                     </Label.GestureRecognizers>
@@ -129,7 +134,8 @@
                                        TextColor="#929AD3" 
                                        FontSize="20"  
                                        VerticalOptions="CenterAndExpand" 
-                                       HorizontalOptions="FillAndExpand">
+                                       HorizontalOptions="FillAndExpand"
+                                       TextTransform="Uppercase">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                     </Label.GestureRecognizers>
@@ -149,7 +155,8 @@
                                        TextColor="#929AD3" 
                                        FontSize="20"
                                        VerticalOptions="CenterAndExpand" 
-                                       HorizontalOptions="FillAndExpand">
+                                       HorizontalOptions="FillAndExpand"
+                                       TextTransform="Uppercase">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                     </Label.GestureRecognizers>
@@ -159,7 +166,7 @@
                     </Frame>
                 </StackLayout>               
                 <Frame CornerRadius="40"
-                       BackgroundColor="#C8C9CF"                               
+                       BackgroundColor="#8B93C9"                               
                        HorizontalOptions="Center"
                        Margin="0, 10, 0, 0"
                        WidthRequest="250"
@@ -167,12 +174,12 @@
                 >
                     <Label x:Name="connectionLabel" 
                        Text="{x:Static resources:AppResources.connectionLabel_Text}"                                                                  
-                       TextColor="#929AD3" 
+                       TextColor="#D3D6EB" 
                        FontSize="Small" 
                        HorizontalTextAlignment="Center" 
                        VerticalTextAlignment="Center" 
                        TextTransform="Uppercase"                       
-                       BackgroundColor="#C8C9CF"
+                       BackgroundColor="#8B93C9"
                     />
                 </Frame>
                 <Button Text="Next" 
@@ -183,7 +190,7 @@
                         TextColor="#929AD3"
                         TextTransform="Uppercase"
                         BackgroundColor="#D3D6EB" 
-                        CornerRadius="40"                                              
+                        CornerRadius="{OnPlatform Android='40', iOS='20'}"                                             
                         Command="{Binding GoToNextPage}"/>
                 </StackLayout>
             </local:GradientColorStack>

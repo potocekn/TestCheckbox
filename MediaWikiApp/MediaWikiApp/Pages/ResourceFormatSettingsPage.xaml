@@ -9,23 +9,23 @@
         <ScrollView>
             <StackLayout>                                  
                 <StackLayout>
-                    <Frame CornerRadius="40"
-                           BackgroundColor="#C8C9CF"                               
+                    <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
+                           BackgroundColor="#8B93C9"                               
                            HorizontalOptions="Center"
                            Margin="0, 10, 0, 0"
                            WidthRequest="250"
                     >
                         <Label x:Name="FormatSelectionLabel" 
                                Text="{x:Static resources:AppResources.FormatSelectionLabel_Text}" 
-                               TextColor="#929AD3"                                  
+                               TextColor="#D3D6EB"                                  
                                HorizontalOptions="Start" 
                                VerticalOptions="Center"                           
                                FontSize="Medium"
                                TextTransform="Uppercase"
-                               BackgroundColor="#C8C9CF"
+                               BackgroundColor="#8B93C9"
                         />
                     </Frame>
-                    <Frame CornerRadius="40"
+                    <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
                            BackgroundColor="#D3D6EB"                               
                            HorizontalOptions="Center"
                            Margin="0, 10, 0, 0"
@@ -103,7 +103,7 @@
                             </Grid>
                         </StackLayout>
                     </Frame>
-                    <Frame CornerRadius="40"
+                    <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
                            BackgroundColor="#D3D6EB"                               
                            HorizontalOptions="Center"
                            Margin="0, 10, 0, 0"
@@ -135,24 +135,24 @@
                     </Frame>
                 </StackLayout>
 
-                <Frame CornerRadius="40"
-                       BackgroundColor="#C8C9CF"                               
+                <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
+                       BackgroundColor="#8B93C9"                               
                        HorizontalOptions="Center"
                        Margin="0, 10, 0, 0"
                        WidthRequest="250"
                 >
                     <Label x:Name="LanguageOfResourcesLabel" 
-                           TextColor="#929AD3" 
+                           TextColor="#D3D6EB" 
                            Text="{x:Static resources:AppResources.LanguageOfResourcesLabel_Text}" 
                            FontSize="Medium"            
                            HorizontalOptions="Center" 
                            VerticalOptions="Center" 
                            TextTransform="Uppercase"
-                           BackgroundColor="#C8C9CF"
+                           BackgroundColor="#8B93C9"
                     />
                 </Frame>
 
-                <Frame CornerRadius="40"
+                <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
                        BackgroundColor="#D3D6EB"                               
                        HorizontalOptions="Center"
                        Margin="0, 10, 0, 0"
@@ -195,7 +195,7 @@
                         BackgroundColor="#D3D6EB" 
                         TextColor="#929AD3"
                         TextTransform="Uppercase"
-                        CornerRadius="40"
+                        CornerRadius="{OnPlatform Android='40', iOS='20'}"
                 />
             </StackLayout>            
         </ScrollView>

@@ -8,8 +8,8 @@
         <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
             <ScrollView>
                 <StackLayout>
-                    <Frame CornerRadius="40"
-                           BackgroundColor="#C8C9CF"             
+                    <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
+                           BackgroundColor="#8B93C9"             
                            WidthRequest="200"
                            HeightRequest="30"
                            HorizontalOptions="Center"
@@ -18,12 +18,12 @@
                         <Label Text="{x:Static resources:AppResources.ODTResourcesLabel_Text}" 
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           TextColor="#929AD3"
+                           TextColor="#D3D6EB"
                            TextTransform="Uppercase"
                            FontSize="Large"
                             />
                     </Frame>
-                    <Frame CornerRadius="40"
+                    <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
                            BackgroundColor="#D3D6EB"             
                            WidthRequest="250"                  
                            HorizontalOptions="Center"
@@ -33,7 +33,9 @@
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout>
-                                        <Button Text="{Binding ResourceName}"  
+                                        <Button Text="{Binding ResourceName}" 
+                                                TextTransform="Uppercase"
+                                                TextColor="#929AD3"
                                                 Command="{Binding ShareResource}" 
                                                 BackgroundColor="#D3D6EB"/>
                                     </StackLayout>

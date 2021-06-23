@@ -11,20 +11,21 @@
                     <StackLayout>
 
                         <Frame CornerRadius="40"
-                               BackgroundColor="#C8C9CF"             
+                               BackgroundColor="#8B93C9"             
                                WidthRequest="250"
                                HeightRequest="100"
                                HorizontalOptions="Center"
-                               VerticalOptions="Center"                            
+                               VerticalOptions="Center"    
+                               Margin="{OnPlatform Android='0,0,0,0', iOS='0,20,0,0'}"
                         >
                             <Label x:Name="LanguageChangeLabel" 
-                                   TextColor="#929AD3" 
+                                   TextColor="#D3D6EB" 
                                    Text="{x:Static resources:AppResources.selectResourceLanguagesLabel_Text}"                                
                                    FontSize="16"
                                    TextTransform="Uppercase"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center"
-                                   BackgroundColor="#C8C9CF"
+                                   BackgroundColor="#8B93C9"
                             /> 
                         </Frame>                     
                         
@@ -45,10 +46,11 @@
                                                   Color="#929AD3"
                                         />
                                             <Label Text="{Binding Value}"                                              
-                                               TextColor="#929AD3" 
-                                               FontSize="20"  
-                                               VerticalOptions="CenterAndExpand" 
-                                               HorizontalOptions="FillAndExpand"
+                                                   TextColor="#929AD3" 
+                                                   FontSize="20"  
+                                                   VerticalOptions="CenterAndExpand" 
+                                                   HorizontalOptions="FillAndExpand"
+                                                   TextTransform="Uppercase"
                                         >
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -69,7 +71,7 @@
                         TextColor="#929AD3"
                         TextTransform="Uppercase"
                         BackgroundColor="#D3D6EB" 
-                        CornerRadius="40"  
+                        CornerRadius="{OnPlatform Android='40', iOS='20'}"   
                         Command="{Binding GoToNextPage}"
                 />
             </StackLayout>

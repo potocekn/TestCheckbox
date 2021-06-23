@@ -10,7 +10,7 @@
                 <StackLayout>
                     <StackLayout>
                         <Frame CornerRadius="40"
-                               BackgroundColor="#C8C9CF"             
+                               BackgroundColor="#8B93C9"             
                                WidthRequest="200"
                                HeightRequest="50"
                                HorizontalOptions="Center"
@@ -22,13 +22,13 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{x:Static resources:AppResources.LanguageChangeLabel_Text}" 
-                           TextColor="#929AD3" 
+                           TextColor="#D3D6EB" 
                            FontSize="Medium" 
                            HorizontalTextAlignment="Center" 
                            VerticalTextAlignment="Center" 
                            TextTransform="Uppercase"
                            Grid.Column="0"
-                           BackgroundColor="#C8C9CF"
+                           BackgroundColor="#8B93C9"
                         />
                                 <Image Source="settings.png" Grid.Column="1"/>
                             </Grid>
@@ -53,7 +53,8 @@
                                                    TextColor="#929AD3" 
                                                    FontSize="20"  
                                                    VerticalOptions="CenterAndExpand" 
-                                                   HorizontalOptions="FillAndExpand">
+                                                   HorizontalOptions="FillAndExpand"
+                                                   TextTransform="Uppercase">
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                                 </Label.GestureRecognizers>
@@ -74,7 +75,8 @@
                                            TextColor="#929AD3" 
                                            FontSize="20" 
                                            VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextTransform="Uppercase">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                         </Label.GestureRecognizers>
@@ -94,7 +96,8 @@
                                            TextColor="#929AD3" 
                                            FontSize="20" 
                                            VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextTransform="Uppercase">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                         </Label.GestureRecognizers>
@@ -114,7 +117,8 @@
                                            TextColor="#929AD3" 
                                            FontSize="20" 
                                            VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextTransform="Uppercase">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                         </Label.GestureRecognizers>
@@ -134,7 +138,8 @@
                                            TextColor="#929AD3" 
                                            FontSize="20"  
                                            VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextTransform="Uppercase">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                         </Label.GestureRecognizers>
@@ -154,7 +159,8 @@
                                            TextColor="#929AD3" 
                                            FontSize="20"
                                            VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextTransform="Uppercase">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                         </Label.GestureRecognizers>

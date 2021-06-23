@@ -7,8 +7,8 @@
     <ContentPage.Content>
         <ScrollView>
             <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
-                <Frame CornerRadius="40"
-                       BackgroundColor="#C8C9CF"             
+                <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
+                       BackgroundColor="#8B93C9"             
                        WidthRequest="200"
                        HeightRequest="30"
                        HorizontalOptions="Center"
@@ -17,12 +17,12 @@
                     <Label Text="{x:Static resources:AppResources.PDFResourcesLabel_Text}" 
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       TextColor="#929AD3"
+                       TextColor="#D3D6EB"
                        TextTransform="Uppercase"
                        FontSize="Large"
                 />
                 </Frame>
-                <Frame CornerRadius="40"
+                <Frame CornerRadius="{OnPlatform Android='40', iOS='20'}"
                        BackgroundColor="#D3D6EB"             
                        WidthRequest="250"                  
                        HorizontalOptions="Center"
@@ -43,6 +43,8 @@
                                                 Command="{Binding OpenResource}" 
                                                 BackgroundColor="#D3D6EB"
                                                 Margin="0,5,0,0"
+                                                TextTransform="Uppercase"
+                                                TextColor="#929AD3"
                                         />
                                         <Button Grid.Row="0" 
                                                 Grid.Column="1" 
@@ -55,7 +57,7 @@
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
-                        <Button Text="Test resource" Command="{Binding OpenResource}"/>
+                        
                     </StackLayout>
                 </Frame>
             </local:GradientColorStack>

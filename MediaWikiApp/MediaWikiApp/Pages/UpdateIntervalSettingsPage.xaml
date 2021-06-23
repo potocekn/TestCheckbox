@@ -9,7 +9,7 @@
             <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
                 <StackLayout >
                     <Frame CornerRadius="40"
-                       BackgroundColor="#C8C9CF"             
+                       BackgroundColor="#8B93C9"             
                        WidthRequest="250"
                        HeightRequest="50"
                        HorizontalOptions="Center"
@@ -18,12 +18,12 @@
                 >
                         <Label x:Name="UpdateIntervalSettingsLabel"                            
                            Text="{x:Static resources:AppResources.UpdateIntervalSettingsLabel_Text}" 
-                           TextColor="#929AD3"                                                     
+                           TextColor="#D3D6EB"                                                     
                            FontSize="16"
                            TextTransform="Uppercase"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           BackgroundColor="#C8C9CF"
+                           BackgroundColor="#8B93C9"
                     />
                     </Frame>
                     <Frame CornerRadius="40"
@@ -44,10 +44,11 @@
                                               Color="#929AD3" 
                                     />
                                         <Label Text="{Binding Name}" 
-                                           TextColor="#929AD3" 
-                                           HorizontalOptions="Center" 
-                                           Margin=" 0, 15, 0, 0" 
-                                           FontSize="Medium">
+                                               TextColor="#929AD3" 
+                                               HorizontalOptions="Center" 
+                                               Margin="{OnPlatform Android='0, 15, 0, 0', iOS='0,20,0,0'}" 
+                                               FontSize="Medium"
+                                               TextTransform="Uppercase">
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                             </Label.GestureRecognizers>
@@ -60,16 +61,17 @@
                                   CheckedChanged="OnCheckBoxCheckedChanged" 
                                   VerticalOptions="Start" 
                                   HorizontalOptions="Start" 
-                                  Margin="50, 10, 0, 0" 
+                                  Margin="{OnPlatform Android='50, 10, 0, 0', iOS='50,0,0,0'}" 
                                   Color="#929AD3" 
                         />
                             <Label x:Name="AutomaticOptionLabel" 
-                               TextColor="#929AD3" 
-                               Text="{x:Static resources:AppResources.AutomaticOptionLabel_Text}" 
-                               HorizontalOptions="Center" 
-                               Margin="-40, -32, 0, 0" 
-                               FontSize="Medium"
-                        />
+                                   TextColor="#929AD3" 
+                                   Text="{x:Static resources:AppResources.AutomaticOptionLabel_Text}" 
+                                   HorizontalOptions="Center" 
+                                   Margin="-40, -32, 0, 0" 
+                                   FontSize="Medium"
+                                   TextTransform="Uppercase"
+                            />
 
                             <CheckBox  x:Name="OnceAMonthOptionCheckbox" 
                                    IsChecked="{Binding IsChecked}" 
@@ -78,14 +80,15 @@
                                    HorizontalOptions="Start" 
                                    Margin="50, 10, 0, 0" 
                                    Color="#929AD3"
-                        />
+                            />
                             <Label x:Name="OnceAMonthOptionLabel" 
-                               TextColor="#929AD3" 
-                               Text="{x:Static resources:AppResources.OnceAMonthOptionLabel_Text}" 
-                               HorizontalOptions="CenterAndExpand" 
-                               Margin="-40, -32, 0, 0" 
-                               FontSize="Medium"
-                        />
+                                   TextColor="#929AD3" 
+                                   Text="{x:Static resources:AppResources.OnceAMonthOptionLabel_Text}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   Margin="-40, -32, 0, 0" 
+                                   FontSize="Medium"
+                                   TextTransform="Uppercase"
+                            />
 
                             <CheckBox  x:Name="OnRequestOptionCheckbox" 
                                    IsChecked="{Binding IsChecked}" 
@@ -96,12 +99,13 @@
                                    Color="#929AD3"
                         />
                             <Label x:Name="OnRequestOptionLabel" 
-                               TextColor="#929AD3" 
-                               Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" 
-                               HorizontalOptions="Center" 
-                               Margin="-40, -32, 0, 0" 
-                               FontSize="Medium"
-                        />
+                                   TextColor="#929AD3" 
+                                   Text="{x:Static resources:AppResources.OnRequestOptionLabel_Text}" 
+                                   HorizontalOptions="Center" 
+                                   Margin="-40, -32, 0, 0" 
+                                   FontSize="Medium"
+                                   TextTransform="Uppercase"
+                            />
                         </StackLayout>
                     </Frame>
                     <Label x:Name="englishAutomatic" TextColor="DarkSlateGray" Text="Automatic" IsVisible="False"/>

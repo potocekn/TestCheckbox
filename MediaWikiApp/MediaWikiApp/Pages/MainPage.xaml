@@ -7,7 +7,12 @@
 
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-            <Label Text="Training App" TextColor="White" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Label Text="Training App" 
+                   TextColor="#D3D6EB" 
+                   FontSize="Large" 
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="CenterAndExpand"
+            />
 
             <Button  x:Name="SettingsButton" 
                      x:Uid="SettingsButton" 
@@ -19,24 +24,30 @@
 
         </StackLayout>
     </NavigationPage.TitleView>
+    
     <ContentPage.Content>
         <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
             <ScrollView>
                 <StackLayout>
 
                     <StackLayout  Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
                         <Button  x:Name="ResourcesButton" 
-                                 x:Uid="ResourcesButton" 
-                                 Text="{x:Static resources:AppResources.ResourcesButton_Text}" 
-                                 Command="{Binding GoToResources}" 
-                                 BackgroundColor="#D3D6EB"
-                                 TextColor="#929AD3"
-                                 CornerRadius="40"
-                                 HorizontalOptions="Center"
-                                 FontSize="Medium"
-                                 WidthRequest="250"
-                                 HeightRequest="50"
-                    />
+                                    x:Uid="ResourcesButton" 
+                                    Text="{x:Static resources:AppResources.ResourcesButton_Text}" 
+                                    Command="{Binding GoToResources}" 
+                                    BackgroundColor="#D3D6EB"
+                                    TextColor="#929AD3" 
+                                    HorizontalOptions="Center"
+                                    FontSize="Medium"
+                                    WidthRequest="250"
+                                    HeightRequest="50"
+                                    Margin="{OnPlatform Android='0,0,0,0', iOS='0,20,0,0'}"
+                                    CornerRadius="{OnPlatform Android='40', iOS='20'}"
+                        >            
+                            
+                        </Button>
+
                     </StackLayout>
 
                     <StackLayout BindableLayout.ItemsSource="{Binding ResourceLanguages}">
@@ -47,7 +58,7 @@
                                         Command="{Binding OpenResources}" 
                                         BackgroundColor="#D3D6EB"
                                         TextColor="#929AD3"
-                                        CornerRadius="40"
+                                        CornerRadius="{OnPlatform Android='40', iOS='20'}"
                                         Margin="0,10,0,0"                                        
                                         HorizontalOptions="Center"
                                         FontSize="Medium"
@@ -60,20 +71,21 @@
                     </StackLayout>
 
                     <Frame CornerRadius="40"
-                       BackgroundColor="#C8C9CF"                               
+                       BackgroundColor="#8B93C9"                               
                        HorizontalOptions="Center"
                        Margin="0, 10, 0, 0"
                        WidthRequest="250"  
                        HeightRequest="100"
                 >
                         <Label x:Name="AboutLabel" x:Uid="AboutLabel" 
-                           Text="{x:Static resources:AppResources.AboutLabel_Text}"               
-                           VerticalOptions="Center" 
-                           HorizontalOptions="Center"                          
-                           FontSize="Medium"
-                           HorizontalTextAlignment="Start"
-                           TextColor="#929AD3"
-                    />
+                               Text="{x:Static resources:AppResources.AboutLabel_Text}"               
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center"                          
+                               FontSize="Medium"
+                               HorizontalTextAlignment="Start"
+                               TextColor="#D3D6EB"
+                               TextTransform="Uppercase"
+                        />
                     </Frame>
                 </StackLayout>
             </ScrollView>

@@ -9,7 +9,7 @@
             <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
                 <StackLayout>
                     <Frame CornerRadius="40"
-                       BackgroundColor="#C8C9CF"             
+                       BackgroundColor="#8B93C9"             
                        WidthRequest="200"
                        HeightRequest="50"
                        HorizontalOptions="Center"
@@ -21,13 +21,13 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Text="{x:Static resources:AppResources.SettingsButton_Text}" 
-                           TextColor="#929AD3" 
+                           TextColor="#D3D6EB" 
                            FontSize="Medium" 
                            HorizontalTextAlignment="Center" 
                            VerticalTextAlignment="Center" 
                            TextTransform="Uppercase"
                            Grid.Column="0"
-                           BackgroundColor="#C8C9CF"
+                           BackgroundColor="#8B93C9"
                         />
                             <Image Source="settings.png" Grid.Column="1"/>
                         </Grid>

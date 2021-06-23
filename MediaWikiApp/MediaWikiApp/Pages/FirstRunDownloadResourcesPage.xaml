@@ -10,36 +10,36 @@
                 <StackLayout>
 
                     <Frame CornerRadius="40"
-                           BackgroundColor="#C8C9CF"             
-                           WidthRequest="250"     
-                           Margin="0,30,0,0"
+                           BackgroundColor="#8B93C9"             
+                           WidthRequest="250"                          
                            HorizontalOptions="Center"
-                           VerticalOptions="Center"                            
+                           VerticalOptions="Center"   
+                           Margin="{OnPlatform Android='0,30,0,0', iOS='0,50,0,0'}"
                     >
                         <Label Text="{x:Static resources:AppResources.DownloadingSelectedResourcesLabel_Text}"                       
-                               TextColor="#929AD3"                                                     
+                               TextColor="#D3D6EB"                                                     
                                FontSize="16"
                                TextTransform="Uppercase"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
-                               BackgroundColor="#C8C9CF"
+                               BackgroundColor="#8B93C9"
                         />
                     </Frame>
 
                     <Frame CornerRadius="40"
-                           BackgroundColor="#C8C9CF"             
+                           BackgroundColor="#8B93C9"             
                            WidthRequest="250"    
                            Margin="0,30,0,0"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"                            
                     >
                         <Label Text="{x:Static resources:AppResources.DownloadInfoText_Text}"                       
-                               TextColor="#929AD3"                                                     
+                               TextColor="#D3D6EB"                                                     
                                FontSize="16"
                                TextTransform="Uppercase"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
-                               BackgroundColor="#C8C9CF"
+                               BackgroundColor="#8B93C9"
                         />
                     </Frame>
                     <Button Text="{x:Static resources:AppResources.Download_Text}" 
@@ -51,7 +51,7 @@
                             TextColor="#929AD3"
                             TextTransform="Uppercase"
                             BackgroundColor="#D3D6EB" 
-                            CornerRadius="40"
+                            CornerRadius="{OnPlatform Android='40', iOS='20'}"
                     />
                 </StackLayout>
             </local:GradientColorStack>
