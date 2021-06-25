@@ -10,18 +10,44 @@ using AppBaseNamespace.Models;
 using System.Globalization;
 using System.Threading.Tasks;
 using AppBase.Interfaces;
+using Xamarin.Essentials;
+using System.Linq;
 
 namespace AppBase.Helpers
 {
     public static class RequestUpdateHelpers
     {
+
+        static bool CanDownloadOnlyWithWifi()
+        {            
+            var profiles = Connectivity.ConnectionProfiles;
+            if (profiles.Contains(ConnectionProfile.WiFi))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         /// <summary>
         /// Method for requesting update of the resources. The update deletes the unselected formats and languages and downloads the newly
         /// selected language resources.
         /// </summary>
         /// <param name="page"></param>
         public static async Task RequestUpdate(ContentPage page, App app, List<LanguageSettingsItem> languages)
-        {           
+        {
+            if (app.userSettings.DownloadOnlyWithWifi)
+            {
+                bool canDownload = CanDownloadOnlyWithWifi();
+                if (!canDownload)
+                {
+                    await page.DisplayAlert("", AppResources.DownloadOnlyWithWifi_Text, "OK");
+                    return;
+                }
+            }
             await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
             DeleteUntoggledFormats(app);
             DeleteUncheckedLanguageFiles(app, languages);

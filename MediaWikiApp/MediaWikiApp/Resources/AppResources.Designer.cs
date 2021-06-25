@@ -232,6 +232,15 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, download possible only when connected to the wifi! Connect to wifi and try again..
+        /// </summary>
+        internal static string DownloadOnlyWithWifi_Text {
+            get {
+                return ResourceManager.GetString("DownloadOnlyWithWifi.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dutch.
         /// </summary>
         internal static string dutchLabel_Text {

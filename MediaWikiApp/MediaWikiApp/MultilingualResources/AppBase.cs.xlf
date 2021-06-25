@@ -410,6 +410,10 @@
           <source>PDF Resources</source>
           <target state="new">PDF Resources</target>
         </trans-unit>
+        <trans-unit id="DownloadOnlyWithWifi.Text" translate="yes" xml:space="preserve">
+          <source>Sorry, download possible only when connected to the wifi! Connect to wifi and try again.</source>
+          <target state="new">Sorry, download possible only when connected to the wifi! Connect to wifi and try again.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
