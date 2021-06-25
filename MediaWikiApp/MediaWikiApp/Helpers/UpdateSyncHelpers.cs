@@ -243,7 +243,7 @@ namespace AppBase.Helpers
             }
             catch
             {
-                return null;
+                return new Dictionary<string, List<string>>();
             }            
         }
 
@@ -255,13 +255,20 @@ namespace AppBase.Helpers
         /// <returns>List of all available languages on the mediawiki server.</returns>
         public static List<string> DownloadLanguages(string url)
         {
-            string contents = "";
-            using (WebClient client = new WebClient())
+            try
             {
-                contents = client.DownloadString(url + "/Languages.json");
-            }
+                string contents = "";
+                using (WebClient client = new WebClient())
+                {
+                    contents = client.DownloadString(url + "/Languages.json");
+                }
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(contents);
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(contents);
+            }
+            catch
+            {
+                return new List<string>();
+            }
         }
 
         /// <summary>
@@ -286,7 +293,7 @@ namespace AppBase.Helpers
             }
             catch 
             {
-                return null;
+                return new List<ChangesItem>() ;
             }            
         }
 
