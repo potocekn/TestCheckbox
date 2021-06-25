@@ -2,7 +2,6 @@
 using AppBase.UserSettingsHelpers;
 using AppBase.ViewModels;
 using AppBaseNamespace;
-using PCLStorage;
 using System;
 using System.Collections.Generic;
 using System.IO;

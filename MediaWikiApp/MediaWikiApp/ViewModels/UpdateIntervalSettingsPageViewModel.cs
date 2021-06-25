@@ -20,6 +20,8 @@ namespace AppBase.ViewModels
     public class UpdateIntervalSettingsPageViewModel: INotifyPropertyChanged
     {
         public List<UpdateIntervalSettingsItem> Items { get; set; }
+        bool statusChanged = false;
+        bool isTheFirstTime = true;
         bool isOnRequest;
         public bool IsOnRequest {
             get
@@ -39,11 +41,15 @@ namespace AppBase.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         App app { get; set; }
-        public UpdateIntervalSettingsPageViewModel(App app, List<UpdateIntervalSettingsItem> switches)
+        INavigation Navigation { get; set; }
+        UpdateIntervalSettingsPage updateIntervalSettingsPage { get; set; }
+        public UpdateIntervalSettingsPageViewModel(App app, List<UpdateIntervalSettingsItem> switches, INavigation navigation, UpdateIntervalSettingsPage page)
         {
             this.app = app;            
             Items = switches;
             IsOnRequest = app.userSettings.UpdateInterval == Models.UpdateIntervalOption.ON_REQUEST;
+            Navigation = navigation;
+            this.updateIntervalSettingsPage = page;
         }     
 
         /// <summary>
@@ -64,8 +70,19 @@ namespace AppBase.ViewModels
                     item.WasUpdated = false;
                     item.NotifyPropertyChanged("IsChecked");
                 }
-                IsOnRequest = app.userSettings.UpdateInterval == Models.UpdateIntervalOption.ON_REQUEST;                
+                IsOnRequest = app.userSettings.UpdateInterval == Models.UpdateIntervalOption.ON_REQUEST;
+                statusChanged = true;
             }
+
+            if (IsOnRequest && statusChanged && !isTheFirstTime)
+            {
+                statusChanged = false;
+                
+                Navigation.InsertPageBefore(new UpdateIntervalSettingsPage(app), updateIntervalSettingsPage);
+                Navigation.PopAsync();
+            }
+
+            isTheFirstTime = false;
         }
 
         /// <summary>

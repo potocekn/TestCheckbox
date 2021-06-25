@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using AppBaseNamespace.Models;
 using System.Globalization;
 using System.Threading.Tasks;
+using AppBase.Interfaces;
 
 namespace AppBase.Helpers
 {
@@ -20,7 +21,7 @@ namespace AppBase.Helpers
         /// </summary>
         /// <param name="page"></param>
         public static async Task RequestUpdate(ContentPage page, App app, List<LanguageSettingsItem> languages)
-        {
+        {           
             await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
             DeleteUntoggledFormats(app);
             DeleteUncheckedLanguageFiles(app, languages);

@@ -119,7 +119,7 @@ namespace AppBaseNamespace.ViewModels
         public async Task OnCheckBoxCheckedChangedAsync(LanguageSettingsItem checkboxSender)
         {
 
-            if (checkboxSender.IsChecked && !app.IsFirst && !app.WasRefreshed && checkboxSender.EnglishName != MainPageViewModelBackup.previouslyChecked)
+            if (checkboxSender.IsChecked  && checkboxSender.EnglishName != MainPageViewModelBackup.previouslyChecked)
             {
                 bool answer = await SettingsPageBackup.DisplayAlert("", PopupMessageHelpers.CreatePopUpMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
                                                                         PopupMessageHelpers.CreateYesMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
@@ -136,25 +136,6 @@ namespace AppBaseNamespace.ViewModels
             else if (app.WasRefreshed)
             {
                 CheckPreviouslyChecked();
-            }
-            else if (app.IsFirst)
-            {
-                CheckSender(checkboxSender);
-                foreach (var item in Items)
-                {
-                    if (item.EnglishName == MainPageViewModelBackup.previouslyChecked)
-                    {
-                        
-                        item.IsChecked = false;
-                        item.WasUpdated = true;
-                        break;
-                    }
-                }
-                app.IsFirst = false;
-            }
-            else if (!app.IsFirst && !checkboxSender.IsChecked && checkboxSender.EnglishName == MainPageViewModelBackup.previouslyChecked)
-            {
-                CheckSender(checkboxSender);
             }
             else
             {

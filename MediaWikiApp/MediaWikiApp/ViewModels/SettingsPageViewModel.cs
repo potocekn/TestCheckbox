@@ -25,7 +25,7 @@ namespace AppBase.ViewModels
                 navigation.PushAsync(new LanguageSettingsPage(app, mainPageViewModel));
             });
             GoToUpdateIntervalSettings = new Command(() => {
-                navigation.PushAsync(new UpdateIntervalSettingsPage(app, mainPageViewModel));
+                navigation.PushAsync(new UpdateIntervalSettingsPage(app));
             });
             GoToResourceFormatSettings = new Command(() => {
                 navigation.PushAsync(new ResourceFormatSettingsPage(app, mainPageViewModel));

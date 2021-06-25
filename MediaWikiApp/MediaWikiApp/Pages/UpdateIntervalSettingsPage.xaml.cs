@@ -16,7 +16,7 @@ namespace AppBase
     public partial class UpdateIntervalSettingsPage : ContentPage
     {
         List<UpdateIntervalSettingsItem> Checkboxes = new List<UpdateIntervalSettingsItem>();
-        public UpdateIntervalSettingsPage(App app, MainPageViewModel mainPageViewModel)
+        public UpdateIntervalSettingsPage(App app)
         {
             InitializeComponent();
 
@@ -46,7 +46,7 @@ namespace AppBase
             {
                 AddItem(OnRequestOptionLabel.Text, false, false, englishOnRequest.Text);
             }
-            BindingContext = new UpdateIntervalSettingsPageViewModel(app, Checkboxes);
+            BindingContext = new UpdateIntervalSettingsPageViewModel(app, Checkboxes, Navigation, this);
         }
 
         void AddItem(string name, bool isChecked, bool wasUpdated, string englishName)

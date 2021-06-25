@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using PCLStorage;
 using System.Diagnostics;
 using AppBase.UserSettingsHelpers;
 
