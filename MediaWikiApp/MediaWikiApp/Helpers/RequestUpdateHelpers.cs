@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using AppBase.Interfaces;
 using Xamarin.Essentials;
 using System.Linq;
+using Xamarin.CommunityToolkit.Extensions;
+using AppBase.PopUpPages;
 
 namespace AppBase.Helpers
 {
@@ -48,7 +50,8 @@ namespace AppBase.Helpers
                     return;
                 }
             }
-            await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
+            await page.Navigation.ShowPopupAsync(new OKPopUp(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK"));
+            //await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
             DeleteUntoggledFormats(app);
             DeleteUncheckedLanguageFiles(app, languages);
             bool result = await UpdateSyncHelpers.DownloadResources(app);
