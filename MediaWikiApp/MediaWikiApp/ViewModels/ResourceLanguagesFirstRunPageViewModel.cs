@@ -10,7 +10,7 @@ using Xamarin.Forms;
 namespace AppBase.ViewModels
 {
     /// <summary>
-    /// Class representing view model of the resource languages that is displayed on the very forst run of the application.
+    /// Class representing view model of the resource languages that is displayed on the very first run of the application.
     /// </summary>
     class ResourceLanguagesFirstRunPageViewModel
     {

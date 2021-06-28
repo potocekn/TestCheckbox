@@ -7,7 +7,8 @@ namespace AppBase.UserSettingsHelpers
 {
     /// <summary>
     /// Class representing everything that needs to be saved about user. More precisely where the resources are stored, 
-    /// what is the language of application, which resources were chosen, update interval option, if the downloads can be done only with wifi,
+    /// what is the language of application, which resources were chosen, 
+    /// update interval option, if the downloads can be done only with wifi,
     /// what format user wants to save and the date of the last update.
     /// </summary>
     public class UserSettings

@@ -13,6 +13,9 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class that is used for the displaying of the HTML files.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HTMLPage : ContentPage
     {

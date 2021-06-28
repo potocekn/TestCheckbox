@@ -12,6 +12,9 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class used to display formats (buttons) of the downloaded resources.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResourcesPage : ContentPage
     {

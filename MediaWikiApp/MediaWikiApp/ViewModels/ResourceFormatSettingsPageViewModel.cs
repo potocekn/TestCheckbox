@@ -102,6 +102,9 @@ namespace AppBaseNamespace
             app.SaveUserSettings();
         }
 
+        /// <summary>
+        /// Method used for requesting an update of the resources.
+        /// </summary>
         internal async void RequestUpdate()
         {
             await RequestUpdateHelpers.RequestUpdate(Page, app, Languages);
@@ -121,14 +124,12 @@ namespace AppBaseNamespace
                     if ((sender as CheckBox).IsChecked && !app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
                         app.userSettings.ChosenResourceLanguages.Add(item.EnglishName);
-                        //UpdateSyncHelpers.DownloadResources(app);
                         app.SaveUserSettings();
                         break;
                     }
                     else if (!(sender as CheckBox).IsChecked && app.userSettings.ChosenResourceLanguages.Contains(item.EnglishName))
                     {
                         app.userSettings.ChosenResourceLanguages.Remove(item.EnglishName);
-                        //RemoveFiles(item.EnglishName);
                         app.SaveUserSettings();
                         break;
                     }

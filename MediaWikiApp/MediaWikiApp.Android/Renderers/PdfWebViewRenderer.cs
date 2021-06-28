@@ -15,12 +15,19 @@ using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(WebView), typeof(PdfWebViewRenderer))]
 namespace TestCheckbox.Droid.Renderers
 {
+	/// <summary>
+	/// Custom renderer for showing PDF files on Android platform.
+	/// </summary>
 	public class PdfWebViewRenderer : WebViewRenderer
 	{
 		public PdfWebViewRenderer(Context context) : base(context)
 		{
 		}
 
+		/// <summary>
+		/// Method used when there are changes in the WebView element.
+		/// </summary>
+		/// <param name="e">Event arguments</param>
 		protected override void OnElementChanged(ElementChangedEventArgs<WebView> e)
 		{
 			base.OnElementChanged(e);

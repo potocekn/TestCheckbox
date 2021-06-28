@@ -13,6 +13,9 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBaseNamespace
 {
+    /// <summary>
+    /// Class representing the page that contains format and language settings of the resources.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResourceFormatSettingsPage : ContentPage
     {       
@@ -38,21 +41,42 @@ namespace AppBaseNamespace
             }
                        
         }
+
+        /// <summary>
+        /// Method used when a checkbox changes its checked status.
+        /// </summary>
+        /// <param name="sender">Checkbox that changes status</param>
+        /// <param name="e">Event arguments</param>
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             (BindingContext as ResourceFormatSettingsPageViewModel).OnCheckBoxCheckedChanged(sender, e);
         }
 
+        /// <summary>
+        /// Method used when a switch changes its toggled status.
+        /// </summary>
+        /// <param name="sender">Switch that changed status</param>
+        /// <param name="e">Event arguments</param>
         void OnToggled(object sender, ToggledEventArgs e)
         {
             (BindingContext as ResourceFormatSettingsPageViewModel).OnToggled(sender, e);
         }
 
+        /// <summary>
+        /// Method used for checking checkbox when label next to it was clicked on.
+        /// </summary>
+        /// <param name="sender">Label that was clicked on</param>
+        /// <param name="e">Event arguments</param>
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             (BindingContext as ResourceFormatSettingsPageViewModel).TapGestureRecognizer_Tapped(sender, e);
         }
 
+        /// <summary>
+        /// Method used for requesting an update of the resources.
+        /// </summary>
+        /// <param name="sender">Update request button</param>
+        /// <param name="e">Event arguments</param>
         private void RequestUpdateButton_Clicked(object sender, EventArgs e)
         {
             (BindingContext as ResourceFormatSettingsPageViewModel).RequestUpdate();

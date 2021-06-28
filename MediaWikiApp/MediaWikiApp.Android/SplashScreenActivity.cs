@@ -14,6 +14,9 @@ using AppBaseNamespace.Droid;
 
 namespace TestCheckbox.Droid
 {
+    /// <summary>
+    /// Custom activity used to display a splash screen.
+    /// </summary>
     [Activity(Theme = "@style/SplashScreen", MainLauncher = true, NoHistory = true)]
     class SplashScreenActivity: AppCompatActivity
     {

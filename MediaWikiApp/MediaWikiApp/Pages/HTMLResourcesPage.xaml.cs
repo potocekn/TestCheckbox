@@ -12,6 +12,9 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class used for displaying of the available HTML resources list.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HTMLResourcesPage : ContentPage
     {

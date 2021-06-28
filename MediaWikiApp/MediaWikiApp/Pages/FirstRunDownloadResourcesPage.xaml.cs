@@ -11,6 +11,10 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class used for the download phase of the configuration process.
+    /// During this phase the resources are downloaded based on the configuration.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstRunDownloadResourcesPage : ContentPage
     {
@@ -21,6 +25,12 @@ namespace AppBase
             InitializeComponent();
             BindingContext = new FirstRunDownloadResourcesPageViewModel();
         }
+
+        /// <summary>
+        /// Method used when clicked on the button.
+        /// </summary>
+        /// <param name="sender">Button that was clicked on</param>
+        /// <param name="args">Event arguments</param>
         public async void OnButtonClicked(object sender, EventArgs args)
         {
             (sender as Button).IsEnabled = false;

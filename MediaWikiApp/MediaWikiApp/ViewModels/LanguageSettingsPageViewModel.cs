@@ -153,16 +153,6 @@ namespace AppBaseNamespace.ViewModels
         }
 
         /// <summary>
-        /// Method that sets IsChecked to true for the sender object
-        /// </summary>
-        /// <param name="sender">oject that changed status</param>
-        private void CheckSender(LanguageSettingsItem sender)
-        {
-            sender.IsChecked = true;
-            sender.WasUpdated = true;
-        }
-
-        /// <summary>
         /// Method that handles the situation where more than one would be checked. In this situation the newest is checked and rest is unchecked.
         /// </summary>
         /// <returns></returns>
@@ -253,9 +243,9 @@ namespace AppBaseNamespace.ViewModels
         }
 
         /// <summary>
-        /// Method that handles change of the application language. All necessary information in app are set to the new language and 
+        /// Method that handles change of the application language. All necessary information in application are set to the new language and 
         /// multilingual app resources' culture changes to the new language.
-        /// In the end the app is refreshed.
+        /// In the end the application is refreshed.
         /// </summary>
         /// <param name="sender"></param>
         private void HandleLanguageChange(LanguageSettingsItem sender)
@@ -270,7 +260,7 @@ namespace AppBaseNamespace.ViewModels
 
         /// <summary>
         /// Method that handles checkbox status change. If the sender has already been updated the situation 
-        /// for all checkboxes being unchecked needs to be handled first. Then the check change of the sender can be handled. and if the language changed
+        /// for all checkboxes being unchecked needs to be handled first. Then the check change of the sender can be handled and if the language changed
         /// the method for setting language of the application needs to be called.
         /// </summary>
         /// <param name="sender"></param>

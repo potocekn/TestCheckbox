@@ -13,6 +13,9 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class representing the page that provides update interval settings in the settings menu. 
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UpdateIntervalSettingsPage : ContentPage
     {
@@ -50,6 +53,13 @@ namespace AppBase
             BindingContext = new UpdateIntervalSettingsPageViewModel(app, Checkboxes, Navigation, this);
         }
 
+        /// <summary>
+        /// Method used for adding new item into list of UpdateIntervalSettingsItem items.
+        /// </summary>
+        /// <param name="name">Name of the checkbox (type of update interval option that this item represents)</param>
+        /// <param name="isChecked">If the corresponding checkbox is checked</param>
+        /// <param name="wasUpdated">If the checkbox was updated</param>
+        /// <param name="englishName">English version of the item name</param>
         void AddItem(string name, bool isChecked, bool wasUpdated, string englishName)
         {
             Checkboxes.Add(new UpdateIntervalSettingsItem()
@@ -60,15 +70,32 @@ namespace AppBase
                 EnglishName = englishName
             });
         }
+
+        /// <summary>
+        /// Method used when a checkbox changes its checked status.
+        /// </summary>
+        /// <param name="sender">Checkbox that changed its status</param>
+        /// <param name="e">Event arguments</param>
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             (BindingContext as UpdateIntervalSettingsPageViewModel).OnCheckedChanged(((sender as CheckBox).BindingContext as UpdateIntervalSettingsItem));
         }
+
+        /// <summary>
+        /// Method used for checking a checkbox when the label next to it was clicked on.
+        /// </summary>
+        /// <param name="sender">Label that was clicked on</param>
+        /// <param name="e">event arguments</param>
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             (BindingContext as UpdateIntervalSettingsPageViewModel).TapGestureRecognizer_Tapped(sender, e);
         }
 
+        /// <summary>
+        /// Method used when requesting an update.
+        /// </summary>
+        /// <param name="sender">Request button that was clicked on</param>
+        /// <param name="e">Event arguments</param>
         private void RequestUpdateButton_Clicked(object sender, EventArgs e)
         {
             (BindingContext as UpdateIntervalSettingsPageViewModel).RequestUpdate(this);

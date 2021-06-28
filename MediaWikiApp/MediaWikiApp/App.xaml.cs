@@ -16,6 +16,9 @@ using System.Linq;
 
 namespace AppBaseNamespace
 {
+    /// <summary>
+    /// Class that represents the application.
+    /// </summary>
     public partial class App : Application
     {
         public bool firstTimeRunning = true;
@@ -54,6 +57,9 @@ namespace AppBaseNamespace
             InitializeComponent();                        
         }
 
+        /// <summary>
+        /// Method that inicializes the list of languages and their shortcuts.
+        /// </summary>
         private void InitializeShortcuts()
         {
             shortcuts.Add("English", "en");
@@ -62,6 +68,11 @@ namespace AppBaseNamespace
             shortcuts.Add("French", "fr");
             shortcuts.Add("Chinese", "zh-Hans");
         }
+
+        /// <summary>
+        /// Method that sets the application language.
+        /// </summary>
+        /// <param name="languageName">Name of the language that should be set.</param>
         private void SetAppLanguage(string languageName) 
         {              
             string shortcut;
@@ -80,11 +91,20 @@ namespace AppBaseNamespace
             AppResources.Culture = language; 
             
         }
+
+        /// <summary>
+        /// Method that retrieves the saved PDF and ODt resources.
+        /// </summary>
         private void RetrieveResources()
         {
             RetrieveResourcesPDF();
             RetrieveResourcesODT();
         }
+
+        /// <summary>
+        /// Method that retrieves the saved PDF files. 
+        /// The method sets the list of resource information that this class has as an attribute.
+        /// </summary>
         private void RetrieveResourcesPDF()
         {
             List<ResourcesInfoPDF> resourcesInfosPDF = new List<ResourcesInfoPDF>();
@@ -97,6 +117,10 @@ namespace AppBaseNamespace
             resourcesPDF = resourcesInfosPDF;           
         }
 
+        /// <summary>
+        /// Method that retrieves the saved ODT files. 
+        /// The method sets the list of resource information that this class has as an attribute.
+        /// </summary>
         private void RetrieveResourcesODT()
         {
             List<ResourcesInfoPDF> resourcesInfosODT = new List<ResourcesInfoPDF>();
@@ -109,6 +133,10 @@ namespace AppBaseNamespace
             resourcesODT = resourcesInfosODT;
         }
 
+        /// <summary>
+        /// Method that retrieves the user settings.
+        /// </summary>
+        /// <param name="path">path to the user settings file</param>
         private void RetrieveUserSettings(string path)
         {
             UserSettings result = new UserSettings(path);
@@ -120,6 +148,9 @@ namespace AppBaseNamespace
             userSettings = result;
         }
 
+        /// <summary>
+        /// Method that retrieves the list of resource languages.
+        /// </summary>
         private void RetrieveLanguages()
         {
             List<string> result = new List<string>();
@@ -131,6 +162,11 @@ namespace AppBaseNamespace
             availableLanguages = result;
         }
 
+        /// <summary>
+        /// Method that reloads the application after the language change request.
+        /// </summary>
+        /// <param name="language">new language</param>
+        /// <param name="previouslyChecked">previous language</param>
         public void ReloadApp(string language, string previouslyChecked)
         {
             WasRefreshed = true;
@@ -142,6 +178,9 @@ namespace AppBaseNamespace
             MainPage = navPage;
         }
 
+        /// <summary>
+        /// Method that reloads the application.
+        /// </summary>
         public void ReloadApp()
         {
             var navPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
@@ -149,23 +188,35 @@ namespace AppBaseNamespace
             MainPage = navPage;
         }
 
+        /// <summary>
+        /// Method that saves user settings into a JSON file.
+        /// </summary>
         public void SaveUserSettings()
         {
             File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));
         }
 
+        /// <summary>
+        /// Method that saves the resource languages into a JSON file.
+        /// </summary>
         public void SaveLanguages()
         {
             if ((availableLanguages != null) && (availableLanguages.Count > 0))
                 File.WriteAllText(languagesFileName, Newtonsoft.Json.JsonConvert.SerializeObject(availableLanguages));
         }
 
+        /// <summary>
+        /// Method that saves information about saved PDF and ODT resources into separate JSON files.
+        /// </summary>
         public void SaveResources()
         {
             File.WriteAllText(resourcesPDFfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resourcesPDF));
             File.WriteAllText(resourcesODTfileName, Newtonsoft.Json.JsonConvert.SerializeObject(resourcesODT));
         }
 
+        /// <summary>
+        /// Method that is called on every start of the application.
+        /// </summary>
         protected override void OnStart()
         {           
             InitializeShortcuts();
@@ -197,6 +248,9 @@ namespace AppBaseNamespace
             }
         }
 
+        /// <summary>
+        /// Method that is called when the application stops running.
+        /// </summary>
         protected override void OnSleep()
         {
             SaveUserSettings();

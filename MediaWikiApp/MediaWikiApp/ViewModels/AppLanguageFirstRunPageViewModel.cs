@@ -111,7 +111,7 @@ namespace AppBase.ViewModels
         }
 
         /// <summary>
-        /// Methos that handles situation, that checkbox IsChecked status changed. Method has to check if there is something checked in the list.
+        /// Method that handles situation, that checkbox IsChecked status changed. Method has to check if there is something checked in the list.
         /// If not, it needs to do some additional checking.
         /// </summary>
         /// <param name="sender"></param>

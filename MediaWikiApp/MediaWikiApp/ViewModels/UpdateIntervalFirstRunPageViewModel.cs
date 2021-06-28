@@ -41,9 +41,7 @@ namespace AppBase.ViewModels
                     item.NotifyPropertyChanged("IsChecked");
                 }
             }
-        }
-
-        
+        }       
 
         /// <summary>
         /// Method that handles situation when all the checkboxes are unchecked.

@@ -7,6 +7,9 @@ using Xamarin.Forms;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class that uses pdfjs library to display PDF files.
+    /// </summary>
     public partial class pdfjsPage: ContentPage
     {
         public pdfjsPage(string path)
@@ -21,9 +24,13 @@ namespace AppBase
             }
 
             if (Device.RuntimePlatform == Device.Android)
+            {
                 PdfView.Source = $"file:///android_asset/pdfjs/web/viewer.html?file={WebUtility.UrlEncode(localPath)}";
+            }
             else
+            {
                 PdfView.Source = path;
+            }                
         }
     }
 }

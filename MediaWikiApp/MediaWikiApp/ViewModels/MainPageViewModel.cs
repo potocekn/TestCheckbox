@@ -46,7 +46,7 @@ namespace AppBaseNamespace.ViewModels
         /// Method used for separating resources for each language. On the main page each language has a separate button 
         /// so that when user wants to access only one language it would be more convenient.
         /// </summary>
-        /// <param name="app">The referrence to the current app.</param>
+        /// <param name="app">The referrence to the current application.</param>
         /// <param name="navigation">The current navigation bar - needed for pushing new pages on the navigation.</param>
         /// <returns>List of separated resources for each language.</returns>
         List<ResourceLanguageInfo> SeparateLanguages(App app, INavigation navigation)
@@ -74,7 +74,7 @@ namespace AppBaseNamespace.ViewModels
         /// Method for separating the PDF files for given language.
         /// </summary>
         /// <param name="language">Language for which the separation should be done.</param>
-        /// <param name="app">The referrence to the current app.</param>
+        /// <param name="app">The referrence to the current application</param>
         /// <returns>List of separated PDF files.</returns>
         List<ResourcesInfoPDF> SeparatePDFsForLanguage(string language, App app)
         {
@@ -95,7 +95,7 @@ namespace AppBaseNamespace.ViewModels
         /// Method for separating the ODT files for given language.
         /// </summary>
         /// <param name="language">Language for which the separation should be done.</param>
-        /// <param name="app">The referrence to the current app.</param>
+        /// <param name="app">The referrence to the current application.</param>
         /// <returns>List of separated ODT files.</returns>
         List<ResourcesInfoPDF> SeparateODTsForLanguage(string language, App app)
         {

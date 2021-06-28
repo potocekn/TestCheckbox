@@ -18,10 +18,19 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(AndroidDownloader))]
 namespace TestCheckbox.Droid
 {
+    /// <summary>
+    /// Custom dependency service for downloading files on Android platform.
+    /// </summary>
     public class AndroidDownloader : IDownloader
     {
         public event EventHandler<DownloadEventArgs> OnFileDownloaded;
 
+        /// <summary>
+        /// Method used for downloading files.
+        /// </summary>
+        /// <param name="url">url of the file</param>
+        /// <param name="folder">folder into which to store the file</param>
+        /// <param name="fileName">nema ounder which to store the file</param>
         public void DownloadFile(string url, string folder, string fileName)
         {
             string pathToNewFolder = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), folder);
@@ -30,9 +39,7 @@ namespace TestCheckbox.Droid
             try
             {
                 WebClient webClient = new WebClient();
-                //webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
                 string pathToNewFile = Path.Combine(pathToNewFolder, fileName);
-                //webClient.DownloadFileAsync(new Uri(url), pathToNewFile);
                 if (!File.Exists(pathToNewFile))
                 {
                     webClient.DownloadFileAsync(new Uri(url), pathToNewFile);
@@ -45,19 +52,6 @@ namespace TestCheckbox.Droid
                     OnFileDownloaded.Invoke(this, new DownloadEventArgs(false));
             }
         }
-
-        private void Completed(object sender, AsyncCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                if (OnFileDownloaded != null)
-                    OnFileDownloaded.Invoke(this, new DownloadEventArgs(false));
-            }
-            else
-            {
-                if (OnFileDownloaded != null)
-                    OnFileDownloaded.Invoke(this, new DownloadEventArgs(true));
-            }
-        }
+              
     }
 }

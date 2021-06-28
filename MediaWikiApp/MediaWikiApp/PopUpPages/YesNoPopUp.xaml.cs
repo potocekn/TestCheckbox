@@ -9,6 +9,11 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase.PopUpPages
 {
+    /// <summary>
+    /// Class that represents custom popup that has a title, body, confirm and cancel buttons.
+    /// This popup can currently be used only for Android 6.0 and higher. 
+    /// It is planned to use this popup for iOS once bugs in the library will be fixed.
+    /// </summary>    
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class YesNoPopUp : Popup
     {
@@ -21,11 +26,21 @@ namespace AppBase.PopUpPages
             this.Size = new Size(width, height);
         }
 
+        /// <summary>
+        /// Methos used when clicked on the cancel (NO) button.
+        /// </summary>
+        /// <param name="sender">The cancel button that was clicked on</param>
+        /// <param name="e">Event arguments</param>
         private void noPopupButton_Clicked(object sender, EventArgs e)
         {
             Dismiss(false);
         }
 
+        /// <summary>
+        /// Methos used when clicked on the confirm (YES) button.
+        /// </summary>
+        /// <param name="sender">The cancel button that was clicked on</param>
+        /// <param name="e">Event arguments</param>
         private void yesPopupButton_Clicked(object sender, EventArgs e)
         {
             Dismiss(true);

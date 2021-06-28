@@ -16,37 +16,16 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class representing page that displays list of all available PDF files.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PDFPage : ContentPage
     {
-        IDownloader downloader = DependencyService.Get<IDownloader>();
         public PDFPage(List<ResourcesInfoPDF> resources)
         {
-            InitializeComponent();
-            //downloader.OnFileDownloaded += OnFileDownloaded;
-            //DownloadFiles(downloader, resources);
+            InitializeComponent();            
             BindingContext = new PDFPageViewModel(Navigation, resources);
-        }
-
-        private void DownloadFiles(IDownloader downloader, List<ResourcesInfoPDF> resources)
-        {
-            foreach (var item in resources)
-            {
-                string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), item.Language);
-                downloader.DownloadFile(item.Url, dir, item.FileName);
-            }                       
-        }
-
-        private void OnFileDownloaded(object sender, DownloadEventArgs e)
-        {
-            if (e.FileSaved)
-            {
-                DisplayAlert("XF Downloader", "File Saved Successfully", "Close");
-            }
-            else
-            {
-                DisplayAlert("XF Downloader", "Error while saving the file", "Close");
-            }
         }      
     }
 }

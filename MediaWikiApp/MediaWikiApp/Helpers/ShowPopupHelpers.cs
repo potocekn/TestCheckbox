@@ -11,7 +11,7 @@ namespace AppBase.Helpers
     /// <summary>
     /// Class that contains methods for showing popup messages. 
     /// Custom popups available on Android devices from the version 6.0 and higher.
-    /// The lower versions od Android and iOS have the default popups. 
+    /// The lower versions of Android and iOS have the default popups. 
     /// For iOS there is a goal to create custom popups in the future when the bugs in the library will be resolved.
     /// </summary>
     public static class ShowPopupHelpers

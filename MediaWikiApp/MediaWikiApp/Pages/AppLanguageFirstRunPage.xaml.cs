@@ -8,6 +8,10 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class used for the configuration process of the application. 
+    /// This class displays the list of available languages of the application and the instructions for the user.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppLanguageFirstRunPage : ContentPage
     {
@@ -32,12 +36,22 @@ namespace AppBase
             BindingContext = new AppLanguageFirstRunPageViewModel(app, this, Navigation, items, shortcuts, englishVersions);
         }
         
+        /// <summary>
+        /// Method for the checkbox to call on the checked status change.
+        /// </summary>
+        /// <param name="sender">checkbox that changed status</param>
+        /// <param name="e">Event arguments</param>
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             ((AppLanguageFirstRunPageViewModel)BindingContext).OnCheckBoxCheckedChanged(((sender as CheckBox).BindingContext as LanguageSettingsItem));
 
         }
 
+        /// <summary>
+        /// Method used to check checkbox by clicking on the label next to the checbox.
+        /// </summary>
+        /// <param name="sender">Label that was clicked on</param>
+        /// <param name="e">Event arguments</param>
         public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             ((AppLanguageFirstRunPageViewModel)BindingContext).TapGestureRecognizer_Tapped(sender, e);

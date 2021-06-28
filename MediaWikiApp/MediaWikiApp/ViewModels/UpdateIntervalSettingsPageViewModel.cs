@@ -127,6 +127,10 @@ namespace AppBase.ViewModels
             return Languages;
         }
 
+        /// <summary>
+        /// Method for requesting an update of the resources.
+        /// </summary>
+        /// <param name="updateIntervalSettingsPage"></param>
         internal async void RequestUpdate(UpdateIntervalSettingsPage updateIntervalSettingsPage)
         {
             await RequestUpdateHelpers.RequestUpdate(updateIntervalSettingsPage, app, GetLanguages(app.userSettings.ChosenResourceLanguages));

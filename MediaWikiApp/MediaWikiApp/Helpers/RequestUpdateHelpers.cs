@@ -97,7 +97,7 @@ namespace AppBase.Helpers
         /// <summary>
         /// Method for removing HTML files for given language.
         /// </summary>
-        /// <param name="language">The language for which to delete.</param>
+        /// <param name="language">The language for which to delete the files.</param>
         static void RemoveHTMLs(string language)
         {
             var records = App.Database.GetPagesAsync().Result;
@@ -113,7 +113,7 @@ namespace AppBase.Helpers
         /// <summary>
         /// Method for deleting PDF or ODT files for specified language.
         /// </summary>
-        /// <param name="language">Language for which to delete.</param>
+        /// <param name="language">Language for which to delete the files.</param>
         /// <param name="list">List of files to delete.</param>
         static void RemoveFiles(string language, List<ResourcesInfoPDF> list)
         {
@@ -136,7 +136,7 @@ namespace AppBase.Helpers
         /// Method for deleting the subset of resource list.
         /// </summary>
         /// <param name="whatToDelete">files to delete.</param>
-        /// <param name="fromWhere">from what list to delete.</param>
+        /// <param name="fromWhere">from which list to delete.</param>
         static void DeleteFromList(List<ResourcesInfoPDF> whatToDelete, List<ResourcesInfoPDF> fromWhere)
         {
             foreach (var item in whatToDelete)

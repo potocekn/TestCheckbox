@@ -12,6 +12,10 @@ using Xamarin.Forms.Xaml;
 
 namespace AppBase
 {
+    /// <summary>
+    /// Class that is used during the first configuration of the application.
+    /// This class is responsible for picking the format of the resources (PDF, HTML, ODT).
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResourcesFormatFirstRunPage : ContentPage
     {
@@ -26,6 +30,11 @@ namespace AppBase
             BindingContext = new ResourcesFormatFirstRunPageViewModel(app, Navigation, switches);
         }
 
+        /// <summary>
+        /// Method used when a switch changes its toggled status.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnToggled(object sender, ToggledEventArgs e)
         {
             (BindingContext as ResourcesFormatFirstRunPageViewModel).OnToggled(sender, e);
