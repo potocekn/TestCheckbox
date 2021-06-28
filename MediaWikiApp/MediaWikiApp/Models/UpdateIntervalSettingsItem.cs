@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using Xamarin.Forms;
 
-namespace AppBase.ViewModels
+namespace AppBase.Models
 {
     /// <summary>
     /// Class representing item for update interval settings. Each item remembers its IsChecked status, name and english version of the name.

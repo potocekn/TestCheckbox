@@ -1,4 +1,5 @@
 ﻿using AppBase.Helpers;
+using AppBase.Models;
 using AppBase.ViewModels;
 using AppBaseNamespace.ViewModels;
 using System;
