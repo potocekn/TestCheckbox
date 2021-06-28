@@ -121,9 +121,11 @@ namespace AppBaseNamespace.ViewModels
 
             if (checkboxSender.IsChecked  && checkboxSender.EnglishName != MainPageViewModelBackup.previouslyChecked)
             {
-                bool answer = await SettingsPageBackup.DisplayAlert("", PopupMessageHelpers.CreatePopUpMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
-                                                                        PopupMessageHelpers.CreateYesMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
-                                                                        PopupMessageHelpers.CreateNoMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName));
+                bool answer = await ShowPopupHelpers.ShowYesNoPopup(SettingsPageBackup,
+                                                                    PopupMessageHelpers.CreatePopUpMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                                                                    PopupMessageHelpers.CreateYesMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                                                                    PopupMessageHelpers.CreateNoMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                                                                    300, 330);
                 if (answer)
                 {
                     OnCheckBoxCheckedChanged(checkboxSender);                    

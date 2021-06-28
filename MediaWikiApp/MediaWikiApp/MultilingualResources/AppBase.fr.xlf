@@ -287,8 +287,8 @@
           <target state="new">Status</target>
         </trans-unit>
         <trans-unit id="ResourcesDownloadedUnsuccessful.Text" translate="yes" xml:space="preserve">
-          <source>Unsuccessful download. Pleas make sure you have Internet access.</source>
-          <target state="new">Unsuccessful download. Pleas make sure you have Internet access.</target>
+          <source>Unsuccessful download. Please make sure you have Internet access.</source>
+          <target state="new">Unsuccessful download. Please make sure you have Internet access.</target>
         </trans-unit>
         <trans-unit id="NoInternetMessage.Text" translate="yes" xml:space="preserve">
           <source>Please make sure you have access to internet and try again.</source>

@@ -322,7 +322,7 @@
     <value>Status</value>
   </data>
   <data name="ResourcesDownloadedUnsuccessful.Text" xml:space="preserve">
-    <value>Unsuccessful download. Pleas make sure you have Internet access.</value>
+    <value>Unsuccessful download. Please make sure you have Internet access.</value>
   </data>
   <data name="ResourcesDownloadStartMessage.Text" xml:space="preserve">
     <value>Downloading of resources started. This may take a while, please wait until message about the result shows up.</value>

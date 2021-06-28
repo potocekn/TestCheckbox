@@ -10,18 +10,23 @@ using Xamarin.Forms.Xaml;
 namespace AppBase.PopUpPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OKPopUp : Popup
+    public partial class YesNoPopUp : Popup
     {
-        public OKPopUp(string title, string message, string ok, double width, double height)
+        public YesNoPopUp(string message, string yes, string no, double width, double height)
         {
             InitializeComponent();
-            okPupupLabelTitle.Text = title;
-            okPopupLabelBody.Text = message;
-            okPopupButton.Text = ok;
+            yesNoPopupLabelBody.Text = message;
+            yesPopupButton.Text = yes;
+            noPopupButton.Text = no;
             this.Size = new Size(width, height);
         }
 
-        private void okPopupButton_Clicked(object sender, EventArgs e)
+        private void noPopupButton_Clicked(object sender, EventArgs e)
+        {
+            Dismiss(false);
+        }
+
+        private void yesPopupButton_Clicked(object sender, EventArgs e)
         {
             Dismiss(true);
         }

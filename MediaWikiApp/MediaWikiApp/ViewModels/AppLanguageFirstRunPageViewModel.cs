@@ -1,4 +1,5 @@
-﻿using AppBase.Resources;
+﻿using AppBase.Helpers;
+using AppBase.Resources;
 using AppBaseNamespace;
 using AppBaseNamespace.Models;
 using System;
@@ -30,11 +31,11 @@ namespace AppBase.ViewModels
                     //app.IsFirst = false;
                     app.availableLanguages = Helpers.UpdateSyncHelpers.DownloadLanguages(app.URL);
                     app.SaveLanguages();
-                    navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, app.availableLanguages));
+                    navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, app.availableLanguages));                    
                 }
                 else
                 {
-                    page.DisplayAlert("", AppResources.NoInternetMessage_Text, "OK");
+                    ShowPopupHelpers.ShowOKPopup(page, "", AppResources.NoInternetMessage_Text, 300, 200);                    
                 }
             });
             Items = CreateItems(items,shortcuts,englishVersions);

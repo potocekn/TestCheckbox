@@ -34,6 +34,8 @@ namespace AppBase.Helpers
 
         }
 
+       
+
         /// <summary>
         /// Method for requesting update of the resources. The update deletes the unselected formats and languages and downloads the newly
         /// selected language resources.
@@ -46,23 +48,28 @@ namespace AppBase.Helpers
                 bool canDownload = CanDownloadOnlyWithWifi();
                 if (!canDownload)
                 {
-                    await page.DisplayAlert("", AppResources.DownloadOnlyWithWifi_Text, "OK");
+                    //await page.DisplayAlert("", AppResources.DownloadOnlyWithWifi_Text, "OK");
+                    await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.DownloadOnlyWithWifi_Text, 300, 250);
                     return;
                 }
             }
-            await page.Navigation.ShowPopupAsync(new OKPopUp(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK"));
+
+            await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, 300, 250);
+            
             //await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
             DeleteUntoggledFormats(app);
             DeleteUncheckedLanguageFiles(app, languages);
             bool result = await UpdateSyncHelpers.DownloadResources(app);
             if (result)
             {
-                await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
+                //await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
+                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, 300, 180);
                 app.ReloadApp();
             }
             else
             {
-                await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
+                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, 300, 250);
+                //await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
             }
 
         }

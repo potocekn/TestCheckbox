@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <xct:Popup   xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             Size="300,300"              
-             BackgroundColor="#D3D6EB"
-             
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"                        
+             BackgroundColor="Transparent"
+             Background="Transparent"
+             IsLightDismissEnabled="False"
              x:Class="AppBase.PopUpPages.OKPopUp">
     <StackLayout BackgroundColor="#D3D6EB">
-        
-            <Label x:Name="okPupupLabelTitle" 
+
+        <Label x:Name="okPupupLabelTitle" 
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    FontSize="Large"
                    Margin="10,20,0,0"
                    TextColor="#8B93C9"
                    FontAttributes="Bold"/>
-        
-            <Label x:Name="okPopupLabelBody"
+
+        <Label x:Name="okPopupLabelBody"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    FontSize="Medium"
                    TextColor="#929AD3"
                    Margin="20"/>
-            
-            <Button x:Name="okPopupButton"
+
+        <Button x:Name="okPopupButton"
                     HorizontalOptions="End"
                     VerticalOptions="End"
                     Clicked="okPopupButton_Clicked"
@@ -33,6 +33,6 @@
                     WidthRequest="60"
                     HeightRequest="40"
                     Margin="0,0,10,10"/>
-      
+
     </StackLayout>
 </xct:Popup>

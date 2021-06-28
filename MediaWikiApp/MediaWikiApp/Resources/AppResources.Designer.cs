@@ -673,7 +673,7 @@ namespace AppBase.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unsuccessful download. Pleas make sure you have Internet access..
+        ///   Looks up a localized string similar to Unsuccessful download. Please make sure you have Internet access..
         /// </summary>
         internal static string ResourcesDownloadedUnsuccessful_Text {
             get {

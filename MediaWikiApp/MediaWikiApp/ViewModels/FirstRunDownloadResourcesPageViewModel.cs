@@ -32,12 +32,14 @@ namespace AppBase.ViewModels
         {
             if (!UpdateSyncHelpers.CanDownload(app))
             {
-                await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
+                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, 300, 250);
+                // page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
                 return false;
             }
             else
             {
-                await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
+                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadStartTitle_Text, AppResources.DownloadingSelectedResourcesLabel_Text, 300, 200);
+                //await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
                 await UpdateSyncHelpers.DownloadResources(app);
                 UpdateApp(app);
                 return true;
