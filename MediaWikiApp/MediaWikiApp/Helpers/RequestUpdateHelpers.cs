@@ -20,6 +20,11 @@ namespace AppBase.Helpers
     public static class RequestUpdateHelpers
     {
 
+        /// <summary>
+        /// Method that checks if the device is using the wi-fi connection. This method is used for 
+        /// checking if user who requested download only with wi-fi can download updates.
+        /// </summary>
+        /// <returns>Boolean representing if the wi-fi is on.</returns>
         static bool CanDownloadOnlyWithWifi()
         {            
             var profiles = Connectivity.ConnectionProfiles;
@@ -34,13 +39,16 @@ namespace AppBase.Helpers
 
         }
 
-       
 
         /// <summary>
-        /// Method for requesting update of the resources. The update deletes the unselected formats and languages and downloads the newly
+        /// Method for requesting update of the resources. 
+        /// The update deletes the unselected formats and languages and downloads the newly
         /// selected language resources.
         /// </summary>
-        /// <param name="page"></param>
+        /// <param name="page">Current page</param>
+        /// <param name="app">Reference to the current application instance</param>
+        /// <param name="languages">Languages for which to request update</param>
+        /// <returns></returns>
         public static async Task RequestUpdate(ContentPage page, App app, List<LanguageSettingsItem> languages)
         {
             if (app.userSettings.DownloadOnlyWithWifi)
@@ -48,7 +56,6 @@ namespace AppBase.Helpers
                 bool canDownload = CanDownloadOnlyWithWifi();
                 if (!canDownload)
                 {
-                    //await page.DisplayAlert("", AppResources.DownloadOnlyWithWifi_Text, "OK");
                     await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.DownloadOnlyWithWifi_Text, 300, 250);
                     return;
                 }
@@ -56,20 +63,17 @@ namespace AppBase.Helpers
 
             await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, 300, 250);
             
-            //await page.DisplayAlert(AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, "OK");
             DeleteUntoggledFormats(app);
             DeleteUncheckedLanguageFiles(app, languages);
             bool result = await UpdateSyncHelpers.DownloadResources(app);
             if (result)
             {
-                //await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, "OK");
                 await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, 300, 180);
                 app.ReloadApp();
             }
             else
             {
                 await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, 300, 250);
-                //await page.DisplayAlert(AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, "OK");
             }
 
         }
@@ -77,6 +81,8 @@ namespace AppBase.Helpers
         /// <summary>
         /// Method for deleting the unselected languages. All files and database records are deleted for these languages.
         /// </summary>
+        /// <param name="app">Reference to the current application instance</param>
+        /// <param name="languages">Languages to delete</param>
         private static void DeleteUncheckedLanguageFiles(App app, List<LanguageSettingsItem> languages)
         {
             foreach (var item in languages)
@@ -103,8 +109,6 @@ namespace AppBase.Helpers
                 }
             }
         }
-
-
 
         /// <summary>
         /// Method for deleting PDF or ODT files for specified language.
@@ -145,6 +149,7 @@ namespace AppBase.Helpers
         /// Method for removing all files and formats of given language.
         /// </summary>
         /// <param name="language">The language for which language to delete.</param>
+        /// <param name="app">Reference to the current application instance</param>
         static void RemoveFiles(string language, App app)
         {
             RemoveHTMLs(language);
@@ -154,7 +159,8 @@ namespace AppBase.Helpers
 
         /// <summary>
         /// Method for deleting the formats that are no longer selected.
-        /// </summary>
+        /// </summary>        
+        /// <param name="app">Reference to the current application instance</param>
         static void DeleteUntoggledFormats(App app)
         {
             if (!app.userSettings.Formats.Contains("PDF"))

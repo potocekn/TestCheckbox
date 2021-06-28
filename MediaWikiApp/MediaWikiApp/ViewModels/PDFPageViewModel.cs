@@ -10,6 +10,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using System.Diagnostics;
 using AppBase.UserSettingsHelpers;
+using AppBase.Models;
 
 namespace AppBase.ViewModels
 {

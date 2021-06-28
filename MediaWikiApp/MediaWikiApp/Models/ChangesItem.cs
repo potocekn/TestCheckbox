@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AppBase.Helpers
+namespace AppBase.Models
 {
     /// <summary>
     /// Class that represents files with their actual version number. This class is used when determining if new version 

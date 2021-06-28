@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using Xamarin.Forms;
 
-namespace AppBase.ViewModels
+namespace AppBase.Models
 {
     /// <summary>
     /// Class representing one pdf resource item used in pdf page view model. 

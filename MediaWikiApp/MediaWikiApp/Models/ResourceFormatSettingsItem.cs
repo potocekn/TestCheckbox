@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace AppBase.ViewModels
+namespace AppBase.Models
 {
     /// <summary>
     /// Class representing item used for determining resource format settings. Each item remembers its corresponding switch object and its name.

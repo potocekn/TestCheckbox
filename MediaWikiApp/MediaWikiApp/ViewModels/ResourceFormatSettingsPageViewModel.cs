@@ -10,6 +10,7 @@ using AppBase.UserSettingsHelpers;
 using System;
 using System.Globalization;
 using AppBase.ViewModels;
+using AppBase.Models;
 
 namespace AppBaseNamespace
 {

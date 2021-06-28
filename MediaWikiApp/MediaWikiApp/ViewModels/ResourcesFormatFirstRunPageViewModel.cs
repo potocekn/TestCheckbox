@@ -1,4 +1,5 @@
 ﻿using AppBase.Helpers;
+using AppBase.Models;
 using AppBase.Pages;
 using AppBase.Resources;
 using AppBaseNamespace;
