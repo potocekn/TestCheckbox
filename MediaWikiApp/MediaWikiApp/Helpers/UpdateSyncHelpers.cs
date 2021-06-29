@@ -1,6 +1,5 @@
 ﻿using AppBase.Interfaces;
 using AppBase.Models;
-using AppBase.UserSettingsHelpers;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
@@ -145,7 +144,7 @@ namespace AppBase.Helpers
         /// <param name="fileFormat">Format of the files that should be downloaded/updated. (".pdf for PDF files and ".odt" for ODT files)</param>
         /// <param name="formatFolder">The name of the folder in the repository where the resources are stored ("PDF" or "ODT").</param>
         /// <returns>Boolean that represents if the update was successful. True => successful, False => not successful.</returns>
-        private static bool DownloadSpecialFormatFiles(App app, List<ResourcesInfoPDF> list, string fileFormat, string formatFolder)
+        private static bool DownloadSpecialFormatFiles(App app, List<ResourcesInfo> list, string fileFormat, string formatFolder)
         {
             if (!CanDownload(app)) return false;
 
@@ -168,13 +167,13 @@ namespace AppBase.Helpers
                     {
                         if (list == null)
                         {
-                            list = new List<ResourcesInfoPDF>();
+                            list = new List<ResourcesInfo>();
                         }
                         var found = list.Find(x => x.FileName.Contains(resource) && x.FileName.Contains(language));
-                        ResourcesInfoPDF newResource;
+                        ResourcesInfo newResource;
                         if (found == null)
                         {
-                            newResource = new ResourcesInfoPDF()
+                            newResource = new ResourcesInfo()
                             {
                                 FileName = resource + "-" + language + fileFormat,
                                 Language = ci.DisplayName,

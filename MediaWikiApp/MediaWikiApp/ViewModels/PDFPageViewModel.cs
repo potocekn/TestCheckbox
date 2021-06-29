@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using System.Diagnostics;
-using AppBase.UserSettingsHelpers;
 using AppBase.Models;
 
 namespace AppBase.ViewModels
@@ -21,7 +20,7 @@ namespace AppBase.ViewModels
     {     
         public List<PDFPageItem> Items { get; set; }
 
-        public PDFPageViewModel(INavigation navigation, List<ResourcesInfoPDF> resources)
+        public PDFPageViewModel(INavigation navigation, List<ResourcesInfo> resources)
         {           
             Items = new List<PDFPageItem>();
 

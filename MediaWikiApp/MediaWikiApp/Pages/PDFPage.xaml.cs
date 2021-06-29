@@ -1,5 +1,5 @@
 ﻿using AppBase.Interfaces;
-using AppBase.UserSettingsHelpers;
+using AppBase.Models;
 using AppBase.ViewModels;
 using AppBaseNamespace;
 using System;
@@ -22,7 +22,7 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PDFPage : ContentPage
     {
-        public PDFPage(List<ResourcesInfoPDF> resources)
+        public PDFPage(List<ResourcesInfo> resources)
         {
             InitializeComponent();            
             BindingContext = new PDFPageViewModel(Navigation, resources);

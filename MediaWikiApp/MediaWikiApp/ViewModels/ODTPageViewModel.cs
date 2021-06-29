@@ -1,5 +1,4 @@
 ﻿using AppBase.Models;
-using AppBase.UserSettingsHelpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +16,7 @@ namespace AppBase.ViewModels
     class ODTPageViewModel
     {
         public List<ODTPageItem> Items { get; set; }
-        public ODTPageViewModel(List<ResourcesInfoPDF> resources)
+        public ODTPageViewModel(List<ResourcesInfo> resources)
         {
             Items = new List<ODTPageItem>();
 

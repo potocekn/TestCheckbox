@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AppBase.UserSettingsHelpers
+namespace AppBase.Models
 {
     /// <summary>
     /// Class representing everything that needs to be saved about user. More precisely where the resources are stored, 

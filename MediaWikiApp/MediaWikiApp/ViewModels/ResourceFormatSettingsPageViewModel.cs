@@ -6,7 +6,6 @@ using AppBaseNamespace.Models;
 using AppBase.Resources;
 using AppBase.Helpers;
 using System.IO;
-using AppBase.UserSettingsHelpers;
 using System;
 using System.Globalization;
 using AppBase.ViewModels;

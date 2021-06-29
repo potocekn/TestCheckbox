@@ -1,5 +1,5 @@
 ﻿using AppBase.Resources;
-using AppBase.UserSettingsHelpers;
+using AppBase.Models;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
@@ -115,10 +115,10 @@ namespace AppBase.Helpers
         /// </summary>
         /// <param name="language">Language for which to delete the files.</param>
         /// <param name="list">List of files to delete.</param>
-        static void RemoveFiles(string language, List<ResourcesInfoPDF> list)
+        static void RemoveFiles(string language, List<ResourcesInfo> list)
         {
             if (list == null) return;
-            List<ResourcesInfoPDF> toBeDeleted = new List<ResourcesInfoPDF>();
+            List<ResourcesInfo> toBeDeleted = new List<ResourcesInfo>();
             CultureInfo ci = new CultureInfo(language);
             foreach (var item in list)
             {
@@ -137,7 +137,7 @@ namespace AppBase.Helpers
         /// </summary>
         /// <param name="whatToDelete">files to delete.</param>
         /// <param name="fromWhere">from which list to delete.</param>
-        static void DeleteFromList(List<ResourcesInfoPDF> whatToDelete, List<ResourcesInfoPDF> fromWhere)
+        static void DeleteFromList(List<ResourcesInfo> whatToDelete, List<ResourcesInfo> fromWhere)
         {
             foreach (var item in whatToDelete)
             {
@@ -195,7 +195,7 @@ namespace AppBase.Helpers
         /// Method for removing the PDF or ODT files.
         /// </summary>
         /// <param name="list">list of files to delete.</param>
-        static void RemoveFiles(ref List<ResourcesInfoPDF> list)
+        static void RemoveFiles(ref List<ResourcesInfo> list)
         {
             if (list == null)
                 return;
@@ -203,7 +203,7 @@ namespace AppBase.Helpers
             {
                 File.Delete(item.FilePath);
             }
-            list = new List<ResourcesInfoPDF>();
+            list = new List<ResourcesInfo>();
         }
     }
 }

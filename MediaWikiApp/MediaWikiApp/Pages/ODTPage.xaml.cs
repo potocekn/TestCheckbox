@@ -1,6 +1,6 @@
 ﻿using AppBase.Interfaces;
-using AppBase.UserSettingsHelpers;
 using AppBase.ViewModels;
+using AppBase.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +19,7 @@ namespace AppBase
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ODTPage : ContentPage
     {
-        public ODTPage(List<ResourcesInfoPDF> resources)
+        public ODTPage(List<ResourcesInfo> resources)
         {
             InitializeComponent();           
             BindingContext = new ODTPageViewModel(resources);

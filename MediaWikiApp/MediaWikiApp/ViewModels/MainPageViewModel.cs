@@ -8,7 +8,6 @@ using System.Text;
 using Xamarin.Forms;
 using AppBase;
 using AppBase.Models;
-using AppBase.UserSettingsHelpers;
 using System.Globalization;
 
 namespace AppBaseNamespace.ViewModels
@@ -76,9 +75,9 @@ namespace AppBaseNamespace.ViewModels
         /// <param name="language">Language for which the separation should be done.</param>
         /// <param name="app">The referrence to the current application</param>
         /// <returns>List of separated PDF files.</returns>
-        List<ResourcesInfoPDF> SeparatePDFsForLanguage(string language, App app)
+        List<ResourcesInfo> SeparatePDFsForLanguage(string language, App app)
         {
-            List<ResourcesInfoPDF> result = new List<ResourcesInfoPDF>();
+            List<ResourcesInfo> result = new List<ResourcesInfo>();
 
             foreach (var item in app.resourcesPDF)
             {
@@ -97,9 +96,9 @@ namespace AppBaseNamespace.ViewModels
         /// <param name="language">Language for which the separation should be done.</param>
         /// <param name="app">The referrence to the current application.</param>
         /// <returns>List of separated ODT files.</returns>
-        List<ResourcesInfoPDF> SeparateODTsForLanguage(string language, App app)
+        List<ResourcesInfo> SeparateODTsForLanguage(string language, App app)
         {
-            List<ResourcesInfoPDF> result = new List<ResourcesInfoPDF>();
+            List<ResourcesInfo> result = new List<ResourcesInfo>();
 
             foreach (var item in app.resourcesODT)
             {

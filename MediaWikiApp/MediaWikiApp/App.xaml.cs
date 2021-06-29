@@ -6,7 +6,6 @@ using System.Threading;
 using AppBase.Resources;
 using System.IO;
 using System.Collections.Generic;
-using AppBase.UserSettingsHelpers;
 using AppBase;
 using AppBase.Interfaces;
 using AppBase.Helpers;
@@ -32,8 +31,8 @@ namespace AppBaseNamespace
         public string URL = "https://raw.githubusercontent.com/potocekn/ResourcesTest/master";
         public UserSettings userSettings;
         public List<string> availableLanguages = new List<string>();
-        public List<ResourcesInfoPDF> resourcesPDF = new List<ResourcesInfoPDF>();
-        public List<ResourcesInfoPDF> resourcesODT = new List<ResourcesInfoPDF>();
+        public List<ResourcesInfo> resourcesPDF = new List<ResourcesInfo>();
+        public List<ResourcesInfo> resourcesODT = new List<ResourcesInfo>();
         public Dictionary<string, string> resourcesHTML;
 
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
@@ -107,11 +106,11 @@ namespace AppBaseNamespace
         /// </summary>
         private void RetrieveResourcesPDF()
         {
-            List<ResourcesInfoPDF> resourcesInfosPDF = new List<ResourcesInfoPDF>();
+            List<ResourcesInfo> resourcesInfosPDF = new List<ResourcesInfo>();
 
             if (File.Exists(resourcesPDFfileName))
             {
-                resourcesInfosPDF = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfoPDF>>(File.ReadAllText(resourcesPDFfileName).Trim());
+                resourcesInfosPDF = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(File.ReadAllText(resourcesPDFfileName).Trim());
             }
 
             resourcesPDF = resourcesInfosPDF;           
@@ -123,11 +122,11 @@ namespace AppBaseNamespace
         /// </summary>
         private void RetrieveResourcesODT()
         {
-            List<ResourcesInfoPDF> resourcesInfosODT = new List<ResourcesInfoPDF>();
+            List<ResourcesInfo> resourcesInfosODT = new List<ResourcesInfo>();
 
             if (File.Exists(resourcesODTfileName))
             {
-                resourcesInfosODT = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfoPDF>>(File.ReadAllText(resourcesODTfileName).Trim());
+                resourcesInfosODT = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(File.ReadAllText(resourcesODTfileName).Trim());
             }
 
             resourcesODT = resourcesInfosODT;
