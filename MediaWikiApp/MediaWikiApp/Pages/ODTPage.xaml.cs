@@ -14,7 +14,7 @@ using Xamarin.Forms.Xaml;
 namespace AppBase
 {
     /// <summary>
-    /// 
+    /// Class used for diplaying the list of all available ODT resources.
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ODTPage : ContentPage

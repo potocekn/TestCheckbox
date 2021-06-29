@@ -9,6 +9,11 @@ using Xamarin.Forms;
 
 namespace AppBase.ViewModels
 {
+    /// <summary>
+    /// Class that is used as view model for the ODT Page. 
+    /// This view model is responsible for providing data for the displaying of the available oDT resources
+    /// and to call share dialog when clicked on the buttons representing the resources.
+    /// </summary>
     class ODTPageViewModel
     {
         public List<ODTPageItem> Items { get; set; }
