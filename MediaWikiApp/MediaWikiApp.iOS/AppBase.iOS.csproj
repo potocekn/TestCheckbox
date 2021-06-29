@@ -126,8 +126,12 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\CustomLaunchScreen2.storyboard" />
-    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Image.imageset\splash_screen_background.png" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Image.imageset\splash_screen_background.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <InterfaceDefinition Include="Resources\CustomLaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
@@ -158,5 +162,26 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon87.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon180.png" />
   </ItemGroup>
 </Project>
