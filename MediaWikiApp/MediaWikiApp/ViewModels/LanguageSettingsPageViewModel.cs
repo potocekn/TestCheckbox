@@ -23,7 +23,8 @@ namespace AppBaseNamespace.ViewModels
         App app { get; set; }
         LanguageSettingsPage SettingsPageBackup { get; set; }
 
-        public LanguageSettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions, LanguageSettingsPage page, MainPageViewModel mainPageViewModel, App app)
+        public LanguageSettingsPageViewModel(IEnumerable<string> items, IEnumerable<string> shortcuts, 
+            List<string> englishVersions, LanguageSettingsPage page, MainPageViewModel mainPageViewModel, App app)
         {
             this.app = app;
             this.SettingsPageBackup = page;
@@ -35,7 +36,8 @@ namespace AppBaseNamespace.ViewModels
             for (int j = 0; j < items.Count(); j++)            
             {
                 var item = items.ElementAt(j);
-                if (mainPageViewModel.previouslyChecked != Constants.EMPTY_STRING && englishVersions.Contains(mainPageViewModel.previouslyChecked))
+                if (mainPageViewModel.previouslyChecked != Constants.EMPTY_STRING && englishVersions.Contains(
+                    mainPageViewModel.previouslyChecked))
                 { 
                     if (englishVersions.ElementAt(j) == mainPageViewModel.previouslyChecked)
                     {
@@ -71,7 +73,7 @@ namespace AppBaseNamespace.ViewModels
         /// <param name="wasUpdated">if the item has already been updated</param>
         /// <param name="value">value being displayed</param>
         /// <param name="shortcut">shortcut of the language</param>
-        /// <param name="englishName">english name of the language</param>
+        /// <param name="englishName">English name of the language</param>
         private void AddNewItem(bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
         {
             Items.Add(new LanguageSettingsItem()

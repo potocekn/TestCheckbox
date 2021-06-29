@@ -31,11 +31,14 @@ namespace AppBase.Helpers
         }
 
         /// <summary>
-        /// Static method that returns value of label for given language. This method is needed for rendering language names in multilingual mode.
-        /// By returning the value of label it returns already translated string representation of language name (multilingual app tool kit translated it).
+        /// Static method that returns value of label for given language.
+        /// This method is needed for rendering language names in multilingual mode.
+        /// By returning the value of label it returns already translated string
+        /// representation of language name (multilingual app tool kit translated it).
         /// </summary>
         /// <param name="original">English version of language name starting with capital letter (e.g.: English or German)</param>
-        /// <returns>string representation of language name took from multilingual resources based on current language of application</returns>
+        /// <returns>string representation of language name took from multilingual
+        /// resources based on current language of application</returns>
         public static string ReturnTranslation(string original)
         {
             switch (original)

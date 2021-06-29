@@ -29,7 +29,6 @@ namespace AppBase.ViewModels
                 var current = Connectivity.NetworkAccess;
                 if (current == NetworkAccess.Internet)
                 {
-                    //app.IsFirst = false;
                     app.availableLanguages = Helpers.UpdateSyncHelpers.DownloadLanguages(app.URL);
                     app.SaveLanguages();
                     navigation.PushAsync(new ResourceLanguagesFirstRunPage(app, app.availableLanguages));                    
@@ -47,7 +46,7 @@ namespace AppBase.ViewModels
         /// </summary>
         /// <param name="items">list of languages</param>
         /// <param name="shortcuts">list of shortcuts of languages</param>
-        /// <param name="englishVersions">list of english names of languages</param>
+        /// <param name="englishVersions">list of English names of languages</param>
         /// <returns>list of LanguageSettingsItems that should be displayed</returns>
         private List<LanguageSettingsItem> CreateItems(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
         {
@@ -79,7 +78,7 @@ namespace AppBase.ViewModels
         /// <param name="wasUpdated">if the checkbox was updated</param>
         /// <param name="value">string representation of what language should be displayed</param>
         /// <param name="shortcut">shortcut of the language that should be displayed</param>
-        /// <param name="englishName">english name for the language that should be displayed</param>
+        /// <param name="englishName">English name for the language that should be displayed</param>
         private void AddNewItem(List<LanguageSettingsItem> whereToAdd, bool isChecked, bool wasUpdated, string value, string shortcut, string englishName)
         {
             whereToAdd.Add(new LanguageSettingsItem()
@@ -112,7 +111,8 @@ namespace AppBase.ViewModels
         }
 
         /// <summary>
-        /// Method that handles situation, that checkbox IsChecked status changed. Method has to check if there is something checked in the list.
+        /// Method that handles situation, that checkbox IsChecked status changed.
+        /// Method has to check if there is something checked in the list.
         /// If not, it needs to do some additional checking.
         /// </summary>
         /// <param name="sender"></param>

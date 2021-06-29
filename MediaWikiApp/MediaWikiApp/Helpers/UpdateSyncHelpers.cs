@@ -24,10 +24,12 @@ namespace AppBase.Helpers
         static Dictionary<string, List<string>> languagesWithResources = new Dictionary<string, List<string>>();
 
         /// <summary>
-        /// Application responsible for choosing the correct form of update strategy based on the user settings saved in the application.
+        /// Application responsible for choosing the correct form of update 
+        /// strategy based on the user settings saved in the application.
         /// The default strategy is the automatic update.
         /// </summary>
-        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// <param name="app">Reference to the current application. 
+        /// This is needed so that after the synchronization the database and 
         /// lists of resources in the app would be correctly updated and saved. </param>
         public static async void SynchronizeResources(App app)
         {
@@ -49,11 +51,14 @@ namespace AppBase.Helpers
         }
 
         /// <summary>
-        /// Wrapper function for requesting update. The wrapper was made because the update method should not be called uncontrolled.
+        /// Wrapper function for requesting update. The wrapper was made because the update
+        /// method should not be called uncontrolled.
         /// </summary>
-        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// <param name="app">Reference to the current application. 
+        /// This is needed so that after the synchronization the database and 
         /// lists of resources in the app would be correctly updated and saved. </param>
-        /// <returns>Boolean that represents if the update was successful. True => successful, False => not successful.</returns>
+        /// <returns>Boolean that represents if the update was successful. 
+        /// True => successful, False => not successful.</returns>
         public static async Task<bool> DownloadResources(App app)
         {
            return await HandleAutomaticUpdate(DateTime.Now, app);
@@ -63,7 +68,8 @@ namespace AppBase.Helpers
         /// Method for handling the "On request" update strategy.
         /// </summary>
         /// <param name="now">the actual date and time</param>
-        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// <param name="app">Reference to the current application.
+        /// This is needed so that after the synchronization the database and 
         /// lists of resources in the app would be correctly updated and saved. </param>
         private static async void HandleOnRequestUpdate(DateTime now, App app)
         {
@@ -74,7 +80,8 @@ namespace AppBase.Helpers
         /// Method for handling the "Once a month" update strategy. Update is done after at least 28 days.
         /// </summary>
         /// <param name="now">the actual date and time</param>
-        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// <param name="app">Reference to the current application. 
+        /// This is needed so that after the synchronization the database and 
         /// lists of resources in the app would be correctly updated and saved. </param>
         private static async void HandleOnceAMonthUpdate(DateTime now, App app)
         {
@@ -89,9 +96,11 @@ namespace AppBase.Helpers
         /// downloading the changed or new resources. 
         /// </summary>
         /// <param name="now">the actual date and time</param>
-        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// <param name="app">Reference to the current application. 
+        /// This is needed so that after the synchronization the database and 
         /// lists of resources in the app would be correctly updated and saved. </param>
-        /// <returns>Boolean that represents if the update was successful. True => successful, False => not successful.</returns>
+        /// <returns>Boolean that represents if the update was successful.
+        /// True => successful, False => not successful.</returns>
         private static async Task<bool> HandleAutomaticUpdate(DateTime now, App app)
         {
             if (!CanDownload(app)) return false;
@@ -252,7 +261,8 @@ namespace AppBase.Helpers
         }
 
         /// <summary>
-        /// Method for downloading a list of all available languages from the github repository. All languages available on the mediawiki server are
+        /// Method for downloading a list of all available languages from the github repository. 
+        /// All languages available on the mediawiki server are
         /// stored in the root folder of the github repository in the "Languages.json" file.
         /// </summary>
         /// <param name="url">The url of the github repository - the root folder, master branch.</param>
@@ -276,8 +286,10 @@ namespace AppBase.Helpers
         }
 
         /// <summary>
-        /// Method for downloading a list of all changed files for a specific language. Every resource has a version number. The tuple of 
-        /// (resource name, version number) is stored in the "Changes.json" file in the specific language folder in the github repository.
+        /// Method for downloading a list of all changed files for a specific language.
+        /// Every resource has a version number. The tuple of 
+        /// (resource name, version number) is stored in the "Changes.json" file in the specific
+        /// language folder in the github repository.
         /// </summary>
         /// <param name="url">The url of the github repository + the language folder.</param>
         /// <returns>The list of resources and their actual version numbers.</returns>

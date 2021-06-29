@@ -60,7 +60,8 @@ namespace AppBase.Helpers
         /// <param name="width">Width of the popup in pixels</param>
         /// <param name="height">Height of the popup in pixels</param>
         /// <returns></returns>
-        public static async Task<bool> ShowYesNoPopup(ContentPage page, string message, string yes, string no, double width, double height)
+        public static async Task<bool> ShowYesNoPopup(ContentPage page, string message, string yes,
+            string no, double width, double height)
         {
             bool result = false;
             switch (Device.RuntimePlatform)

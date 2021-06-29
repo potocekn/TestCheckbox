@@ -23,7 +23,8 @@ namespace AppBaseNamespace
         public List<LanguageSettingsItem> Languages { get; set; }
         ResourceFormatSettingsPage Page { get; set; }
         App app;        
-        public ResourceFormatSettingsPageViewModel(App app, ResourceFormatSettingsPage page, List<string> languages, List<ResourceFormatSettingsItem> switches)
+        public ResourceFormatSettingsPageViewModel(App app, ResourceFormatSettingsPage page, List<string> languages, 
+            List<ResourceFormatSettingsItem> switches)
         {
             this.app = app;
             this.Page = page;

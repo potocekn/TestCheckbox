@@ -107,7 +107,8 @@ namespace AppBase.Helpers
         }
 
         /// <summary>
-        /// Creates multilingual message that says "yes" in two languages. This is used as a part of popup message for app language change.
+        /// Creates multilingual message that says "yes" in two languages. 
+        /// This is used as a part of popup message for app language change.
         /// </summary>
         /// <param name="from">current language of the application</param>
         /// <param name="to">language to which app will change</param>
@@ -163,7 +164,8 @@ namespace AppBase.Helpers
         }
 
         /// <summary>
-        /// Creates multilingual message that says "no" in two languages. This is used as a part of popup message for app language change.
+        /// Creates multilingual message that says "no" in two languages.
+        /// This is used as a part of popup message for app language change.
         /// </summary>
         /// <param name="from">current language of the application</param>
         /// <param name="to">language to which app will change</param>
