@@ -66,7 +66,6 @@
   <ItemGroup>
     <Compile Include="PlatformSpecifics\AndroidDownloader.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="PlatformSpecifics\LocalFileProvider.cs" />
     <Compile Include="Renderers\GradientColorStackRenderer.cs" />
     <Compile Include="Renderers\PdfWebViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
