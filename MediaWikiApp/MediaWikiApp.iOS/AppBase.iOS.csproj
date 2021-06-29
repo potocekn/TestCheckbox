@@ -116,9 +116,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -133,6 +130,7 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\CustomLaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon40-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -159,6 +157,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\splash_screen_background.png" />
+    <BundleResource Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\share.png" />
