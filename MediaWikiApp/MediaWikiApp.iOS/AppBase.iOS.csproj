@@ -125,6 +125,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <InterfaceDefinition Include="Resources\CustomLaunchScreen2.storyboard" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\splash_screen_background.png" />
+    <InterfaceDefinition Include="Resources\CustomLaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -150,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\settings.png" />
+    <BundleResource Include="Resources\splash_screen_background.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\share.png" />
