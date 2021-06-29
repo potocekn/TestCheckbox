@@ -50,7 +50,7 @@ namespace AppBase.ViewModels
             
             await Share.RequestAsync(new ShareFileRequest
             {
-                Title = "Share",
+                Title = Resources.AppResources.ShareButton_Text,
                 File = new ShareFile(filePath)
             });            
         }
