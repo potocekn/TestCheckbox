@@ -10,6 +10,10 @@ using TestCheckbox.Droid;
 
 namespace AppBaseNamespace.Droid
 {
+    /// <summary>
+    /// This activity is responsible for creating the application instance for the standard run. 
+    /// Before this activity the SplashScreenActivity takes place, that is why is the MainLauncher is disabled for this activity.
+    /// </summary>
     [Activity(Label = "TrainingApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

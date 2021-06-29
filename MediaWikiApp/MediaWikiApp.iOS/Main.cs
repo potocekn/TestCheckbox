@@ -7,7 +7,9 @@ namespace AppBaseNamespace.iOS
 {
     public class Application
     {
-        // This is the main entry point of the application.
+        /// <summary>
+        /// This is the main entry point of the application.
+        /// </summary>
         static void Main(string[] args)
         {            
             UIApplication.Main(args, null, "AppDelegate");
