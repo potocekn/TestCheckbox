@@ -68,7 +68,7 @@ namespace AppBase.ViewModels
                 {
                     item.IsChecked = false;
                     item.WasUpdated = false;
-                    item.NotifyPropertyChanged("IsChecked");
+                    item.NotifyPropertyChanged(Constants.IS_CHECKED_PROPERTY_NAME);
                 }
                 IsOnRequest = app.userSettings.UpdateInterval == Models.UpdateIntervalOption.ON_REQUEST;
                 statusChanged = true;
@@ -104,10 +104,10 @@ namespace AppBase.ViewModels
 
             if (allFalse)
             {
-                UpdateIntervalSettingsItem automatic = Items.Find(x => (x.Name == "Automatic"));
+                UpdateIntervalSettingsItem automatic = Items.Find(x => (x.Name == Constants.AUTOMATIC));
                 automatic.IsChecked = true;
                 automatic.WasUpdated = true;
-                automatic.NotifyPropertyChanged("IsChecked");
+                automatic.NotifyPropertyChanged(Constants.IS_CHECKED_PROPERTY_NAME);
             }
         }
 
@@ -133,7 +133,8 @@ namespace AppBase.ViewModels
         /// <param name="updateIntervalSettingsPage"></param>
         internal async void RequestUpdate(UpdateIntervalSettingsPage updateIntervalSettingsPage)
         {
-            await RequestUpdateHelpers.RequestUpdate(updateIntervalSettingsPage, app, GetLanguages(app.userSettings.ChosenResourceLanguages));
+            await RequestUpdateHelpers.RequestUpdate(updateIntervalSettingsPage,
+                app, GetLanguages(app.userSettings.ChosenResourceLanguages));
         }
 
         /// <summary>

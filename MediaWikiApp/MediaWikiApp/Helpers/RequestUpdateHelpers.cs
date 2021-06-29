@@ -56,24 +56,28 @@ namespace AppBase.Helpers
                 bool canDownload = CanDownloadOnlyWithWifi();
                 if (!canDownload)
                 {
-                    await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.DownloadOnlyWithWifi_Text, 300, 250);
+                    await ShowPopupHelpers.ShowOKPopup(page,
+                        AppResources.ResourcesDownloadedTitle_Text, AppResources.DownloadOnlyWithWifi_Text, 300, 250);
                     return;
                 }
             }
 
-            await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, 300, 250);
+            await ShowPopupHelpers.ShowOKPopup(page, 
+                AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, 300, 250);
             
             DeleteUntoggledFormats(app);
             DeleteUncheckedLanguageFiles(app, languages);
             bool result = await UpdateSyncHelpers.DownloadResources(app);
             if (result)
             {
-                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, 300, 180);
+                await ShowPopupHelpers.ShowOKPopup(page, 
+                    AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedMessage_Text, 300, 180);
                 app.ReloadApp();
             }
             else
             {
-                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, 300, 250);
+                await ShowPopupHelpers.ShowOKPopup(page,
+                    AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, 300, 250);
             }
 
         }
@@ -163,17 +167,17 @@ namespace AppBase.Helpers
         /// <param name="app">Reference to the current application instance</param>
         static void DeleteUntoggledFormats(App app)
         {
-            if (!app.userSettings.Formats.Contains("PDF"))
+            if (!app.userSettings.Formats.Contains(Constants.PDF))
             {
                 RemoveFiles(ref app.resourcesPDF);
             }
 
-            if (!app.userSettings.Formats.Contains("ODT"))
+            if (!app.userSettings.Formats.Contains(Constants.ODT))
             {
                 RemoveFiles(ref app.resourcesODT);
             }
 
-            if (!app.userSettings.Formats.Contains("HTML"))
+            if (!app.userSettings.Formats.Contains(Constants.HTML))
             {
                 RemoveHTMLs();
             }

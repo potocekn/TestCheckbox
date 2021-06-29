@@ -25,7 +25,7 @@ namespace AppBaseNamespace
             
             List<ResourceFormatSettingsItem> switches = new List<ResourceFormatSettingsItem>();
             
-            switches.Add(new ResourceFormatSettingsItem(wifiSwitch, "wifi"));
+            switches.Add(new ResourceFormatSettingsItem(wifiSwitch, Constants.WIFI_TOGGLE_NAME));
             switches.Add(new ResourceFormatSettingsItem(pdfSwitch, pdfLabel.Text));
             switches.Add(new ResourceFormatSettingsItem(htmlSwitch, htmlLabel.Text));
             switches.Add(new ResourceFormatSettingsItem(odtSwitch, odtLabel.Text));

@@ -139,7 +139,7 @@ namespace AppBase.Helpers
                 case "isiXhosa":
                     return AppResources.isiXhosaLabel_Text;
                 default:
-                    return "";
+                    return Constants.EMPTY_STRING;
             }
         }
     }

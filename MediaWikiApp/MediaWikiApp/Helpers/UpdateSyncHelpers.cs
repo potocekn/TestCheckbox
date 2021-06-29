@@ -101,7 +101,7 @@ namespace AppBase.Helpers
             foreach (var language in languagesWithResources.Keys)
             {
                 CultureInfo ci = new CultureInfo(language);
-                List<ChangesItem> language_changes = DownloadChangedFiles(app.URL + '/' + language);
+                List<ChangesItem> language_changes = DownloadChangedFiles(app.URL + Constants.FORWARD_SLASH + language);
                 if (changes.Keys.Contains(language))
                 {
                     changes[language] = language_changes;
@@ -119,14 +119,14 @@ namespace AppBase.Helpers
                 
                 switch (format)
                 {
-                    case "HTML":
+                    case Constants.HTML:
                         result &= await DownloadHTMLFiles(app);                    
                         break;
-                    case "PDF":
-                        result &= DownloadSpecialFormatFiles(app, app.resourcesPDF, ".pdf", "PDF");                       
+                    case Constants.PDF:
+                        result &= DownloadSpecialFormatFiles(app, app.resourcesPDF, ".pdf", Constants.PDF);                       
                         break;                    
-                    case "ODT":
-                        result &= DownloadSpecialFormatFiles(app, app.resourcesODT, ".odt", "ODT");                        
+                    case Constants.ODT:
+                        result &= DownloadSpecialFormatFiles(app, app.resourcesODT, ".odt", Constants.ODT);                        
                         break;
                     default:                       
                         break;
@@ -138,12 +138,16 @@ namespace AppBase.Helpers
         /// <summary>
         /// Method for downloading the PDF or ODT files from the github repository.
         /// </summary>
-        /// <param name="app">Reference to the current application. This is needed so that after the synchronization the database and 
+        /// <param name="app">Reference to the current application. 
+        /// This is needed so that after the synchronization the database and 
         /// lists of resources in the app would be correctly updated and saved. </param>
         /// <param name="list">List of current resources of given format in the application.</param>
-        /// <param name="fileFormat">Format of the files that should be downloaded/updated. (".pdf for PDF files and ".odt" for ODT files)</param>
-        /// <param name="formatFolder">The name of the folder in the repository where the resources are stored ("PDF" or "ODT").</param>
-        /// <returns>Boolean that represents if the update was successful. True => successful, False => not successful.</returns>
+        /// <param name="fileFormat">Format of the files that should be downloaded/updated. 
+        /// (".pdf for PDF files and ".odt" for ODT files)</param>
+        /// <param name="formatFolder">The name of the folder in the repository where the resources are stored 
+        /// ("PDF" or "ODT").</param>
+        /// <returns>Boolean that represents if the update was successful. 
+        /// True => successful, False => not successful.</returns>
         private static bool DownloadSpecialFormatFiles(App app, List<ResourcesInfo> list, string fileFormat, string formatFolder)
         {
             if (!CanDownload(app)) return false;
@@ -175,11 +179,12 @@ namespace AppBase.Helpers
                         {
                             newResource = new ResourcesInfo()
                             {
-                                FileName = resource + "-" + language + fileFormat,
+                                FileName = resource + Constants.DASH + language + fileFormat,
                                 Language = ci.DisplayName,
-                                ResourceName = resource + "-" + language,
-                                FilePath = Path.Combine(dir, resource + "-" + language + fileFormat),
-                                Url = app.URL + "/" + language + "/" + formatFolder + "/" + resource + "-" + language + fileFormat
+                                ResourceName = resource + Constants.DASH + language,
+                                FilePath = Path.Combine(dir, resource + Constants.DASH + language + fileFormat),
+                                Url = app.URL + Constants.FORWARD_SLASH + language + Constants.FORWARD_SLASH + 
+                                formatFolder + Constants.FORWARD_SLASH + resource + Constants.DASH + language + fileFormat
                             };
                             list.Add(newResource);
                         }
@@ -230,7 +235,7 @@ namespace AppBase.Helpers
         /// <returns>Dictionary of languages and their available resources.</returns>
         private static Dictionary<string, List<string>> DownloadLanguagesWithResources(string url)
         {
-            string contents = "";
+            string contents = Constants.EMPTY_STRING;
             try
             {
                 using (HttpClient client = new HttpClient())
@@ -256,7 +261,7 @@ namespace AppBase.Helpers
         {
             try
             {
-                string contents = "";
+                string contents = Constants.EMPTY_STRING;
                 using (WebClient client = new WebClient())
                 {
                     contents = client.DownloadString(url + "/Languages.json");
@@ -278,7 +283,7 @@ namespace AppBase.Helpers
         /// <returns>The list of resources and their actual version numbers.</returns>
         private static List<ChangesItem> DownloadChangedFiles(string url)
         {            
-            string contents = "";
+            string contents = Constants.EMPTY_STRING;
             try
             {
                 using (HttpClient client = new HttpClient())
@@ -368,8 +373,8 @@ namespace AppBase.Helpers
                 foreach (var change in changes)
                 {
                     var resourceName = change.FileName.Split('/', '.')[2];
-                    var existingDbsRecord = App.Database.GetPageAsync(resourceName + "-" + language).Result;
-                    string fullRecordURL = URL + "/" + change.FileName;
+                    var existingDbsRecord = App.Database.GetPageAsync(resourceName + Constants.DASH + language).Result;
+                    string fullRecordURL = URL + Constants.FORWARD_SLASH + change.FileName;
 
                     if (existingDbsRecord == null)
                     {
@@ -377,7 +382,7 @@ namespace AppBase.Helpers
                         HtmlRecord record = new HtmlRecord
                         {
                             PageContent = contents,
-                            PageName = resourceName + "-" + language,
+                            PageName = resourceName + Constants.DASH + language,
                             PageLanguage = language
                         };
 

@@ -1,4 +1,5 @@
-﻿using AppBase.Models;
+﻿using AppBase.Helpers;
+using AppBase.Models;
 using AppBase.ViewModels;
 using AppBaseNamespace;
 using System;
@@ -23,7 +24,7 @@ namespace AppBase
         {
             InitializeComponent();
             List<ResourceFormatSettingsItem> switches = new List<ResourceFormatSettingsItem>();
-            switches.Add(new ResourceFormatSettingsItem(wifiSwitch, "wifi"));
+            switches.Add(new ResourceFormatSettingsItem(wifiSwitch, Constants.WIFI_TOGGLE_NAME));
             switches.Add(new ResourceFormatSettingsItem(pdfSwitch, pdfLabel.Text));
             switches.Add(new ResourceFormatSettingsItem(htmlSwitch, htmlLabel.Text));
             switches.Add(new ResourceFormatSettingsItem(odtSwitch, odtLabel.Text));

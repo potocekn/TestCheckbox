@@ -32,12 +32,14 @@ namespace AppBase.ViewModels
         {
             if (!UpdateSyncHelpers.CanDownload(app))
             {
-                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, 300, 250);
+                await ShowPopupHelpers.ShowOKPopup(page,
+                    AppResources.ResourcesDownloadedTitle_Text, AppResources.ResourcesDownloadedUnsuccessful_Text, 300, 250);
                 return false;
             }
             else
             {
-                await ShowPopupHelpers.ShowOKPopup(page, AppResources.ResourcesDownloadStartTitle_Text, AppResources.DownloadingSelectedResourcesLabel_Text, 300, 200);
+                await ShowPopupHelpers.ShowOKPopup(page, 
+                    AppResources.ResourcesDownloadStartTitle_Text, AppResources.DownloadingSelectedResourcesLabel_Text, 300, 200);
                 await UpdateSyncHelpers.DownloadResources(app);
                 UpdateApp(app);
                 return true;
@@ -73,7 +75,7 @@ namespace AppBase.ViewModels
             {
                 if (culture.EnglishName == language) return culture.TwoLetterISOLanguageName;
             }
-            return "";
+            return Constants.EMPTY_STRING;
         }
     }
 }

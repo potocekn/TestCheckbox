@@ -13,7 +13,8 @@ using Xamarin.Forms;
 namespace AppBase.ViewModels
 {
     /// <summary>
-    /// Class that represents view model for the format of resources page that is displayed on the very first run of the application.
+    /// Class that represents view model for the format of resources page 
+    /// that is displayed on the very first run of the application.
     /// This view model sets the language of the application based on user input.
     /// </summary>
     public class ResourcesFormatFirstRunPageViewModel
@@ -29,7 +30,6 @@ namespace AppBase.ViewModels
             
             GoToNextPage = new Command(() => {
                 navigation.PushAsync(new UpdateIntervalFirstRunPage(app));
-                //navigation.PushAsync(new FirstRunDownloadResourcesPage(app));                                
             });
         }
 
@@ -46,7 +46,7 @@ namespace AppBase.ViewModels
             {
                 if (item.CorrespondingSwitch == (sender as Switch))
                 {
-                    if (item.Name == "wifi")
+                    if (item.Name == Constants.WIFI_TOGGLE_NAME)
                     {
                         HandleWifiChange((sender as Switch).IsToggled);
                     }

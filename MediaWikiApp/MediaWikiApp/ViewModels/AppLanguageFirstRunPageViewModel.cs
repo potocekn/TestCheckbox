@@ -12,7 +12,8 @@ using Xamarin.Forms;
 namespace AppBase.ViewModels
 {
     /// <summary>
-    /// Class representing view model of the page that is shown on the very first run of the application where user decides what language of application will be used.
+    /// Class representing view model of the page that is shown on the very first
+    /// run of the application where user decides what language of application will be used.
     /// </summary>
     public class AppLanguageFirstRunPageViewModel
     {
@@ -35,7 +36,7 @@ namespace AppBase.ViewModels
                 }
                 else
                 {
-                    ShowPopupHelpers.ShowOKPopup(page, "", AppResources.NoInternetMessage_Text, 300, 200);                    
+                    ShowPopupHelpers.ShowOKPopup(page, Constants.EMPTY_STRING, AppResources.NoInternetMessage_Text, 300, 200);                    
                 }
             });
             Items = CreateItems(items,shortcuts,englishVersions);
@@ -144,10 +145,10 @@ namespace AppBase.ViewModels
 
             if (allFalse)
             {
-                LanguageSettingsItem english = Items.Find(x => (x.EnglishName == "English"));
+                LanguageSettingsItem english = Items.Find(x => (x.EnglishName == Constants.ENGLISH_LANGUAGE_NAME));
                 english.IsChecked = true;
                 english.WasUpdated = true;
-                english.NotifyPropertyChanged("IsChecked");
+                english.NotifyPropertyChanged(Constants.IS_CHECKED_PROPERTY_NAME);
             }
         }
 
@@ -167,7 +168,7 @@ namespace AppBase.ViewModels
                 {
                     item.IsChecked = false;
                     item.WasUpdated = false;
-                    item.NotifyPropertyChanged("IsChecked");
+                    item.NotifyPropertyChanged(Constants.IS_CHECKED_PROPERTY_NAME);
                 }
             }
         }

@@ -35,7 +35,7 @@ namespace AppBaseNamespace.ViewModels
             for (int j = 0; j < items.Count(); j++)            
             {
                 var item = items.ElementAt(j);
-                if (mainPageViewModel.previouslyChecked != "" && englishVersions.Contains(mainPageViewModel.previouslyChecked))
+                if (mainPageViewModel.previouslyChecked != Constants.EMPTY_STRING && englishVersions.Contains(mainPageViewModel.previouslyChecked))
                 { 
                     if (englishVersions.ElementAt(j) == mainPageViewModel.previouslyChecked)
                     {
@@ -94,7 +94,7 @@ namespace AppBaseNamespace.ViewModels
             if (!sender.WasUpdated)
             {
                 sender.IsChecked = false;
-                sender.NotifyPropertyChanged("IsChecked");
+                sender.NotifyPropertyChanged(Constants.IS_CHECKED_PROPERTY_NAME);
             }
         }
 
@@ -199,10 +199,10 @@ namespace AppBaseNamespace.ViewModels
 
             if (allFalse)
             {
-                LanguageSettingsItem english = Items.Find(x => (x.EnglishName == "English"));
+                LanguageSettingsItem english = Items.Find(x => (x.EnglishName == Constants.ENGLISH_LANGUAGE_NAME));
                 english.IsChecked = true;
                 english.WasUpdated = true;
-                english.NotifyPropertyChanged("IsChecked");
+                english.NotifyPropertyChanged(Constants.IS_CHECKED_PROPERTY_NAME);
             }
         }
 
@@ -237,7 +237,7 @@ namespace AppBaseNamespace.ViewModels
                 {
                     item.IsChecked = false;
                     item.WasUpdated = false;
-                    item.NotifyPropertyChanged("IsChecked");
+                    item.NotifyPropertyChanged(Constants.IS_CHECKED_PROPERTY_NAME);
                 }
             }
         }

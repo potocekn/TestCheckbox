@@ -7,7 +7,8 @@ using Xamarin.Forms;
 namespace AppBase.ViewModels
 {
     /// <summary>
-    /// Class representing the view model of the page that contains list of all html resources. The list of resources is created based on the records in the database.
+    /// Class representing the view model of the page that contains list of all html resources.
+    /// The list of resources is created based on the records in the database.
     /// </summary>
     class HTMLResourcesPageViewModel
     {

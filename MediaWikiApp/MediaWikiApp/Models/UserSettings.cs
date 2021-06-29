@@ -1,4 +1,5 @@
-﻿using AppBase.Models;
+﻿using AppBase.Helpers;
+using AppBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,12 +26,11 @@ namespace AppBase.Models
         public UserSettings(string path)
         {
             ResourcesLocation = path;
-            AppLanguage = "English";
+            AppLanguage = Constants.ENGLISH_LANGUAGE_NAME;
             ChosenResourceLanguages = new List<string>();
             UpdateInterval = UpdateIntervalOption.AUTOMATIC;
             DownloadOnlyWithWifi = false;
             Formats = new List<string>();
-            //Formats.Add("PDF");
             DateOfLastUpdate = DateTime.Now;
             WasFirstDownload = false;
         }

@@ -20,29 +20,29 @@ namespace AppBase.Helpers
             StringBuilder result = new StringBuilder();
             switch (from)
             {
-                case "English":
-                    result.Append(AppResources.LanguageChangeQuestionInEnglish_Text + '\n');
-                    result.Append(AppResources.ActionWillRestartApplicationInEnglish_Text + '\n');
+                case Constants.ENGLISH_LANGUAGE_NAME:
+                    result.Append(AppResources.LanguageChangeQuestionInEnglish_Text + Constants.NEW_LINE);
+                    result.Append(AppResources.ActionWillRestartApplicationInEnglish_Text + Constants.NEW_LINE);
                     break;
-                case "German":
-                    result.Append(AppResources.LanguageChangeQuestionInGerman_Text + '\n');
-                    result.Append(AppResources.ActionWillRestartApplicationInGerman_Text + '\n');
+                case Constants.GERMAN_LANGUAGE_NAME:
+                    result.Append(AppResources.LanguageChangeQuestionInGerman_Text + Constants.NEW_LINE);
+                    result.Append(AppResources.ActionWillRestartApplicationInGerman_Text + Constants.NEW_LINE);
                     break;
-                case "Czech":
-                    result.Append(AppResources.LanguageChangeQuestionInCzech_Text + '\n');
-                    result.Append(AppResources.ActionWillRestartApplicationInCzech_Text + '\n');
+                case Constants.CZECH_LANGUAGE_NAME:
+                    result.Append(AppResources.LanguageChangeQuestionInCzech_Text + Constants.NEW_LINE);
+                    result.Append(AppResources.ActionWillRestartApplicationInCzech_Text + Constants.NEW_LINE);
                     break;
-                case "French":
-                    result.Append(AppResources.LanguageChangeQuestionInFrench_Text + '\n');
-                    result.Append(AppResources.ActionWillRestartApplicationInFrench_Text + '\n');
+                case Constants.FRENCH_LANGUAGE_NAME:
+                    result.Append(AppResources.LanguageChangeQuestionInFrench_Text + Constants.NEW_LINE);
+                    result.Append(AppResources.ActionWillRestartApplicationInFrench_Text + Constants.NEW_LINE);
                     break;
-                case "Chinese":
-                    result.Append(AppResources.LanguageChangeQuestionInChinese_Text + '\n');
-                    result.Append(AppResources.ActionWillRestartApplicationInChinese_Text + '\n');
+                case Constants.CHINESE_LANGUAGE_NAME:
+                    result.Append(AppResources.LanguageChangeQuestionInChinese_Text + Constants.NEW_LINE);
+                    result.Append(AppResources.ActionWillRestartApplicationInChinese_Text + Constants.NEW_LINE);
                     break;
                 default:
-                    result.Append(AppResources.LanguageChangeQuestionInEnglish_Text + '\n');
-                    result.Append(AppResources.ActionWillRestartApplicationInEnglish_Text + '\n');
+                    result.Append(AppResources.LanguageChangeQuestionInEnglish_Text + Constants.NEW_LINE);
+                    result.Append(AppResources.ActionWillRestartApplicationInEnglish_Text + Constants.NEW_LINE);
                     break;
             }
 
@@ -62,7 +62,7 @@ namespace AppBase.Helpers
             if (from != to)
             {
                 result.Append(CreateMessageFrom(from));
-                result.Append("\n");
+                result.Append(Constants.NEW_LINE);
                 result.Append(CreateMessageFrom(to));
             }
             else
@@ -83,19 +83,19 @@ namespace AppBase.Helpers
             StringBuilder result = new StringBuilder();
             switch (from)
             {
-                case "English":
+                case Constants.ENGLISH_LANGUAGE_NAME:
                     result.Append(AppResources.YesInEnglish_Text);
                     break;
-                case "German":
+                case Constants.GERMAN_LANGUAGE_NAME:
                     result.Append(AppResources.YesInGerman_Text);
                     break;
-                case "Czech":
+                case Constants.CZECH_LANGUAGE_NAME:
                     result.Append(AppResources.YesInCzech_Text);
                     break;
-                case "French":
+                case Constants.FRENCH_LANGUAGE_NAME:
                     result.Append(AppResources.YesInFrench_Text);
                     break;
-                case "Chinese":
+                case Constants.CHINESE_LANGUAGE_NAME:
                     result.Append(AppResources.YesInChinese_Text);
                     break;
                 default:
@@ -118,7 +118,7 @@ namespace AppBase.Helpers
             if (from != to)
             {
                 result.Append(CreateYesMessageFrom(from));
-                result.Append("/");
+                result.Append(Constants.FORWARD_SLASH);
                 result.Append(CreateYesMessageFrom(to));
             }
             else
@@ -139,19 +139,19 @@ namespace AppBase.Helpers
             StringBuilder result = new StringBuilder();
             switch (from)
             {
-                case "English":
+                case Constants.ENGLISH_LANGUAGE_NAME:
                     result.Append(AppResources.NoInEnglish_Text);
                     break;
-                case "German":
+                case Constants.GERMAN_LANGUAGE_NAME:
                     result.Append(AppResources.NoInGerman_Text);
                     break;
-                case "Czech":
+                case Constants.CZECH_LANGUAGE_NAME:
                     result.Append(AppResources.NoInCzech_Text);
                     break;
-                case "French":
+                case Constants.FRENCH_LANGUAGE_NAME:
                     result.Append(AppResources.NoInFrench_Text);
                     break;
-                case "Chinese":
+                case Constants.CHINESE_LANGUAGE_NAME:
                     result.Append(AppResources.NoInChinese_Text);
                     break;
                 default:
@@ -174,7 +174,7 @@ namespace AppBase.Helpers
             if (from != to)
             {
                 result.Append(CreateNoMessageFrom(from));
-                result.Append("/");
+                result.Append(Constants.FORWARD_SLASH);
                 result.Append(CreateNoMessageFrom(to));
             }
             else

@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using AppBase;
 using AppBase.Models;
 using System.Globalization;
+using AppBase.Helpers;
 
 namespace AppBaseNamespace.ViewModels
 {
@@ -18,7 +19,7 @@ namespace AppBaseNamespace.ViewModels
     /// </summary>
     public class MainPageViewModel
     {        
-        public string previouslyChecked = "";
+        public string previouslyChecked = Constants.EMPTY_STRING;
 
         public List<ResourceLanguageInfo> ResourceLanguages { get; set; }
         public string Title { get; }

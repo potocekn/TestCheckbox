@@ -32,18 +32,18 @@ namespace AppBase.Helpers
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    await page.DisplayAlert(title, message, "OK");
+                    await page.DisplayAlert(title, message, Constants.OK);
                     break;
                 case Device.Android:
                 default:
-                    Version minVersion = new Version("6.0");
+                    Version minVersion = new Version(Constants.MIN_ANDROID_VERSION_FOR_CUSTOM_POPUP);
                     if (Xamarin.Essentials.DeviceInfo.Version < minVersion)
                     {
-                        await page.DisplayAlert(title, message, "OK");
+                        await page.DisplayAlert(title, message, Constants.OK);
                     }
                     else
                     {
-                        await page.Navigation.ShowPopupAsync(new OKPopUp(title, message, "OK", width, heightAndroid));
+                        await page.Navigation.ShowPopupAsync(new OKPopUp(title, message, Constants.OK, width, heightAndroid));
                     }
                     break;
             }
@@ -66,14 +66,14 @@ namespace AppBase.Helpers
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    result = await page.DisplayAlert("", message, yes, no);
+                    result = await page.DisplayAlert(Constants.EMPTY_STRING, message, yes, no);
                     break;
                 case Device.Android:
                 default:
-                    Version minVersion = new Version("6.0");
+                    Version minVersion = new Version(Constants.MIN_ANDROID_VERSION_FOR_CUSTOM_POPUP);
                     if (Xamarin.Essentials.DeviceInfo.Version < minVersion)
                     {
-                       result = await page.DisplayAlert("", message, yes, no);
+                       result = await page.DisplayAlert(Constants.EMPTY_STRING, message, yes, no);
                     }
                     else
                     {

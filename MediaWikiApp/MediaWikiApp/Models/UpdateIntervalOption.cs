@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppBase.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -28,11 +29,11 @@ namespace AppBase.Models
         {
             switch (senderEnglishName)
             {
-                case "Automatic":
+                case Constants.AUTOMATIC:
                     return UpdateIntervalOption.AUTOMATIC;
-                case "Once a Month":
+                case Constants.ONCE_A_MONTH:
                     return UpdateIntervalOption.ONCE_A_MONTH;
-                case "On Request":
+                case Constants.ON_REQUEST:
                     return UpdateIntervalOption.ON_REQUEST;
                 default:
                     return UpdateIntervalOption.AUTOMATIC;

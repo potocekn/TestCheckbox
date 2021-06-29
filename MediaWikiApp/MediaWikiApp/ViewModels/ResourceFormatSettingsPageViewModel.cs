@@ -14,7 +14,8 @@ using AppBase.Models;
 namespace AppBaseNamespace
 {
     /// <summary>
-    /// Class representing view model for resource format settings page. The model remembers all switches and all languages of the resources.
+    /// Class representing view model for resource format settings page.
+    /// The model remembers all switches and all languages of the resources.
     /// </summary>
     internal class ResourceFormatSettingsPageViewModel
     {
@@ -54,7 +55,7 @@ namespace AppBaseNamespace
             {                
                 if (item.CorrespondingSwitch == (sender as Switch))
                 {
-                    if (item.Name == "wifi")
+                    if (item.Name == Constants.WIFI_TOGGLE_NAME)
                     {
                         HandleWifiChange((sender as Switch).IsToggled);                        
                     }

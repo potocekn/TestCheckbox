@@ -78,7 +78,8 @@ namespace AppBase
         /// <param name="e">Event arguments</param>
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            (BindingContext as UpdateIntervalSettingsPageViewModel).OnCheckedChanged(((sender as CheckBox).BindingContext as UpdateIntervalSettingsItem));
+            (BindingContext as UpdateIntervalSettingsPageViewModel).OnCheckedChanged((
+                (sender as CheckBox).BindingContext as UpdateIntervalSettingsItem));
         }
 
         /// <summary>

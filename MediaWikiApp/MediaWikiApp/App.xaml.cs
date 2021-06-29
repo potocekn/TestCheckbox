@@ -46,7 +46,8 @@ namespace AppBaseNamespace
             {
                 if (database == null)
                 {
-                    database = new HtmlDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HtmlPages.db3"));
+                    database = new HtmlDatabase(Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HtmlPages.db3"));
                 }
                 return database;
             }
@@ -61,11 +62,11 @@ namespace AppBaseNamespace
         /// </summary>
         private void InitializeShortcuts()
         {
-            shortcuts.Add("English", "en");
-            shortcuts.Add("German", "de");
-            shortcuts.Add("Czech", "cs");
-            shortcuts.Add("French", "fr");
-            shortcuts.Add("Chinese", "zh-Hans");
+            shortcuts.Add(Constants.ENGLISH_LANGUAGE_NAME, Constants.ENGLISH_LANGUAGE_SHORTCUT);
+            shortcuts.Add(Constants.GERMAN_LANGUAGE_NAME, Constants.GERMAN_LANGUAGE_SHORTCUT);
+            shortcuts.Add(Constants.CZECH_LANGUAGE_NAME, Constants.CZECH_LANGUAGE_SHORTCUT);
+            shortcuts.Add(Constants.FRENCH_LANGUAGE_NAME, Constants.FRENCH_LANGUAGE_SHORTCUT);
+            shortcuts.Add(Constants.CHINESE_LANGUAGE_NAME, Constants.CHINESE_LANGUAGE_SHORTCUT);
         }
 
         /// <summary>
@@ -83,7 +84,7 @@ namespace AppBaseNamespace
             }
             else
             {
-                language = new CultureInfo("en");
+                language = new CultureInfo(Constants.ENGLISH_LANGUAGE_SHORTCUT);
             }
 
             Thread.CurrentThread.CurrentUICulture = language;
@@ -110,7 +111,8 @@ namespace AppBaseNamespace
 
             if (File.Exists(resourcesPDFfileName))
             {
-                resourcesInfosPDF = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(File.ReadAllText(resourcesPDFfileName).Trim());
+                resourcesInfosPDF = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(
+                    File.ReadAllText(resourcesPDFfileName).Trim());
             }
 
             resourcesPDF = resourcesInfosPDF;           
@@ -126,7 +128,8 @@ namespace AppBaseNamespace
 
             if (File.Exists(resourcesODTfileName))
             {
-                resourcesInfosODT = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(File.ReadAllText(resourcesODTfileName).Trim());
+                resourcesInfosODT = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ResourcesInfo>>(
+                    File.ReadAllText(resourcesODTfileName).Trim());
             }
 
             resourcesODT = resourcesInfosODT;
@@ -141,7 +144,8 @@ namespace AppBaseNamespace
             UserSettings result = new UserSettings(path);
             if (File.Exists(userSettingsfileName))
             {
-                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(File.ReadAllText(userSettingsfileName).Trim());                
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserSettings>(
+                    File.ReadAllText(userSettingsfileName).Trim());                
             }
 
             userSettings = result;
@@ -173,7 +177,7 @@ namespace AppBaseNamespace
             Application.Current.Properties["currentLanguage"] = language;
             File.WriteAllText(userSettingsfileName, Newtonsoft.Json.JsonConvert.SerializeObject(userSettings));           
             var navPage = new NavigationPage(new MainPage(this, previouslyChecked));            
-            navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+            navPage.BarBackgroundColor = Color.FromHex(Constants.NAVIGATION_PAGE_BACKGROUND_COLOR);
             MainPage = navPage;
         }
 
@@ -183,7 +187,7 @@ namespace AppBaseNamespace
         public void ReloadApp()
         {
             var navPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
-            navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+            navPage.BarBackgroundColor = Color.FromHex(Constants.NAVIGATION_PAGE_BACKGROUND_COLOR);
             MainPage = navPage;
         }
 
@@ -229,20 +233,20 @@ namespace AppBaseNamespace
                 if (userSettings.WasFirstDownload)
                 {
                     var navPage = new NavigationPage(new MainPage(this, userSettings.AppLanguage));
-                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                    navPage.BarBackgroundColor = Color.FromHex(Constants.NAVIGATION_PAGE_BACKGROUND_COLOR);
                     MainPage = navPage;
                 }
                 else
                 {
                     var navPage = new NavigationPage(new FirstRunDownloadResourcesPage(this));
-                    navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                    navPage.BarBackgroundColor = Color.FromHex(Constants.NAVIGATION_PAGE_BACKGROUND_COLOR);
                     MainPage = navPage;
                 }
             }
             else
             {
                 var navPage = new NavigationPage(new AppLanguageFirstRunPage(this));
-                navPage.BarBackgroundColor = Color.FromHex("#B3BAE4");
+                navPage.BarBackgroundColor = Color.FromHex(Constants.NAVIGATION_PAGE_BACKGROUND_COLOR);
                 MainPage = navPage;
             }
         }

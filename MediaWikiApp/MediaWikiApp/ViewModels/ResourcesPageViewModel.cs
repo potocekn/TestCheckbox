@@ -1,4 +1,5 @@
-﻿using AppBase.Models;
+﻿using AppBase.Helpers;
+using AppBase.Models;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ using Xamarin.Forms;
 namespace AppBase.ViewModels
 {
     /// <summary>
-    /// Class representing the view model of the resources page. The model contains commands that go to the PDF or HTML resources.
+    /// Class representing the view model of the resources page. 
+    /// The model contains commands that go to the PDF or HTML resources.
     /// </summary>
     public class ResourcesPageViewModel
     {       
@@ -23,9 +25,9 @@ namespace AppBase.ViewModels
 
         public ResourcesPageViewModel(App app, INavigation navigation)
         {
-            IsHTMLSelected = app.userSettings.Formats.Contains("HTML");
-            IsPDFSelected = app.userSettings.Formats.Contains("PDF");
-            IsODTSelected = app.userSettings.Formats.Contains("ODT");
+            IsHTMLSelected = app.userSettings.Formats.Contains(Constants.HTML);
+            IsPDFSelected = app.userSettings.Formats.Contains(Constants.PDF);
+            IsODTSelected = app.userSettings.Formats.Contains(Constants.ODT);
             GoToPDFs = new Command(() => {
                 navigation.PushAsync(new PDFPage(app.resourcesPDF));
             });

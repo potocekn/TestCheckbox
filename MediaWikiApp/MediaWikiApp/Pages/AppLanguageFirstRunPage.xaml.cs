@@ -1,4 +1,5 @@
-﻿using AppBase.ViewModels;
+﻿using AppBase.Helpers;
+using AppBase.ViewModels;
 using AppBaseNamespace;
 using AppBaseNamespace.Models;
 using System;
@@ -19,19 +20,21 @@ namespace AppBase
         public AppLanguageFirstRunPage(App app)
         {
             InitializeComponent();
-            List<string> englishVersions = new List<string>() { "English", "German", "Czech", "French", "Chinese" };
+            List<string> englishVersions = new List<string>() { Constants.ENGLISH_LANGUAGE_NAME,
+                Constants.GERMAN_LANGUAGE_NAME, Constants.CZECH_LANGUAGE_NAME, 
+                Constants.FRENCH_LANGUAGE_NAME, Constants.CHINESE_LANGUAGE_NAME };
             List<string> items = new List<string>();
             List<string> shortcuts = new List<string>();
             items.Add(englishLabel.Text);
-            shortcuts.Add("en");
+            shortcuts.Add(Constants.ENGLISH_LANGUAGE_SHORTCUT);
             items.Add(germanLabel.Text);
-            shortcuts.Add("de");
+            shortcuts.Add(Constants.GERMAN_LANGUAGE_SHORTCUT);
             items.Add(czechLabel.Text);
-            shortcuts.Add("cs");
+            shortcuts.Add(Constants.CZECH_LANGUAGE_SHORTCUT);
             items.Add(frenchLabel.Text);
-            shortcuts.Add("fr");
+            shortcuts.Add(Constants.FRENCH_LANGUAGE_SHORTCUT);
             items.Add(chineseLabel.Text);
-            shortcuts.Add("zh-Hans");
+            shortcuts.Add(Constants.CHINESE_LANGUAGE_SHORTCUT);
 
             BindingContext = new AppLanguageFirstRunPageViewModel(app, this, Navigation, items, shortcuts, englishVersions);
         }
@@ -43,7 +46,8 @@ namespace AppBase
         /// <param name="e">Event arguments</param>
         void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            ((AppLanguageFirstRunPageViewModel)BindingContext).OnCheckBoxCheckedChanged(((sender as CheckBox).BindingContext as LanguageSettingsItem));
+            ((AppLanguageFirstRunPageViewModel)BindingContext).OnCheckBoxCheckedChanged((
+                (sender as CheckBox).BindingContext as LanguageSettingsItem));
 
         }
 
