@@ -4,6 +4,11 @@ using System.Text;
 
 namespace AppBase.Helpers
 {
+    /// <summary>
+    /// Class that contains the constants that are used in several places in the program. 
+    /// These constants are stored here to lower thr risk of a mistake (misspelling, ...)
+    /// and to make changing the value easier (only one place to change).
+    /// </summary>
     public static class Constants
     {
         public const string ENGLISH_LANGUAGE_NAME = "English";
