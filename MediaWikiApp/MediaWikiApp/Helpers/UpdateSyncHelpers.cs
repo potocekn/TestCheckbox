@@ -24,7 +24,7 @@ namespace AppBase.Helpers
         static Dictionary<string, List<string>> languagesWithResources = new Dictionary<string, List<string>>();
 
         /// <summary>
-        /// Application responsible for choosing the correct form of update 
+        /// Method responsible for choosing the correct form of update 
         /// strategy based on the user settings saved in the application.
         /// The default strategy is the automatic update.
         /// </summary>

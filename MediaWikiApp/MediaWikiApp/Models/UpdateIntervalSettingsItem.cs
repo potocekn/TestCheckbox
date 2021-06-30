@@ -8,7 +8,8 @@ using Xamarin.Forms;
 namespace AppBase.Models
 {
     /// <summary>
-    /// Class representing item for update interval settings. Each item remembers its IsChecked status, name and english version of the name.
+    /// Class representing item for update interval settings.
+    /// Each item remembers its IsChecked status, name and english version of the name.
     /// </summary>
     public class UpdateIntervalSettingsItem : INotifyPropertyChanged
     {

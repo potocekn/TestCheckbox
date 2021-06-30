@@ -21,20 +21,19 @@ namespace AppBaseNamespace
     public partial class App : Application
     {
         public bool firstTimeRunning = true;
+        public bool WasRefreshed = false;
+
         string userSettingsfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "userSettings.json");
         string resourcesPDFfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesPDF.json");
         string resourcesODTfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesODT.json");
         string languagesFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "languages.json");
-
-        public bool IsFirst = true;        
-        public bool WasRefreshed = false;
         public string URL = "https://raw.githubusercontent.com/potocekn/ResourcesTest/master";
+
         public UserSettings userSettings;
         public List<string> availableLanguages = new List<string>();
         public List<ResourcesInfo> resourcesPDF = new List<ResourcesInfo>();
         public List<ResourcesInfo> resourcesODT = new List<ResourcesInfo>();
         public Dictionary<string, string> resourcesHTML;
-
         Dictionary<string, string> shortcuts = new Dictionary<string, string>();
 
         static HtmlDatabase database;

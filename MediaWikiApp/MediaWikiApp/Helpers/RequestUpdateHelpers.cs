@@ -17,6 +17,9 @@ using AppBase.PopUpPages;
 
 namespace AppBase.Helpers
 {
+    /// <summary>
+    /// Class for requesting the update of the resources from the settings menu.
+    /// </summary>
     public static class RequestUpdateHelpers
     {
 
