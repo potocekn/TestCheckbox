@@ -211,4 +211,109 @@
   <data name="AboutLabel.Text" xml:space="preserve">
     <value>Diese Anwendung ist ein Werkzeug, um Schulungsressourcen den Menschen für den täglichen Gebrauch näher zu bringen.</value>
   </data>
+  <data name="connectionLabel.Text" xml:space="preserve">
+    <value>Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind, da Ressourcen heruntergeladen werden müssen.</value>
+  </data>
+  <data name="ResourcesDownloadedMessage.Text" xml:space="preserve">
+    <value>Heruntergeladene Ressourcen</value>
+  </data>
+  <data name="ResourcesDownloadedTitle.Text" xml:space="preserve">
+    <value>Zustand</value>
+  </data>
+  <data name="ResourcesDownloadedUnsuccessful.Text" xml:space="preserve">
+    <value>Nicht erfolgreicher Download. Bitte stellen Sie sicher, dass Sie über einen Internetzugang verfügen.</value>
+  </data>
+  <data name="NoInternetMessage.Text" xml:space="preserve">
+    <value>Bitte stellen Sie sicher, dass Sie Zugang zum Internet haben und versuchen Sie es erneut.</value>
+  </data>
+  <data name="ActionWillRestartApplicationInChinese.Text" xml:space="preserve">
+    <value>此操作將重新啟動應用程序!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInCzech.Text" xml:space="preserve">
+    <value>Tato akce restartuje aplikaci!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInEnglish.Text" xml:space="preserve">
+    <value>This action will restart the application!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInFrench.Text" xml:space="preserve">
+    <value>Cette action redémarrera l'application!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInGerman.Text" xml:space="preserve">
+    <value>Diese Aktion startet die Anwendung neu!</value>
+  </data>
+  <data name="LanguageChangeQuestionInChinese.Text" xml:space="preserve">
+    <value>您想更改應用程序的語言嗎?</value>
+  </data>
+  <data name="LanguageChangeQuestionInCzech.Text" xml:space="preserve">
+    <value>Chcete změnit jazyk aplikace?</value>
+  </data>
+  <data name="LanguageChangeQuestionInEnglish.Text" xml:space="preserve">
+    <value>Would you like to change language of the application?</value>
+  </data>
+  <data name="LanguageChangeQuestionInFrench.Text" xml:space="preserve">
+    <value>Souhaitez-vous changer la langue de l'application?</value>
+  </data>
+  <data name="LanguageChangeQuestionInGerman.Text" xml:space="preserve">
+    <value>Möchten Sie die Sprache der Anwendung ändern?</value>
+  </data>
+  <data name="NoInChinese.Text" xml:space="preserve">
+    <value>是的</value>
+  </data>
+  <data name="NoInCzech.Text" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="NoInEnglish.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoInFrench.Text" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="NoInGerman.Text" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="YesInChinese.Text" xml:space="preserve">
+    <value>是的</value>
+  </data>
+  <data name="YesInCzech.Text" xml:space="preserve">
+    <value>Ano</value>
+  </data>
+  <data name="YesInEnglish.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="YesInFrench.Text" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="YesInGerman.Text" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ShareButton.Text" xml:space="preserve">
+    <value>Freigeben</value>
+  </data>
+  <data name="Download.Text" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="DownloadInfoText.Text" xml:space="preserve">
+    <value>Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind und klicken Sie auf die Schaltfläche Download.</value>
+  </data>
+  <data name="ResourcesDownloadStartMessage.Text" xml:space="preserve">
+    <value>Das Herunterladen von Ressourcen wurde gestartet. Dies kann eine Weile dauern, bitte warten Sie, bis eine Meldung über das Ergebnis angezeigt wird.</value>
+  </data>
+  <data name="ResourcesDownloadStartTitle.Text" xml:space="preserve">
+    <value>Download wird gestartet...</value>
+  </data>
+  <data name="DownloadingSelectedResourcesLabel.Text" xml:space="preserve">
+    <value>Ausgewählte Ressourcen werden heruntergeladen...</value>
+  </data>
+  <data name="HTMLResourcesLabel.Text" xml:space="preserve">
+    <value>HTML-Ressourcen</value>
+  </data>
+  <data name="ODTResourcesLabel.Text" xml:space="preserve">
+    <value>ODT-Ressourcen</value>
+  </data>
+  <data name="PDFResourcesLabel.Text" xml:space="preserve">
+    <value>PDF-Ressourcen</value>
+  </data>
+  <data name="DownloadOnlyWithWifi.Text" xml:space="preserve">
+    <value>Download nur bei WLAN-Verbindung möglich! Verbinden Sie sich mit dem WLAN und versuchen Sie es erneut.</value>
+  </data>
 </root>

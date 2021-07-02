@@ -69,13 +69,11 @@
         </trans-unit>
         <trans-unit id="FormatSelectionLabel.Text" translate="yes" xml:space="preserve">
           <source>Format of the resources</source>
-          <target state="needs-review-translation">Format der Ressourcen:</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Format der Ressourcen:</target>
         </trans-unit>
         <trans-unit id="LanguageOfResourcesLabel.Text" translate="yes" xml:space="preserve">
           <source>Resources' language</source>
-          <target state="needs-review-translation">Sprache der Ressourcen:</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Sprache der Ressourcen:</target>
         </trans-unit>
         <trans-unit id="albanianLabel.Text" translate="yes" xml:space="preserve">
           <source>Albanian</source>
@@ -271,148 +269,147 @@
         </trans-unit>
         <trans-unit id="AboutLabel.Text" translate="yes" xml:space="preserve">
           <source>This application is a tool to bring training resources closer to people for daily use.</source>
-          <target state="needs-review-translation">Diese Anwendung ist ein Werkzeug, um Schulungsressourcen den Menschen für den täglichen Gebrauch näher zu bringen.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Diese Anwendung ist ein Werkzeug, um Schulungsressourcen den Menschen für den täglichen Gebrauch näher zu bringen.</target>
         </trans-unit>
         <trans-unit id="connectionLabel.Text" translate="yes" xml:space="preserve">
           <source>Please make sure you are connected to Internet as resources need to be downloaded.</source>
-          <target state="new">Please make sure you are connected to Internet as resources need to be downloaded.</target>
+          <target state="translated">Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind, da Ressourcen heruntergeladen werden müssen.</target>
         </trans-unit>
         <trans-unit id="ResourcesDownloadedMessage.Text" translate="yes" xml:space="preserve">
           <source>Resources Downloaded</source>
-          <target state="new">Resources Downloaded</target>
+          <target state="translated">Heruntergeladene Ressourcen</target>
         </trans-unit>
         <trans-unit id="ResourcesDownloadedTitle.Text" translate="yes" xml:space="preserve">
           <source>Status</source>
-          <target state="new">Status</target>
+          <target state="translated" state-qualifier="tm-suggestion">Zustand</target>
         </trans-unit>
         <trans-unit id="ResourcesDownloadedUnsuccessful.Text" translate="yes" xml:space="preserve">
           <source>Unsuccessful download. Please make sure you have Internet access.</source>
-          <target state="new">Unsuccessful download. Please make sure you have Internet access.</target>
+          <target state="translated">Nicht erfolgreicher Download. Bitte stellen Sie sicher, dass Sie über einen Internetzugang verfügen.</target>
         </trans-unit>
         <trans-unit id="NoInternetMessage.Text" translate="yes" xml:space="preserve">
           <source>Please make sure you have access to internet and try again.</source>
-          <target state="new">Please make sure you have access to internet and try again.</target>
+          <target state="translated">Bitte stellen Sie sicher, dass Sie Zugang zum Internet haben und versuchen Sie es erneut.</target>
         </trans-unit>
         <trans-unit id="ActionWillRestartApplicationInChinese.Text" translate="yes" xml:space="preserve">
           <source>此操作將重新啟動應用程序!</source>
-          <target state="new">此操作將重新啟動應用程序!</target>
+          <target state="translated">此操作將重新啟動應用程序!</target>
         </trans-unit>
         <trans-unit id="ActionWillRestartApplicationInCzech.Text" translate="yes" xml:space="preserve">
           <source>Tato akce restartuje aplikaci!</source>
-          <target state="new">Tato akce restartuje aplikaci!</target>
+          <target state="translated">Tato akce restartuje aplikaci!</target>
         </trans-unit>
         <trans-unit id="ActionWillRestartApplicationInEnglish.Text" translate="yes" xml:space="preserve">
           <source>This action will restart the application!</source>
-          <target state="new">This action will restart the application!</target>
+          <target state="translated">This action will restart the application!</target>
         </trans-unit>
         <trans-unit id="ActionWillRestartApplicationInFrench.Text" translate="yes" xml:space="preserve">
           <source>Cette action redémarrera l'application!</source>
-          <target state="new">Cette action redémarrera l'application!</target>
+          <target state="translated">Cette action redémarrera l'application!</target>
         </trans-unit>
         <trans-unit id="ActionWillRestartApplicationInGerman.Text" translate="yes" xml:space="preserve">
           <source>Diese Aktion startet die Anwendung neu!</source>
-          <target state="new">Diese Aktion startet die Anwendung neu!</target>
+          <target state="translated">Diese Aktion startet die Anwendung neu!</target>
         </trans-unit>
         <trans-unit id="LanguageChangeQuestionInChinese.Text" translate="yes" xml:space="preserve">
           <source>您想更改應用程序的語言嗎?</source>
-          <target state="new">您想更改應用程序的語言嗎?</target>
+          <target state="translated">您想更改應用程序的語言嗎?</target>
         </trans-unit>
         <trans-unit id="LanguageChangeQuestionInCzech.Text" translate="yes" xml:space="preserve">
           <source>Chcete změnit jazyk aplikace?</source>
-          <target state="new">Chcete změnit jazyk aplikace?</target>
+          <target state="translated">Chcete změnit jazyk aplikace?</target>
         </trans-unit>
         <trans-unit id="LanguageChangeQuestionInEnglish.Text" translate="yes" xml:space="preserve">
           <source>Would you like to change language of the application?</source>
-          <target state="new">Would you like to change language of the application?</target>
+          <target state="translated">Would you like to change language of the application?</target>
         </trans-unit>
         <trans-unit id="LanguageChangeQuestionInFrench.Text" translate="yes" xml:space="preserve">
           <source>Souhaitez-vous changer la langue de l'application?</source>
-          <target state="new">Souhaitez-vous changer la langue de l'application?</target>
+          <target state="translated">Souhaitez-vous changer la langue de l'application?</target>
         </trans-unit>
         <trans-unit id="LanguageChangeQuestionInGerman.Text" translate="yes" xml:space="preserve">
           <source>Möchten Sie die Sprache der Anwendung ändern?</source>
-          <target state="new">Möchten Sie die Sprache der Anwendung ändern?</target>
+          <target state="translated">Möchten Sie die Sprache der Anwendung ändern?</target>
         </trans-unit>
         <trans-unit id="NoInChinese.Text" translate="yes" xml:space="preserve">
           <source>是的</source>
-          <target state="new">是的</target>
+          <target state="translated">是的</target>
         </trans-unit>
         <trans-unit id="NoInCzech.Text" translate="yes" xml:space="preserve">
           <source>Ne</source>
-          <target state="new">Ne</target>
+          <target state="translated">Ne</target>
         </trans-unit>
         <trans-unit id="NoInEnglish.Text" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">No</target>
         </trans-unit>
         <trans-unit id="NoInFrench.Text" translate="yes" xml:space="preserve">
           <source>Non</source>
-          <target state="new">Non</target>
+          <target state="translated">Non</target>
         </trans-unit>
         <trans-unit id="NoInGerman.Text" translate="yes" xml:space="preserve">
           <source>Nein</source>
-          <target state="new">Nein</target>
+          <target state="translated">Nein</target>
         </trans-unit>
         <trans-unit id="YesInChinese.Text" translate="yes" xml:space="preserve">
           <source>是的</source>
-          <target state="new">是的</target>
+          <target state="translated">是的</target>
         </trans-unit>
         <trans-unit id="YesInCzech.Text" translate="yes" xml:space="preserve">
           <source>Ano</source>
-          <target state="new">Ano</target>
+          <target state="translated">Ano</target>
         </trans-unit>
         <trans-unit id="YesInEnglish.Text" translate="yes" xml:space="preserve">
           <source>Yes</source>
-          <target state="new">Yes</target>
+          <target state="translated">Yes</target>
         </trans-unit>
         <trans-unit id="YesInFrench.Text" translate="yes" xml:space="preserve">
           <source>Oui</source>
-          <target state="new">Oui</target>
+          <target state="translated">Oui</target>
         </trans-unit>
         <trans-unit id="YesInGerman.Text" translate="yes" xml:space="preserve">
           <source>Ja</source>
-          <target state="new">Ja</target>
+          <target state="translated">Ja</target>
         </trans-unit>
         <trans-unit id="ShareButton.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="new">Share</target>
+          <target state="translated" state-qualifier="tm-suggestion">Freigeben</target>
         </trans-unit>
         <trans-unit id="Download.Text" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated" state-qualifier="tm-suggestion">Herunterladen</target>
         </trans-unit>
         <trans-unit id="DownloadInfoText.Text" translate="yes" xml:space="preserve">
           <source>Please make sure you have connection to the Internet and hit the download button.</source>
-          <target state="new">Please make sure you have connection to the Internet and hit the download button.</target>
+          <target state="translated">Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind und klicken Sie auf die Schaltfläche Download.</target>
         </trans-unit>
         <trans-unit id="ResourcesDownloadStartMessage.Text" translate="yes" xml:space="preserve">
           <source>Downloading of resources started. This may take a while, please wait until message about the result shows up.</source>
-          <target state="new">Downloading of resources started. This may take a while, please wait until message about the result shows up.</target>
+          <target state="translated">Das Herunterladen von Ressourcen wurde gestartet. Dies kann eine Weile dauern, bitte warten Sie, bis eine Meldung über das Ergebnis angezeigt wird.</target>
         </trans-unit>
         <trans-unit id="ResourcesDownloadStartTitle.Text" translate="yes" xml:space="preserve">
           <source>Starting download</source>
-          <target state="new">Starting download</target>
+          <target state="translated" state-qualifier="tm-suggestion">Download wird gestartet...</target>
         </trans-unit>
         <trans-unit id="DownloadingSelectedResourcesLabel.Text" translate="yes" xml:space="preserve">
           <source>Downloading selected resources ...</source>
-          <target state="new">Downloading selected resources ...</target>
+          <target state="translated">Ausgewählte Ressourcen werden heruntergeladen...</target>
         </trans-unit>
         <trans-unit id="HTMLResourcesLabel.Text" translate="yes" xml:space="preserve">
           <source>HTML Resources</source>
-          <target state="new">HTML Resources</target>
+          <target state="translated">HTML-Ressourcen</target>
         </trans-unit>
         <trans-unit id="ODTResourcesLabel.Text" translate="yes" xml:space="preserve">
           <source>ODT Resources</source>
-          <target state="new">ODT Resources</target>
+          <target state="translated">ODT-Ressourcen</target>
         </trans-unit>
         <trans-unit id="PDFResourcesLabel.Text" translate="yes" xml:space="preserve">
           <source>PDF Resources</source>
-          <target state="new">PDF Resources</target>
+          <target state="translated">PDF-Ressourcen</target>
         </trans-unit>
         <trans-unit id="DownloadOnlyWithWifi.Text" translate="yes" xml:space="preserve">
           <source>Sorry, download possible only when connected to the wifi! Connect to wifi and try again.</source>
-          <target state="new">Sorry, download possible only when connected to the wifi! Connect to wifi and try again.</target>
+          <target state="translated">Download nur bei WLAN-Verbindung möglich! Verbinden Sie sich mit dem WLAN und versuchen Sie es erneut.</target>
         </trans-unit>
       </group>
     </body>

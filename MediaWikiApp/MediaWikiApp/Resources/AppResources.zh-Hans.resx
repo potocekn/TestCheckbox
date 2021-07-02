@@ -211,4 +211,109 @@
   <data name="AboutLabel.Text" xml:space="preserve">
     <value>該應用程序是一種工具，用於使培訓資源更貼近人們的日常使用。</value>
   </data>
+  <data name="connectionLabel.Text" xml:space="preserve">
+    <value>由於需要下載資源，請確保您已連接到 Internet。</value>
+  </data>
+  <data name="ResourcesDownloadedMessage.Text" xml:space="preserve">
+    <value>已下載資源</value>
+  </data>
+  <data name="ResourcesDownloadedTitle.Text" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="ResourcesDownloadedUnsuccessful.Text" xml:space="preserve">
+    <value>下載失敗。請確保您可以訪問 Internet。</value>
+  </data>
+  <data name="NoInternetMessage.Text" xml:space="preserve">
+    <value>請確保您可以訪問互聯網，然後重試。</value>
+  </data>
+  <data name="ActionWillRestartApplicationInChinese.Text" xml:space="preserve">
+    <value>此操作將重新啟動應用程序!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInCzech.Text" xml:space="preserve">
+    <value>Tato akce restartuje aplikaci!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInEnglish.Text" xml:space="preserve">
+    <value>This action will restart the application!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInFrench.Text" xml:space="preserve">
+    <value>Cette action redémarrera l'application!</value>
+  </data>
+  <data name="ActionWillRestartApplicationInGerman.Text" xml:space="preserve">
+    <value>Diese Aktion startet die Anwendung neu!</value>
+  </data>
+  <data name="LanguageChangeQuestionInChinese.Text" xml:space="preserve">
+    <value>您想更改應用程序的語言嗎?</value>
+  </data>
+  <data name="LanguageChangeQuestionInCzech.Text" xml:space="preserve">
+    <value>Chcete změnit jazyk aplikace?</value>
+  </data>
+  <data name="LanguageChangeQuestionInEnglish.Text" xml:space="preserve">
+    <value>Would you like to change language of the application?</value>
+  </data>
+  <data name="LanguageChangeQuestionInFrench.Text" xml:space="preserve">
+    <value>Souhaitez-vous changer la langue de l'application?</value>
+  </data>
+  <data name="LanguageChangeQuestionInGerman.Text" xml:space="preserve">
+    <value>Möchten Sie die Sprache der Anwendung ändern?</value>
+  </data>
+  <data name="NoInChinese.Text" xml:space="preserve">
+    <value>是的</value>
+  </data>
+  <data name="NoInCzech.Text" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="NoInEnglish.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoInFrench.Text" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="NoInGerman.Text" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="YesInChinese.Text" xml:space="preserve">
+    <value>是的</value>
+  </data>
+  <data name="YesInCzech.Text" xml:space="preserve">
+    <value>Ano</value>
+  </data>
+  <data name="YesInEnglish.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="YesInFrench.Text" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="YesInGerman.Text" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ShareButton.Text" xml:space="preserve">
+    <value>共享</value>
+  </data>
+  <data name="Download.Text" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="DownloadInfoText.Text" xml:space="preserve">
+    <value>請確保您已連接到 Internet 並點擊下載按鈕。</value>
+  </data>
+  <data name="ResourcesDownloadStartMessage.Text" xml:space="preserve">
+    <value>開始下載資源。這可能需要一段時間，請等待有關結果的消息出現。</value>
+  </data>
+  <data name="ResourcesDownloadStartTitle.Text" xml:space="preserve">
+    <value>開始下載</value>
+  </data>
+  <data name="DownloadingSelectedResourcesLabel.Text" xml:space="preserve">
+    <value>正在下載所選資源...</value>
+  </data>
+  <data name="HTMLResourcesLabel.Text" xml:space="preserve">
+    <value>HTML 資源</value>
+  </data>
+  <data name="ODTResourcesLabel.Text" xml:space="preserve">
+    <value>ODT資源</value>
+  </data>
+  <data name="PDFResourcesLabel.Text" xml:space="preserve">
+    <value>PDF資源</value>
+  </data>
+  <data name="DownloadOnlyWithWifi.Text" xml:space="preserve">
+    <value>抱歉，只有連接到 wifi 才能下載！連接到 wifi 並重試。</value>
+  </data>
 </root>
