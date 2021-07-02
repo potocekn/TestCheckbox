@@ -17,7 +17,6 @@ namespace AppBase.ViewModels
     class HTMLPageViewModel
     {  
         public HtmlWebViewSource HTMLSource { get; set; }
-        public Command OpenResource { get; set; }
 
         public HTMLPageViewModel(HtmlRecord record)
         {            

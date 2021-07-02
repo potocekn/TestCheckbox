@@ -3,9 +3,11 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
            xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
            IsLightDismissEnabled="False"
+           BackgroundColor="Transparent"
+           Background="Transparent"
            x:Class="AppBase.PopUpPages.YesNoPopUp">
-    
-    <StackLayout>
+
+    <StackLayout BackgroundColor="#D3D6EB">
         <Label x:Name="yesNoPopupLabelBody"
                    HorizontalOptions="Center"
                    VerticalOptions="Start"
@@ -13,7 +15,7 @@
                    TextColor="#929AD3"
                    Margin="20"/>
 
-        <Grid VerticalOptions="Center">
+        <Grid VerticalOptions="End">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="2*" />
@@ -25,7 +27,7 @@
             <Button x:Name="yesPopupButton"
                     Grid.Column="1"           
                     HorizontalOptions="Center"
-                    VerticalOptions="Center"
+                    VerticalOptions="End"
                     Clicked="yesPopupButton_Clicked"
                     BackgroundColor="#8B93C9"
                     TextColor="#D3D6EB"                

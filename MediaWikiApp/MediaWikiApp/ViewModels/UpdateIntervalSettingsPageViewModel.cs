@@ -43,7 +43,8 @@ namespace AppBase.ViewModels
         App app { get; set; }
         INavigation Navigation { get; set; }
         UpdateIntervalSettingsPage updateIntervalSettingsPage { get; set; }
-        public UpdateIntervalSettingsPageViewModel(App app, List<UpdateIntervalSettingsItem> switches, INavigation navigation, UpdateIntervalSettingsPage page)
+        public UpdateIntervalSettingsPageViewModel(App app, List<UpdateIntervalSettingsItem> switches, 
+            INavigation navigation, UpdateIntervalSettingsPage page)
         {
             this.app = app;            
             Items = switches;

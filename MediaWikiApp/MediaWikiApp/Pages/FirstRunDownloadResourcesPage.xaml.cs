@@ -1,4 +1,5 @@
-﻿using AppBase.ViewModels;
+﻿using AppBase.Helpers;
+using AppBase.ViewModels;
 using AppBaseNamespace;
 using System;
 using System.Collections.Generic;
@@ -34,12 +35,12 @@ namespace AppBase
         public async void OnButtonClicked(object sender, EventArgs args)
         {
             (sender as Button).IsEnabled = false;
-            (sender as Button).TextColor = Color.Gray;           
+            (sender as Button).TextColor = Color.Gray;         
             bool downloaded = await (BindingContext as FirstRunDownloadResourcesPageViewModel).Download(app, this);
             if (!downloaded)
             {
                 (sender as Button).IsEnabled = true;
-                (sender as Button).TextColor = Color.White;
+                (sender as Button).TextColor = Color.FromHex(Constants.BUTTON_ENABLED_TEXT_COLOR);
             }
         }
     }

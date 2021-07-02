@@ -48,7 +48,8 @@ namespace AppBase.ViewModels
         /// <param name="shortcuts">list of shortcuts of languages</param>
         /// <param name="englishVersions">list of English names of languages</param>
         /// <returns>list of LanguageSettingsItems that should be displayed</returns>
-        private List<LanguageSettingsItem> CreateItems(IEnumerable<string> items, IEnumerable<string> shortcuts, List<string> englishVersions)
+        private List<LanguageSettingsItem> CreateItems(IEnumerable<string> items, IEnumerable<string> shortcuts, 
+            List<string> englishVersions)
         {
             bool isFirst = true;
             var result = new List<LanguageSettingsItem>();

@@ -148,7 +148,7 @@ namespace AppBaseNamespace
             Label label = (sender as Label);
             foreach (var item in Languages)
             {
-                if (label.Text == item.EnglishName)
+                if (label.Text == item.Value)
                 {
                     item.IsChecked = !item.IsChecked;
                     break;

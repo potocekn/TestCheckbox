@@ -66,7 +66,7 @@ namespace AppBase.Helpers
             }
 
             await ShowPopupHelpers.ShowOKPopup(page, 
-                AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, 300, 250);
+                AppResources.ResourcesDownloadStartTitle_Text, AppResources.ResourcesDownloadStartMessage_Text, 300, 280);
             
             DeleteUntoggledFormats(app);
             DeleteUncheckedLanguageFiles(app, languages);

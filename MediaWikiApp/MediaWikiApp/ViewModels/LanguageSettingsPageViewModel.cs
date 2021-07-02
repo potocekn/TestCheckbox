@@ -113,7 +113,6 @@ namespace AppBaseNamespace.ViewModels
         /// <summary>
         /// Method that handles checkbox IsChecked changed status asynchronously.
         /// Displays message if the user wants to change from previous language to the newly selected one.
-        /// On the very first run the English option is checked by default.
         /// If user unchecked option that has been previously checked (there would be no checked item) English option is checked.
         /// </summary>
         /// <param name="checkboxSender">object that changed status</param>
@@ -124,10 +123,10 @@ namespace AppBaseNamespace.ViewModels
             if (checkboxSender.IsChecked  && checkboxSender.EnglishName != MainPageViewModelBackup.previouslyChecked)
             {
                 bool answer = await ShowPopupHelpers.ShowYesNoPopup(SettingsPageBackup,
-                                                                    PopupMessageHelpers.CreatePopUpMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
-                                                                    PopupMessageHelpers.CreateYesMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
-                                                                    PopupMessageHelpers.CreateNoMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
-                                                                    300, 330);
+                    PopupMessageHelpers.CreatePopUpMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                    PopupMessageHelpers.CreateYesMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                    PopupMessageHelpers.CreateNoMessage(MainPageViewModelBackup.previouslyChecked, checkboxSender.EnglishName),
+                    300, 330);
                 if (answer)
                 {
                     OnCheckBoxCheckedChanged(checkboxSender);                    

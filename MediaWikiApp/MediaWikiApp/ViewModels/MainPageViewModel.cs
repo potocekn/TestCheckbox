@@ -23,16 +23,13 @@ namespace AppBaseNamespace.ViewModels
 
         public List<ResourceLanguageInfo> ResourceLanguages { get; set; }
         public string Title { get; }
-        public Command LoadCheckboxes { get; }
         public Command GoToSettings { get; }
         public Command GoToResources { get; }
 
         public MainPageViewModel(Page page, App app,INavigation navigation, string previouslyChecked)
         {
             this.previouslyChecked = previouslyChecked;
-            LoadCheckboxes = new Command(() => {
-                navigation.PushAsync(new ResourceFormatSettingsPage(app, this));
-            });
+           
             GoToSettings = new Command(() => {
                 navigation.PushAsync(new SettingsPage(app, this));
             });

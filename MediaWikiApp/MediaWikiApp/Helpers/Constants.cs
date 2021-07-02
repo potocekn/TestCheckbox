@@ -24,6 +24,7 @@ namespace AppBase.Helpers
         public const string CHINESE_LANGUAGE_SHORTCUT = "zh-Hans";
 
         public const string NAVIGATION_PAGE_BACKGROUND_COLOR = "#B3BAE4";
+        public const string BUTTON_ENABLED_TEXT_COLOR = "#929AD3";
 
         public const string OK = "OK";
 

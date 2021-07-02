@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:AppBase.Resources"
              xmlns:local="clr-namespace:AppBase.Controls"
              x:Class="AppBase.ResourcesPage">
     <ContentPage.Content>
         <local:GradientColorStack StartColor="#B3BAE4" EndColor="#929AD3">
             <ScrollView>
                 <StackLayout>
-                    <Button Text="PDFs" 
+                    <Button Text="{x:Static resources:AppResources.PDFResourcesLabel_Text}" 
                             Command="{Binding GoToPDFs}" 
                             IsVisible="{Binding IsPDFSelected}"                             
                             BackgroundColor="#D3D6EB"
@@ -19,7 +20,7 @@
                             WidthRequest="250"
                             HeightRequest="50"
                     />
-                    <Button Text="HTMLs" 
+                    <Button Text="{x:Static resources:AppResources.HTMLResourcesLabel_Text}" 
                             Command="{Binding GoToHTMLs}" 
                             IsVisible="{Binding IsHTMLSelected}" 
                             BackgroundColor="#D3D6EB"
@@ -31,7 +32,7 @@
                             WidthRequest="250"
                             HeightRequest="50"
                     />
-                    <Button Text="ODTs" 
+                    <Button Text="{x:Static resources:AppResources.ODTResourcesLabel_Text}" 
                             Command="{Binding GoToODTs}" 
                             IsVisible="{Binding IsODTSelected}" 
                             BackgroundColor="#D3D6EB"

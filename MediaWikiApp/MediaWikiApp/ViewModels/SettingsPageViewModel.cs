@@ -17,8 +17,6 @@ namespace AppBase.ViewModels
         public Command GoToLanguageSettings { get; }
         public Command GoToUpdateIntervalSettings { get; }
         public Command GoToResourceFormatSettings { get; }
-        public Command GoToFileLocationSettings { get; }
-
 
         public SettingsPageViewModel(App app, INavigation navigation, MainPageViewModel mainPageViewModel)
         {
