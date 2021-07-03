@@ -42,7 +42,6 @@ namespace AppBase.Helpers
                     HandleOnceAMonthUpdate(DateTime.Now, app);
                     break;
                 case UpdateIntervalOption.ON_REQUEST:
-                    HandleOnRequestUpdate(DateTime.Now, app);
                     break;
                 default:
                     await HandleAutomaticUpdate(DateTime.Now, app);

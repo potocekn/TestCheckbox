@@ -40,11 +40,7 @@ namespace TestCheckbox.Droid
             {
                 WebClient webClient = new WebClient();
                 string pathToNewFile = Path.Combine(pathToNewFolder, fileName);
-                if (!File.Exists(pathToNewFile))
-                {
-                    webClient.DownloadFileAsync(new Uri(url), pathToNewFile);
-                }                  
-
+                webClient.DownloadFileAsync(new Uri(url), pathToNewFile);                
             }
             catch (Exception ex)
             {
