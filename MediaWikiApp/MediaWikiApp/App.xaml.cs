@@ -27,7 +27,7 @@ namespace AppBaseNamespace
         string resourcesPDFfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesPDF.json");
         string resourcesODTfileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "resourcesODT.json");
         string languagesFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "languages.json");
-        public string URL = "https://raw.githubusercontent.com/potocekn/ResourcesTest/master";
+        public string URL = "https://raw.githubusercontent.com/TestResourcesGithub/TestResources/master";
 
         public UserSettings userSettings;
         public List<string> availableLanguages = new List<string>();
